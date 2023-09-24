@@ -51,4 +51,19 @@ Nhập :. Bạn sẽ thấy dấu hai chấm xuất hiện ở phía dưới c�
 Nhập q và sau đó nhấn Enter.
 
 ---- 
+BamBoBot git:(Hoans_branch) ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity my_bot
+[INFO] [1695541662.251589693] [spawn_entity]: Spawn Entity started
+[INFO] [1695541662.252107308] [spawn_entity]: Loading entity published on topic robot_description
+[INFO] [1695541662.254666651] [spawn_entity]: Waiting for entity xml on robot_description
+Traceback (most recent call last):
+  File "/opt/ros/humble/lib/gazebo_ros/spawn_entity.py", line 371, in <module>
+    main()
+  File "/opt/ros/humble/lib/gazebo_ros/spawn_entity.py", line 366, in main
+    exit_code = spawn_entity_node.run()
+  File "/opt/ros/humble/lib/gazebo_ros/spawn_entity.py", line 193, in run
+    xml_parsed = ElementTree.fromstring(entity_xml)
+  File "src/lxml/etree.pyx", line 3252, in lxml.etree.fromstring
+  File "src/lxml/parser.pxi", line 1908, in lxml.etree._parseMemoryDocument
+ValueError: Unicode strings with encoding declaration are not supported. Please use bytes input or XML fragments without declaration.
+[ros2run]: Process exited with failure 1
 
