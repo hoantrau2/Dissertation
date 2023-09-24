@@ -1,1 +1,54 @@
-Software
+---- link lidar chi tiết về colcon build
+https://github.com/Slamtec/rplidar_ros/tree/ros2
+---- các bước clone source code ros2 từ git
+1. 	mkdir -p ~/ros2_ws/src; ## choose the directory name ros2_ws, for "development workspace" :
+  	cd ~/ros2_ws/src 
+2. 	git clone  https://github.com/Slamtec/rplidar_ros.git -b ros2
+3.  
+	cd ~/ros2_ws/
+	source /opt/ros/humble/setup.bash ## dòng nay không cần cũng được, vì mình đã để câu lệnh này sẵn trong file ~/.bashrc (gedit ~/.bashrc)
+	
+	colcon build --symlink-install ## colcon build ngay cais file để development workspace
+4. 	##Package environment setup
+	source ./install/setup.bash ## phải đang ở sẵn trong file development workspace
+	##Note: Add permanent workspace environment variables. It's convenientif the ROS2 environment variables are automatically added to your bash session every time a new shell is launched:
+	$echo "source <your_own_ros2_ws>/install/setup.bash" >> ~/.bashrc
+	$source ~/.bashrc
+5.	##Create udev rules for rplidar
+	##plidar_ros running requires the read and write permissions of the serial device. You can manually modify it with the following command:
+	sudo chmod 777 /dev/ttyUSB0
+	##But a better way is to create a udev rule:
+	cd src/rpldiar_ros/
+	source scripts/create_udev_rules.sh
+6.	Run rplidar node and view in the rviz
+The command for RPLIDAR A1 is :
+ros2 launch rplidar_ros view_rplidar_a1_launch.py
+
+----link tutorial add urdf into Rviz: https://www.youtube.com/watch?v=yruqvl8PxPI&t=1004s
+
+---- error when creating package:
+[WARNING]: Unknown license 'TODO: License declaration'.  This has been set in the package.xml, but no LICENSE file has been created.
+It is recommended to use one of the ament license identitifers:
+Apache-2.0
+BSL-1.0
+BSD-2.0
+BSD-2-Clause
+BSD-3-Clause
+GPL-3.0-only
+LGPL-3.0-only
+MIT
+MIT-0
+
+
+-----bda9b4f (HEAD -> Hoans_branch, origin/main, main) start to do dissertation
+~
+~
+(END)
+làm sao để thoát ra được 
+Để thoát ra khỏi chế độ xem tệp tin này (gọi là chế độ xem văn bản trong terminal), bạn cần thực hiện các bước sau:
+Nhấn phím Esc để chắc chắn rằng bạn không đang nhập văn bản nào.
+Nhập :. Bạn sẽ thấy dấu hai chấm xuất hiện ở phía dưới của terminal.
+Nhập q và sau đó nhấn Enter.
+
+---- 
+
