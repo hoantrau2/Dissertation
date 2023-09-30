@@ -1,1 +1,0 @@
-/media/ngochoan/Intermediate_memory/mobile_robot/Dissertation/Software/BamBoBot/src/bbb_robot/launch/rsp.launch.py

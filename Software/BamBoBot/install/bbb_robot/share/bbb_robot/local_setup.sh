@@ -1,1 +1,0 @@
-/media/ngochoan/Intermediate_memory/mobile_robot/Dissertation/Software/BamBoBot/build/bbb_robot/ament_cmake_environment_hooks/local_setup.sh
