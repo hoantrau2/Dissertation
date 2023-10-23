@@ -19,10 +19,14 @@ float read_enc(uint sm, int *cntk_1) {
   float w_speed;
   cnt_k = quadrature_encoder_get_count(pio, sm);
   w_speed =
-    ((cnt_k - *cntk_1) * 2 * 3.14) / (SAMPLE_TIME * 1e-3 * PPR); // rad/s
+    ((cnt_k - *cntk_1) * 2 * 3.14) / (SAMPLE_TIME * 1e-3 * MotorFL_1.encoder.pules_one_round); // rad/s
   // w_speed = ((cnt_k - cnt_k1) * 60) /
   //           (SAMPLE_TIME * 1e-3 * PPR); // rpm (round/minute)
+  if (sm == M1_SM || sm == M2_SM) {
+    w_speed *= (-1);
+  }
   *cntk_1 = cnt_k;
 
-  return (w_speed * R); // m/s
+  // return (w_speed * Bbb_parameter.wheel_diameter); // m/s
+  return (w_speed); // rad/s
 }

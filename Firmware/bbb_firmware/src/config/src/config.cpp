@@ -3,24 +3,29 @@
 namespace bbb {
 namespace config {
 
+const struct VehicleConfig Bbb_parameter = {
+  .wheel_diameter = 0.0625,
+  .two_wheel_dist = 0.2469,
+};
+
 const struct MotorConfig MotorFL_1 = {
-  .h_bridge = {.pwm = 9, .dir = 6, .not_dir = 8},
-  .encoder = {.cha = 16, .chb = 17},
+  .h_bridge = {.pwm_a = 2, .pwm_b = 3},
+  .encoder = {.cha = 16, .chb = 17, .pules_one_round = PPR},
 };
 
 const struct MotorConfig MotorFR_3 = {
-  .h_bridge = {.pwm = 11, .dir = 4, .not_dir = 5},
-  .encoder = {.cha = 14, .chb = 15},
+  .h_bridge = {.pwm_a = 6, .pwm_b = 7},
+  .encoder = {.cha = 14, .chb = 15, .pules_one_round = PPR},
 };
 
 const struct MotorConfig MotorRL_2 = {
-  .h_bridge = {.pwm = 7, .dir = 6, .not_dir = 8},
-  .encoder = {.cha = 18, .chb = 19},
+  .h_bridge = {.pwm_a = 4, .pwm_b = 5},
+  .encoder = {.cha = 18, .chb = 19, .pules_one_round = PPR},
 };
 
 const struct MotorConfig MotorRR_4 = {
-  .h_bridge = {.pwm = 3, .dir = 4, .not_dir = 5},
-  .encoder = {.cha = 12, .chb = 13},
+  .h_bridge = {.pwm_a = 8, .pwm_b = 9},
+  .encoder = {.cha = 12, .chb = 13, .pules_one_round = PPR},
 };
 
 const struct I2CDevice IMU = {
@@ -43,9 +48,19 @@ const struct GPIOConfig Led = {
   .config = GPIOConfigState::Output,
 };
 
-const struct GPIOConfig BatteryVolt = {
-  .pin = 23,
-  .config = GPIOConfigState::Analog,
+const struct GPIOConfig Buzzer = {
+  .pin = 22,
+  .config = GPIOConfigState::Output,
+};
+
+const struct AdcConfig BatteryVoltControl = {
+  .pin = 26,
+  .chanel = 0,
+};
+
+const struct AdcConfig BatteryVoltMotor = {
+  .pin = 27,
+  .chanel = 1,
 };
 
 } // namespace config

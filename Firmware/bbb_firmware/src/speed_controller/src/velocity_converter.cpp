@@ -13,8 +13,12 @@ PID_t PID_M4;
 // uart_init_h();
 
 void control_motor(float v, float w) {
-  float vr = v + w * L;
-  float vl = v - w * L;
+  float vr = v + w * Bbb_parameter.two_wheel_dist / 2;
+  float vl = v - w * Bbb_parameter.two_wheel_dist / 2;
+
+  if ((abs(vl) < V_MIN) && (abs(vr) < V_MIN)) {
+    return;
+  }
 
   if (abs(vl) > V_MAX) {
     vl = sgn(vl) * V_MAX;
@@ -24,7 +28,7 @@ void control_motor(float v, float w) {
   }
 
   if (abs(vl) < V_MIN) {
-    pwm_stop(LEFT);
+    left_motor_stop();
   } else {
     // float tmp;
     // char buffer[100];
@@ -48,18 +52,17 @@ void control_motor(float v, float w) {
     uk_M2 = PID_controller(vl, read_enc(M2_SM, &cnt2_k1), &PID_M2);
 
     if (uk_M1 >= 0) {
-      pwm_forward(LEFT);
+      motor_run(MOTOR_1, FORWARD, uk_M1);
+      motor_run(MOTOR_2, FORWARD, uk_M2);
     } else {
       uk_M1 *= (-1);
       uk_M2 *= (-1);
-      pwm_reverse(LEFT);
+      motor_run(MOTOR_1, REVERSE, uk_M1);
+      motor_run(MOTOR_2, REVERSE, uk_M2);
     }
-
-    pwm_run_m1(uk_M1);
-    pwm_run_m2(uk_M2);
   }
   if (abs(vr) < V_MIN) {
-    pwm_stop(RIGHT);
+    right_motor_stop();
   } else {
     // float tmp;
     // char buffer[100];
@@ -83,18 +86,15 @@ void control_motor(float v, float w) {
     uk_M4 = PID_controller(vr, read_enc(M4_SM, &cnt4_k1), &PID_M4);
 
     if (uk_M3 >= 0) {
-      pwm_forward(RIGHT);
+      motor_run(MOTOR_3, FORWARD, uk_M3);
+      motor_run(MOTOR_4, FORWARD, uk_M4);
     } else {
       uk_M3 *= (-1);
       uk_M4 *= (-1);
-      pwm_reverse(RIGHT);
+      motor_run(MOTOR_3, REVERSE, uk_M3);
+      motor_run(MOTOR_4, REVERSE, uk_M4);
     }
+  }
 
-    pwm_run_m3(uk_M3);
-    pwm_run_m4(uk_M4);
-  }
-  if ((abs(vl) < V_MIN) && (abs(vr) < V_MIN)) {
-    return;
-  }
   //   uart_puts(UART_ID, "========================\r\n");
 }

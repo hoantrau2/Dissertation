@@ -11,20 +11,24 @@
 #define BATTERY__H
 
 #include "config/config.h"
+#include "hardware/adc.h"
 
-namespace bbb {
-namespace io {
+using namespace bbb::config;
+// namespace bbb {
+// namespace io {
 
-class Battery {
- private:
- public:
-  Battery(const config::GPIOConfig config);
-  ~Battery();
+// class Battery {
+//  private:
+//  public:
+//   Battery(const config::GPIOConfig config);
+//   ~Battery();
 
-  bool GetBatteryPercentage(float& value);
-};
+//   bool GetBatteryPercentage(float& value);
+// };
 
-}; // namespace io
-}; // namespace bbb
+// }; // namespace io
+// }; // namespace bbb
+void adc_init_h(const AdcConfig bat);
+float adc_read_h();
 
 #endif /* BATTERY__H */

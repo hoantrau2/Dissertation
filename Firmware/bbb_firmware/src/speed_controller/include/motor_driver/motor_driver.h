@@ -19,25 +19,21 @@
 using namespace bbb::config;
 
 #define WRAP 4999 // fpwm = fc/5000 (fc 125Mhz) = 25kHz
-#define LEFT 0
-#define RIGHT 1
+#define FORWARD 0
+#define REVERSE 1
 
 // Find out which PWM slice is connected to PWMx_PIN
-const uint PWM1_SLICE = pwm_gpio_to_slice_num(MotorFL_1.h_bridge.pwm);
-const uint PWM2_SLICE = pwm_gpio_to_slice_num(MotorRL_2.h_bridge.pwm);
-const uint PWM3_SLICE = pwm_gpio_to_slice_num(MotorFR_3.h_bridge.pwm);
-const uint PWM4_SLICE = pwm_gpio_to_slice_num(MotorRR_4.h_bridge.pwm);
+const uint PWM1_SLICE = pwm_gpio_to_slice_num(MotorFL_1.h_bridge.pwm_a);
+const uint PWM2_SLICE = pwm_gpio_to_slice_num(MotorRL_2.h_bridge.pwm_a);
+const uint PWM3_SLICE = pwm_gpio_to_slice_num(MotorFR_3.h_bridge.pwm_a);
+const uint PWM4_SLICE = pwm_gpio_to_slice_num(MotorRR_4.h_bridge.pwm_a);
 
-void gpio_out_init(uint pin);
-void pwm_init_one_wheel(uint pin, uint slice_num);
-void pwm_run(uint pin, uint slice_num, float duty);
+void pwm_init_one_wheel(uint pin_a, uint pin_b, uint slice_num);
+
 void pwm_init();
-void pwm_forward(uint direct);
-void pwm_reverse(uint direct);
-void pwm_stop(uint direct);
-void pwm_run_m1(float duty);
-void pwm_run_m2(float duty);
-void pwm_run_m3(float duty);
-void pwm_run_m4(float duty);
+void motor_run(uint motor_num, uint direct, float duty); // duty 0->1
+void left_motor_stop();
+void right_motor_stop();
+void all_motor_stop();
 
 #endif /* MOTOR_DRIVER__H */

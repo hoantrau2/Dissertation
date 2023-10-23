@@ -21,4 +21,5 @@ target_include_directories(${MODULE_NAME} PRIVATE
 # Link to pico_stdlib (gpio, time, etc. functions)
 target_link_libraries(${MODULE_NAME} 
   pico_stdlib
+  hardware_adc
 )

@@ -12,24 +12,30 @@
 
 #include <stdint.h>
 #include "config/config.h"
+#include "pico/stdlib.h"
 
-namespace bbb {
-namespace io {
-class Buzzer {
- public:
-  enum State {
-    ON = 0,
-    OFF,
-    FREQUENCY
-  };
+using namespace bbb::config;
 
-  Buzzer(const config::GPIOConfig config);
-  ~Buzzer();
-  void SetState(const State state, const uint8_t freq = 0, const uint8_t timeout_s = 0);
+// namespace bbb {
+// namespace io {
+// class Buzzer {
+//  public:
+//   enum State {
+//     ON = 1,
+//     OFF = 0,
+//     FREQUENCY
+//   };
 
- private:
-};
-}; // namespace io
-}; // namespace bbb
+//   Buzzer(const config::GPIOConfig config);
+//   ~Buzzer();
+//   void SetState(const State state, const uint8_t freq = 0, const uint8_t timeout_s = 0);
+
+//  private:
+// };
+// }; // namespace io
+// }; // namespace bbb
+void buzzer_init();
+void buzzer_ring();
+void buzzer_off();
 
 #endif /* IO__BUZZER__H */
