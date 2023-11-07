@@ -12,6 +12,7 @@
 #ifndef UART_DISPLAY__H
 #define UART_DISPLAY__H
 
+// #include <stdio.h>
 #include "hardware/gpio.h"
 #include "hardware/uart.h"
 

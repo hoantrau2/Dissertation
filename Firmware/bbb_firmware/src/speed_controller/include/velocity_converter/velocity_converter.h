@@ -18,14 +18,21 @@
 #include "speed_controller/speed_controller.h"
 #include "uart_display/uart_display.h"
 
-#define V_MAX 0.5  // m/s
-#define V_MIN 0.01 // m/s
+#define V_MAX 1.5 // m/s <=> 70% duty
+#define V_MIN 0.3 // m/s <=> 20% duty
 #define sgn(x) ((x) < 0 ? -1 : 1)
 #define MOTOR_1 1
 #define MOTOR_2 2
 #define MOTOR_3 3
 #define MOTOR_4 4
 
-void control_motor(float v, float w);
+typedef struct {
+  PID_t PID_M1_t;
+  PID_t PID_M2_t;
+  PID_t PID_M3_t;
+  PID_t PID_M4_t;
+} PIDs_t;
+
+void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t);
 
 #endif /*VELOCCITY__H*/

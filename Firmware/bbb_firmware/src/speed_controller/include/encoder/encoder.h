@@ -20,7 +20,14 @@
 #define M3_SM 2
 #define M4_SM 3
 
+typedef struct {
+  int cnt1;
+  int cnt2;
+  int cnt3;
+  int cnt4;
+} Cnt_t;
+
 void encoder_init();
 float read_enc(uint sm, int *cnt_k1);
-
+void reset_cnt(Cnt_t *cnt_t);
 #endif /* ENCODER__H */

@@ -1,18 +1,6 @@
 #include "velocity_converter/velocity_converter.h"
 
-int cnt1_k1;
-int cnt2_k1;
-int cnt3_k1;
-int cnt4_k1;
-
-PID_t PID_M1;
-PID_t PID_M2;
-PID_t PID_M3;
-PID_t PID_M4;
-
-// uart_init_h();
-
-void control_motor(float v, float w) {
+void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
   float vr = v + w * Bbb_parameter.two_wheel_dist / 2;
   float vl = v - w * Bbb_parameter.two_wheel_dist / 2;
 
@@ -30,26 +18,11 @@ void control_motor(float v, float w) {
   if (abs(vl) < V_MIN) {
     left_motor_stop();
   } else {
-    // float tmp;
-    // char buffer[100];
-
-    // tmp = read_enc(M1_SM, &cnt1_k1);
-    // sprintf(buffer, "%f", tmp);
-    // uart_puts(UART_ID, "v =  ");
-    // uart_puts(UART_ID, buffer);
-    // uart_puts(UART_ID, "\r\n");
-
-    // tmp = read_enc(M2_SM, &cnt2_k1);
-    // sprintf(buffer, "%f", tmp);
-    // uart_puts(UART_ID, "v =  ");
-    // uart_puts(UART_ID, buffer);
-    // uart_puts(UART_ID, "\r\n");
-
     float uk_M1;
     float uk_M2;
 
-    uk_M1 = PID_controller(vl, read_enc(M1_SM, &cnt1_k1), &PID_M1);
-    uk_M2 = PID_controller(vl, read_enc(M2_SM, &cnt2_k1), &PID_M2);
+    uk_M1 = PID_controller(vl, read_enc(M1_SM, &cnt_t->cnt1), &pids_t->PID_M1_t);
+    uk_M2 = PID_controller(vl, read_enc(M2_SM, &cnt_t->cnt2), &pids_t->PID_M2_t);
 
     if (uk_M1 >= 0) {
       motor_run(MOTOR_1, FORWARD, uk_M1);
@@ -64,26 +37,11 @@ void control_motor(float v, float w) {
   if (abs(vr) < V_MIN) {
     right_motor_stop();
   } else {
-    // float tmp;
-    // char buffer[100];
-
-    // tmp = read_enc(M3_SM, &cnt3_k1);
-    // sprintf(buffer, "%f", tmp);
-    // uart_puts(UART_ID, "v =  ");
-    // uart_puts(UART_ID, buffer);
-    // uart_puts(UART_ID, "\r\n");
-
-    // tmp = read_enc(M4_SM, &cnt4_k1);
-    // sprintf(buffer, "%f", tmp);
-    // uart_puts(UART_ID, "v =  ");
-    // uart_puts(UART_ID, buffer);
-    // uart_puts(UART_ID, "\r\n");
-
     float uk_M3;
     float uk_M4;
 
-    uk_M3 = PID_controller(vr, read_enc(M3_SM, &cnt3_k1), &PID_M3);
-    uk_M4 = PID_controller(vr, read_enc(M4_SM, &cnt4_k1), &PID_M4);
+    uk_M3 = PID_controller(vr, read_enc(M3_SM, &cnt_t->cnt3), &pids_t->PID_M3_t);
+    uk_M4 = PID_controller(vr, read_enc(M4_SM, &cnt_t->cnt4), &pids_t->PID_M4_t);
 
     if (uk_M3 >= 0) {
       motor_run(MOTOR_3, FORWARD, uk_M3);

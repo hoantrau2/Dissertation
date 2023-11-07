@@ -27,6 +27,13 @@ float read_enc(uint sm, int *cntk_1) {
   }
   *cntk_1 = cnt_k;
 
-  // return (w_speed * Bbb_parameter.wheel_diameter); // m/s
-  return (w_speed); // rad/s
+  return (w_speed * Bbb_parameter.wheel_diameter); // m/s
+  // return (w_speed); // rad/s
+}
+
+void reset_cnt(Cnt_t *cnt_t) {
+  (cnt_t->cnt1) = 0.0;
+  (cnt_t->cnt2) = 0.0;
+  (cnt_t->cnt3) = 0.0;
+  (cnt_t->cnt4) = 0.0;
 }
