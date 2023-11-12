@@ -49,7 +49,7 @@ const struct GPIOConfig Led = {
 };
 
 const struct GPIOConfig Buzzer = {
-  .pin = 22,
+  .pin = 28,
   .config = GPIOConfigState::Output,
 };
 

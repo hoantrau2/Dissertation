@@ -21,8 +21,8 @@ void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
     float uk_M1;
     float uk_M2;
 
-    uk_M1 = PID_controller(vl, read_enc(M1_SM, &cnt_t->cnt1), &pids_t->PID_M1_t);
-    uk_M2 = PID_controller(vl, read_enc(M2_SM, &cnt_t->cnt2), &pids_t->PID_M2_t);
+    uk_M1 = PID_controller(vl - 0.00, read_enc(M1_SM, &cnt_t->cnt1), &pids_t->PID_M1_t);
+    uk_M2 = PID_controller(vl - 0.00, read_enc(M2_SM, &cnt_t->cnt2), &pids_t->PID_M2_t);
 
     if (uk_M1 >= 0) {
       motor_run(MOTOR_1, FORWARD, uk_M1);

@@ -1,16 +1,66 @@
 #include "scheduler/scheduler.h"
-
-namespace bbb {
-namespace io {
-
-Buzzer::Buzzer(const config::GPIOConfig config) {
+void a_init() {
+  gpio_init(22);
 }
 
-Buzzer::~Buzzer() {
+typedef struct {
+  HE_CALLBACK_FUNC tCallbackFunc;
+  uint32_t u32Periodic;
+  uint32_t u32Time;
+} HandleEvent_t;
+
+HandleEvent_t Event_No[MAX_No_EVENT];
+
+void HandleEvent_Init(struct repeating_timer *t) {
+  // timer interrupt in 1ms
+  add_repeating_timer_ms(1, repeating_timer_callback, NULL, t);
 }
 
-void Buzzer::SetState(const State state, const uint8_t freq, const uint8_t timeout_s) {
+uint8_t HandleEvent_DeInit(struct repeating_timer *t) {
+  bool cancelled = cancel_repeating_timer(t); // destroy timer interrupt
+  for (EVENT_ID tIdx = 0; tIdx < MAX_No_EVENT; tIdx++) {
+    Event_No[tIdx].u32Periodic = 0;
+    Event_No[tIdx].u32Time = 0;
+    Event_No[tIdx].tCallbackFunc = NULL; // destroy event
+  }
 }
 
-} // namespace io
-} // namespace bbb
+EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction,
+                                   uint32_t u32PeriodicMs) {
+  if (tCallbackFunction != NULL) {
+    for (EVENT_ID tIdx = 0; tIdx < MAX_No_EVENT; tIdx++) {
+      if (Event_No[tIdx].tCallbackFunc == NULL) {
+        Event_No[tIdx].tCallbackFunc = tCallbackFunction;
+        Event_No[tIdx].u32Periodic = u32PeriodicMs;
+        Event_No[tIdx].u32Time = u32PeriodicMs;
+        return tIdx;
+      }
+    }
+  }
+  return NOT_EXIST_EVENT;
+}
+
+uint8_t HandleEvent_UnRegisterEvent(EVENT_ID tEventId) {
+  if (tEventId < MAX_No_EVENT) {
+    Event_No[tEventId].tCallbackFunc = NULL;
+    Event_No[tEventId].u32Periodic = 0;
+    Event_No[tEventId].u32Time = 0;
+    return E_VALID;
+  }
+  return E_INVALID;
+}
+
+bool repeating_timer_callback(struct repeating_timer *t) {
+  for (EVENT_ID tIdx = 0; tIdx < MAX_No_EVENT; tIdx++) {
+    if ((Event_No[tIdx].tCallbackFunc != NULL) &&
+        (Event_No[tIdx].u32Periodic != 0)) {
+      Event_No[tIdx].u32Periodic--;
+
+      if (Event_No[tIdx].u32Periodic == 0) {
+        Event_No[tIdx].tCallbackFunc();
+        Event_No[tIdx].u32Periodic = Event_No[tIdx].u32Time;
+      }
+    }
+  }
+  return true;
+}

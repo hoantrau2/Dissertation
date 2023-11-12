@@ -1,35 +1,28 @@
-/**
- * @file buzzer.cpp
- * @author Tri PHAN
- * @brief Buzzer module is used in the BamBooBot under minht57lab
- * @version 0.1
- * @date 2023-07-06
- *
- */
 
 #ifndef IO__SCHEDULER__H
 #define IO__SCHEDULER__H
 
 #include <stdint.h>
-#include "config/config.h"
+#include <stdio.h>
+#include "hardware/clocks.h"
+#include "hardware/timer.h"
+#include "pico/stdlib.h"
 
-namespace bbb {
-namespace io {
-class Buzzer {
- public:
-  enum State {
-    ON = 0,
-    OFF,
-    FREQUENCY
-  };
+#define E_VALID 1
+#define E_INVALID 0
+#define H_NULL (void *)0
+#define NOT_EXIST_EVENT 0xFF
 
-  Buzzer(const config::GPIOConfig config);
-  ~Buzzer();
-  void SetState(const State state, const uint8_t freq = 0, const uint8_t timeout_s = 0);
+#define MAX_No_EVENT 10
 
- private:
-};
-}; // namespace io
-}; // namespace bbb
+typedef void (*HE_CALLBACK_FUNC)();
+typedef int8_t EVENT_ID;
+
+bool repeating_timer_callback(struct repeating_timer *t);
+void HandleEvent_Init(struct repeating_timer *t);
+uint8_t HandleEvent_DeInit(struct repeating_timer *t);
+EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction,
+                                   uint32_t u32PeriodicMs);
+uint8_t HandleEvent_UnRegisterEvent(EVENT_ID tEventId);
 
 #endif /* IO__SCHEDULER__H */

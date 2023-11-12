@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.12)
 set(MODULE_NAME bbb_scheduler)
 
 # List all sources
-list(APPEND IO__SCHEDULER__H 
+list(APPEND BBB_IO_SCHEDULER 
   ${CMAKE_CURRENT_SOURCE_DIR}/src/scheduler.cpp
 )
 
@@ -21,4 +21,7 @@ target_include_directories(${MODULE_NAME} PRIVATE
 # Link to pico_stdlib (gpio, time, etc. functions)
 target_link_libraries(${MODULE_NAME} 
   pico_stdlib
+  hardware_timer
+  hardware_clocks
+  
 )

@@ -15,16 +15,16 @@
 #include "config/config.h"
 
 #define UK_MAX 0.7
-#define KP_1 0.7
+#define KP_1 0.2
 #define KI_1 0.7
 #define KD_1 0.00
-#define KP_2 0.7
+#define KP_2 0.2
 #define KI_2 0.7
 #define KD_2 0.00
-#define KP_3 0.7
+#define KP_3 0.2
 #define KI_3 0.7
 #define KD_3 0.00
-#define KP_4 0.7
+#define KP_4 0.2
 #define KI_4 0.7
 #define KD_4 0.00
 
