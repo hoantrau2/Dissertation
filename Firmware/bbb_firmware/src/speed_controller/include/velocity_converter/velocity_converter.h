@@ -33,6 +33,14 @@ typedef struct {
   PID_t PID_M4_t;
 } PIDs_t;
 
-void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t);
+typedef struct {
+  PIDs_t pids_t;
+  Cnt_t cnt_t;
+  float v;
+  float w;
+} Event_motor_t;
+
+void control_motor(void *cxt);
+void A(void *cxt);
 
 #endif /*VELOCCITY__H*/

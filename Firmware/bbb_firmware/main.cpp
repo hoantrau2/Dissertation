@@ -19,21 +19,12 @@
 //   }
 // }
 
-// Timer interupt----------------------
+// Timer interupt-- -- -- -- -- -- -- -- -- -- --
 // uint flag_ms = 0;
 // bool repeating_timer_callback(struct repeating_timer *t) {
 //   flag_ms = 1;
 //   return true;
 // }
-
-void A(void) {
-  uart_puts(UART_ID, "A=  ");
-  uart_puts(UART_ID, "\r\n");
-}
-void B(void) {
-  uart_puts(UART_ID, "B =  ");
-  uart_puts(UART_ID, "\r\n");
-}
 
 int main() {
   // stdio_init_all();
@@ -41,42 +32,36 @@ int main() {
 
   char buff[100];
   float result_tmp;
-  PIDs_t pids_t;
-  Cnt_t cnt_t;
   Cnt_t cnt_tempt_t;
+
+  Event_motor_t motor_t;
+  motor_t.v = 0;
+  motor_t.w = 4;
 
   pwm_init();
   encoder_init();
   uart_init_h();
   // adc_init_h(BatteryVoltControl);
   buzzer_init();
-  init_pid(&pids_t.PID_M1_t, KP_1, KI_1, KD_1);
-  init_pid(&pids_t.PID_M2_t, KP_2, KI_2, KD_2);
-  init_pid(&pids_t.PID_M3_t, KP_3, KI_3, KD_3);
-  init_pid(&pids_t.PID_M4_t, KP_4, KI_4, KD_4);
-  reset_cnt(&cnt_t);
+  init_pid(&motor_t.pids_t.PID_M1_t, KP_1, KI_1, KD_1);
+  init_pid(&motor_t.pids_t.PID_M2_t, KP_2, KI_2, KD_2);
+  init_pid(&motor_t.pids_t.PID_M3_t, KP_3, KI_3, KD_3);
+  init_pid(&motor_t.pids_t.PID_M4_t, KP_4, KI_4, KD_4);
+  reset_cnt(&motor_t.cnt_t);
   reset_cnt(&cnt_tempt_t);
 
   // Timer interupt-- -- -- -- -- -- -- -- -- -- -
-  // struct repeating_timer timer;
+  struct repeating_timer timer;
   // add_repeating_timer_ms(SAMPLE_TIME, repeating_timer_callback, NULL,
   //                        &timer);
-  struct repeating_timer timer;
+
   HandleEvent_Init(&timer);
-  int ida = HandleEvent_RegisterEvent(&A, 2000);
-  int idb = HandleEvent_RegisterEvent(&B, 1000);
+  int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
 
   // float uk;
   // int tmp = 0;
 
   while (true) {
-    // A();
-    // B();
-    // uart_puts(UART_ID, "w1 =  ");
-    // uart_puts(UART_ID, "\r\n");
-    // buzzer_ring();
-    // sleep_ms(2000);
-
     // if (flag_ms == 1) {
     //   flag_ms = 0;
     // tmp++;
@@ -93,7 +78,7 @@ int main() {
     //   motor_run(MOTOR_1, FORWARD, uk);
     // }
 
-    // control_motor(0.0, 4.0, &pids_t, &cnt_t);
+    // control_motor(&motor_t);
 
     // result_tmp = read_enc(M1_SM, &cnt_tempt_t.cnt1);
     // sprintf(buff, "%f", result_tmp);

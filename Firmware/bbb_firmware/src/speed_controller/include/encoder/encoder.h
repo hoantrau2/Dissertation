@@ -30,4 +30,5 @@ typedef struct {
 void encoder_init();
 float read_enc(uint sm, int *cnt_k1);
 void reset_cnt(Cnt_t *cnt_t);
+
 #endif /* ENCODER__H */

@@ -15,13 +15,19 @@
 
 #define MAX_No_EVENT 10
 
-typedef void (*HE_CALLBACK_FUNC)();
+typedef void (*HE_CALLBACK_FUNC)(void *cxt);
 typedef int8_t EVENT_ID;
+typedef struct {
+  HE_CALLBACK_FUNC tCallbackFunc;
+  uint32_t u32Periodic;
+  uint32_t u32Time;
+  void *context;
+} HandleEvent_t;
 
 bool repeating_timer_callback(struct repeating_timer *t);
 void HandleEvent_Init(struct repeating_timer *t);
 uint8_t HandleEvent_DeInit(struct repeating_timer *t);
-EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction,
+EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction, void *cxt,
                                    uint32_t u32PeriodicMs);
 uint8_t HandleEvent_UnRegisterEvent(EVENT_ID tEventId);
 

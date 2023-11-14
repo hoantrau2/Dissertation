@@ -1,13 +1,4 @@
 #include "scheduler/scheduler.h"
-void a_init() {
-  gpio_init(22);
-}
-
-typedef struct {
-  HE_CALLBACK_FUNC tCallbackFunc;
-  uint32_t u32Periodic;
-  uint32_t u32Time;
-} HandleEvent_t;
 
 HandleEvent_t Event_No[MAX_No_EVENT];
 
@@ -25,7 +16,7 @@ uint8_t HandleEvent_DeInit(struct repeating_timer *t) {
   }
 }
 
-EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction,
+EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction, void *cxt,
                                    uint32_t u32PeriodicMs) {
   if (tCallbackFunction != NULL) {
     for (EVENT_ID tIdx = 0; tIdx < MAX_No_EVENT; tIdx++) {
@@ -33,6 +24,7 @@ EVENT_ID HandleEvent_RegisterEvent(HE_CALLBACK_FUNC tCallbackFunction,
         Event_No[tIdx].tCallbackFunc = tCallbackFunction;
         Event_No[tIdx].u32Periodic = u32PeriodicMs;
         Event_No[tIdx].u32Time = u32PeriodicMs;
+        Event_No[tIdx].context = cxt;
         return tIdx;
       }
     }
@@ -57,7 +49,7 @@ bool repeating_timer_callback(struct repeating_timer *t) {
       Event_No[tIdx].u32Periodic--;
 
       if (Event_No[tIdx].u32Periodic == 0) {
-        Event_No[tIdx].tCallbackFunc();
+        Event_No[tIdx].tCallbackFunc(Event_No[tIdx].context);
         Event_No[tIdx].u32Periodic = Event_No[tIdx].u32Time;
       }
     }

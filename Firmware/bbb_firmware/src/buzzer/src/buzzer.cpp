@@ -22,9 +22,6 @@ void buzzer_init() {
 
 void buzzer_ring() {
   gpio_put(Buzzer.pin, 1);
-  sleep_ms(200);
-  gpio_put(Buzzer.pin, 0);
-  sleep_ms(200);
 }
 
 void buzzer_off() {

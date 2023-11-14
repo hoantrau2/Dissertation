@@ -1,8 +1,9 @@
 #include "velocity_converter/velocity_converter.h"
 
-void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
-  float vr = v + w * Bbb_parameter.two_wheel_dist / 2;
-  float vl = v - w * Bbb_parameter.two_wheel_dist / 2;
+void control_motor(void *cxt) {
+  Event_motor_t *motor_t = (Event_motor_t *)cxt;
+  float vr = motor_t->v + motor_t->w * Bbb_parameter.two_wheel_dist / 2;
+  float vl = motor_t->v - motor_t->w * Bbb_parameter.two_wheel_dist / 2;
 
   if ((abs(vl) < V_MIN) && (abs(vr) < V_MIN)) {
     return;
@@ -21,8 +22,8 @@ void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
     float uk_M1;
     float uk_M2;
 
-    uk_M1 = PID_controller(vl - 0.00, read_enc(M1_SM, &cnt_t->cnt1), &pids_t->PID_M1_t);
-    uk_M2 = PID_controller(vl - 0.00, read_enc(M2_SM, &cnt_t->cnt2), &pids_t->PID_M2_t);
+    uk_M1 = PID_controller(vl - 0.00, read_enc(M1_SM, &motor_t->cnt_t.cnt1), &motor_t->pids_t.PID_M1_t);
+    uk_M2 = PID_controller(vl - 0.00, read_enc(M2_SM, &motor_t->cnt_t.cnt2), &motor_t->pids_t.PID_M2_t);
 
     if (uk_M1 >= 0) {
       motor_run(MOTOR_1, FORWARD, uk_M1);
@@ -40,8 +41,8 @@ void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
     float uk_M3;
     float uk_M4;
 
-    uk_M3 = PID_controller(vr, read_enc(M3_SM, &cnt_t->cnt3), &pids_t->PID_M3_t);
-    uk_M4 = PID_controller(vr, read_enc(M4_SM, &cnt_t->cnt4), &pids_t->PID_M4_t);
+    uk_M3 = PID_controller(vr, read_enc(M3_SM, &motor_t->cnt_t.cnt3), &motor_t->pids_t.PID_M3_t);
+    uk_M4 = PID_controller(vr, read_enc(M4_SM, &motor_t->cnt_t.cnt4), &motor_t->pids_t.PID_M4_t);
 
     if (uk_M3 >= 0) {
       motor_run(MOTOR_3, FORWARD, uk_M3);
@@ -53,6 +54,8 @@ void control_motor(float v, float w, PIDs_t *pids_t, Cnt_t *cnt_t) {
       motor_run(MOTOR_4, REVERSE, uk_M4);
     }
   }
+}
 
-  //   uart_puts(UART_ID, "========================\r\n");
+void A(void *cxt) {
+  uart_init_h();
 }
