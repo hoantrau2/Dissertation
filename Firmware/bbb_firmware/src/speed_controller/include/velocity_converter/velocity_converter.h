@@ -41,6 +41,5 @@ typedef struct {
 } Event_motor_t;
 
 void control_motor(void *cxt);
-void A(void *cxt);
 
 #endif /*VELOCCITY__H*/

@@ -14,21 +14,16 @@
 #include "hardware/adc.h"
 
 using namespace bbb::config;
-// namespace bbb {
-// namespace io {
 
-// class Battery {
-//  private:
-//  public:
-//   Battery(const config::GPIOConfig config);
-//   ~Battery();
+#define V_REF 3.27
+#define V_ZENNER 11.8
+#define GAIN 2
 
-//   bool GetBatteryPercentage(float& value);
-// };
+typedef struct {
+  AdcConfig config_bat;
+  float v_bat;
+} Event_battery_t;
 
-// }; // namespace io
-// }; // namespace bbb
-void adc_init_h(const AdcConfig bat);
-float adc_read_h();
+void adc_read_h(void *cxt);
 
 #endif /* BATTERY__H */

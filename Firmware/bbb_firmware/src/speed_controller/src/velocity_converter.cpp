@@ -55,7 +55,3 @@ void control_motor(void *cxt) {
     }
   }
 }
-
-void A(void *cxt) {
-  uart_init_h();
-}

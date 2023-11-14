@@ -38,6 +38,11 @@ int main() {
   motor_t.v = 0;
   motor_t.w = 4;
 
+  Event_battery_t bat_control_t;
+  bat_control_t.config_bat = BatteryVoltControl;
+  Event_battery_t bat_motor_t;
+  bat_control_t.config_bat = BatteryVoltMotor;
+
   pwm_init();
   encoder_init();
   uart_init_h();
@@ -52,18 +57,28 @@ int main() {
 
   // Timer interupt-- -- -- -- -- -- -- -- -- -- -
   struct repeating_timer timer;
-  // add_repeating_timer_ms(SAMPLE_TIME, repeating_timer_callback, NULL,
+  // add_repeating_timer_ms(1000, repeating_timer_callback, NULL,
   //                        &timer);
 
   HandleEvent_Init(&timer);
-  int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
+  // int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
 
   // float uk;
-  // int tmp = 0;
-
+  adc_read_h(&bat_control_t);
+  adc_read_h(&bat_motor_t);
   while (true) {
     // if (flag_ms == 1) {
     //   flag_ms = 0;
+    // sprintf(buff, "%f", bat_control_t.v_bat);
+    // uart_puts(UART_ID, "pin_control =  ");
+    // uart_puts(UART_ID, buff);
+    // uart_puts(UART_ID, "\r\n");
+    // sprintf(buff, "%f", tmp2);
+    // uart_puts(UART_ID, "pin_motor =  ");
+    // uart_puts(UART_ID, buff);
+    // uart_puts(UART_ID, "\r\n");
+    // uart_puts(UART_ID, "=====================\r\n");
+    // }
     // tmp++;
     // if (tmp >= 100) {
     //   all_motor_stop();
