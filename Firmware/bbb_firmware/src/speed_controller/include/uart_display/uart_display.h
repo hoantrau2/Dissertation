@@ -12,7 +12,7 @@
 #ifndef UART_DISPLAY__H
 #define UART_DISPLAY__H
 
-// #include <stdio.h>
+#include <stdio.h>
 #include "hardware/gpio.h"
 #include "hardware/uart.h"
 
@@ -24,5 +24,5 @@
 #define UART_TX 0
 
 void uart_init_h();
-
+void uart_display(float value);
 #endif /*UART_DISPLAY__H*/

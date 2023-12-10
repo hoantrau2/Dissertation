@@ -9,4 +9,5 @@ void adc_read_h(void *cxt) {
   const float conversion_factor = V_REF / (4096);
   bat_t->v_bat = adc_read();
   bat_t->v_bat = bat_t->v_bat * conversion_factor * GAIN + V_ZENNER;
+  // uart_display(bat_t->v_bat);
 }

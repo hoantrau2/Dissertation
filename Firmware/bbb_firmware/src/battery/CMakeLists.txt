@@ -16,6 +16,7 @@ add_library(${MODULE_NAME} STATIC ${BBB_IO_BATTERY})
 target_include_directories(${MODULE_NAME} PRIVATE 
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CMAKE_SOURCE_DIR}/src/config/include
+  ${CMAKE_SOURCE_DIR}/src/speed_controller/include
 )
 
 # Link to pico_stdlib (gpio, time, etc. functions)

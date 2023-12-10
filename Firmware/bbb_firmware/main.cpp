@@ -8,6 +8,7 @@
 #include "scheduler/scheduler.h"
 #include "speed_controller/speed_controller.h"
 #include "state_machine/state_machine.h"
+#include "uart_display/uart_display.h"
 #include "velocity_converter/velocity_converter.h"
 
 // using namespace bbb::uros;
@@ -30,9 +31,8 @@ int main() {
   // stdio_init_all();
   // multicore_launch_core1(core1_entry);
 
-  char buff[100];
-  float result_tmp;
-  Cnt_t cnt_tempt_t;
+  // float result_tmp;
+  // Cnt_t cnt_tempt_t;
 
   Event_motor_t motor_t;
   motor_t.v = 0;
@@ -45,15 +45,14 @@ int main() {
 
   pwm_init();
   encoder_init();
-  uart_init_h();
-  // adc_init_h(BatteryVoltControl);
+  // uart_init_h();
   buzzer_init();
   init_pid(&motor_t.pids_t.PID_M1_t, KP_1, KI_1, KD_1);
   init_pid(&motor_t.pids_t.PID_M2_t, KP_2, KI_2, KD_2);
   init_pid(&motor_t.pids_t.PID_M3_t, KP_3, KI_3, KD_3);
   init_pid(&motor_t.pids_t.PID_M4_t, KP_4, KI_4, KD_4);
   reset_cnt(&motor_t.cnt_t);
-  reset_cnt(&cnt_tempt_t);
+  // reset_cnt(&cnt_tempt_t);
 
   // Timer interupt-- -- -- -- -- -- -- -- -- -- -
   struct repeating_timer timer;
@@ -61,7 +60,7 @@ int main() {
   //                        &timer);
 
   HandleEvent_Init(&timer);
-  // int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
+  int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
 
   // float uk;
   adc_read_h(&bat_control_t);

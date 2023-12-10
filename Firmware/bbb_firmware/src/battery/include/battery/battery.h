@@ -12,6 +12,7 @@
 
 #include "config/config.h"
 #include "hardware/adc.h"
+#include "uart_display/uart_display.h"
 
 using namespace bbb::config;
 
