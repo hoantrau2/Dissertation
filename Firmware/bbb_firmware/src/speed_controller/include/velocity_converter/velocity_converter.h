@@ -18,8 +18,8 @@
 #include "speed_controller/speed_controller.h"
 #include "uart_display/uart_display.h"
 
-#define V_MAX 1.5 // m/s <=> 70% duty
-#define V_MIN 0.3 // m/s <=> 20% duty
+#define V_MAX 1.15 // m/s <=> 70% duty
+#define V_MIN 0 // m/s 
 #define sgn(x) ((x) < 0 ? -1 : 1)
 #define MOTOR_1 1
 #define MOTOR_2 2

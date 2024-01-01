@@ -19,7 +19,7 @@
 //     ros_comm.ProcessLoop();
 //   }
 // }
-
+// #ifdef HIEN
 // Timer interupt-- -- -- -- -- -- -- -- -- -- --
 // uint flag_ms = 0;
 // bool repeating_timer_callback(struct repeating_timer *t) {
@@ -36,7 +36,7 @@ int main() {
 
   Event_motor_t motor_t;
   motor_t.v = 0;
-  motor_t.w = 4;
+  motor_t.w = -1;
 
   Event_battery_t bat_control_t;
   bat_control_t.config_bat = BatteryVoltControl;
@@ -63,9 +63,16 @@ int main() {
   int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
 
   // float uk;
-  adc_read_h(&bat_control_t);
-  adc_read_h(&bat_motor_t);
+  // adc_read_h(&bat_control_t);
+  // adc_read_h(&bat_motor_t);
+
+  gpio_init(PICO_DEFAULT_LED_PIN);
+  gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
   while (true) {
+    gpio_put(PICO_DEFAULT_LED_PIN, 1);
+        sleep_ms(250);
+        gpio_put(PICO_DEFAULT_LED_PIN, 0);
+        sleep_ms(250);
     // if (flag_ms == 1) {
     //   flag_ms = 0;
     // sprintf(buff, "%f", bat_control_t.v_bat);
@@ -121,3 +128,16 @@ int main() {
     // }
   }
 }
+// #endif
+// int main() {
+
+    // const uint LED_PIN = PICO_DEFAULT_LED_PIN;
+//     gpio_init(LED_PIN);
+//     gpio_set_dir(LED_PIN, GPIO_OUT);
+//     while (true) {
+        // gpio_put(LED_PIN, 1);
+//         sleep_ms(250);
+//         gpio_put(LED_PIN, 0);
+//         sleep_ms(250);
+//     }
+// }
