@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="solidword_URDF">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00024063952234829 -0.00103307756433857 -0.00578527197752549"
+        rpy="0 0 0" />
+      <mass
+        value="0.744239560036351" />
+      <inertia
+        ixx="0.00204640418006704"
+        ixy="-4.63019082734219E-08"
+        ixz="3.971079145753E-11"
+        iyy="0.000945587884509177"
+        iyz="5.58860428763674E-06"
+        izz="0.00286862371111548" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_left_back_link">
+    <inertial>
+      <origin
+        xyz="-5.91454890619403E-08 -4.15889707117145E-08 0.00430046442972337"
+        rpy="0 0 0" />
+      <mass
+        value="0.0700997256787887" />
+      <inertia
+        ixx="0.000129991782935584"
+        ixy="-7.03359504406401E-11"
+        ixz="-7.31347838758624E-11"
+        iyy="0.000129991710229871"
+        iyz="-6.02868413374053E-11"
+        izz="0.00021190371860368" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_left_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.164705882352941 0.164705882352941 0.164705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_left_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_back_joint"
+    type="continuous">
+    <origin
+      xyz="-0.11952 -0.079844 -0.034566"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_back_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_right_back_link">
+    <inertial>
+      <origin
+        xyz="-2.29356525993651E-08 -6.85695793478658E-08 0.00430046442972555"
+        rpy="0 0 0" />
+      <mass
+        value="0.0700997256787938" />
+      <inertia
+        ixx="0.000129991824526835"
+        ixy="1.39066116599433E-11"
+        ixz="-2.31031120103638E-11"
+        iyy="0.000129991668638631"
+        iyz="-9.19208698297987E-11"
+        izz="0.000211903718603691" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_right_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.164705882352941 0.164705882352941 0.164705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_right_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_right_back_joint"
+    type="continuous">
+    <origin
+      xyz="0.11952 -0.079847 -0.034572"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_back_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_right_front_link">
+    <inertial>
+      <origin
+        xyz="9.38301703001798E-09 -7.16923318488938E-08 0.00430046442972547"
+        rpy="0 0 0" />
+      <mass
+        value="0.0700997256788076" />
+      <inertia
+        ixx="0.000129991783731368"
+        ixy="6.99189367407342E-11"
+        ixz="1.94509576281386E-11"
+        iyy="0.000129991709434125"
+        iyz="-9.27623864397286E-11"
+        izz="0.000211903718603716" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_right_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.164705882352941 0.164705882352941 0.164705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_right_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_right_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.11952 0.08009 -0.034456"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_front_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="wheel_left_front_link">
+    <inertial>
+      <origin
+        xyz="-7.21318487162392E-08 -4.98282659577853E-09 0.00430046442972515"
+        rpy="0 0 0" />
+      <mass
+        value="0.0700997256787878" />
+      <inertia
+        ixx="0.000129991701179285"
+        ixy="-6.48629709015669E-11"
+        ixz="-9.37779569557824E-11"
+        iyy="0.000129991791986169"
+        iyz="-1.37439105206626E-11"
+        izz="0.000211903718603679" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_left_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.164705882352941 0.164705882352941 0.164705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/wheel_left_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_front_joint"
+    type="continuous">
+    <origin
+      xyz="-0.11952 0.08006 -0.034433"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_front_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="IMU_link">
+    <inertial>
+      <origin
+        xyz="0.000964917991547937 -0.0110180842184313 0.026980176080268"
+        rpy="0 0 0" />
+      <mass
+        value="0.430920908604431" />
+      <inertia
+        ixx="0.0011992591202161"
+        ixy="1.60316136417021E-06"
+        ixz="-9.29983991761058E-11"
+        iyy="0.000852483263634002"
+        iyz="7.59053430643875E-06"
+        izz="0.00198851002306301" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/IMU_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.192156862745098 0.203921568627451 0.203921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/IMU_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="IMU_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.019933 0.053"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="IMU_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="0.00164596378995197 -0.00425281091819607 -0.00183688933695247"
+        rpy="0 0 0" />
+      <mass
+        value="0.0447522021928565" />
+      <inertia
+        ixx="3.9447182614137E-06"
+        ixy="-2.44340810058845E-07"
+        ixz="2.80195213090034E-09"
+        iyy="2.72775297758811E-05"
+        iyz="-1.17404668598162E-09"
+        izz="2.73620934349504E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0018924 0.039009 0.13228"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.000233861851954953 -0.00680230699223916 -0.0219318722670329"
+        rpy="0 0 0" />
+      <mass
+        value="0.170611427740059" />
+      <inertia
+        ixx="0.000123165861310998"
+        ixy="-1.76438806180223E-07"
+        ixz="-5.2415349396794E-07"
+        iyy="7.88360971590411E-05"
+        iyz="-2.02846680669131E-05"
+        izz="0.00014078871798285" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solidword_URDF/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.00010226 -0.047402 0.1752"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
