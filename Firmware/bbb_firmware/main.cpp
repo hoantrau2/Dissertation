@@ -1,3 +1,123 @@
+#include "pico/stdlib.h"
+#include "pico_uart_transports.h"
+#include <rcl/error_handling.h>
+#include <rcl/rcl.h>
+#include <rclc/executor.h>
+#include <rclc/rclc.h>
+#include <rmw_microros/rmw_microros.h>
+#include <geometry_msgs/msg/twist.h>
+#include <stdio.h>
+
+#include "battery/battery.h"
+#include "buzzer/buzzer.h"
+#include "encoder/encoder.h"
+#include "motor_driver/motor_driver.h"
+#include "pico/multicore.h"
+#include "pico/stdlib.h"
+#include "ros_comm/ros_comm.h"
+#include "scheduler/scheduler.h"
+#include "speed_controller/speed_controller.h"
+#include "state_machine/state_machine.h"
+#include "uart_display/uart_display.h"
+#include "velocity_converter/velocity_converter.h"
+
+// Define a structure to hold the publisher and subscriber objects
+typedef struct
+{
+    rcl_publisher_t publisher;
+    rcl_subscription_t subscription;
+    geometry_msgs__msg__Twist msg;
+} NodeComponents;
+   // Initialize NodeComponents structure
+    NodeComponents node_components;
+  Event_motor_t motor_t;
+  
+void subscription_callback(const void *msgin)
+{
+
+    const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
+      motor_t.v = msg->linear.x;
+      motor_t.w = msg->angular.z;
+    rcl_publish(&node_components.publisher, msg, NULL);
+}
+
+int main()
+{
+
+    stdio_init_all();
+
+    // Set up Micro-ROS serial transport
+    rmw_uros_set_custom_transport(
+        true, NULL, pico_serial_transport_open, pico_serial_transport_close,
+        pico_serial_transport_write, pico_serial_transport_read);
+
+    // Initialize the Node and Micro-ROS support
+    rclc_support_t support;
+    rcl_allocator_t allocator;
+    allocator = rcl_get_default_allocator();
+    rclc_support_init(&support, 0, NULL, &allocator);
+
+    // Initialize Node
+    rcl_node_t node;
+    rclc_node_init_default(&node, "pico_node", "", &support);
+
+    // Initialize Publisher
+    rclc_publisher_init_default(&node_components.publisher, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "pico_publisher_topic_test");
+
+    // Initialize Subscriber
+    rclc_subscription_init_default(&node_components.subscription, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "/cmd_vel");
+
+    // Create executor
+    rclc_executor_t executor;
+    rclc_executor_init(&executor, &support.context, 2, &allocator);
+    rclc_executor_add_subscription(&executor, &node_components.subscription, &node_components.msg, &subscription_callback, ON_NEW_DATA);
+
+  pwm_init();
+  encoder_init();
+  init_pid(&motor_t.pids_t.PID_M1_t, KP_1, KI_1, KD_1);
+  init_pid(&motor_t.pids_t.PID_M2_t, KP_2, KI_2, KD_2);
+  init_pid(&motor_t.pids_t.PID_M3_t, KP_3, KI_3, KD_3);
+  init_pid(&motor_t.pids_t.PID_M4_t, KP_4, KI_4, KD_4);
+  reset_cnt(&motor_t.cnt_t);
+  struct repeating_timer timer;
+  HandleEvent_Init(&timer);
+  int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
+  
+    // Main loop
+    while (true)
+    {
+   
+        // Spin the executor to handle subscriptions
+        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
+    }
+
+    // Clean up
+    rcl_subscription_fini(&node_components.subscription, &node);
+    rcl_publisher_fini(&node_components.publisher, &node);
+    rcl_node_fini(&node);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ifdef HIEN
 #include "battery/battery.h"
 #include "buzzer/buzzer.h"
 #include "encoder/encoder.h"
@@ -19,7 +139,10 @@
 //     ros_comm.ProcessLoop();
 //   }
 // }
-// #ifdef HIEN
+
+
+
+
 // Timer interupt-- -- -- -- -- -- -- -- -- -- --
 // uint flag_ms = 0;
 // bool repeating_timer_callback(struct repeating_timer *t) {
@@ -128,16 +251,4 @@ int main() {
     // }
   }
 }
-// #endif
-// int main() {
-
-    // const uint LED_PIN = PICO_DEFAULT_LED_PIN;
-//     gpio_init(LED_PIN);
-//     gpio_set_dir(LED_PIN, GPIO_OUT);
-//     while (true) {
-        // gpio_put(LED_PIN, 1);
-//         sleep_ms(250);
-//         gpio_put(LED_PIN, 0);
-//         sleep_ms(250);
-//     }
-// }
+#endif

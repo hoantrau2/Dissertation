@@ -36,8 +36,8 @@ typedef struct {
 typedef struct {
   PIDs_t pids_t;
   Cnt_t cnt_t;
-  float v;
-  float w;
+  double v;
+  double w;
 } Event_motor_t;
 
 void control_motor(void *cxt);
