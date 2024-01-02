@@ -11,12 +11,7 @@ sudo apt install clang-format
 
 
 # Installation
-- Download source code
-```
-cd <workspace>
-git clone git@github.com:minht57lab/bbb_firmware.git
-cd bbb_firmware
-```
+
 
 - Get SDK and examples
 ```bash

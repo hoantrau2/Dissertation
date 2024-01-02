@@ -8,18 +8,18 @@
 #include <geometry_msgs/msg/twist.h>
 #include <stdio.h>
 
-// #include "battery/battery.h"
-// #include "buzzer/buzzer.h"
-// #include "encoder/encoder.h"
-// #include "motor_driver/motor_driver.h"
-// #include "pico/multicore.h"
-// #include "pico/stdlib.h"
-// #include "ros_comm/ros_comm.h"
-// #include "scheduler/scheduler.h"
-// #include "speed_controller/speed_controller.h"
-// #include "state_machine/state_machine.h"
-// #include "uart_display/uart_display.h"
-// #include "velocity_converter/velocity_converter.h"
+#include "battery/battery.h"
+#include "buzzer/buzzer.h"
+#include "encoder/encoder.h"
+#include "motor_driver/motor_driver.h"
+#include "pico/multicore.h"
+#include "pico/stdlib.h"
+#include "ros_comm/ros_comm.h"
+#include "scheduler/scheduler.h"
+#include "speed_controller/speed_controller.h"
+#include "state_machine/state_machine.h"
+#include "uart_display/uart_display.h"
+#include "velocity_converter/velocity_converter.h"
 
 // Define a structure to hold the publisher and subscriber objects
 typedef struct
@@ -30,14 +30,14 @@ typedef struct
 } NodeComponents;
    // Initialize NodeComponents structure
     NodeComponents node_components;
-  // Event_motor_t motor_t;
+  Event_motor_t motor_t;
   
 void subscription_callback(const void *msgin)
 {
 
     const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
-      // motor_t.v = msg->linear.x;
-      // motor_t.w = msg->angular.z;
+      motor_t.v = msg->linear.x;
+      motor_t.w = msg->angular.z;
     rcl_publish(&node_components.publisher, msg, NULL);
 }
 
@@ -72,7 +72,16 @@ int main()
     rclc_executor_init(&executor, &support.context, 2, &allocator);
     rclc_executor_add_subscription(&executor, &node_components.subscription, &node_components.msg, &subscription_callback, ON_NEW_DATA);
 
-  // pwm_initcmleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
+  pwm_init();
+  encoder_init();
+  init_pid(&motor_t.pids_t.PID_M1_t, KP_1, KI_1, KD_1);
+  init_pid(&motor_t.pids_t.PID_M2_t, KP_2, KI_2, KD_2);
+  init_pid(&motor_t.pids_t.PID_M3_t, KP_3, KI_3, KD_3);
+  init_pid(&motor_t.pids_t.PID_M4_t, KP_4, KI_4, KD_4);
+  reset_cnt(&motor_t.cnt_t);
+  struct repeating_timer timer;
+  HandleEvent_Init(&timer);
+  int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
   
     // Main loop
     while (true)
