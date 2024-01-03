@@ -3061,7 +3061,16 @@ CMakeFiles/bbbfw.dir/C_/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.
   C:/pico/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
 
 CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware/main.cpp \
-  C:/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/battery/include/battery/battery.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/config/include/config/config.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/stdint.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/machine/_default_types.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/features.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/_newlib_version.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/_intsup.h \
+  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/_stdint.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
@@ -3074,15 +3083,8 @@ CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/assert.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/_ansi.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/newlib.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/_newlib_version.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/config.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/machine/ieeefp.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/features.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/stdint.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/machine/_default_types.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/_intsup.h \
-  C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/_stdint.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
@@ -3096,12 +3098,9 @@ CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/cdefs.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
   C:/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
-  C:/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  C:/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h \
   C:/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h \
   C:/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
   C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
   C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
@@ -3112,12 +3111,7 @@ CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware
   C:/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
   C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
   C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
-  C:/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/pico_uart_transports.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/uart_display/uart_display.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/stdio.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/reent.h \
@@ -3137,6 +3131,40 @@ CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/sched.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/machine/types.h \
   C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/stdio.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/buzzer/include/buzzer/buzzer.h \
+  C:/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
+  C:/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  C:/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  C:/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/encoder.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/motor_driver/motor_driver.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pwm.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pwm.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/quadrature_encoder.pio.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  C:/pico/pico-sdk/src/rp2_common/pico_multicore/include/pico/multicore.h \
+  C:/pico/pico-sdk/src/common/pico_sync/include/pico/sync.h \
+  C:/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  C:/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  C:/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  C:/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  C:/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/src/ros_comm/include/ros_comm/ros_comm.h \
+  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/pico_uart_transports.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/profile/transport/custom/custom_transport.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/core/communication/communication.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/config.h \
@@ -3332,39 +3360,6 @@ CMakeFiles/bbbfw.dir/main.cpp.obj: F:/Project/Dissertation/Firmware/bbb_firmware
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/geometry_msgs/msg/detail/twist__functions.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/geometry_msgs/msg/rosidl_generator_c__visibility_control.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/geometry_msgs/msg/detail/twist__type_support.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/battery/include/battery/battery.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/config/include/config/config.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/uart_display/uart_display.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/buzzer/include/buzzer/buzzer.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/encoder.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/motor_driver/motor_driver.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pwm.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pwm.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/quadrature_encoder.pio.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  C:/pico/pico-sdk/src/rp2_common/pico_multicore/include/pico/multicore.h \
-  C:/pico/pico-sdk/src/common/pico_sync/include/pico/sync.h \
-  C:/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  C:/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  C:/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  C:/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  C:/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/src/ros_comm/include/ros_comm/ros_comm.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/int32.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__struct.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__functions.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h \
-  F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__type_support.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/src/scheduler/include/scheduler/scheduler.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/speed_controller/speed_controller.h \
   F:/Project/Dissertation/Firmware/bbb_firmware/src/state_machine/include/state_machine/state_machine.h \
@@ -3717,8 +3712,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 
 C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h:
 
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/int32.h:
-
 C:/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h:
 
 C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/limits.h:
@@ -3808,8 +3801,6 @@ C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h:
 C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h:
 
 C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h:
 
 C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h:
 
@@ -4013,8 +4004,6 @@ C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi
 
 C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/sys/stat.h:
 
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__functions.h:
-
 C:/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h:
 
 C:/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
@@ -4033,9 +4022,37 @@ C:/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/main.cpp:
 
+F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcutils/visibility_control.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/battery/include/battery/battery.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/config/include/config/config.h:
+
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rclc/visibility_control.h:
 
 C:/Program\ Files\ (x86)/GNU\ Arm\ Embedded\ Toolchain/10\ 2021.10/arm-none-eabi/include/c++/10.3.1/cassert:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/uart_display/uart_display.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/buzzer/include/buzzer/buzzer.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rclc/service.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcl_action/wait.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/encoder.h:
+
+C:/pico/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/profile/transport/stream_framing/stream_framing_protocol.h:
+
+C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pwm.h:
+
+C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pwm.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/quadrature_encoder.pio.h:
+
+F:/Project/Dissertation/Firmware/bbb_firmware/src/ros_comm/include/ros_comm/ros_comm.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/pico_uart_transports.h:
 
@@ -4044,10 +4061,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/util/time.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/config.h:
-
-C:/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pwm.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/profile/transport/stream_framing/stream_framing_protocol.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/uxr/client/visibility.h:
 
@@ -4062,10 +4075,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcutils/configuration_flags.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcutils/types/rcutils_ret.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/battery/include/battery/battery.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcutils/visibility_control.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcutils/visibility_control_macros.h:
 
@@ -4108,8 +4117,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rmw/events_statuses/incompatible_qos.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rmw/events_statuses/liveliness_changed.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__type_support.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rmw/events_statuses/liveliness_lost.h:
 
@@ -4227,12 +4234,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rmw/topic_endpoint_info.h:
 
-F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/encoder.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rclc/service.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rcl_action/wait.h:
-
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rclc/action_goal_handle.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rclc/action_server.h:
@@ -4254,22 +4255,6 @@ F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sd
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/ucdr/visibility.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/rmw_microros/time_sync.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/config/include/config/config.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/uart_display/uart_display.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/buzzer/include/buzzer/buzzer.h:
-
-C:/pico/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h:
-
-C:/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pwm.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/encoder/quadrature_encoder.pio.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/src/ros_comm/include/ros_comm/ros_comm.h:
-
-F:/Project/Dissertation/Firmware/bbb_firmware/pico/micro_ros_raspberrypi_pico_sdk/libmicroros/include/std_msgs/msg/detail/int32__struct.h:
 
 F:/Project/Dissertation/Firmware/bbb_firmware/src/speed_controller/include/speed_controller/speed_controller.h:
 

@@ -1,12 +1,4 @@
-#include "pico/stdlib.h"
-#include "pico_uart_transports.h"
-#include <rcl/error_handling.h>
-#include <rcl/rcl.h>
-#include <rclc/executor.h>
-#include <rclc/rclc.h>
-#include <rmw_microros/rmw_microros.h>
-#include <geometry_msgs/msg/twist.h>
-#include <stdio.h>
+
 
 #include "battery/battery.h"
 #include "buzzer/buzzer.h"
@@ -21,15 +13,14 @@
 #include "uart_display/uart_display.h"
 #include "velocity_converter/velocity_converter.h"
 
-// Define a structure to hold the publisher and subscriber objects
-typedef struct
-{
-    rcl_publisher_t publisher;
-    rcl_subscription_t subscription;
-    geometry_msgs__msg__Twist msg;
-} NodeComponents;
-   // Initialize NodeComponents structure
-    NodeComponents node_components;
+
+  // Initialize NodeComponents structure
+  NodeComponents node_components;
+  // Initialize Node
+  rcl_node_t node;
+  // Create executor
+  rclc_executor_t executor;
+
   Event_motor_t motor_t;
   
 void subscription_callback(const void *msgin)
@@ -44,32 +35,7 @@ void subscription_callback(const void *msgin)
 int main()
 {
 
-    stdio_init_all();
-
-    // Set up Micro-ROS serial transport
-    rmw_uros_set_custom_transport(
-        true, NULL, pico_serial_transport_open, pico_serial_transport_close,
-        pico_serial_transport_write, pico_serial_transport_read);
-
-    // Initialize the Node and Micro-ROS support
-    rclc_support_t support;
-    rcl_allocator_t allocator;
-    allocator = rcl_get_default_allocator();
-    rclc_support_init(&support, 0, NULL, &allocator);
-
-    // Initialize Node
-    rcl_node_t node;
-    rclc_node_init_default(&node, "pico_node", "", &support);
-
-    // Initialize Publisher
-    rclc_publisher_init_default(&node_components.publisher, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "pico_publisher_topic_test");
-
-    // Initialize Subscriber
-    rclc_subscription_init_default(&node_components.subscription, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "/cmd_vel");
-
-    // Create executor
-    rclc_executor_t executor;
-    rclc_executor_init(&executor, &support.context, 2, &allocator);
+   init_ros_comm (&node_components, &node, &executor);
     rclc_executor_add_subscription(&executor, &node_components.subscription, &node_components.msg, &subscription_callback, ON_NEW_DATA);
 
   pwm_init();
@@ -91,10 +57,7 @@ int main()
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
     }
 
-    // Clean up
-    rcl_subscription_fini(&node_components.subscription, &node);
-    rcl_publisher_fini(&node_components.publisher, &node);
-    rcl_node_fini(&node);
+   clean_up (&node_components, &node);
 
     return 0;
 }

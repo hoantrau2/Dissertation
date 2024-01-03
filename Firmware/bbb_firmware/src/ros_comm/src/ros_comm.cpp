@@ -1,57 +1,35 @@
 #include "ros_comm/ros_comm.h"
-#include <functional>
 
-namespace bbb {
-namespace uros {
 
-RosComm::RosComm() {
-  Init();
+void init_ros_comm (NodeComponents *node_components, rcl_node_t *node, rclc_executor_t *executor){
+     stdio_init_all();
+
+    // Set up Micro-ROS serial transport
+    rmw_uros_set_custom_transport(
+        true, NULL, pico_serial_transport_open, pico_serial_transport_close,
+        pico_serial_transport_write, pico_serial_transport_read);
+
+    // Initialize the Node and Micro-ROS support
+    rclc_support_t support;
+    rcl_allocator_t allocator;
+    allocator = rcl_get_default_allocator();
+    rclc_support_init(&support, 0, NULL, &allocator);
+
+
+    rclc_node_init_default(node, "pico_node", "", &support);
+
+    // Initialize Publisher
+    rclc_publisher_init_default(&(node_components->publisher), node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "pico_publisher_topic_test");
+
+    // Initialize Subscriber
+    rclc_subscription_init_default(&(node_components->subscription), node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "/cmd_vel");
+
+
+    rclc_executor_init(executor, &support.context, 2, &allocator);
 }
-
-RosComm::~RosComm() {
+void clean_up (NodeComponents *node_components, rcl_node_t *node){
+     // Clean up
+    rcl_subscription_fini(&(node_components->subscription), node);
+    rcl_publisher_fini(&(node_components->publisher), node);
+    rcl_node_fini(node);
 }
-
-void RosComm::Init() {
-  rmw_uros_set_custom_transport(
-    true,
-    NULL,
-    pico_serial_transport_open,
-    pico_serial_transport_close,
-    pico_serial_transport_write,
-    pico_serial_transport_read);
-
-  allocator = rcl_get_default_allocator();
-
-  rcl_ret_t ret = rmw_uros_ping_agent(timeout_ms, attempts);
-
-  if (ret != RCL_RET_OK) {
-    // Unreachable agent, exiting program.
-    return;
-  }
-
-  rclc_support_init(&support, 0, NULL, &allocator);
-
-  rclc_node_init_default(&node, "pico_node", "", &support);
-  rclc_publisher_init_default(
-    &publisher,
-    &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32),
-    "pico_publisher");
-
-  rclc_executor_init(&executor, &support.context, 1, &allocator);
-
-  msg.data = 0;
-  initialized = true;
-}
-
-void RosComm::SendMsg() {
-  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
-  msg.data++;
-}
-
-void RosComm::ProcessLoop() {
-  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-}
-
-}; // namespace uros
-}; // namespace bbb
