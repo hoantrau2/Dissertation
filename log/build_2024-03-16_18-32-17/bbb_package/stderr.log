@@ -1,0 +1,36 @@
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::readSerialData()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:30:38:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+   30 |             if ([01;35m[Kserial_->available() >= data_size_[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+                 from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:3[m[K:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:40:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   40 |             RCLCPP_INFO(get_logger(), "byte 0: %d",[01;31m[Kbuffer[m[K[0]);
+      |                                                    [01;31m[K^~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:41:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   41 |             RCLCPP_INFO(get_logger(), "byte 1: %d",[01;31m[Kbuffer[m[K[1]);
+      |                                                    [01;31m[K^~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:42:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   42 |             RCLCPP_INFO(get_logger(), "byte 2: %d",[01;31m[Kbuffer[m[K[2]);
+      |                                                    [01;31m[K^~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:43:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   43 |             RCLCPP_INFO(get_logger(), "byte 3: %d",[01;31m[Kbuffer[m[K[3]);
+      |                                                    [01;31m[K^~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:44:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   44 |             RCLCPP_INFO(get_logger(), "byte 4: %d",[01;31m[Kbuffer[m[K[4]);
+      |                                                    [01;31m[K^~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:45:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+   45 |             RCLCPP_INFO(get_logger(), "byte 5: %d",[01;31m[Kbuffer[m[K[5]);
+      |                                                    [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:136: CMakeFiles/read_IMU.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

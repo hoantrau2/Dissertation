@@ -168,6 +168,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named read_host
+
+# Build rule for target.
+read_host: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_host
+.PHONY : read_host
+
+# fast build rule for target.
+read_host/fast:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/build
+.PHONY : read_host/fast
+
+#=============================================================================
+# Target rules for targets named read_pico
+
+# Build rule for target.
+read_pico: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_pico
+.PHONY : read_pico
+
+# fast build rule for target.
+read_pico/fast:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
+.PHONY : read_pico/fast
+
+#=============================================================================
+# Target rules for targets named read_IMU
+
+# Build rule for target.
+read_IMU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_IMU
+.PHONY : read_IMU
+
+# fast build rule for target.
+read_IMU/fast:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/build
+.PHONY : read_IMU/fast
+
+#=============================================================================
 # Target rules for targets named bbb_package_uninstall
 
 # Build rule for target.
@@ -193,6 +232,87 @@ uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+src/read_IMU.o: src/read_IMU.cpp.o
+
+.PHONY : src/read_IMU.o
+
+# target to build an object file
+src/read_IMU.cpp.o:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o
+.PHONY : src/read_IMU.cpp.o
+
+src/read_IMU.i: src/read_IMU.cpp.i
+
+.PHONY : src/read_IMU.i
+
+# target to preprocess a source file
+src/read_IMU.cpp.i:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/src/read_IMU.cpp.i
+.PHONY : src/read_IMU.cpp.i
+
+src/read_IMU.s: src/read_IMU.cpp.s
+
+.PHONY : src/read_IMU.s
+
+# target to generate assembly for a file
+src/read_IMU.cpp.s:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/src/read_IMU.cpp.s
+.PHONY : src/read_IMU.cpp.s
+
+src/read_host.o: src/read_host.cpp.o
+
+.PHONY : src/read_host.o
+
+# target to build an object file
+src/read_host.cpp.o:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.o
+.PHONY : src/read_host.cpp.o
+
+src/read_host.i: src/read_host.cpp.i
+
+.PHONY : src/read_host.i
+
+# target to preprocess a source file
+src/read_host.cpp.i:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.i
+.PHONY : src/read_host.cpp.i
+
+src/read_host.s: src/read_host.cpp.s
+
+.PHONY : src/read_host.s
+
+# target to generate assembly for a file
+src/read_host.cpp.s:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.s
+.PHONY : src/read_host.cpp.s
+
+src/read_pico.o: src/read_pico.cpp.o
+
+.PHONY : src/read_pico.o
+
+# target to build an object file
+src/read_pico.cpp.o:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.o
+.PHONY : src/read_pico.cpp.o
+
+src/read_pico.i: src/read_pico.cpp.i
+
+.PHONY : src/read_pico.i
+
+# target to preprocess a source file
+src/read_pico.cpp.i:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.i
+.PHONY : src/read_pico.cpp.i
+
+src/read_pico.s: src/read_pico.cpp.s
+
+.PHONY : src/read_pico.s
+
+# target to generate assembly for a file
+src/read_pico.cpp.s:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.s
+.PHONY : src/read_pico.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -203,11 +323,23 @@ help:
 	@echo "... install/local"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... read_host"
+	@echo "... read_pico"
+	@echo "... read_IMU"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... bbb_package_uninstall"
 	@echo "... uninstall"
+	@echo "... src/read_IMU.o"
+	@echo "... src/read_IMU.i"
+	@echo "... src/read_IMU.s"
+	@echo "... src/read_host.o"
+	@echo "... src/read_host.i"
+	@echo "... src/read_host.s"
+	@echo "... src/read_pico.o"
+	@echo "... src/read_pico.i"
+	@echo "... src/read_pico.s"
 .PHONY : help
 
 

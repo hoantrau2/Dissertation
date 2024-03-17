@@ -310,6 +310,9 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
+# install("TARGETS" "read_IMU" "read_pico" "read_host" "DESTINATION" "lib/bbb_package/")
+include("/home/jetson/bbb_jetson_ws/build/bbb_package/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(DIRECTORY "launch" "DESTINATION" "share/bbb_package")
 ament_cmake_symlink_install_directory("/home/jetson/bbb_jetson_ws/src/bbb_package" DIRECTORY "launch" "DESTINATION" "share/bbb_package")
 

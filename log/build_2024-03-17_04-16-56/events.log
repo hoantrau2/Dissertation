@@ -1,0 +1,328 @@
+[0.000000] (-) TimerEvent: {}
+[0.001865] (-) JobUnselected: {'identifier': 'bbb_robot'}
+[0.002020] (-) JobUnselected: {'identifier': 'csm'}
+[0.002316] (-) JobUnselected: {'identifier': 'diffdrive_arduino'}
+[0.002427] (-) JobUnselected: {'identifier': 'ros2_laser_scan_matcher'}
+[0.002506] (-) JobUnselected: {'identifier': 'serial'}
+[0.002586] (bbb_package) JobQueued: {'identifier': 'bbb_package', 'dependencies': OrderedDict([('serial', '/home/jetson/bbb_jetson_ws/install/serial')])}
+[0.002675] (bbb_package) JobStarted: {'identifier': 'bbb_package'}
+[0.111368] (-) TimerEvent: {}
+[0.215869] (-) TimerEvent: {}
+[0.319101] (-) TimerEvent: {}
+[0.419941] (-) TimerEvent: {}
+[0.524541] (-) TimerEvent: {}
+[0.615658] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'cmake'}
+[0.617899] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'build'}
+[0.620120] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/bbb_jetson_ws/build/bbb_package', '--', '-j4', '-l4'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.106.190 39940 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.87.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-2449b367-0401-428f-9300-75cb1c19ac5d.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '5'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-507bd2eab3.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '30'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.106.190 39940 192.168.106.171 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy')]), 'shell': False}
+[0.629169] (-) TimerEvent: {}
+[0.730438] (-) TimerEvent: {}
+[0.766318] (bbb_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target read_IMU\x1b[0m\n'}
+[0.826517] (bbb_package) StdoutLine: {'line': b'[ 33%] Built target read_pico\n'}
+[0.830591] (-) TimerEvent: {}
+[0.836201] (bbb_package) StdoutLine: {'line': b'[ 66%] Built target read_host\n'}
+[0.867720] (bbb_package) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o\x1b[0m\n'}
+[0.930815] (-) TimerEvent: {}
+[1.031777] (-) TimerEvent: {}
+[1.132435] (-) TimerEvent: {}
+[1.233560] (-) TimerEvent: {}
+[1.334720] (-) TimerEvent: {}
+[1.435808] (-) TimerEvent: {}
+[1.536956] (-) TimerEvent: {}
+[1.637697] (-) TimerEvent: {}
+[1.738335] (-) TimerEvent: {}
+[1.838978] (-) TimerEvent: {}
+[1.939613] (-) TimerEvent: {}
+[2.040278] (-) TimerEvent: {}
+[2.140937] (-) TimerEvent: {}
+[2.241624] (-) TimerEvent: {}
+[2.342226] (-) TimerEvent: {}
+[2.442889] (-) TimerEvent: {}
+[2.543841] (-) TimerEvent: {}
+[2.644432] (-) TimerEvent: {}
+[2.745444] (-) TimerEvent: {}
+[2.846040] (-) TimerEvent: {}
+[2.946698] (-) TimerEvent: {}
+[3.047897] (-) TimerEvent: {}
+[3.148610] (-) TimerEvent: {}
+[3.249853] (-) TimerEvent: {}
+[3.350793] (-) TimerEvent: {}
+[3.451718] (-) TimerEvent: {}
+[3.552427] (-) TimerEvent: {}
+[3.653125] (-) TimerEvent: {}
+[3.753873] (-) TimerEvent: {}
+[3.854497] (-) TimerEvent: {}
+[3.955146] (-) TimerEvent: {}
+[4.055840] (-) TimerEvent: {}
+[4.156523] (-) TimerEvent: {}
+[4.257164] (-) TimerEvent: {}
+[4.357870] (-) TimerEvent: {}
+[4.458501] (-) TimerEvent: {}
+[4.559152] (-) TimerEvent: {}
+[4.659838] (-) TimerEvent: {}
+[4.760546] (-) TimerEvent: {}
+[4.861201] (-) TimerEvent: {}
+[4.961922] (-) TimerEvent: {}
+[5.062678] (-) TimerEvent: {}
+[5.163389] (-) TimerEvent: {}
+[5.264074] (-) TimerEvent: {}
+[5.268959] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid SerialNode::readSerialData()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.269804] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:32:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksp\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[5.271127] (bbb_package) StderrLine: {'line': b'   32 |             data = \x1b[01;31m\x1b[Ksp\x1b[m\x1b[K.readline(100, "\\r\\n");\n'}
+[5.271586] (bbb_package) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[5.272033] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:33:38:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Ksize_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[5.272479] (bbb_package) StderrLine: {'line': b'   33 |             if (\x1b[01;35m\x1b[Kserial_->available() >= data_size_\x1b[m\x1b[K) {\n'}
+[5.272864] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.275755] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:44:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator+\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[5.276150] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, \x1b[32m\x1b[Kbuffer\x1b[m\x1b[K \x1b[01;31m\x1b[K+\x1b[m\x1b[K \x1b[34m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.276485] (bbb_package) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[K~~~~~~\x1b[m\x1b[K \x1b[01;31m\x1b[K^\x1b[m\x1b[K \x1b[34m\x1b[K~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.276772] (bbb_package) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[K|\x1b[m\x1b[K        \x1b[34m\x1b[K|\x1b[m\x1b[K\n'}
+[5.277049] (bbb_package) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[K|\x1b[m\x1b[K        \x1b[34m\x1b[Kint\x1b[m\x1b[K\n'}
+[5.277412] (bbb_package) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\n'}
+[5.277760] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:67\x1b[m\x1b[K,\n'}
+[5.278052] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/char_traits.h:39\x1b[m\x1b[K,\n'}
+[5.278345] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:40\x1b[m\x1b[K,\n'}
+[5.278650] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.278946] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.279225] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.279496] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:423:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Iterator> std::reverse_iterator<_Iterator> std::operator+(typename std::reverse_iterator<_Iterator>::difference_type, const std::reverse_iterator<_Iterator>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.279776] (bbb_package) StderrLine: {'line': b'  423 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(typename reverse_iterator<_Iterator>::difference_type __n,\n'}
+[5.280040] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.280320] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:423:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.280646] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst std::reverse_iterator<_Iterator>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.282849] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.283235] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.283530] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:67\x1b[m\x1b[K,\n'}
+[5.283822] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/char_traits.h:39\x1b[m\x1b[K,\n'}
+[5.284138] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:40\x1b[m\x1b[K,\n'}
+[5.284432] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.284707] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.284986] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.285270] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:1216:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Iterator> std::move_iterator<_IteratorL> std::operator+(typename std::move_iterator<_IteratorL>::difference_type, const std::move_iterator<_IteratorL>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.285622] (bbb_package) StderrLine: {'line': b' 1216 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(typename move_iterator<_Iterator>::difference_type __n,\n'}
+[5.285926] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.286225] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:1216:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.286549] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst std::move_iterator<_IteratorL>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.286860] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.287155] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.287445] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.287724] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.287996] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.288271] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.288539] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.288808] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.289079] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.290724] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6023:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.291240] (bbb_package) StderrLine: {'line': b' 6023 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,\n'}
+[5.291591] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.291900] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6023:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.292265] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.292686] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.293053] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.293424] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:56\x1b[m\x1b[K,\n'}
+[5.293785] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.294117] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.294418] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.294704] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.294993] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.295302] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.295607] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.tcc:1158:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.295927] (bbb_package) StderrLine: {'line': b' 1158 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const _CharT* __lhs,\n'}
+[5.296226] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.296512] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.tcc:1158:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.296810] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst _CharT*\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.297101] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.297446] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.297759] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:56\x1b[m\x1b[K,\n'}
+[5.298083] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.298396] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.298683] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.298973] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.299251] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.299522] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.299795] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.tcc:1174:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.300103] (bbb_package) StderrLine: {'line': b' 1174 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(_CharT __lhs, const basic_string<_CharT, _Traits, _Alloc>& __rhs)\n'}
+[5.300412] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.300695] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.tcc:1174:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.300968] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.301245] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.301569] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.301852] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.302133] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.302415] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.302684] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.302952] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.303219] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.303497] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.303889] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6060:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.304318] (bbb_package) StderrLine: {'line': b' 6060 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,\n'}
+[5.304715] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.305108] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6060:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.305518] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.305845] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.306207] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.306617] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.306986] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.307305] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.307599] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.307893] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.308204] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.308488] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.308775] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6076:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, _CharT)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.309086] (bbb_package) StderrLine: {'line': b' 6076 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)\n'}
+[5.309417] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.309723] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6076:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.310021] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.310333] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.310611] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.310884] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.311169] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.311450] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.311721] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.312021] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.312311] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.312613] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.312909] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6088:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.313190] (bbb_package) StderrLine: {'line': b' 6088 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,\n'}
+[5.313526] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.313816] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6088:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.314091] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.314375] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.314649] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.314922] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.315196] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.315467] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.315740] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.316014] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.316282] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.316556] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.316822] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6094:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.317121] (bbb_package) StderrLine: {'line': b' 6094 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,\n'}
+[5.317588] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.317902] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6094:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.318207] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst std::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.318495] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.318788] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.319059] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.319333] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.319605] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.319889] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.320253] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.320566] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.320862] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.321147] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6100:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.321491] (bbb_package) StderrLine: {'line': b' 6100 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,\n'}
+[5.321795] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.322072] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6100:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.322352] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.322668] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.322974] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.323267] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.323558] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.324259] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.324674] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.324990] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.325274] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.325610] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.325921] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6112:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.326256] (bbb_package) StderrLine: {'line': b' 6112 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(const _CharT* __lhs,\n'}
+[5.326547] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.326827] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6112:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.327117] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst _CharT*\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.327396] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.327665] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.327933] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.328200] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.328480] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.328751] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.329017] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.329326] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.329650] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.329949] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6118:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.330236] (bbb_package) StderrLine: {'line': b' 6118 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(_CharT __lhs,\n'}
+[5.330534] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.330811] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6118:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.331095] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.331374] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.331634] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.331904] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.332183] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.332449] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.332713] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.333029] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.333336] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.333657] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.333953] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6124:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.334242] (bbb_package) StderrLine: {'line': b' 6124 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,\n'}
+[5.334534] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.334824] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6124:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.335129] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.335442] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.335732] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.336011] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/string:55\x1b[m\x1b[K,\n'}
+[5.336296] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/locale_classes.h:40\x1b[m\x1b[K,\n'}
+[5.336571] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/ios_base.h:41\x1b[m\x1b[K,\n'}
+[5.336838] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:42\x1b[m\x1b[K,\n'}
+[5.337102] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.337454] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.337758] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.338062] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6130:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, _CharT)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.338361] (bbb_package) StderrLine: {'line': b' 6130 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,\n'}
+[5.338667] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.338977] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/basic_string.h:6130:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.339258] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<_CharT, _Traits, _Alloc>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.339572] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.339845] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.340122] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/vector:68\x1b[m\x1b[K,\n'}
+[5.340384] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/install/serial/include/serial/serial.h:40\x1b[m\x1b[K,\n'}
+[5.340655] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:2\x1b[m\x1b[K:\n'}
+[5.340929] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_bvector.h:303:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bit_iterator std::operator+(std::ptrdiff_t, const std::_Bit_iterator&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.341206] (bbb_package) StderrLine: {'line': b'  303 |   \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(ptrdiff_t __n, const _Bit_iterator& __x)\n'}
+[5.341539] (bbb_package) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.341842] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_bvector.h:303:23:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::ptrdiff_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[5.342182] (bbb_package) StderrLine: {'line': b'  303 |   operator+(\x1b[01;36m\x1b[Kptrdiff_t __n\x1b[m\x1b[K, const _Bit_iterator& __x)\n'}
+[5.342480] (bbb_package) StderrLine: {'line': b'      |             \x1b[01;36m\x1b[K~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[5.342761] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_bvector.h:393:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bit_const_iterator std::operator+(std::ptrdiff_t, const std::_Bit_const_iterator&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.343111] (bbb_package) StderrLine: {'line': b'  393 |   \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(ptrdiff_t __n, const _Bit_const_iterator& __x)\n'}
+[5.343412] (bbb_package) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.343669] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_bvector.h:393:23:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<unsigned char>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::ptrdiff_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[5.343938] (bbb_package) StderrLine: {'line': b'  393 |   operator+(\x1b[01;36m\x1b[Kptrdiff_t __n\x1b[m\x1b[K, const _Bit_const_iterator& __x)\n'}
+[5.344220] (bbb_package) StderrLine: {'line': b'      |             \x1b[01;36m\x1b[K~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[5.344513] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:67\x1b[m\x1b[K,\n'}
+[5.344809] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/char_traits.h:39\x1b[m\x1b[K,\n'}
+[5.345099] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ios:40\x1b[m\x1b[K,\n'}
+[5.345417] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/ostream:38\x1b[m\x1b[K,\n'}
+[5.345728] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/iostream:39\x1b[m\x1b[K,\n'}
+[5.346008] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:1\x1b[m\x1b[K:\n'}
+[5.346319] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:993:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Iterator, class _Container> __gnu_cxx::__normal_iterator<_Iterator, _Container> __gnu_cxx::operator+(typename __gnu_cxx::__normal_iterator<_Iterator, _Container>::difference_type, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.346621] (bbb_package) StderrLine: {'line': b'  993 |     \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K+(typename __normal_iterator<_Iterator, _Container>::difference_type\n'}
+[5.346888] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[5.347171] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_iterator.h:993:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[5.347464] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:36:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kconst __gnu_cxx::__normal_iterator<_Iterator, _Container>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.347750] (bbb_package) StderrLine: {'line': b'   36 |                 std::string(buffer, buffer + \x1b[01;36m\x1b[Kdata_size_\x1b[m\x1b[K);\n'}
+[5.348039] (bbb_package) StderrLine: {'line': b'      |                                              \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.364280] (-) TimerEvent: {}
+[5.465240] (-) TimerEvent: {}
+[5.566006] (-) TimerEvent: {}
+[5.666655] (-) TimerEvent: {}
+[5.767301] (-) TimerEvent: {}
+[5.867936] (-) TimerEvent: {}
+[5.968581] (-) TimerEvent: {}
+[6.069238] (-) TimerEvent: {}
+[6.171969] (-) TimerEvent: {}
+[6.272898] (-) TimerEvent: {}
+[6.373850] (-) TimerEvent: {}
+[6.474740] (-) TimerEvent: {}
+[6.575636] (-) TimerEvent: {}
+[6.608226] (bbb_package) StderrLine: {'line': b'make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1\n'}
+[6.609982] (bbb_package) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:136: CMakeFiles/read_IMU.dir/all] Error 2\n'}
+[6.611269] (bbb_package) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[6.614658] (bbb_package) CommandEnded: {'returncode': 2}
+[6.675844] (-) TimerEvent: {}
+[6.777494] (-) TimerEvent: {}
+[6.880773] (-) TimerEvent: {}
+[6.982871] (-) TimerEvent: {}
+[7.084155] (-) TimerEvent: {}
+[7.187784] (-) TimerEvent: {}
+[7.282003] (bbb_package) JobEnded: {'identifier': 'bbb_package', 'rc': 2}
+[7.287836] (-) TimerEvent: {}
+[7.294929] (-) EventReactorShutdown: {}

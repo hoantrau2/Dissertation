@@ -1,0 +1,42 @@
+[0.616s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/home/jetson/bbb_jetson_ws/install/bbb_package:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.750s] [35m[1mScanning dependencies of target read_IMU[0m
+[0.822s] [ 33%] Built target read_host
+[0.824s] [ 66%] Built target read_pico
+[0.850s] [ 83%] [32mBuilding CXX object CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o[0m
+[5.163s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::readSerialData()[m[K’:
+[5.164s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:30:38:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[5.164s]    30 |             if ([01;35m[Kserial_->available() >= data_size_[m[K) {
+[5.164s]       |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[5.172s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[5.172s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[5.173s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[5.173s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[5.173s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[5.174s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[5.174s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[5.174s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[5.175s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[5.175s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[5.175s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:3[m[K:
+[5.176s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:40:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.176s]    40 |             RCLCPP_INFO(get_logger(), "byte 0: %d",[01;31m[Kbuffer[m[K[0]);
+[5.176s]       |                                                    [01;31m[K^~~~~~[m[K
+[5.180s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:41:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.181s]    41 |             RCLCPP_INFO(get_logger(), "byte 1: %d",[01;31m[Kbuffer[m[K[1]);
+[5.181s]       |                                                    [01;31m[K^~~~~~[m[K
+[5.189s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:42:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.189s]    42 |             RCLCPP_INFO(get_logger(), "byte 2: %d",[01;31m[Kbuffer[m[K[2]);
+[5.190s]       |                                                    [01;31m[K^~~~~~[m[K
+[5.197s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:43:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.198s]    43 |             RCLCPP_INFO(get_logger(), "byte 3: %d",[01;31m[Kbuffer[m[K[3]);
+[5.198s]       |                                                    [01;31m[K^~~~~~[m[K
+[5.205s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:44:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.206s]    44 |             RCLCPP_INFO(get_logger(), "byte 4: %d",[01;31m[Kbuffer[m[K[4]);
+[5.206s]       |                                                    [01;31m[K^~~~~~[m[K
+[5.214s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:45:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kbuffer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetbuffer[m[K’?
+[5.214s]    45 |             RCLCPP_INFO(get_logger(), "byte 5: %d",[01;31m[Kbuffer[m[K[5]);
+[5.214s]       |                                                    [01;31m[K^~~~~~[m[K
+[6.517s] make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1
+[6.518s] make[1]: *** [CMakeFiles/Makefile2:136: CMakeFiles/read_IMU.dir/all] Error 2
+[6.519s] make: *** [Makefile:141: all] Error 2
+[6.524s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/home/jetson/bbb_jetson_ws/install/bbb_package:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

@@ -90,6 +90,7 @@ laser_scan_matcher: /opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_cpp.so
 laser_scan_matcher: /opt/ros/foxy/lib/librclcpp.so
 laser_scan_matcher: /home/jetson/bbb_jetson_ws/install/csm/lib/libcsm.so
 laser_scan_matcher: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
+laser_scan_matcher: /home/jetson/bbb_jetson_ws/install/serial/lib/libserial.a
 laser_scan_matcher: /opt/ros/foxy/lib/libsensor_msgs__rosidl_generator_c.so
 laser_scan_matcher: /opt/ros/foxy/lib/libstatic_transform_broadcaster_node.so
 laser_scan_matcher: /opt/ros/foxy/lib/libtf2_ros.so

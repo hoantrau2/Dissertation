@@ -1,0 +1,21 @@
+[35m[1mScanning dependencies of target read_IMU[0m
+[ 33%] Built target read_host
+[ 66%] Built target read_pico
+[ 83%] [32mBuilding CXX object CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o[0m
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::readSerialData()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:43:4:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubdata[m[K’ was not declared in this scope; did you mean ‘[01m[Kdata[m[K’?
+   43 |    [01;31m[Ksubdata[m[K.push_back(roll_str);
+      |    [01;31m[K^~~~~~~[m[K
+      |    [32m[Kdata[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:49:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kroll[m[K’ was not declared in this scope
+   49 |    [01;31m[Kroll[m[K = (std::strtod(subdata[0].c_str(),0))*0.001;
+      |    [01;31m[K^~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:50:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kpitch[m[K’ was not declared in this scope
+   50 |    [01;31m[Kpitch[m[K = (std::strtod(subdata[1].c_str(),0))*0.001;
+      |    [01;31m[K^~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:51:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kyaw[m[K’ was not declared in this scope
+   51 |    [01;31m[Kyaw[m[K = (std::strtod(subdata[2].c_str(),0))*0.001;
+      |    [01;31m[K^~~[m[K
+make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:136: CMakeFiles/read_IMU.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

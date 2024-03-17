@@ -1,7 +1,7 @@
 ----commad with uros-pico
 sudo systemctl restart snapd
 snap interface serial-port
-sudo snap connect micro-xrce-dds-agent:serial-port snapd:pico
+sudo snap connect micro-xrce-dds-agent:serial-port snapd:pico-1
 export ROS_DOMAIN_ID=0
 sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200
 ros2 run teleop_twist_keyboard teleop_twist_keyboard

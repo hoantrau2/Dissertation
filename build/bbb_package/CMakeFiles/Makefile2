@@ -53,7 +53,9 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all:
+all: CMakeFiles/read_host.dir/all
+all: CMakeFiles/read_pico.dir/all
+all: CMakeFiles/read_IMU.dir/all
 
 .PHONY : all
 
@@ -63,10 +65,94 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/read_host.dir/clean
+clean: CMakeFiles/read_pico.dir/clean
+clean: CMakeFiles/read_IMU.dir/clean
 clean: CMakeFiles/bbb_package_uninstall.dir/clean
 clean: CMakeFiles/uninstall.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/read_host.dir
+
+# All Build rule for target.
+CMakeFiles/read_host.dir/all:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/depend
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=3,4 "Built target read_host"
+.PHONY : CMakeFiles/read_host.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/read_host.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/read_host.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/read_host.dir/rule
+
+# Convenience name for target.
+read_host: CMakeFiles/read_host.dir/rule
+
+.PHONY : read_host
+
+# clean rule for target.
+CMakeFiles/read_host.dir/clean:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/clean
+.PHONY : CMakeFiles/read_host.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/read_pico.dir
+
+# All Build rule for target.
+CMakeFiles/read_pico.dir/all:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/depend
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=5,6 "Built target read_pico"
+.PHONY : CMakeFiles/read_pico.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/read_pico.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/read_pico.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/read_pico.dir/rule
+
+# Convenience name for target.
+read_pico: CMakeFiles/read_pico.dir/rule
+
+.PHONY : read_pico
+
+# clean rule for target.
+CMakeFiles/read_pico.dir/clean:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/clean
+.PHONY : CMakeFiles/read_pico.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/read_IMU.dir
+
+# All Build rule for target.
+CMakeFiles/read_IMU.dir/all:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/depend
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=1,2 "Built target read_IMU"
+.PHONY : CMakeFiles/read_IMU.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/read_IMU.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/read_IMU.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/read_IMU.dir/rule
+
+# Convenience name for target.
+read_IMU: CMakeFiles/read_IMU.dir/rule
+
+.PHONY : read_IMU
+
+# clean rule for target.
+CMakeFiles/read_IMU.dir/clean:
+	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/clean
+.PHONY : CMakeFiles/read_IMU.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/bbb_package_uninstall.dir

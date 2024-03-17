@@ -1,0 +1,125 @@
+[0.000000] (-) TimerEvent: {}
+[0.000514] (-) JobUnselected: {'identifier': 'bbb_robot'}
+[0.000634] (-) JobUnselected: {'identifier': 'csm'}
+[0.000736] (-) JobUnselected: {'identifier': 'diffdrive_arduino'}
+[0.000825] (-) JobUnselected: {'identifier': 'ros2_laser_scan_matcher'}
+[0.000898] (-) JobUnselected: {'identifier': 'serial'}
+[0.000980] (bbb_package) JobQueued: {'identifier': 'bbb_package', 'dependencies': OrderedDict([('serial', '/home/jetson/bbb_jetson_ws/install/serial')])}
+[0.001071] (bbb_package) JobStarted: {'identifier': 'bbb_package'}
+[0.109904] (-) TimerEvent: {}
+[0.213623] (-) TimerEvent: {}
+[0.316983] (-) TimerEvent: {}
+[0.418994] (-) TimerEvent: {}
+[0.523994] (-) TimerEvent: {}
+[0.609705] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'cmake'}
+[0.611847] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'build'}
+[0.614190] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/bbb_jetson_ws/build/bbb_package', '--', '-j4', '-l4'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.100.1 34462 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.87.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-49c5a7b7-d407-4f1c-adee-17065e288a3e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '7'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-f51aacce20.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/home/jetson/bbb_jetson_ws/install/bbb_package:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.100.1 34462 192.168.100.2 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/home/jetson/bbb_jetson_ws/install/bbb_package:/opt/ros/foxy')]), 'shell': False}
+[0.624362] (-) TimerEvent: {}
+[0.725341] (-) TimerEvent: {}
+[0.750567] (bbb_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target read_IMU\x1b[0m\n'}
+[0.822648] (bbb_package) StdoutLine: {'line': b'[ 33%] Built target read_host\n'}
+[0.824828] (bbb_package) StdoutLine: {'line': b'[ 66%] Built target read_pico\n'}
+[0.825318] (-) TimerEvent: {}
+[0.850871] (bbb_package) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o\x1b[0m\n'}
+[0.925524] (-) TimerEvent: {}
+[1.026509] (-) TimerEvent: {}
+[1.127229] (-) TimerEvent: {}
+[1.227830] (-) TimerEvent: {}
+[1.328412] (-) TimerEvent: {}
+[1.428998] (-) TimerEvent: {}
+[1.529587] (-) TimerEvent: {}
+[1.630162] (-) TimerEvent: {}
+[1.730747] (-) TimerEvent: {}
+[1.831331] (-) TimerEvent: {}
+[1.931912] (-) TimerEvent: {}
+[2.032501] (-) TimerEvent: {}
+[2.133089] (-) TimerEvent: {}
+[2.233675] (-) TimerEvent: {}
+[2.334286] (-) TimerEvent: {}
+[2.434958] (-) TimerEvent: {}
+[2.535523] (-) TimerEvent: {}
+[2.636106] (-) TimerEvent: {}
+[2.736679] (-) TimerEvent: {}
+[2.837268] (-) TimerEvent: {}
+[2.937856] (-) TimerEvent: {}
+[3.038450] (-) TimerEvent: {}
+[3.139160] (-) TimerEvent: {}
+[3.239762] (-) TimerEvent: {}
+[3.340358] (-) TimerEvent: {}
+[3.440959] (-) TimerEvent: {}
+[3.541568] (-) TimerEvent: {}
+[3.642176] (-) TimerEvent: {}
+[3.742862] (-) TimerEvent: {}
+[3.843458] (-) TimerEvent: {}
+[3.944060] (-) TimerEvent: {}
+[4.044664] (-) TimerEvent: {}
+[4.145272] (-) TimerEvent: {}
+[4.245867] (-) TimerEvent: {}
+[4.346471] (-) TimerEvent: {}
+[4.447132] (-) TimerEvent: {}
+[4.547736] (-) TimerEvent: {}
+[4.648337] (-) TimerEvent: {}
+[4.748935] (-) TimerEvent: {}
+[4.849538] (-) TimerEvent: {}
+[4.950138] (-) TimerEvent: {}
+[5.050782] (-) TimerEvent: {}
+[5.151380] (-) TimerEvent: {}
+[5.163820] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid SerialNode::readSerialData()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.164435] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:30:38:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Ksize_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[5.164780] (bbb_package) StderrLine: {'line': b'   30 |             if (\x1b[01;35m\x1b[Kserial_->available() >= data_size_\x1b[m\x1b[K) {\n'}
+[5.165065] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.172602] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[5.173140] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23\x1b[m\x1b[K,\n'}
+[5.173457] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[5.173754] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[5.174111] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[5.174438] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[5.174886] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[5.175215] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[5.175543] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[5.175847] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[5.176155] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:3\x1b[m\x1b[K:\n'}
+[5.176483] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:40:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.176873] (bbb_package) StderrLine: {'line': b'   40 |             RCLCPP_INFO(get_logger(), "byte 0: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[0]);\n'}
+[5.177309] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.181114] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:41:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.181637] (bbb_package) StderrLine: {'line': b'   41 |             RCLCPP_INFO(get_logger(), "byte 1: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[1]);\n'}
+[5.181946] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.189479] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:42:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.190051] (bbb_package) StderrLine: {'line': b'   42 |             RCLCPP_INFO(get_logger(), "byte 2: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[2]);\n'}
+[5.190386] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.197858] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:43:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.198426] (bbb_package) StderrLine: {'line': b'   43 |             RCLCPP_INFO(get_logger(), "byte 3: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[3]);\n'}
+[5.198855] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.206021] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:44:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.206667] (bbb_package) StderrLine: {'line': b'   44 |             RCLCPP_INFO(get_logger(), "byte 4: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[4]);\n'}
+[5.207045] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.214313] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:45:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbuffer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksetbuffer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[5.214932] (bbb_package) StderrLine: {'line': b'   45 |             RCLCPP_INFO(get_logger(), "byte 5: %d",\x1b[01;31m\x1b[Kbuffer\x1b[m\x1b[K[5]);\n'}
+[5.215297] (bbb_package) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[5.251535] (-) TimerEvent: {}
+[5.352220] (-) TimerEvent: {}
+[5.452868] (-) TimerEvent: {}
+[5.553514] (-) TimerEvent: {}
+[5.654156] (-) TimerEvent: {}
+[5.754788] (-) TimerEvent: {}
+[5.855420] (-) TimerEvent: {}
+[5.956065] (-) TimerEvent: {}
+[6.056763] (-) TimerEvent: {}
+[6.157635] (-) TimerEvent: {}
+[6.258298] (-) TimerEvent: {}
+[6.359000] (-) TimerEvent: {}
+[6.459634] (-) TimerEvent: {}
+[6.516056] (bbb_package) StderrLine: {'line': b'make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1\n'}
+[6.519085] (bbb_package) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:136: CMakeFiles/read_IMU.dir/all] Error 2\n'}
+[6.519701] (bbb_package) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[6.524670] (bbb_package) CommandEnded: {'returncode': 2}
+[6.559919] (-) TimerEvent: {}
+[6.661061] (-) TimerEvent: {}
+[6.766485] (-) TimerEvent: {}
+[6.870324] (-) TimerEvent: {}
+[6.974509] (-) TimerEvent: {}
+[7.077479] (-) TimerEvent: {}
+[7.181211] (-) TimerEvent: {}
+[7.193374] (bbb_package) JobEnded: {'identifier': 'bbb_package', 'rc': 2}
+[7.204910] (-) EventReactorShutdown: {}
