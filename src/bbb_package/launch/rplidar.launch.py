@@ -28,13 +28,9 @@ def generate_launch_description():
         Node(
             package='tf2_ros', 
             executable='static_transform_publisher', 
-            arguments=["0", "0", "0.5", "0", "0", "0", "base_footprint", "base_link"]
+            arguments=["0", "0", "0.5", "0", "0", "0", "base_footprint", "lidar"]
         ),
-        Node(
-            package='tf2_ros', 
-            executable='static_transform_publisher', 
-            arguments=["0", "0", "0.5", "0", "0", "0", "base_link", "lidar"]
-        ),
+
     ])
 
     #ros2 launch bbb_package rplidar.launch.py
