@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 
 # The main recursive "all" target.
 all: CMakeFiles/read_host.dir/all
+all: CMakeFiles/read_lidar.dir/all
 all: CMakeFiles/read_pico.dir/all
 all: CMakeFiles/read_IMU.dir/all
 
@@ -66,6 +67,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/read_host.dir/clean
+clean: CMakeFiles/read_lidar.dir/clean
 clean: CMakeFiles/read_pico.dir/clean
 clean: CMakeFiles/read_IMU.dir/clean
 clean: CMakeFiles/bbb_package_uninstall.dir/clean
@@ -101,13 +103,40 @@ CMakeFiles/read_host.dir/clean:
 .PHONY : CMakeFiles/read_host.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/read_lidar.dir
+
+# All Build rule for target.
+CMakeFiles/read_lidar.dir/all:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/depend
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=5,6 "Built target read_lidar"
+.PHONY : CMakeFiles/read_lidar.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/read_lidar.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/read_lidar.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/read_lidar.dir/rule
+
+# Convenience name for target.
+read_lidar: CMakeFiles/read_lidar.dir/rule
+
+.PHONY : read_lidar
+
+# clean rule for target.
+CMakeFiles/read_lidar.dir/clean:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/clean
+.PHONY : CMakeFiles/read_lidar.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/read_pico.dir
 
 # All Build rule for target.
 CMakeFiles/read_pico.dir/all:
 	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/depend
 	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=5,6 "Built target read_pico"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=7,8 "Built target read_pico"
 .PHONY : CMakeFiles/read_pico.dir/all
 
 # Build rule for subdir invocation for target.

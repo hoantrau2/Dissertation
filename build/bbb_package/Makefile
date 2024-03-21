@@ -181,6 +181,19 @@ read_host/fast:
 .PHONY : read_host/fast
 
 #=============================================================================
+# Target rules for targets named read_lidar
+
+# Build rule for target.
+read_lidar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_lidar
+.PHONY : read_lidar
+
+# fast build rule for target.
+read_lidar/fast:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/build
+.PHONY : read_lidar/fast
+
+#=============================================================================
 # Target rules for targets named read_pico
 
 # Build rule for target.
@@ -286,6 +299,33 @@ src/read_host.cpp.s:
 	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.s
 .PHONY : src/read_host.cpp.s
 
+src/read_lidar.o: src/read_lidar.cpp.o
+
+.PHONY : src/read_lidar.o
+
+# target to build an object file
+src/read_lidar.cpp.o:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/src/read_lidar.cpp.o
+.PHONY : src/read_lidar.cpp.o
+
+src/read_lidar.i: src/read_lidar.cpp.i
+
+.PHONY : src/read_lidar.i
+
+# target to preprocess a source file
+src/read_lidar.cpp.i:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/src/read_lidar.cpp.i
+.PHONY : src/read_lidar.cpp.i
+
+src/read_lidar.s: src/read_lidar.cpp.s
+
+.PHONY : src/read_lidar.s
+
+# target to generate assembly for a file
+src/read_lidar.cpp.s:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/src/read_lidar.cpp.s
+.PHONY : src/read_lidar.cpp.s
+
 src/read_pico.o: src/read_pico.cpp.o
 
 .PHONY : src/read_pico.o
@@ -324,6 +364,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... read_host"
+	@echo "... read_lidar"
 	@echo "... read_pico"
 	@echo "... read_IMU"
 	@echo "... install"
@@ -337,6 +378,9 @@ help:
 	@echo "... src/read_host.o"
 	@echo "... src/read_host.i"
 	@echo "... src/read_host.s"
+	@echo "... src/read_lidar.o"
+	@echo "... src/read_lidar.i"
+	@echo "... src/read_lidar.s"
 	@echo "... src/read_pico.o"
 	@echo "... src/read_pico.i"
 	@echo "... src/read_pico.s"

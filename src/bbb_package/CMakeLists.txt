@@ -21,12 +21,20 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(serial REQUIRED)
+find_package(tf2_msgs REQUIRED)
+
 add_executable(read_IMU src/read_IMU.cpp)
 ament_target_dependencies(read_IMU rclcpp std_msgs geometry_msgs serial)
+
 add_executable(read_pico src/read_pico.cpp)
 ament_target_dependencies(read_pico rclcpp std_msgs geometry_msgs)
+
 add_executable(read_host src/read_host.cpp)
 ament_target_dependencies(read_host rclcpp std_msgs geometry_msgs)
+
+add_executable(read_lidar src/read_lidar.cpp)
+ament_target_dependencies(read_lidar rclcpp std_msgs tf2_msgs)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -36,6 +44,7 @@ install(TARGETS
   read_IMU
   read_pico
   read_host
+  read_lidar
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY
