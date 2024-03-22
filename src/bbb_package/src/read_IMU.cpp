@@ -55,8 +55,6 @@ private:
 
 
 			subdata.clear(); // Clear subdata
-            
-        
             }
 
 
