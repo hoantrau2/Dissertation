@@ -110,5 +110,6 @@ float run_fuzzy(float x1, float x2) {
   sum_beta = u_dot.NB + u_dot.NM + u_dot.NS + u_dot.ZE + u_dot.PS + u_dot.PM + u_dot.PB;
   sum_beta_y = -0.95 * u_dot.NB + -0.8 * u_dot.NM + -0.4 * u_dot.NS + 0 * u_dot.ZE + 0.4 * u_dot.PS + 0.8 * u_dot.PM + 0.95 * u_dot.PB;
   out = sum_beta_y / sum_beta;
+  
   return out;
 }
