@@ -1,4 +1,4 @@
-// Padded and checksummed version of: F:/Project/Dissertation/Firmware/bbb_firmware/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /media/nvhmh/New_volume/Project/Dissertation/Firmware/bbb_firmware/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

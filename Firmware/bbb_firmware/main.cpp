@@ -1,5 +1,6 @@
+#define TEST_FUZZY
 
-
+#ifdef u_ROS
 #include "battery/battery.h"
 #include "buzzer/buzzer.h"
 #include "encoder/encoder.h"
@@ -13,30 +14,25 @@
 #include "uart_display/uart_display.h"
 #include "velocity_converter/velocity_converter.h"
 
+// Initialize NodeComponents structure
+NodeComponents node_components;
+// Initialize Node
+rcl_node_t node;
+// Create executor
+rclc_executor_t executor;
 
-  // Initialize NodeComponents structure
-  NodeComponents node_components;
-  // Initialize Node
-  rcl_node_t node;
-  // Create executor
-  rclc_executor_t executor;
+Event_motor_t motor_t;
 
-  Event_motor_t motor_t;
-  
-void subscription_callback(const void *msgin)
-{
-
-    const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
-      motor_t.v = msg->linear.x;
-      motor_t.w = msg->angular.z;
-    rcl_publish(&node_components.publisher, msg, NULL);
+void subscription_callback(const void *msgin) {
+  const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
+  motor_t.v = msg->linear.x;
+  motor_t.w = msg->angular.z;
+  rcl_publish(&node_components.publisher, msg, NULL);
 }
 
-int main()
-{
-
-   init_ros_comm (&node_components, &node, &executor);
-    rclc_executor_add_subscription(&executor, &node_components.subscription, &node_components.msg, &subscription_callback, ON_NEW_DATA);
+int main() {
+  init_ros_comm(&node_components, &node, &executor);
+  rclc_executor_add_subscription(&executor, &node_components.subscription, &node_components.msg, &subscription_callback, ON_NEW_DATA);
 
   pwm_init();
   encoder_init();
@@ -48,37 +44,18 @@ int main()
   struct repeating_timer timer;
   HandleEvent_Init(&timer);
   int ib_motor = HandleEvent_RegisterEvent(&control_motor, &motor_t, SAMPLE_TIME);
-  
-    // Main loop
-    while (true)
-    {
-   
-        // Spin the executor to handle subscriptions
-        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
-    }
 
-   clean_up (&node_components, &node);
+  // Main loop
+  while (true) {
+    // Spin the executor to handle subscriptions
+    rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));
+  }
 
-    return 0;
+  clean_up(&node_components, &node);
+
+  return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#endif
 
 #ifdef HIEN
 #include "battery/battery.h"
@@ -94,18 +71,6 @@ int main()
 #include "uart_display/uart_display.h"
 #include "velocity_converter/velocity_converter.h"
 
-// using namespace bbb::uros;
-// void core1_entry() {
-//   RosComm ros_comm;
-//   ros_comm.ProcessLoop();
-//   while (1) {
-//     ros_comm.ProcessLoop();
-//   }
-// }
-
-
-
-
 // Timer interupt-- -- -- -- -- -- -- -- -- -- --
 // uint flag_ms = 0;
 // bool repeating_timer_callback(struct repeating_timer *t) {
@@ -114,31 +79,23 @@ int main()
 // }
 
 int main() {
-  // stdio_init_all();
-  // multicore_launch_core1(core1_entry);
-
-  // float result_tmp;
-  // Cnt_t cnt_tempt_t;
-
   Event_motor_t motor_t;
   motor_t.v = 0;
   motor_t.w = -1;
 
-  Event_battery_t bat_control_t;
-  bat_control_t.config_bat = BatteryVoltControl;
-  Event_battery_t bat_motor_t;
-  bat_control_t.config_bat = BatteryVoltMotor;
+  // Event_battery_t bat_control_t;
+  // bat_control_t.config_bat = BatteryVoltControl;
+  // Event_battery_t bat_motor_t;
+  // bat_control_t.config_bat = BatteryVoltMotor;
 
   pwm_init();
   encoder_init();
-  // uart_init_h();
   buzzer_init();
   init_pid(&motor_t.pids_t.PID_M1_t, KP_1, KI_1, KD_1);
   init_pid(&motor_t.pids_t.PID_M2_t, KP_2, KI_2, KD_2);
   init_pid(&motor_t.pids_t.PID_M3_t, KP_3, KI_3, KD_3);
   init_pid(&motor_t.pids_t.PID_M4_t, KP_4, KI_4, KD_4);
   reset_cnt(&motor_t.cnt_t);
-  // reset_cnt(&cnt_tempt_t);
 
   // Timer interupt-- -- -- -- -- -- -- -- -- -- -
   struct repeating_timer timer;
@@ -154,11 +111,12 @@ int main() {
 
   gpio_init(PICO_DEFAULT_LED_PIN);
   gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
+
   while (true) {
     gpio_put(PICO_DEFAULT_LED_PIN, 1);
-        sleep_ms(250);
-        gpio_put(PICO_DEFAULT_LED_PIN, 0);
-        sleep_ms(250);
+    sleep_ms(250);
+    gpio_put(PICO_DEFAULT_LED_PIN, 0);
+    sleep_ms(250);
     // if (flag_ms == 1) {
     //   flag_ms = 0;
     // sprintf(buff, "%f", bat_control_t.v_bat);
@@ -213,5 +171,34 @@ int main() {
     // uart_puts(UART_ID, "=====================\r\n");
     // }
   }
+}
+#endif
+
+#ifdef TEST_FILE
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main() {
+  string food = "lemon";
+  // cout << "hello";
+  // cin >> food;
+
+  ofstream file("/media/nvhmh/New_volume/Project/Dissertation/Firmware/bbb_firmware/log.txt");
+  file << food;
+  if (!file) {
+    // The file stream could not be opened
+    std::cerr << "Error: Could not open log.txt for writing." << std::endl;
+  }
+  // file.close();
+}
+#endif
+
+#ifdef TEST_FUZZY
+#include "fuzzy_controller/fuzzy_controller.h"
+#include <iostream>
+int main() {
+  std::cout<<"hello";
 }
 #endif

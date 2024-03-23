@@ -1,0 +1,59 @@
+[System]
+Name='PI_Fuzzy'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='e'
+Range=[-1 1]
+NumMFs=5
+MF1='NS':'trimf',[-0.22 -0.11 0.001]
+MF2='ZE':'trimf',[-0.11 0 0.11]
+MF3='PS':'trimf',[0.001 0.11 0.22]
+MF4='NB':'trapmf',[-2 -1 -0.22 -0.17]
+MF5='PB':'trapmf',[0.17 0.22 1 2]
+
+[Input2]
+Name='e_dot'
+Range=[-1 1]
+NumMFs=3
+MF1='NE':'trapmf',[-2 -1 -0.22 -0.17]
+MF2='ZE':'trimf',[-0.4 0 0.4]
+MF3='PO':'trapmf',[0.17 0.22 1 2]
+
+[Output1]
+Name='u_dot'
+Range=[0 1]
+NumMFs=7
+MF1='NB':'constant',[-0.95]
+MF2='NM':'constant',[-0.8]
+MF3='NS':'constant',[-0.4]
+MF4='ZE':'constant',[0]
+MF5='PS':'constant',[0.4]
+MF6='PM':'constant',[0.8]
+MF7='PB':'constant',[0.95]
+
+[Rules]
+4 1, 1 (1) : 1
+4 2, 2 (1) : 1
+4 3, 3 (1) : 1
+1 1, 2 (1) : 1
+1 2, 3 (1) : 1
+1 3, 4 (1) : 1
+2 1, 3 (1) : 1
+2 2, 4 (1) : 1
+2 3, 5 (1) : 1
+3 1, 4 (1) : 1
+3 2, 5 (1) : 1
+3 3, 6 (1) : 1
+5 1, 5 (1) : 1
+5 2, 6 (1) : 1
+5 3, 7 (1) : 1

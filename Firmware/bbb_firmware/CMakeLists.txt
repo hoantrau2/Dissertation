@@ -15,6 +15,9 @@ pico_sdk_init()
 # ROS library
 link_directories(${CMAKE_SOURCE_DIR}/pico/micro_ros_raspberrypi_pico_sdk/libmicroros)
 
+# Serial libary
+# find_package(serial REQUIRED)
+
 # Add modules
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/battery)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/buzzer)
@@ -25,6 +28,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/src/ros_comm)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/scheduler)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/state_machine)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/speed_controller)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/fuzzy_controller)
 
 list(APPEND BBB_MODULE_LIST 
 bbb_battery
@@ -37,6 +41,8 @@ microros
 bbb_scheduler
 bbb_state_machine
 bbb_speed_controller
+bbb_fuzzy_controller
+
 )
 
 list(APPEND BBB_MODULE_HEADER_LIST 
@@ -51,12 +57,16 @@ list(APPEND BBB_MODULE_HEADER_LIST
   ${CMAKE_SOURCE_DIR}/src/scheduler/include
   ${CMAKE_SOURCE_DIR}/src/state_machine/include
   ${CMAKE_SOURCE_DIR}/src/speed_controller/include
+  ${CMAKE_SOURCE_DIR}/src/fuzzy_controller/include
 )
 
 # Tell CMake where to find the executable source file
 add_executable(${PROJECT_NAME} 
   main.cpp
 )
+# if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+#   target_compile_options(bbbfw PRIVATE -fexceptions)
+# endif()
 
 # Create map/bin/hex/uf2 files
 pico_add_extra_outputs(${PROJECT_NAME})
