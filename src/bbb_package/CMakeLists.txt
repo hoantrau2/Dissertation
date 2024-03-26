@@ -27,6 +27,8 @@ add_executable(read_pico src/read_pico.cpp)
 ament_target_dependencies(read_pico rclcpp std_msgs geometry_msgs)
 add_executable(read_host src/read_host.cpp)
 ament_target_dependencies(read_host rclcpp std_msgs geometry_msgs)
+add_executable(pico_node src/pico_node.cpp)
+ament_target_dependencies(pico_node rclcpp std_msgs)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -36,6 +38,7 @@ install(TARGETS
   read_IMU
   read_pico
   read_host
+  pico_node
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

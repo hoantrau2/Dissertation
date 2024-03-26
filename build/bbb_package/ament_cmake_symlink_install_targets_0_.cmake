@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jetson/bbb_jetson_ws/build/bbb_package/read_IMU" "/home/jetson/bbb_jetson_ws/build/bbb_package/read_pico" "/home/jetson/bbb_jetson_ws/build/bbb_package/read_host" "TARGETS" "read_IMU" "read_pico" "read_host" "DESTINATION" "lib/bbb_package/")
