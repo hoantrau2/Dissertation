@@ -24,7 +24,7 @@ find_package(serial REQUIRED)
 find_package(tf2_msgs REQUIRED)
 
 add_executable(read_IMU src/read_IMU.cpp)
-ament_target_dependencies(read_IMU rclcpp std_msgs geometry_msgs serial)
+ament_target_dependencies(read_IMU rclcpp std_msgs serial)
 
 add_executable(read_pico src/read_pico.cpp)
 ament_target_dependencies(read_pico rclcpp std_msgs geometry_msgs)
