@@ -11,6 +11,8 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
     # ros2 launch slam_toolbox online_async_launch.py params_file:=./src/bbb_robot/config/mapper_params_online_async.yaml use_sim_time:=false
     # ros2 run tf2_tools view_frames
     # export ROS_DOMAIN_ID=0
+        # ros2 run tf2_tools view_frames
+    #colcon build --packages-select bbb_package
 
     #ls /dev/serial/by
     #https://answers.ros.org/question/372752/static_transform_publisher-in-ros2-launch-file/
