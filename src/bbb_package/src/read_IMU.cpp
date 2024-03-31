@@ -1,6 +1,6 @@
 /**
  * @file read_IMU.cpp
- * @author Hoan Duong & Hien Nguyen
+ * @author Hoan Duong
  * @brief the IMU_node of my thesis at my university, Ho Chi Minh University of
  * Technology.
  * @version 1

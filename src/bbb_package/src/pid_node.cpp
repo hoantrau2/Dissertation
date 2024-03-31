@@ -1,7 +1,7 @@
 /**
  * @file pid_node.cpp
  * @author Hoan Duong
- * @brief the pid_node of my thesis at my university, Ho Chi Minh University of
+ * @brief the pid node of my thesis at my university, Ho Chi Minh University of
  * Technology.
  * @version 1
  * @date 2024-03-27
@@ -44,6 +44,7 @@ class MotorController {
       pid_controllers.push_back(pid);
     }
   }
+
   // Method to update motor speeds based on setpoints and current values
   std::vector<double> updateMotors(const std::vector<double> &setpoints, const std::vector<double> &currentValues) {
     std::vector<double> outputs;
@@ -52,11 +53,13 @@ class MotorController {
     }
     return outputs;
   }
+
  private:
   // Define PID parameters for each motor
   const double Kp[4] = {0.2, 0.2, 0.2, 0.2};
   const double Ki[4] = {0.7, 0.7, 0.7, 0.7};
   const double Kd[4] = {0.0, 0.0, 0.0, 0.0};
+
   // Vector to store PID controllers for each motor
   std::vector<PID_t> pid_controllers;
 };
@@ -81,27 +84,28 @@ double PID_controller(double sp, double pv, PID_t *pid) {
 
   return uk;
 }
+
 // Function to initialize PID controller parameters
 void init_pid(PID_t *pid, double kp, double ki, double kd) {
   pid->Kp = kp;
   pid->Ki = ki;
   pid->Kd = kd;
-  pid->uk_1 = 0.0;
-  pid->ek_1 = 0.0;
-  pid->ek_2 = 0.0;
+  pid->uk_1 = 0;
+  pid->ek_1 = 0;
+  pid->ek_2 = 0;
 }
 
 class PIDNode : public rclcpp::Node {
  public:
   PIDNode()
-    : Node("pid_node"), currentValues({0.0, 0.0, 0.0, 0.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
+    : Node("pid_node"), currentValues({4.0, 4.0, 4.0, 4.0}), setPoints({12.3, 14.3, 19.3, 30.3}) {
     subscription_actual_angle_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-      "/actual_angle", 3, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
+      "/actual_angle", 10, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
 
     subscription_velocity_fuzzy_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-      "/velocity_fuzzy", 3, std::bind(&PIDNode::velocity_fuzzy_callback, this, std::placeholders::_1));
+      "/velocity_fuzzy", 10, std::bind(&PIDNode::velocity_fuzzy_callback, this, std::placeholders::_1));
 
-    publisher_desired_angle_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/desired_angle", 3);
+    publisher_desired_angle_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/desired_angle", 10);
 
     timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&PIDNode::timer_callback, this)); // use create_wall_timer to timer 500ms
   }
@@ -115,8 +119,8 @@ class PIDNode : public rclcpp::Node {
     for (size_t i = 0; i < 4; ++i) {
       message.data[i] = desiredAngles[i];
     }
-    RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
     message.layout.data_offset = 111;
+     RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
     publisher_desired_angle_->publish(message);
   }
 
@@ -127,9 +131,8 @@ class PIDNode : public rclcpp::Node {
       for (size_t i = 0; i < 4; ++i) {
         currentValues[i] = msg->data[i];
       }
-    RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
-    } 
-    else {
+       RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+    } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
   }
@@ -139,12 +142,12 @@ class PIDNode : public rclcpp::Node {
     // Handle fuzzy velocity data
     RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
-      RCLCPP_INFO(this->get_logger(), " Received fuzzy velocity %lf   %lf ", msg->data[0], msg->data[1]);
-      setPoints[0] = setPoints[1] = msg->data[0] / RADIUS; // Vlef/R
-      setPoints[2] = setPoints[3] = msg->data[1] / RADIUS; // Vright/R
+      setPoints[0] = setPoints[1] = msg->data[0]; // Vlef/R
+      setPoints[2] = setPoints[3] = msg->data[1]; // Vright/R
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
+     RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf ", setPoints[1], setPoints[2]);
   }
   std::vector<double> currentValues;
   std::vector<double> setPoints;
@@ -160,5 +163,3 @@ int main(int argc, char *argv[]) {
   rclcpp::shutdown();
   return 0;
 }
-
-

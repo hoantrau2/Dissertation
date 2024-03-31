@@ -1,6 +1,6 @@
 /**
  * @file fuzzy_node_test.cpp
- * @author Hoan Duong & Hien Nguyen
+ * @author Hoan Duong
  * @brief the pid_node of my thesis at my university, Ho Chi Minh University of
  * Technology.
  * @version 1
