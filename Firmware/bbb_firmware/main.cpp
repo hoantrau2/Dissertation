@@ -241,7 +241,7 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
   angular_velocity_motor.data.data =
       (double *)malloc(angular_velocity_motor.data.capacity * sizeof(double));
   
-  reset_cnt(&motor_t.cnt_t);
+  
   angular_velocity_motor.data.data[0] = read_enc(M1_SM, &motor_t.cnt_t.cnt1);
   angular_velocity_motor.data.data[1] = read_enc(M2_SM, &motor_t.cnt_t.cnt2);
   angular_velocity_motor.data.data[2] = read_enc(M3_SM, &motor_t.cnt_t.cnt3);
@@ -254,9 +254,9 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
 void subscription_callback(const void *msgin) {
   const std_msgs__msg__Float64MultiArray *msg =
       (const std_msgs__msg__Float64MultiArray *)msgin;
-  if (msg->layout.data_offset == 333) {
+  if (msg->layout.data_offset == 111) {
 
-   
+
     if ( msg->data.data[0] >= 0) {
       motor_run(MOTOR_1, FORWARD,  msg->data.data[0]);
     } else {
@@ -299,8 +299,10 @@ void cleanup() {
 
 int main() {
   stdio_init_all();
-   pwm_init();
-   encoder_init();
+  pwm_init();
+  encoder_init();
+  reset_cnt(&motor_t.cnt_t);
+
   // Set up Micro-ROS serial transport
   rmw_uros_set_custom_transport(
       true, NULL, pico_serial_transport_open, pico_serial_transport_close,
