@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -92,27 +80,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -134,6 +101,39 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -270,6 +270,112 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named straight_line_node
+
+# Build rule for target.
+straight_line_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 straight_line_node
+.PHONY : straight_line_node
+
+# fast build rule for target.
+straight_line_node/fast:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
+.PHONY : straight_line_node/fast
+
+#=============================================================================
+# Target rules for targets named fuzzy_node
+
+# Build rule for target.
+fuzzy_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fuzzy_node
+.PHONY : fuzzy_node
+
+# fast build rule for target.
+fuzzy_node/fast:
+	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/build
+.PHONY : fuzzy_node/fast
+
+#=============================================================================
+# Target rules for targets named sinusoidal_node
+
+# Build rule for target.
+sinusoidal_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sinusoidal_node
+.PHONY : sinusoidal_node
+
+# fast build rule for target.
+sinusoidal_node/fast:
+	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/build
+.PHONY : sinusoidal_node/fast
+
+#=============================================================================
+# Target rules for targets named circumference_node
+
+# Build rule for target.
+circumference_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 circumference_node
+.PHONY : circumference_node
+
+# fast build rule for target.
+circumference_node/fast:
+	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/build
+.PHONY : circumference_node/fast
+
+src/circumference_node.o: src/circumference_node.cpp.o
+
+.PHONY : src/circumference_node.o
+
+# target to build an object file
+src/circumference_node.cpp.o:
+	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/src/circumference_node.cpp.o
+.PHONY : src/circumference_node.cpp.o
+
+src/circumference_node.i: src/circumference_node.cpp.i
+
+.PHONY : src/circumference_node.i
+
+# target to preprocess a source file
+src/circumference_node.cpp.i:
+	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/src/circumference_node.cpp.i
+.PHONY : src/circumference_node.cpp.i
+
+src/circumference_node.s: src/circumference_node.cpp.s
+
+.PHONY : src/circumference_node.s
+
+# target to generate assembly for a file
+src/circumference_node.cpp.s:
+	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/src/circumference_node.cpp.s
+.PHONY : src/circumference_node.cpp.s
+
+src/fuzzy_node.o: src/fuzzy_node.cpp.o
+
+.PHONY : src/fuzzy_node.o
+
+# target to build an object file
+src/fuzzy_node.cpp.o:
+	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.o
+.PHONY : src/fuzzy_node.cpp.o
+
+src/fuzzy_node.i: src/fuzzy_node.cpp.i
+
+.PHONY : src/fuzzy_node.i
+
+# target to preprocess a source file
+src/fuzzy_node.cpp.i:
+	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.i
+.PHONY : src/fuzzy_node.cpp.i
+
+src/fuzzy_node.s: src/fuzzy_node.cpp.s
+
+.PHONY : src/fuzzy_node.s
+
+# target to generate assembly for a file
+src/fuzzy_node.cpp.s:
+	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.s
+.PHONY : src/fuzzy_node.cpp.s
 
 src/fuzzy_node_test.o: src/fuzzy_node_test.cpp.o
 
@@ -433,16 +539,71 @@ src/read_pico.cpp.s:
 	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.s
 .PHONY : src/read_pico.cpp.s
 
+src/sinusoidal_node.o: src/sinusoidal_node.cpp.o
+
+.PHONY : src/sinusoidal_node.o
+
+# target to build an object file
+src/sinusoidal_node.cpp.o:
+	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/src/sinusoidal_node.cpp.o
+.PHONY : src/sinusoidal_node.cpp.o
+
+src/sinusoidal_node.i: src/sinusoidal_node.cpp.i
+
+.PHONY : src/sinusoidal_node.i
+
+# target to preprocess a source file
+src/sinusoidal_node.cpp.i:
+	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/src/sinusoidal_node.cpp.i
+.PHONY : src/sinusoidal_node.cpp.i
+
+src/sinusoidal_node.s: src/sinusoidal_node.cpp.s
+
+.PHONY : src/sinusoidal_node.s
+
+# target to generate assembly for a file
+src/sinusoidal_node.cpp.s:
+	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/src/sinusoidal_node.cpp.s
+.PHONY : src/sinusoidal_node.cpp.s
+
+src/straight_line_node.o: src/straight_line_node.cpp.o
+
+.PHONY : src/straight_line_node.o
+
+# target to build an object file
+src/straight_line_node.cpp.o:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/src/straight_line_node.cpp.o
+.PHONY : src/straight_line_node.cpp.o
+
+src/straight_line_node.i: src/straight_line_node.cpp.i
+
+.PHONY : src/straight_line_node.i
+
+# target to preprocess a source file
+src/straight_line_node.cpp.i:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/src/straight_line_node.cpp.i
+.PHONY : src/straight_line_node.cpp.i
+
+src/straight_line_node.s: src/straight_line_node.cpp.s
+
+.PHONY : src/straight_line_node.s
+
+# target to generate assembly for a file
+src/straight_line_node.cpp.s:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/src/straight_line_node.cpp.s
+.PHONY : src/straight_line_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... bbb_package_uninstall"
 	@echo "... install"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... bbb_package_uninstall"
 	@echo "... list_install_components"
 	@echo "... read_IMU"
 	@echo "... read_pico"
@@ -451,9 +612,18 @@ help:
 	@echo "... pid_node"
 	@echo "... fuzzy_node_test"
 	@echo "... uninstall"
+	@echo "... straight_line_node"
 	@echo "... test"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
+	@echo "... fuzzy_node"
+	@echo "... install/strip"
+	@echo "... sinusoidal_node"
+	@echo "... circumference_node"
+	@echo "... src/circumference_node.o"
+	@echo "... src/circumference_node.i"
+	@echo "... src/circumference_node.s"
+	@echo "... src/fuzzy_node.o"
+	@echo "... src/fuzzy_node.i"
+	@echo "... src/fuzzy_node.s"
 	@echo "... src/fuzzy_node_test.o"
 	@echo "... src/fuzzy_node_test.i"
 	@echo "... src/fuzzy_node_test.s"
@@ -472,6 +642,12 @@ help:
 	@echo "... src/read_pico.o"
 	@echo "... src/read_pico.i"
 	@echo "... src/read_pico.s"
+	@echo "... src/sinusoidal_node.o"
+	@echo "... src/sinusoidal_node.i"
+	@echo "... src/sinusoidal_node.s"
+	@echo "... src/straight_line_node.o"
+	@echo "... src/straight_line_node.i"
+	@echo "... src/straight_line_node.s"
 .PHONY : help
 
 

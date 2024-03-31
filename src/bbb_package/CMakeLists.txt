@@ -41,6 +41,18 @@ ament_target_dependencies(pid_node rclcpp std_msgs)
 add_executable(fuzzy_node_test src/fuzzy_node_test.cpp)
 ament_target_dependencies(fuzzy_node_test rclcpp std_msgs)
 
+add_executable(fuzzy_node src/fuzzy_node.cpp)
+ament_target_dependencies(fuzzy_node rclcpp std_msgs)
+
+add_executable(straight_line_node src/straight_line_node.cpp)
+ament_target_dependencies(straight_line_node rclcpp std_msgs)
+
+add_executable(circumference_node src/circumference_node.cpp)
+ament_target_dependencies(circumference_node rclcpp std_msgs)
+
+add_executable(sinusoidal_node src/sinusoidal_node.cpp)
+ament_target_dependencies(sinusoidal_node rclcpp std_msgs)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -52,6 +64,10 @@ install(TARGETS
   read_lidar
   fuzzy_node_test
   pid_node
+  fuzzy_node
+  straight_line_node
+  circumference_node
+  sinusoidal_node
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY
