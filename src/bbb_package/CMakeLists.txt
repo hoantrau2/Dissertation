@@ -35,16 +35,23 @@ ament_target_dependencies(read_host rclcpp std_msgs geometry_msgs)
 add_executable(read_lidar src/read_lidar.cpp)
 ament_target_dependencies(read_lidar rclcpp std_msgs tf2_msgs)
 
+add_executable(pid_node src/pid_node.cpp)
+ament_target_dependencies(pid_node rclcpp std_msgs)
+
+add_executable(fuzzy_node_test src/fuzzy_node_test.cpp)
+ament_target_dependencies(fuzzy_node_test rclcpp std_msgs)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-
 
 install(TARGETS
   read_IMU
   read_pico
   read_host
   read_lidar
+  fuzzy_node_test
+  pid_node
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

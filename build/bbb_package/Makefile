@@ -80,28 +80,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -124,6 +102,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -134,6 +123,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,43 +168,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named read_host
+# Target rules for targets named bbb_package_uninstall
 
 # Build rule for target.
-read_host: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 read_host
-.PHONY : read_host
+bbb_package_uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bbb_package_uninstall
+.PHONY : bbb_package_uninstall
 
 # fast build rule for target.
-read_host/fast:
-	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/build
-.PHONY : read_host/fast
-
-#=============================================================================
-# Target rules for targets named read_lidar
-
-# Build rule for target.
-read_lidar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 read_lidar
-.PHONY : read_lidar
-
-# fast build rule for target.
-read_lidar/fast:
-	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/build
-.PHONY : read_lidar/fast
-
-#=============================================================================
-# Target rules for targets named read_pico
-
-# Build rule for target.
-read_pico: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 read_pico
-.PHONY : read_pico
-
-# fast build rule for target.
-read_pico/fast:
-	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
-.PHONY : read_pico/fast
+bbb_package_uninstall/fast:
+	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
+.PHONY : bbb_package_uninstall/fast
 
 #=============================================================================
 # Target rules for targets named read_IMU
@@ -220,17 +194,69 @@ read_IMU/fast:
 .PHONY : read_IMU/fast
 
 #=============================================================================
-# Target rules for targets named bbb_package_uninstall
+# Target rules for targets named read_pico
 
 # Build rule for target.
-bbb_package_uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bbb_package_uninstall
-.PHONY : bbb_package_uninstall
+read_pico: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_pico
+.PHONY : read_pico
 
 # fast build rule for target.
-bbb_package_uninstall/fast:
-	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
-.PHONY : bbb_package_uninstall/fast
+read_pico/fast:
+	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
+.PHONY : read_pico/fast
+
+#=============================================================================
+# Target rules for targets named read_lidar
+
+# Build rule for target.
+read_lidar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_lidar
+.PHONY : read_lidar
+
+# fast build rule for target.
+read_lidar/fast:
+	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/build
+.PHONY : read_lidar/fast
+
+#=============================================================================
+# Target rules for targets named read_host
+
+# Build rule for target.
+read_host: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 read_host
+.PHONY : read_host
+
+# fast build rule for target.
+read_host/fast:
+	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/build
+.PHONY : read_host/fast
+
+#=============================================================================
+# Target rules for targets named pid_node
+
+# Build rule for target.
+pid_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pid_node
+.PHONY : pid_node
+
+# fast build rule for target.
+pid_node/fast:
+	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/build
+.PHONY : pid_node/fast
+
+#=============================================================================
+# Target rules for targets named fuzzy_node_test
+
+# Build rule for target.
+fuzzy_node_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fuzzy_node_test
+.PHONY : fuzzy_node_test
+
+# fast build rule for target.
+fuzzy_node_test/fast:
+	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/build
+.PHONY : fuzzy_node_test/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -244,6 +270,60 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+src/fuzzy_node_test.o: src/fuzzy_node_test.cpp.o
+
+.PHONY : src/fuzzy_node_test.o
+
+# target to build an object file
+src/fuzzy_node_test.cpp.o:
+	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o
+.PHONY : src/fuzzy_node_test.cpp.o
+
+src/fuzzy_node_test.i: src/fuzzy_node_test.cpp.i
+
+.PHONY : src/fuzzy_node_test.i
+
+# target to preprocess a source file
+src/fuzzy_node_test.cpp.i:
+	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.i
+.PHONY : src/fuzzy_node_test.cpp.i
+
+src/fuzzy_node_test.s: src/fuzzy_node_test.cpp.s
+
+.PHONY : src/fuzzy_node_test.s
+
+# target to generate assembly for a file
+src/fuzzy_node_test.cpp.s:
+	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.s
+.PHONY : src/fuzzy_node_test.cpp.s
+
+src/pid_node.o: src/pid_node.cpp.o
+
+.PHONY : src/pid_node.o
+
+# target to build an object file
+src/pid_node.cpp.o:
+	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/src/pid_node.cpp.o
+.PHONY : src/pid_node.cpp.o
+
+src/pid_node.i: src/pid_node.cpp.i
+
+.PHONY : src/pid_node.i
+
+# target to preprocess a source file
+src/pid_node.cpp.i:
+	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/src/pid_node.cpp.i
+.PHONY : src/pid_node.cpp.i
+
+src/pid_node.s: src/pid_node.cpp.s
+
+.PHONY : src/pid_node.s
+
+# target to generate assembly for a file
+src/pid_node.cpp.s:
+	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/src/pid_node.cpp.s
+.PHONY : src/pid_node.cpp.s
 
 src/read_IMU.o: src/read_IMU.cpp.o
 
@@ -361,17 +441,25 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... read_host"
-	@echo "... read_lidar"
-	@echo "... read_pico"
-	@echo "... read_IMU"
+	@echo "... bbb_package_uninstall"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... bbb_package_uninstall"
+	@echo "... read_IMU"
+	@echo "... read_pico"
+	@echo "... read_lidar"
+	@echo "... read_host"
+	@echo "... pid_node"
+	@echo "... fuzzy_node_test"
 	@echo "... uninstall"
+	@echo "... test"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... src/fuzzy_node_test.o"
+	@echo "... src/fuzzy_node_test.i"
+	@echo "... src/fuzzy_node_test.s"
+	@echo "... src/pid_node.o"
+	@echo "... src/pid_node.i"
+	@echo "... src/pid_node.s"
 	@echo "... src/read_IMU.o"
 	@echo "... src/read_IMU.i"
 	@echo "... src/read_IMU.s"
