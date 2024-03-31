@@ -1,6 +1,6 @@
 /**
  * @file pid_node.cpp
- * @author Hoan Duong & Hien Nguyen
+ * @author Hoan Duong
  * @brief the pid_node of my thesis at my university, Ho Chi Minh University of
  * Technology.
  * @version 1
@@ -13,7 +13,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define UK_MAX 0.75
+#define UK_MAX 0.95
 #define SAMPLE_TIME 100 // in milliseconds
 #define RADIUS 0.03446
 
@@ -86,15 +86,15 @@ void init_pid(PID_t *pid, double kp, double ki, double kd) {
   pid->Kp = kp;
   pid->Ki = ki;
   pid->Kd = kd;
-  pid->uk_1 = 0;
-  pid->ek_1 = 0;
-  pid->ek_2 = 0;
+  pid->uk_1 = 0.0;
+  pid->ek_1 = 0.0;
+  pid->ek_2 = 0.0;
 }
 
 class PIDNode : public rclcpp::Node {
  public:
   PIDNode()
-    : Node("pid_node"), currentValues({4.0, 4.0, 4.0, 4.0}), setPoints({12.3, 14.3, 19.3, 30.3}) {
+    : Node("pid_node"), currentValues({0.0, 0.0, 0.0, 0.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
     subscription_actual_angle_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/actual_angle", 3, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
 
@@ -115,6 +115,7 @@ class PIDNode : public rclcpp::Node {
     for (size_t i = 0; i < 4; ++i) {
       message.data[i] = desiredAngles[i];
     }
+    RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
     message.layout.data_offset = 111;
     publisher_desired_angle_->publish(message);
   }
@@ -126,7 +127,9 @@ class PIDNode : public rclcpp::Node {
       for (size_t i = 0; i < 4; ++i) {
         currentValues[i] = msg->data[i];
       }
-    } else {
+    RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+    } 
+    else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
   }
@@ -136,6 +139,7 @@ class PIDNode : public rclcpp::Node {
     // Handle fuzzy velocity data
     RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
+      RCLCPP_INFO(this->get_logger(), " Received fuzzy velocity %lf   %lf ", msg->data[0], msg->data[1]);
       setPoints[0] = setPoints[1] = msg->data[0] / RADIUS; // Vlef/R
       setPoints[2] = setPoints[3] = msg->data[1] / RADIUS; // Vright/R
     } else {
