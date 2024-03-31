@@ -53,6 +53,8 @@ ament_target_dependencies(circumference_node rclcpp std_msgs)
 add_executable(sinusoidal_node src/sinusoidal_node.cpp)
 ament_target_dependencies(sinusoidal_node rclcpp std_msgs)
 
+add_executable(tune_node src/tune_node.cpp)
+ament_target_dependencies(tune_node rclcpp std_msgs)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -68,6 +70,7 @@ install(TARGETS
   straight_line_node
   circumference_node
   sinusoidal_node
+  tune_node
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

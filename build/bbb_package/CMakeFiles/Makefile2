@@ -58,6 +58,7 @@ all: CMakeFiles/read_pico.dir/all
 all: CMakeFiles/read_lidar.dir/all
 all: CMakeFiles/read_host.dir/all
 all: CMakeFiles/pid_node.dir/all
+all: CMakeFiles/tune_node.dir/all
 all: CMakeFiles/fuzzy_node_test.dir/all
 all: CMakeFiles/straight_line_node.dir/all
 all: CMakeFiles/fuzzy_node.dir/all
@@ -78,6 +79,7 @@ clean: CMakeFiles/read_pico.dir/clean
 clean: CMakeFiles/read_lidar.dir/clean
 clean: CMakeFiles/read_host.dir/clean
 clean: CMakeFiles/pid_node.dir/clean
+clean: CMakeFiles/tune_node.dir/clean
 clean: CMakeFiles/fuzzy_node_test.dir/clean
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/straight_line_node.dir/clean
@@ -248,6 +250,33 @@ pid_node: CMakeFiles/pid_node.dir/rule
 CMakeFiles/pid_node.dir/clean:
 	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/clean
 .PHONY : CMakeFiles/pid_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tune_node.dir
+
+# All Build rule for target.
+CMakeFiles/tune_node.dir/all:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/depend
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=21,22 "Built target tune_node"
+.PHONY : CMakeFiles/tune_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tune_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tune_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/tune_node.dir/rule
+
+# Convenience name for target.
+tune_node: CMakeFiles/tune_node.dir/rule
+
+.PHONY : tune_node
+
+# clean rule for target.
+CMakeFiles/tune_node.dir/clean:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/clean
+.PHONY : CMakeFiles/tune_node.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/fuzzy_node_test.dir

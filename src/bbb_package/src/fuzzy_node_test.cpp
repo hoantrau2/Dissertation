@@ -25,8 +25,8 @@ class FuzzyNodeTest : public rclcpp::Node {
     // Publish message with reference map
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2); // Set size of data vector to 3
-    message.data[0] = 0.8;
-    message.data[1] = 0.7;
+    message.data[0] = 0.5;
+    message.data[1] = 0.5;
     message.layout.data_offset = 333;
     RCLCPP_INFO(this->get_logger(), "%lf   %lf ", message.data[0], message.data[1]);
     publisher_velocity_fuzzy_->publish(message);

@@ -13,7 +13,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define UK_MAX 0.95
+#define UK_MAX 0.65
 #define SAMPLE_TIME 100 // in milliseconds
 #define RADIUS 0.03446
 
@@ -120,7 +120,7 @@ class PIDNode : public rclcpp::Node {
       message.data[i] = desiredAngles[i];
     }
     message.layout.data_offset = 111;
-     RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
+    //  RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
     publisher_desired_angle_->publish(message);
   }
 
@@ -140,14 +140,14 @@ class PIDNode : public rclcpp::Node {
   void velocity_fuzzy_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle fuzzy velocity data
-    RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
+    // RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
       setPoints[0] = setPoints[1] = msg->data[0]; // Vlef/R
       setPoints[2] = setPoints[3] = msg->data[1]; // Vright/R
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
-     RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf ", setPoints[1], setPoints[2]);
+    //  RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf ", setPoints[1], setPoints[2]);
   }
   std::vector<double> currentValues;
   std::vector<double> setPoints;

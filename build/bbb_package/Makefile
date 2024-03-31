@@ -246,6 +246,19 @@ pid_node/fast:
 .PHONY : pid_node/fast
 
 #=============================================================================
+# Target rules for targets named tune_node
+
+# Build rule for target.
+tune_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tune_node
+.PHONY : tune_node
+
+# fast build rule for target.
+tune_node/fast:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/build
+.PHONY : tune_node/fast
+
+#=============================================================================
 # Target rules for targets named fuzzy_node_test
 
 # Build rule for target.
@@ -593,6 +606,33 @@ src/straight_line_node.cpp.s:
 	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/src/straight_line_node.cpp.s
 .PHONY : src/straight_line_node.cpp.s
 
+src/tune_node.o: src/tune_node.cpp.o
+
+.PHONY : src/tune_node.o
+
+# target to build an object file
+src/tune_node.cpp.o:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/src/tune_node.cpp.o
+.PHONY : src/tune_node.cpp.o
+
+src/tune_node.i: src/tune_node.cpp.i
+
+.PHONY : src/tune_node.i
+
+# target to preprocess a source file
+src/tune_node.cpp.i:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/src/tune_node.cpp.i
+.PHONY : src/tune_node.cpp.i
+
+src/tune_node.s: src/tune_node.cpp.s
+
+.PHONY : src/tune_node.s
+
+# target to generate assembly for a file
+src/tune_node.cpp.s:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/src/tune_node.cpp.s
+.PHONY : src/tune_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -610,10 +650,11 @@ help:
 	@echo "... read_lidar"
 	@echo "... read_host"
 	@echo "... pid_node"
+	@echo "... tune_node"
 	@echo "... fuzzy_node_test"
+	@echo "... test"
 	@echo "... uninstall"
 	@echo "... straight_line_node"
-	@echo "... test"
 	@echo "... fuzzy_node"
 	@echo "... install/strip"
 	@echo "... sinusoidal_node"
@@ -648,6 +689,9 @@ help:
 	@echo "... src/straight_line_node.o"
 	@echo "... src/straight_line_node.i"
 	@echo "... src/straight_line_node.s"
+	@echo "... src/tune_node.o"
+	@echo "... src/tune_node.i"
+	@echo "... src/tune_node.s"
 .PHONY : help
 
 
