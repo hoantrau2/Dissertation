@@ -52,7 +52,7 @@ private:
             auto message = std_msgs::msg::Float64MultiArray();
             message.data.resize(1); 
             message.data[0] = yaw;
-            message.layout.data_offset = 333;
+            message.layout.data_offset = 444;
             publisher_angle_IMU_->publish(message);
         }
     }

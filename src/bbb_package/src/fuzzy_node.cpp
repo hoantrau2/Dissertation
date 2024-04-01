@@ -120,7 +120,7 @@ class FuzzyNode : public rclcpp::Node {
 };
 
 int main(int argc, char *argv[]) {
-  void init_PI_fuzzy();
+  init_PI_fuzzy();
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<FuzzyNode>());
   rclcpp::shutdown();
@@ -266,9 +266,9 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 5;
-  pi_fuzzy.Ke_dot = 4;
-  pi_fuzzy.Ku = 3;
+  pi_fuzzy.Ke = 5.0;
+  pi_fuzzy.Ke_dot = 4.0;
+  pi_fuzzy.Ku = 3.0;
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
