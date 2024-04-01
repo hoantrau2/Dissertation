@@ -1,6 +1,6 @@
 /**
  * @file fuzzy_node.cpp
- * @author Hoan Duong
+ * @author Hoan Duong & Hien Nguyen
  * @brief the fuzzy node of my thesis at my university, Ho Chi Minh University
  * of Technology.
  * @version 1
@@ -73,6 +73,9 @@ class FuzzyNode : public rclcpp::Node {
  private:
   void timer_callback() {
     double output_fuzzy = PI_fuzzy(deltaAngle, angleIMU);
+    // push values to debug
+    RCLCPP_INFO(this->get_logger(), "input of PI_fuzzy = %lf  %lf", deltaAngle, angleIMU);
+    RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     // publish message with desired velocity
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);  // Set size of data vector to 4
@@ -88,10 +91,11 @@ class FuzzyNode : public rclcpp::Node {
   }
 
   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
-    if (msg->layout.data_offset == 222 && msg->data.size() == 1) {
-      RCLCPP_INFO(this->get_logger(), "Received angle of IMU");
+    if (msg->layout.data_offset == 444 && msg->data.size() == 1) {
       // Handle actual angle IMU
       angleIMU = msg->data[0];
+      // push values to debug
+      RCLCPP_INFO(this->get_logger(), "Received angle of IMU = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
@@ -100,9 +104,9 @@ class FuzzyNode : public rclcpp::Node {
   void
   delta_angle_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle delta angle
-    if (msg->layout.data_offset == 222 && msg->data.size() == 1) {
-      RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
+    if (msg->layout.data_offset == 555 && msg->data.size() == 1) {
       deltaAngle = msg->data[0];
+      RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
@@ -255,12 +259,10 @@ double PI_fuzzy(double sp, double pv) {
 
   u_dot = run_fuzzy(P_part, D_part);
   uk = pi_fuzzy.uk_1 + u_dot * SAMPLE_TIME * 1e-3;
-  uk = pi_fuzzy.Ku * uk; // control delta veclocity
-
   pi_fuzzy.uk_1 = uk;
   pi_fuzzy.ek_2 = pi_fuzzy.ek_1;
   pi_fuzzy.ek_1 = ek;
-
+  uk = pi_fuzzy.Ku * uk; // control delta veclocity
   return uk;
 }
 void init_PI_fuzzy() {

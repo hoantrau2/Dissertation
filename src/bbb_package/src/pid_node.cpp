@@ -1,6 +1,6 @@
 /**
  * @file pid_node.cpp
- * @author Hoan Duong
+ * @author Hoan Duong & Hien Nguyen
  * @brief the pid node of my thesis at my university, Ho Chi Minh University of
  * Technology.
  * @version 1
@@ -13,7 +13,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define UK_MAX 0.65
+#define UK_MAX 0.95
 #define SAMPLE_TIME 100 // in milliseconds
 #define RADIUS 0.03446
 
@@ -44,7 +44,10 @@ class MotorController {
       pid_controllers.push_back(pid);
     }
   }
-
+  // Method to get PID controllers
+  std::vector<PID_t> &getPIDControllers() {
+    return pid_controllers;
+  }
   // Method to update motor speeds based on setpoints and current values
   std::vector<double> updateMotors(const std::vector<double> &setpoints, const std::vector<double> &currentValues) {
     std::vector<double> outputs;
@@ -98,7 +101,7 @@ void init_pid(PID_t *pid, double kp, double ki, double kd) {
 class PIDNode : public rclcpp::Node {
  public:
   PIDNode()
-    : Node("pid_node"), currentValues({4.0, 4.0, 4.0, 4.0}), setPoints({12.3, 14.3, 19.3, 30.3}) {
+    : Node("pid_node"), currentValues({0.0, 0.0, 4.0, 4.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
     subscription_actual_angle_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/actual_angle", 10, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
 
@@ -112,6 +115,7 @@ class PIDNode : public rclcpp::Node {
 
  private:
   void timer_callback() {
+    std::vector<PID_t> &pid_controllers = motorController.getPIDControllers();
     std::vector<double> desiredAngles = motorController.updateMotors(setPoints, currentValues);
     // publish message with desired angles
     auto message = std_msgs::msg::Float64MultiArray();
@@ -120,7 +124,14 @@ class PIDNode : public rclcpp::Node {
       message.data[i] = desiredAngles[i];
     }
     message.layout.data_offset = 111;
-    //  RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
+    // push values to debug
+    RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+    RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf", setPoints[1], setPoints[2]);
+    RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
+    RCLCPP_INFO(this->get_logger(), " PID1  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[0].Kp, pid_controllers[0].Ki, pid_controllers[0].Kd, pid_controllers[0].uk_1, pid_controllers[0].ek_1, pid_controllers[0].ek_2);
+    RCLCPP_INFO(this->get_logger(), " PID2  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[1].Kp, pid_controllers[1].Ki, pid_controllers[1].Kd, pid_controllers[1].uk_1, pid_controllers[1].ek_1, pid_controllers[1].ek_2);
+    RCLCPP_INFO(this->get_logger(), " PID3  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[2].Kp, pid_controllers[2].Ki, pid_controllers[2].Kd, pid_controllers[2].uk_1, pid_controllers[2].ek_1, pid_controllers[2].ek_2);
+    RCLCPP_INFO(this->get_logger(), " PID4  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[3].Kp, pid_controllers[3].Ki, pid_controllers[3].Kd, pid_controllers[3].uk_1, pid_controllers[3].ek_1, pid_controllers[3].ek_2);
     publisher_desired_angle_->publish(message);
   }
 
@@ -131,7 +142,8 @@ class PIDNode : public rclcpp::Node {
       for (size_t i = 0; i < 4; ++i) {
         currentValues[i] = msg->data[i];
       }
-       RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+      // push values to debug
+      RCLCPP_INFO(this->get_logger(), " actual1_2 = %lf   actual2_2 = %lf   actual3_2 = %lf   actual4_2 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
@@ -140,14 +152,15 @@ class PIDNode : public rclcpp::Node {
   void velocity_fuzzy_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle fuzzy velocity data
-    // RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
+    RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
       setPoints[0] = setPoints[1] = msg->data[0]; // Vlef/R
       setPoints[2] = setPoints[3] = msg->data[1]; // Vright/R
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
-    //  RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf ", setPoints[1], setPoints[2]);
+    // push values to debug
+    RCLCPP_INFO(this->get_logger(), " setPoints[1]_2 = %lf   setpoints[2]_2 = %lf", setPoints[1], setPoints[2]);
   }
   std::vector<double> currentValues;
   std::vector<double> setPoints;
