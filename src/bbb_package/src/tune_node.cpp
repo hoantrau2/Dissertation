@@ -11,7 +11,7 @@ public:
             "/actual_angle", 10, std::bind(&TuneNode::tune_node_callback, this, std::placeholders::_1));
 
         // Open a file to log data
-        log_file_.open("data_log.txt", std::ofstream::out | std::ofstream::app);
+        log_file_.open("data_v1.txt", std::ofstream::out | std::ofstream::app);
     }
 
 private:

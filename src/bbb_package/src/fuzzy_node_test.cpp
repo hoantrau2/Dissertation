@@ -16,6 +16,7 @@
 class FuzzyNodeTest : public rclcpp::Node {
  public:
   FuzzyNodeTest() : Node("fuzzy_node_test"){
+    start_time_ = std::chrono::steady_clock::now();
     publisher_velocity_fuzzy_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/velocity_fuzzy", 3);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&FuzzyNodeTest::timer_callback, this));
   }
@@ -23,16 +24,25 @@ class FuzzyNodeTest : public rclcpp::Node {
  private:
   void timer_callback() {
     // Publish message with reference map
+    auto current_time = std::chrono::steady_clock::now();
+    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time_).count() / 1000.0; // convert ms to s
+ 
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2); // Set size of data vector to 
-    message.data[0] = -0.5;
-    message.data[1] = -0.5;
     message.layout.data_offset = 333;
+         if (elapsed_time <= 7.0) {
+         message.data[0] = 0.4;
+         message.data[1] = 0.4;
+    } else {
+          message.data[0] = 0;
+          message.data[1] = 0;
+    }
     RCLCPP_INFO(this->get_logger(), "%lf   %lf ", message.data[0], message.data[1]);
     publisher_velocity_fuzzy_->publish(message);
   }
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_velocity_fuzzy_;
+  std::chrono::steady_clock::time_point start_time_;
 };
 
 int main(int argc, char *argv[]) {

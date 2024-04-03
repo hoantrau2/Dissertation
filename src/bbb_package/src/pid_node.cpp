@@ -59,8 +59,8 @@ class MotorController {
 
  private:
   // Define PID parameters for each motor
-  const double Kp[4] = {0.2, 0.2, 0.2, 0.2};
-  const double Ki[4] = {0.7, 0.7, 0.7, 0.7};
+  const double Kp[4] = {0.3, 0.2, 0.1, 0.1};
+  const double Ki[4] = {0.6, 0.7, 0.6, 0.6};
   const double Kd[4] = {0.0, 0.0, 0.0, 0.0};
 
   // Vector to store PID controllers for each motor
@@ -125,7 +125,7 @@ class PIDNode : public rclcpp::Node {
     }
     message.layout.data_offset = 111;
     // push values to debug
-    // RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+    //  RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     // RCLCPP_INFO(this->get_logger(), " setPoints[1] = %lf   setpoints[2] = %lf", setPoints[1], setPoints[2]);
     // RCLCPP_INFO(this->get_logger(), " motor1 = %lf   motor2 = %lf   motor3 = %lf   motor4 = %lf ", message.data[0], message.data[1], message.data[2], message.data[3]);
     // RCLCPP_INFO(this->get_logger(), " PID1  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[0].Kp, pid_controllers[0].Ki, pid_controllers[0].Kd, pid_controllers[0].uk_1, pid_controllers[0].ek_1, pid_controllers[0].ek_2);
@@ -143,7 +143,7 @@ class PIDNode : public rclcpp::Node {
         currentValues[i] = msg->data[i];
       }
       // push values to debug
-      RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf ", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+      RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
