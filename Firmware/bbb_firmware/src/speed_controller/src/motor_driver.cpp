@@ -22,6 +22,10 @@ void pwm_init() {
 }
 
 void motor_run(uint motor_num, uint direct, float duty) {
+  if (duty == 0){
+    all_motor_stop();
+    return;
+  }
   uint pin_a, pin_b, slice_num;
   switch (motor_num) {
     case 1:
