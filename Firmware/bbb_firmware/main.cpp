@@ -246,10 +246,10 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
   angular_velocity_motor.data.data[1] = read_enc(M2_SM, &motor_t.cnt_t.cnt2);
   angular_velocity_motor.data.data[2] = read_enc(M3_SM, &motor_t.cnt_t.cnt3);
   angular_velocity_motor.data.data[3] = read_enc(M4_SM, &motor_t.cnt_t.cnt4);
-  float vl_real = (angular_velocity_motor.data.data[0]+angular_velocity_motor.data.data[1])/2;
-  float vr_real = (angular_velocity_motor.data.data[2]-angular_velocity_motor.data.data[3])/2;
-  angular_velocity_motor.data.data[4] = (vl_real+vr_real)/2;
-  angular_velocity_motor.data.data[5] = (-vl_real+vr_real)/Bbb_parameter.two_wheel_dist;
+  // float vl_real = (angular_velocity_motor.data.data[0]+angular_velocity_motor.data.data[1])/2;
+  // float vr_real = (angular_velocity_motor.data.data[2]-angular_velocity_motor.data.data[3])/2;
+  // angular_velocity_motor.data.data[4] = (vl_real+vr_real)/2;
+  // angular_velocity_motor.data.data[5] = (-vl_real+vr_real)/Bbb_parameter.two_wheel_dist;
   rcl_ret_t ret =
       rcl_publish(&node_components.publisher, &angular_velocity_motor, NULL);
 }
