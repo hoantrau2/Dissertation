@@ -12,10 +12,11 @@
 #include <functional>
 #include <memory>
 #include <string>
+#include <cmath>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define CONST_VELOCITY 1
+#define CONST_VELOCITY 0
 #define SAMPLE_TIME 100
 
 struct Error {
@@ -53,7 +54,7 @@ using namespace std::chrono_literals;
 // Fuzzy Node Class
 class FuzzyNode : public rclcpp::Node {
  public:
-  FuzzyNode() : Node("fuzzy_node"), angleIMU(0.0), deltaAngle(0.0) {
+  FuzzyNode() : Node("tune_fuzzy_node"), angleIMU(0.0), deltaAngle(0.0) {
     // Subscription to Angle IMU Topic
     subscription_angle_IMU_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/angle_IMU", 10, std::bind(&FuzzyNode::angle_IMU_callback, this, std::placeholders::_1));
@@ -64,10 +65,10 @@ class FuzzyNode : public rclcpp::Node {
 
     // Publisher for Fuzzy Velocity
     publisher_velocity_fuzzy_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
-      "/velocity_fuzzy", 10);
+      "/desired_velocities", 10);
 
     // Timer for Periodic Execution
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(500), std::bind(&FuzzyNode::timer_callback, this)); // use create_wall_timer to timer 500ms
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&FuzzyNode::timer_callback, this)); // use create_wall_timer to timer 500ms
   }
 
  private:
@@ -79,13 +80,8 @@ class FuzzyNode : public rclcpp::Node {
     // publish message with desired velocity
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);  // Set size of data vector to 4
-    if (output_fuzzy >= 0) { // rotate in left
-      message.data[0] = (1 + output_fuzzy) * CONST_VELOCITY;
-      message.data[1] = (1 - output_fuzzy) * CONST_VELOCITY;
-    } else { // rotate in right
-      message.data[0] = (1 - output_fuzzy) * CONST_VELOCITY;
-      message.data[1] = (1 + output_fuzzy) * CONST_VELOCITY;
-    }
+      message.data[0] = output_fuzzy;
+      message.data[1] = CONST_VELOCITY;
     message.layout.data_offset = 333;
     publisher_velocity_fuzzy_->publish(message);
   }
@@ -93,7 +89,7 @@ class FuzzyNode : public rclcpp::Node {
   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     if (msg->layout.data_offset == 444 && msg->data.size() == 1) {
       // Handle actual angle IMU
-      angleIMU = msg->data[0];
+      angleIMU = msg->data[0]*M_PI/180;
       // push values to debug
       RCLCPP_INFO(this->get_logger(), "Received angle of IMU = %lf", msg->data[0]);
     } else {
@@ -105,7 +101,7 @@ class FuzzyNode : public rclcpp::Node {
   delta_angle_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle delta angle
     if (msg->layout.data_offset == 555 && msg->data.size() == 1) {
-      deltaAngle = msg->data[0];
+      deltaAngle = msg->data[0]*M_PI/180;
       RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
@@ -268,7 +264,7 @@ double PI_fuzzy(double sp, double pv) {
 void init_PI_fuzzy() {
   pi_fuzzy.Ke = 5.0;
   pi_fuzzy.Ke_dot = 4.0;
-  pi_fuzzy.Ku = 3.0;
+  pi_fuzzy.Ku = 14.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;

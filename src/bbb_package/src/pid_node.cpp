@@ -1,8 +1,8 @@
+// "" This module was completed ""
 /**
  * @file pid_node.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the pid node of my thesis at my university, Ho Chi Minh University of
- * Technology.
+ * @brief the pid node of my thesis at my university, Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-27
  */
@@ -15,7 +15,7 @@
 
 #define UK_MAX 0.95
 #define SAMPLE_TIME 100 // in milliseconds
-#define RADIUS 0.03446
+#define WHEELBASE 0.2469
 
 using namespace std::chrono_literals;
 
@@ -101,27 +101,26 @@ void init_pid(PID_t *pid, double kp, double ki, double kd) {
 class PIDNode : public rclcpp::Node {
  public:
   PIDNode()
-    : Node("pid_node"), currentValues({0.0, 0.0, 0.0, 0.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
-    subscription_actual_angle_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-      "/actual_angle", 10, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
+       : Node("pid_node"), currentValues({0.0, 0.0, 0.0, 0.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
+    subscription_actual_velocities_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      "/actual_velocities", 10, std::bind(&PIDNode::actual_velocities_callback, this, std::placeholders::_1));
 
-    subscription_velocity_fuzzy_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-      "/velocity_fuzzy", 10, std::bind(&PIDNode::velocity_fuzzy_callback, this, std::placeholders::_1));
+    subscription_desired_velocities_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      "/desired_velocities", 10, std::bind(&PIDNode::desired_velocities_callback, this, std::placeholders::_1));
 
-    publisher_desired_angle_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/desired_angle", 10);
-
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&PIDNode::timer_callback, this)); // use create_wall_timer to timer 500ms
+    publisher_pwm_signals_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/pwm_signals", 10);
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&PIDNode::timer_callback, this)); 
   }
 
  private:
   void timer_callback() {
-    // std::vector<PID_t> &pid_controllers = motorController.getPIDControllers();
-    std::vector<double> desiredAngles = motorController.updateMotors(setPoints, currentValues);
+  // std::vector<PID_t> &pid_controllers = motorController.getPIDControllers();
+    std::vector<double> pwmSignals = motorController.updateMotors(setPoints, currentValues);
     // publish message with desired angles
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(4); // Set size of data vector to 4
     for (size_t i = 0; i < 4; ++i) {
-      message.data[i] = desiredAngles[i];
+      message.data[i] = pwmSignals[i];
     }
     message.layout.data_offset = 111;
     // push values to debug
@@ -132,11 +131,11 @@ class PIDNode : public rclcpp::Node {
     // RCLCPP_INFO(this->get_logger(), " PID2  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[1].Kp, pid_controllers[1].Ki, pid_controllers[1].Kd, pid_controllers[1].uk_1, pid_controllers[1].ek_1, pid_controllers[1].ek_2);
     // RCLCPP_INFO(this->get_logger(), " PID3  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[2].Kp, pid_controllers[2].Ki, pid_controllers[2].Kd, pid_controllers[2].uk_1, pid_controllers[2].ek_1, pid_controllers[2].ek_2);
     // RCLCPP_INFO(this->get_logger(), " PID4  %lf  %lf  %lf   %lf  %lf   %lf", pid_controllers[3].Kp, pid_controllers[3].Ki, pid_controllers[3].Kd, pid_controllers[3].uk_1, pid_controllers[3].ek_1, pid_controllers[3].ek_2);
-    publisher_desired_angle_->publish(message);
+    publisher_pwm_signals_->publish(message);
   }
 
   void
-  actual_angle_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
+  actual_velocities_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     if (msg->layout.data_offset == 222 && msg->data.size() == 4) {
       // Handle actual angle data
       for (size_t i = 0; i < 4; ++i) {
@@ -145,28 +144,29 @@ class PIDNode : public rclcpp::Node {
       // push values to debug
       RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
-      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
+      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /actual_velocities topic");
     }
   }
 
-  void velocity_fuzzy_callback(
+  void desired_velocities_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
-    // Handle fuzzy velocity data
-    // RCLCPP_INFO(this->get_logger(), "Received fuzzy velocity");
+    // Handle desired velocities data 
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
-      setPoints[0] = setPoints[1] = msg->data[0]; // Vlef/R
-      setPoints[2] = setPoints[3] = msg->data[1]; // Vright/R
+      // msg->data[0]: angular velovity
+      // msg->data[0]: linear velovity
+      setPoints[0] = setPoints[1] = (2 * msg->data[1] - msg->data[0] * WHEELBASE) / 2; // Vlef/R
+      setPoints[2] = setPoints[3] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vright/R
+      // push values to debug
+    RCLCPP_INFO(this->get_logger(), " omega = %lf   linear velocity= %lf", msg->data[0], msg->data[1]);
     } else {
-      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
+      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /desired_velocities topic");
     }
-    // push values to debug
-    // RCLCPP_INFO(this->get_logger(), " setPoints[1]_2 = %lf   setpoints[2]_2 = %lf", setPoints[1], setPoints[2]);
   }
   std::vector<double> currentValues;
   std::vector<double> setPoints;
-  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_actual_angle_;
-  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_velocity_fuzzy_;
-  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_desired_angle_;
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_actual_velocities_;
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_desired_velocities_;
+  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_pwm_signals_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 

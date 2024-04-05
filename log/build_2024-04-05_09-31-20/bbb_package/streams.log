@@ -1,0 +1,51 @@
+[0.484s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': AMENT_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/opt/ros/foxy LD_LIBRARY_PATH=/home/jetson/bbb_jetson_ws/install/serial/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.567s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.634s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.258s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.278s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.389s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.400s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.796s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.960s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.964s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.458s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.571s] -- Found serial: 1.2.1 (/home/jetson/bbb_jetson_ws/install/serial/share/serial/cmake)
+[2.576s] -- Found tf2_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_msgs/cmake)
+[3.241s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.455s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.456s] -- Configured cppcheck include dirs: 
+[3.456s] -- Configured cppcheck exclude dirs and/or files: 
+[3.458s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.460s] -- Added test 'lint_cmake' to check CMake code style
+[3.461s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.465s] -- Added test 'uncrustify' to check C / C++ code style
+[3.465s] -- Configured uncrustify additional arguments: 
+[3.466s] -- Added test 'xmllint' to check XML markup files
+[3.477s] -- Configuring done
+[3.580s] -- Generating done
+[3.587s] -- Build files have been written to: /home/jetson/bbb_jetson_ws/build/bbb_package
+[3.671s] [35m[1mScanning dependencies of target pid_node[0m
+[3.673s] [35m[1mScanning dependencies of target fuzzy_node_test[0m
+[3.760s] [ 11%] Built target read_lidar
+[3.763s] [ 16%] [32mBuilding CXX object CMakeFiles/pid_node.dir/src/pid_node.cpp.o[0m
+[3.788s] [ 27%] Built target read_IMU
+[3.788s] [ 33%] [32mBuilding CXX object CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o[0m
+[3.939s] [ 44%] Built target tune_node
+[3.985s] [ 55%] Built target straight_line_node
+[4.004s] [35m[1mScanning dependencies of target tune_fuzzy_node[0m
+[4.256s] [ 66%] Built target circumference_node
+[4.259s] [ 72%] [32mBuilding CXX object CMakeFiles/tune_fuzzy_node.dir/src/tune_fuzzy_node.cpp.o[0m
+[4.556s] [ 83%] Built target sinusoidal_node
+[8.717s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:[m[K In member function ‘[01m[Kvoid FuzzyNodeTest::timer_callback()[m[K’:
+[8.718s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_velocity_fuzzy_[m[K’ was not declared in this scope
+[8.718s]    48 |     [01;31m[Kpublisher_velocity_fuzzy_[m[K->publish(message);
+[8.718s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[12.143s] make[2]: *** [CMakeFiles/fuzzy_node_test.dir/build.make:63: CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o] Error 1
+[12.144s] make[1]: *** [CMakeFiles/Makefile2:202: CMakeFiles/fuzzy_node_test.dir/all] Error 2
+[12.146s] make[1]: *** Waiting for unfinished jobs....
+[23.096s] [ 88%] [32m[1mLinking CXX executable pid_node[0m
+[23.474s] [ 94%] [32m[1mLinking CXX executable tune_fuzzy_node[0m
+[23.994s] [ 94%] Built target pid_node
+[24.349s] [ 94%] Built target tune_fuzzy_node
+[24.352s] make: *** [Makefile:141: all] Error 2
+[24.357s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': AMENT_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/opt/ros/foxy LD_LIBRARY_PATH=/home/jetson/bbb_jetson_ws/install/serial/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

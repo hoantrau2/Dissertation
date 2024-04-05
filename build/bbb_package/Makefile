@@ -194,19 +194,6 @@ read_IMU/fast:
 .PHONY : read_IMU/fast
 
 #=============================================================================
-# Target rules for targets named read_pico
-
-# Build rule for target.
-read_pico: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 read_pico
-.PHONY : read_pico
-
-# fast build rule for target.
-read_pico/fast:
-	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/build
-.PHONY : read_pico/fast
-
-#=============================================================================
 # Target rules for targets named read_lidar
 
 # Build rule for target.
@@ -220,19 +207,6 @@ read_lidar/fast:
 .PHONY : read_lidar/fast
 
 #=============================================================================
-# Target rules for targets named read_host
-
-# Build rule for target.
-read_host: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 read_host
-.PHONY : read_host
-
-# fast build rule for target.
-read_host/fast:
-	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/build
-.PHONY : read_host/fast
-
-#=============================================================================
 # Target rules for targets named pid_node
 
 # Build rule for target.
@@ -244,19 +218,6 @@ pid_node: cmake_check_build_system
 pid_node/fast:
 	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/build
 .PHONY : pid_node/fast
-
-#=============================================================================
-# Target rules for targets named tune_node
-
-# Build rule for target.
-tune_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tune_node
-.PHONY : tune_node
-
-# fast build rule for target.
-tune_node/fast:
-	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/build
-.PHONY : tune_node/fast
 
 #=============================================================================
 # Target rules for targets named fuzzy_node_test
@@ -298,30 +259,43 @@ straight_line_node/fast:
 .PHONY : straight_line_node/fast
 
 #=============================================================================
-# Target rules for targets named fuzzy_node
+# Target rules for targets named delta_angle_node
 
 # Build rule for target.
-fuzzy_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fuzzy_node
-.PHONY : fuzzy_node
+delta_angle_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 delta_angle_node
+.PHONY : delta_angle_node
 
 # fast build rule for target.
-fuzzy_node/fast:
-	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/build
-.PHONY : fuzzy_node/fast
+delta_angle_node/fast:
+	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/build
+.PHONY : delta_angle_node/fast
 
 #=============================================================================
-# Target rules for targets named sinusoidal_node
+# Target rules for targets named tune_node
 
 # Build rule for target.
-sinusoidal_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sinusoidal_node
-.PHONY : sinusoidal_node
+tune_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tune_node
+.PHONY : tune_node
 
 # fast build rule for target.
-sinusoidal_node/fast:
-	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/build
-.PHONY : sinusoidal_node/fast
+tune_node/fast:
+	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/build
+.PHONY : tune_node/fast
+
+#=============================================================================
+# Target rules for targets named tune_fuzzy_node
+
+# Build rule for target.
+tune_fuzzy_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tune_fuzzy_node
+.PHONY : tune_fuzzy_node
+
+# fast build rule for target.
+tune_fuzzy_node/fast:
+	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/build
+.PHONY : tune_fuzzy_node/fast
 
 #=============================================================================
 # Target rules for targets named circumference_node
@@ -335,6 +309,19 @@ circumference_node: cmake_check_build_system
 circumference_node/fast:
 	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/build
 .PHONY : circumference_node/fast
+
+#=============================================================================
+# Target rules for targets named sinusoidal_node
+
+# Build rule for target.
+sinusoidal_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sinusoidal_node
+.PHONY : sinusoidal_node
+
+# fast build rule for target.
+sinusoidal_node/fast:
+	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/build
+.PHONY : sinusoidal_node/fast
 
 src/circumference_node.o: src/circumference_node.cpp.o
 
@@ -363,32 +350,32 @@ src/circumference_node.cpp.s:
 	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/src/circumference_node.cpp.s
 .PHONY : src/circumference_node.cpp.s
 
-src/fuzzy_node.o: src/fuzzy_node.cpp.o
+src/delta_angle_node.o: src/delta_angle_node.cpp.o
 
-.PHONY : src/fuzzy_node.o
+.PHONY : src/delta_angle_node.o
 
 # target to build an object file
-src/fuzzy_node.cpp.o:
-	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.o
-.PHONY : src/fuzzy_node.cpp.o
+src/delta_angle_node.cpp.o:
+	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/src/delta_angle_node.cpp.o
+.PHONY : src/delta_angle_node.cpp.o
 
-src/fuzzy_node.i: src/fuzzy_node.cpp.i
+src/delta_angle_node.i: src/delta_angle_node.cpp.i
 
-.PHONY : src/fuzzy_node.i
+.PHONY : src/delta_angle_node.i
 
 # target to preprocess a source file
-src/fuzzy_node.cpp.i:
-	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.i
-.PHONY : src/fuzzy_node.cpp.i
+src/delta_angle_node.cpp.i:
+	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/src/delta_angle_node.cpp.i
+.PHONY : src/delta_angle_node.cpp.i
 
-src/fuzzy_node.s: src/fuzzy_node.cpp.s
+src/delta_angle_node.s: src/delta_angle_node.cpp.s
 
-.PHONY : src/fuzzy_node.s
+.PHONY : src/delta_angle_node.s
 
 # target to generate assembly for a file
-src/fuzzy_node.cpp.s:
-	$(MAKE) -f CMakeFiles/fuzzy_node.dir/build.make CMakeFiles/fuzzy_node.dir/src/fuzzy_node.cpp.s
-.PHONY : src/fuzzy_node.cpp.s
+src/delta_angle_node.cpp.s:
+	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/src/delta_angle_node.cpp.s
+.PHONY : src/delta_angle_node.cpp.s
 
 src/fuzzy_node_test.o: src/fuzzy_node_test.cpp.o
 
@@ -471,33 +458,6 @@ src/read_IMU.cpp.s:
 	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/src/read_IMU.cpp.s
 .PHONY : src/read_IMU.cpp.s
 
-src/read_host.o: src/read_host.cpp.o
-
-.PHONY : src/read_host.o
-
-# target to build an object file
-src/read_host.cpp.o:
-	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.o
-.PHONY : src/read_host.cpp.o
-
-src/read_host.i: src/read_host.cpp.i
-
-.PHONY : src/read_host.i
-
-# target to preprocess a source file
-src/read_host.cpp.i:
-	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.i
-.PHONY : src/read_host.cpp.i
-
-src/read_host.s: src/read_host.cpp.s
-
-.PHONY : src/read_host.s
-
-# target to generate assembly for a file
-src/read_host.cpp.s:
-	$(MAKE) -f CMakeFiles/read_host.dir/build.make CMakeFiles/read_host.dir/src/read_host.cpp.s
-.PHONY : src/read_host.cpp.s
-
 src/read_lidar.o: src/read_lidar.cpp.o
 
 .PHONY : src/read_lidar.o
@@ -524,33 +484,6 @@ src/read_lidar.s: src/read_lidar.cpp.s
 src/read_lidar.cpp.s:
 	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/src/read_lidar.cpp.s
 .PHONY : src/read_lidar.cpp.s
-
-src/read_pico.o: src/read_pico.cpp.o
-
-.PHONY : src/read_pico.o
-
-# target to build an object file
-src/read_pico.cpp.o:
-	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.o
-.PHONY : src/read_pico.cpp.o
-
-src/read_pico.i: src/read_pico.cpp.i
-
-.PHONY : src/read_pico.i
-
-# target to preprocess a source file
-src/read_pico.cpp.i:
-	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.i
-.PHONY : src/read_pico.cpp.i
-
-src/read_pico.s: src/read_pico.cpp.s
-
-.PHONY : src/read_pico.s
-
-# target to generate assembly for a file
-src/read_pico.cpp.s:
-	$(MAKE) -f CMakeFiles/read_pico.dir/build.make CMakeFiles/read_pico.dir/src/read_pico.cpp.s
-.PHONY : src/read_pico.cpp.s
 
 src/sinusoidal_node.o: src/sinusoidal_node.cpp.o
 
@@ -606,6 +539,33 @@ src/straight_line_node.cpp.s:
 	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/src/straight_line_node.cpp.s
 .PHONY : src/straight_line_node.cpp.s
 
+src/tune_fuzzy_node.o: src/tune_fuzzy_node.cpp.o
+
+.PHONY : src/tune_fuzzy_node.o
+
+# target to build an object file
+src/tune_fuzzy_node.cpp.o:
+	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/src/tune_fuzzy_node.cpp.o
+.PHONY : src/tune_fuzzy_node.cpp.o
+
+src/tune_fuzzy_node.i: src/tune_fuzzy_node.cpp.i
+
+.PHONY : src/tune_fuzzy_node.i
+
+# target to preprocess a source file
+src/tune_fuzzy_node.cpp.i:
+	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/src/tune_fuzzy_node.cpp.i
+.PHONY : src/tune_fuzzy_node.cpp.i
+
+src/tune_fuzzy_node.s: src/tune_fuzzy_node.cpp.s
+
+.PHONY : src/tune_fuzzy_node.s
+
+# target to generate assembly for a file
+src/tune_fuzzy_node.cpp.s:
+	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/src/tune_fuzzy_node.cpp.s
+.PHONY : src/tune_fuzzy_node.cpp.s
+
 src/tune_node.o: src/tune_node.cpp.o
 
 .PHONY : src/tune_node.o
@@ -646,25 +606,24 @@ help:
 	@echo "... bbb_package_uninstall"
 	@echo "... list_install_components"
 	@echo "... read_IMU"
-	@echo "... read_pico"
 	@echo "... read_lidar"
-	@echo "... read_host"
 	@echo "... pid_node"
-	@echo "... tune_node"
 	@echo "... fuzzy_node_test"
-	@echo "... test"
 	@echo "... uninstall"
 	@echo "... straight_line_node"
-	@echo "... fuzzy_node"
+	@echo "... test"
+	@echo "... delta_angle_node"
+	@echo "... tune_node"
+	@echo "... tune_fuzzy_node"
+	@echo "... circumference_node"
 	@echo "... install/strip"
 	@echo "... sinusoidal_node"
-	@echo "... circumference_node"
 	@echo "... src/circumference_node.o"
 	@echo "... src/circumference_node.i"
 	@echo "... src/circumference_node.s"
-	@echo "... src/fuzzy_node.o"
-	@echo "... src/fuzzy_node.i"
-	@echo "... src/fuzzy_node.s"
+	@echo "... src/delta_angle_node.o"
+	@echo "... src/delta_angle_node.i"
+	@echo "... src/delta_angle_node.s"
 	@echo "... src/fuzzy_node_test.o"
 	@echo "... src/fuzzy_node_test.i"
 	@echo "... src/fuzzy_node_test.s"
@@ -674,21 +633,18 @@ help:
 	@echo "... src/read_IMU.o"
 	@echo "... src/read_IMU.i"
 	@echo "... src/read_IMU.s"
-	@echo "... src/read_host.o"
-	@echo "... src/read_host.i"
-	@echo "... src/read_host.s"
 	@echo "... src/read_lidar.o"
 	@echo "... src/read_lidar.i"
 	@echo "... src/read_lidar.s"
-	@echo "... src/read_pico.o"
-	@echo "... src/read_pico.i"
-	@echo "... src/read_pico.s"
 	@echo "... src/sinusoidal_node.o"
 	@echo "... src/sinusoidal_node.i"
 	@echo "... src/sinusoidal_node.s"
 	@echo "... src/straight_line_node.o"
 	@echo "... src/straight_line_node.i"
 	@echo "... src/straight_line_node.s"
+	@echo "... src/tune_fuzzy_node.o"
+	@echo "... src/tune_fuzzy_node.i"
+	@echo "... src/tune_fuzzy_node.s"
 	@echo "... src/tune_node.o"
 	@echo "... src/tune_node.i"
 	@echo "... src/tune_node.s"

@@ -1,8 +1,9 @@
+// this node is used for tuning PID parameters
+
 /**
  * @file fuzzy_node_test.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the pid_node of my thesis at my university, Ho Chi Minh University of
- * Technology.
+ * @brief the pid_node of my thesis at my university, Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-27
  */
@@ -17,7 +18,7 @@ class FuzzyNodeTest : public rclcpp::Node {
  public:
   FuzzyNodeTest() : Node("fuzzy_node_test"){
     start_time_ = std::chrono::steady_clock::now();
-    publisher_velocity_fuzzy_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/velocity_fuzzy", 3);
+    publisher_desired_velocities_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/desired_velocities", 3);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&FuzzyNodeTest::timer_callback, this));
   }
 
@@ -30,9 +31,9 @@ class FuzzyNodeTest : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2); // Set size of data vector to 
     message.layout.data_offset = 333;
-         if (elapsed_time <= 15.0) {
-      message.data[0] = 0.6;
-      message.data[1] = 0.6;
+         if (elapsed_time <= 10.0) {
+      message.data[0] = 7.0;
+      message.data[1] = 0;
     // } else if (elapsed_time <= 20.0) {
     //   message.data[0] = 1.8;
     //   message.data[1] = 1.8;
@@ -44,10 +45,10 @@ class FuzzyNodeTest : public rclcpp::Node {
       message.data[1] = 0;
     }
     RCLCPP_INFO(this->get_logger(), "%lf   %lf ", message.data[0], message.data[1]);
-    publisher_velocity_fuzzy_->publish(message);
+    publisher_desired_velocities_->publish(message);
   }
   rclcpp::TimerBase::SharedPtr timer_;
-  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_velocity_fuzzy_;
+  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_desired_velocities_;
   std::chrono::steady_clock::time_point start_time_;
 };
 
