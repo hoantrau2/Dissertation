@@ -30,12 +30,18 @@ class FuzzyNodeTest : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2); // Set size of data vector to 
     message.layout.data_offset = 333;
-         if (elapsed_time <= 7.0) {
-         message.data[0] = 0.4;
-         message.data[1] = 0.4;
+         if (elapsed_time <= 15.0) {
+      message.data[0] = 0.6;
+      message.data[1] = 0.6;
+    // } else if (elapsed_time <= 20.0) {
+    //   message.data[0] = 1.8;
+    //   message.data[1] = 1.8;
+    // } else if (elapsed_time <= 30.0) {
+    //   message.data[0] = 1.3;
+    //   message.data[1] = 1.3;
     } else {
-          message.data[0] = 0;
-          message.data[1] = 0;
+      message.data[0] = 0;
+      message.data[1] = 0;
     }
     RCLCPP_INFO(this->get_logger(), "%lf   %lf ", message.data[0], message.data[1]);
     publisher_velocity_fuzzy_->publish(message);

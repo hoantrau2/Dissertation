@@ -59,7 +59,7 @@ class MotorController {
 
  private:
   // Define PID parameters for each motor
-  const double Kp[4] = {0.3, 0.2, 0.1, 0.1};
+  const double Kp[4] = {0.1, 0.2, 0.1, 0.1};
   const double Ki[4] = {0.6, 0.7, 0.6, 0.6};
   const double Kd[4] = {0.0, 0.0, 0.0, 0.0};
 
@@ -101,7 +101,7 @@ void init_pid(PID_t *pid, double kp, double ki, double kd) {
 class PIDNode : public rclcpp::Node {
  public:
   PIDNode()
-    : Node("pid_node"), currentValues({0.0, 0.0, 4.0, 4.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
+    : Node("pid_node"), currentValues({0.0, 0.0, 0.0, 0.0}), setPoints({0.0, 0.0, 0.0, 0.0}) {
     subscription_actual_angle_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/actual_angle", 10, std::bind(&PIDNode::actual_angle_callback, this, std::placeholders::_1));
 

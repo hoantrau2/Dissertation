@@ -1,0 +1,21 @@
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:[m[K In constructor ‘[01m[KTuneNode::TuneNode()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:16:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_pwm_[m[K’ was not declared in this scope
+   16 |         [01;31m[Ksubscription_pwm_[m[K = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:20:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klog_file_pwm_[m[K’ was not declared in this scope; did you mean ‘[01m[Klog_file_[m[K’?
+   20 |         [01;31m[Klog_file_pwm_[m[K.open("data_pwm.txt", std::ofstream::out | std::ofstream::app);
+      |         [01;31m[K^~~~~~~~~~~~~[m[K
+      |         [32m[Klog_file_[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:[m[K In member function ‘[01m[Kvoid TuneNode::pwm_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:38:17:[m[K [01;31m[Kerror: [m[K‘[01m[Klog_file_pwm_[m[K’ was not declared in this scope; did you mean ‘[01m[Klog_file_[m[K’?
+   38 |                 [01;31m[Klog_file_pwm_[m[K << data << " ";
+      |                 [01;31m[K^~~~~~~~~~~~~[m[K
+      |                 [32m[Klog_file_[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/tune_node.cpp:40:13:[m[K [01;31m[Kerror: [m[K‘[01m[Klog_file_pwm_[m[K’ was not declared in this scope; did you mean ‘[01m[Klog_file_[m[K’?
+   40 |             [01;31m[Klog_file_pwm_[m[K << std::endl;
+      |             [01;31m[K^~~~~~~~~~~~~[m[K
+      |             [32m[Klog_file_[m[K
+make[2]: *** [CMakeFiles/tune_node.dir/build.make:63: CMakeFiles/tune_node.dir/src/tune_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:260: CMakeFiles/tune_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

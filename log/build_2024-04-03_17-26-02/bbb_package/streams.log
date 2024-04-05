@@ -1,0 +1,43 @@
+[0.649s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.921s] [ 18%] Built target read_lidar
+[0.922s] [ 27%] Built target read_pico
+[0.932s] [ 27%] Built target read_IMU
+[0.938s] [ 36%] Built target read_host
+[0.989s] [35m[1mScanning dependencies of target fuzzy_node_test[0m
+[1.240s] [ 45%] Built target tune_node
+[1.321s] [ 54%] Built target pid_node
+[1.324s] [ 63%] Built target straight_line_node
+[1.381s] [ 68%] [32mBuilding CXX object CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o[0m
+[1.491s] [ 77%] Built target fuzzy_node
+[1.578s] [ 86%] Built target sinusoidal_node
+[1.599s] [ 95%] Built target circumference_node
+[5.839s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:51:16:[m[K [01;31m[Kerror: [m[K‘[01m[Ksteadyclock[m[K’ in namespace ‘[01m[Kstd::chrono[m[K’ does not name a type
+[5.842s]    51 |   std::chrono::[01;31m[Ksteadyclock[m[K::time_point start_time;
+[5.845s]       |                [01;31m[K^~~~~~~~~~~[m[K
+[5.849s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:[m[K In constructor ‘[01m[KFuzzyNodeTest::FuzzyNodeTest()[m[K’:
+[5.850s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:19:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kstart_time_[m[K’ was not declared in this scope
+[5.851s]    19 |     [01;31m[Kstart_time_[m[K = std::chrono::steady_clock::now();
+[5.851s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[5.858s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:20:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_velocity_fuzzy_[m[K’ was not declared in this scope; did you mean ‘[01m[Kpublisher_velocity_fuzzy[m[K’?
+[5.860s]    20 |     [01;31m[Kpublisher_velocity_fuzzy_[m[K = this->create_publisher<std_msgs::msg::Float64MultiArray>("/velocity_fuzzy", 3);
+[5.862s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.865s]       |     [32m[Kpublisher_velocity_fuzzy[m[K
+[5.869s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:21:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktimer[m[K’?
+[5.870s]    21 |     [01;31m[Ktimer_[m[K = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&FuzzyNodeTest::timer_callback, this));
+[5.870s]       |     [01;31m[K^~~~~~[m[K
+[5.871s]       |     [32m[Ktimer[m[K
+[5.872s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:21:95:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_callback[m[K’ is not a member of ‘[01m[KFuzzyNodeTest[m[K’
+[5.872s]    21 |     timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&FuzzyNodeTest::[01;31m[Ktimer_callback[m[K, this));
+[5.873s]       |                                                                                               [01;31m[K^~~~~~~~~~~~~~[m[K
+[5.882s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:[m[K In member function ‘[01m[Kvoid FuzzyNodeTest::timercallback()[m[K’:
+[5.883s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:28:94:[m[K [01;31m[Kerror: [m[K‘[01m[Kstart_time[m[K’ was not declared in this scope; did you mean ‘[01m[Kstrptime[m[K’?
+[5.883s]    28 |     auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - [01;31m[Kstart_time[m[K).count() / 1000.0; // convert ms to s
+[5.884s]       |                                                                                              [01;31m[K^~~~~~~~~~[m[K
+[5.884s]       |                                                                                              [32m[Kstrptime[m[K
+[5.885s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_node_test.cpp:30:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kstdmsgs[m[K’ has not been declared
+[5.885s]    30 |     auto message = [01;31m[Kstdmsgs[m[K::msg::Float64MultiArray();
+[5.886s]       |                    [01;31m[K^~~~~~~[m[K
+[8.620s] make[2]: *** [CMakeFiles/fuzzy_node_test.dir/build.make:63: CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o] Error 1
+[8.622s] make[1]: *** [CMakeFiles/Makefile2:287: CMakeFiles/fuzzy_node_test.dir/all] Error 2
+[8.625s] make: *** [Makefile:141: all] Error 2
+[8.632s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
