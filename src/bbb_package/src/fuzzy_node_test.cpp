@@ -32,8 +32,8 @@ class FuzzyNodeTest : public rclcpp::Node {
     message.data.resize(2); // Set size of data vector to 
     message.layout.data_offset = 333;
          if (elapsed_time <= 10.0) {
-      message.data[0] = 7.0;
-      message.data[1] = 0;
+      message.data[0] = -7.0;
+      message.data[1] = 0.0;
     // } else if (elapsed_time <= 20.0) {
     //   message.data[0] = 1.8;
     //   message.data[1] = 1.8;

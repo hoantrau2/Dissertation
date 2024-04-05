@@ -154,8 +154,8 @@ class PIDNode : public rclcpp::Node {
     if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
       // msg->data[0]: angular velovity
       // msg->data[0]: linear velovity
-      setPoints[0] = setPoints[1] = (2 * msg->data[1] - msg->data[0] * WHEELBASE) / 2; // Vlef/R
-      setPoints[2] = setPoints[3] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vright/R
+      setPoints[0] = setPoints[1] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vlef/R
+      setPoints[2] = setPoints[3] = (2 * msg->data[1] - msg->data[0] * WHEELBASE) / 2; // Vright/R
       // push values to debug
     RCLCPP_INFO(this->get_logger(), " omega = %lf   linear velocity= %lf", msg->data[0], msg->data[1]);
     } else {
