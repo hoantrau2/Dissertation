@@ -31,17 +31,16 @@ class FuzzyNodeTest : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(1); // Set size of data vector to 
     message.layout.data_offset = 555;
-    //      if (elapsed_time <= 1.0) {
-    //   message.data[0] = 45.0;
-    // } else if (elapsed_time <= 2.0) {
+         if (elapsed_time <= 5.0) {
+      message.data[0] = 10.0;
+    // } else if (elapsed_time <= 20.0) {
     //   message.data[0] = 90.0;
     // // } else if (elapsed_time <= 30.0) {
     // //   message.data[0] = 1.3;
     // //   message.data[1] = 1.3;
-    // } else {
-    //   message.data[0] = 0;
-    // }
-     message.data[0] = elapsed_time;
+    } else {
+      message.data[0] = 0;
+    }
     RCLCPP_INFO(this->get_logger(), "delta angle = %lf  ", message.data[0]);
     publisher_desired_velocities_->publish(message);
   }

@@ -75,14 +75,16 @@ class FuzzyNode : public rclcpp::Node {
   void timer_callback() {
     double output_fuzzy = PI_fuzzy(deltaAngle, angleIMU);
     // push values to debug
-    RCLCPP_INFO(this->get_logger(), "input of PI_fuzzy = %lf  %lf", deltaAngle, angleIMU);
-    RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
+    // RCLCPP_INFO(this->get_logger(), "input of PI_fuzzy = %lf  %lf", deltaAngle, angleIMU);
+    // RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     // publish message with desired velocity
     auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(2);  // Set size of data vector to 4
+    message.data.resize(4);  // Set size of data vector to 4
       message.data[0] = output_fuzzy;
       message.data[1] = CONST_VELOCITY;
-       RCLCPP_INFO(this->get_logger(), "omega = %lf linear velocity = %lf", message.data[0], message.data[1]);
+      message.data[2] = deltaAngle;
+      message.data[3] = angleIMU*180/M_PI;
+       RCLCPP_INFO(this->get_logger(), "omega = %lf angle IMU  = %lf", message.data[0], message.data[3]);
     message.layout.data_offset = 333;
     publisher_velocity_fuzzy_->publish(message);
   }
@@ -92,7 +94,7 @@ class FuzzyNode : public rclcpp::Node {
       // Handle actual angle IMU
       angleIMU = msg->data[0]*M_PI/180;
       // push values to debug
-      RCLCPP_INFO(this->get_logger(), "Received angle of IMU = %lf", msg->data[0]);
+      // RCLCPP_INFO(this->get_logger(), "Received angle of IMU = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
@@ -102,8 +104,8 @@ class FuzzyNode : public rclcpp::Node {
   delta_angle_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle delta angle
     if (msg->layout.data_offset == 555 && msg->data.size() == 1) {
-      deltaAngle = msg->data[0]*M_PI/180;
-      RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
+      deltaAngle = msg->data[0]*M_PI/180; // radian
+      // RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size");
     }
@@ -263,9 +265,9 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 5.0;
-  pi_fuzzy.Ke_dot = 4.0;
-  pi_fuzzy.Ku = 14.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pi_fuzzy.Ke = 0.3;
+  pi_fuzzy.Ke_dot = 1.6;
+  pi_fuzzy.Ku = 5.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
