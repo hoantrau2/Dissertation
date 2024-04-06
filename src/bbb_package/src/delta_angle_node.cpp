@@ -1,4 +1,4 @@
-// this node is used for tuning PID parameters
+// this node is used for tuning fuzzy parameters
 
 /**
  * @file delta_angle_node.cpp
@@ -19,7 +19,7 @@ class FuzzyNodeTest : public rclcpp::Node {
   FuzzyNodeTest() : Node("delta_angle_node"){
     start_time_ = std::chrono::steady_clock::now();
     publisher_desired_velocities_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/delta_angle", 3);
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&FuzzyNodeTest::timer_callback, this));
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(50), std::bind(&FuzzyNodeTest::timer_callback, this));
   }
 
  private:
@@ -31,16 +31,17 @@ class FuzzyNodeTest : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(1); // Set size of data vector to 
     message.layout.data_offset = 555;
-         if (elapsed_time <= 10.0) {
-      message.data[0] = 45.0;
-    } else if (elapsed_time <= 20.0) {
-      message.data[0] = 90.0;
-    // } else if (elapsed_time <= 30.0) {
-    //   message.data[0] = 1.3;
-    //   message.data[1] = 1.3;
-    } else {
-      message.data[0] = 0;
-    }
+    //      if (elapsed_time <= 1.0) {
+    //   message.data[0] = 45.0;
+    // } else if (elapsed_time <= 2.0) {
+    //   message.data[0] = 90.0;
+    // // } else if (elapsed_time <= 30.0) {
+    // //   message.data[0] = 1.3;
+    // //   message.data[1] = 1.3;
+    // } else {
+    //   message.data[0] = 0;
+    // }
+     message.data[0] = elapsed_time;
     RCLCPP_INFO(this->get_logger(), "delta angle = %lf  ", message.data[0]);
     publisher_desired_velocities_->publish(message);
   }

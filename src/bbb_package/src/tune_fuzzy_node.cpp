@@ -82,6 +82,7 @@ class FuzzyNode : public rclcpp::Node {
     message.data.resize(2);  // Set size of data vector to 4
       message.data[0] = output_fuzzy;
       message.data[1] = CONST_VELOCITY;
+       RCLCPP_INFO(this->get_logger(), "omega = %lf linear velocity = %lf", message.data[0], message.data[1]);
     message.layout.data_offset = 333;
     publisher_velocity_fuzzy_->publish(message);
   }

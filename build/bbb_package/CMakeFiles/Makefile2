@@ -56,11 +56,11 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 all: CMakeFiles/read_IMU.dir/all
 all: CMakeFiles/read_lidar.dir/all
 all: CMakeFiles/pid_node.dir/all
-all: CMakeFiles/fuzzy_node_test.dir/all
-all: CMakeFiles/straight_line_node.dir/all
 all: CMakeFiles/delta_angle_node.dir/all
 all: CMakeFiles/tune_node.dir/all
 all: CMakeFiles/tune_fuzzy_node.dir/all
+all: CMakeFiles/fuzzy_longitudinal_controllers.dir/all
+all: CMakeFiles/straight_line_node.dir/all
 all: CMakeFiles/circumference_node.dir/all
 all: CMakeFiles/sinusoidal_node.dir/all
 
@@ -72,47 +72,20 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/bbb_package_uninstall.dir/clean
 clean: CMakeFiles/read_IMU.dir/clean
 clean: CMakeFiles/read_lidar.dir/clean
 clean: CMakeFiles/pid_node.dir/clean
-clean: CMakeFiles/fuzzy_node_test.dir/clean
-clean: CMakeFiles/uninstall.dir/clean
-clean: CMakeFiles/straight_line_node.dir/clean
 clean: CMakeFiles/delta_angle_node.dir/clean
 clean: CMakeFiles/tune_node.dir/clean
 clean: CMakeFiles/tune_fuzzy_node.dir/clean
+clean: CMakeFiles/bbb_package_uninstall.dir/clean
+clean: CMakeFiles/fuzzy_longitudinal_controllers.dir/clean
+clean: CMakeFiles/uninstall.dir/clean
+clean: CMakeFiles/straight_line_node.dir/clean
 clean: CMakeFiles/circumference_node.dir/clean
 clean: CMakeFiles/sinusoidal_node.dir/clean
 
 .PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bbb_package_uninstall.dir
-
-# All Build rule for target.
-CMakeFiles/bbb_package_uninstall.dir/all:
-	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/depend
-	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num= "Built target bbb_package_uninstall"
-.PHONY : CMakeFiles/bbb_package_uninstall.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bbb_package_uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bbb_package_uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-.PHONY : CMakeFiles/bbb_package_uninstall.dir/rule
-
-# Convenience name for target.
-bbb_package_uninstall: CMakeFiles/bbb_package_uninstall.dir/rule
-
-.PHONY : bbb_package_uninstall
-
-# clean rule for target.
-CMakeFiles/bbb_package_uninstall.dir/clean:
-	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/clean
-.PHONY : CMakeFiles/bbb_package_uninstall.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/read_IMU.dir
@@ -196,87 +169,6 @@ CMakeFiles/pid_node.dir/clean:
 .PHONY : CMakeFiles/pid_node.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/fuzzy_node_test.dir
-
-# All Build rule for target.
-CMakeFiles/fuzzy_node_test.dir/all:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/depend
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=5,6 "Built target fuzzy_node_test"
-.PHONY : CMakeFiles/fuzzy_node_test.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/fuzzy_node_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/fuzzy_node_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-.PHONY : CMakeFiles/fuzzy_node_test.dir/rule
-
-# Convenience name for target.
-fuzzy_node_test: CMakeFiles/fuzzy_node_test.dir/rule
-
-.PHONY : fuzzy_node_test
-
-# clean rule for target.
-CMakeFiles/fuzzy_node_test.dir/clean:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/clean
-.PHONY : CMakeFiles/fuzzy_node_test.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/uninstall.dir
-
-# All Build rule for target.
-CMakeFiles/uninstall.dir/all: CMakeFiles/bbb_package_uninstall.dir/all
-	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/depend
-	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num= "Built target uninstall"
-.PHONY : CMakeFiles/uninstall.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-.PHONY : CMakeFiles/uninstall.dir/rule
-
-# Convenience name for target.
-uninstall: CMakeFiles/uninstall.dir/rule
-
-.PHONY : uninstall
-
-# clean rule for target.
-CMakeFiles/uninstall.dir/clean:
-	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/clean
-.PHONY : CMakeFiles/uninstall.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/straight_line_node.dir
-
-# All Build rule for target.
-CMakeFiles/straight_line_node.dir/all:
-	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/depend
-	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=15,16 "Built target straight_line_node"
-.PHONY : CMakeFiles/straight_line_node.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/straight_line_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/straight_line_node.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
-.PHONY : CMakeFiles/straight_line_node.dir/rule
-
-# Convenience name for target.
-straight_line_node: CMakeFiles/straight_line_node.dir/rule
-
-.PHONY : straight_line_node
-
-# clean rule for target.
-CMakeFiles/straight_line_node.dir/clean:
-	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/clean
-.PHONY : CMakeFiles/straight_line_node.dir/clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/delta_angle_node.dir
 
 # All Build rule for target.
@@ -356,6 +248,114 @@ tune_fuzzy_node: CMakeFiles/tune_fuzzy_node.dir/rule
 CMakeFiles/tune_fuzzy_node.dir/clean:
 	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/clean
 .PHONY : CMakeFiles/tune_fuzzy_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/bbb_package_uninstall.dir
+
+# All Build rule for target.
+CMakeFiles/bbb_package_uninstall.dir/all:
+	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/depend
+	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num= "Built target bbb_package_uninstall"
+.PHONY : CMakeFiles/bbb_package_uninstall.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/bbb_package_uninstall.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bbb_package_uninstall.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/bbb_package_uninstall.dir/rule
+
+# Convenience name for target.
+bbb_package_uninstall: CMakeFiles/bbb_package_uninstall.dir/rule
+
+.PHONY : bbb_package_uninstall
+
+# clean rule for target.
+CMakeFiles/bbb_package_uninstall.dir/clean:
+	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/clean
+.PHONY : CMakeFiles/bbb_package_uninstall.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fuzzy_longitudinal_controllers.dir
+
+# All Build rule for target.
+CMakeFiles/fuzzy_longitudinal_controllers.dir/all:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/depend
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=5,6 "Built target fuzzy_longitudinal_controllers"
+.PHONY : CMakeFiles/fuzzy_longitudinal_controllers.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fuzzy_longitudinal_controllers.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/fuzzy_longitudinal_controllers.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/fuzzy_longitudinal_controllers.dir/rule
+
+# Convenience name for target.
+fuzzy_longitudinal_controllers: CMakeFiles/fuzzy_longitudinal_controllers.dir/rule
+
+.PHONY : fuzzy_longitudinal_controllers
+
+# clean rule for target.
+CMakeFiles/fuzzy_longitudinal_controllers.dir/clean:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/clean
+.PHONY : CMakeFiles/fuzzy_longitudinal_controllers.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/uninstall.dir
+
+# All Build rule for target.
+CMakeFiles/uninstall.dir/all: CMakeFiles/bbb_package_uninstall.dir/all
+	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/depend
+	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num= "Built target uninstall"
+.PHONY : CMakeFiles/uninstall.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/uninstall.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/uninstall.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/uninstall.dir/rule
+
+# Convenience name for target.
+uninstall: CMakeFiles/uninstall.dir/rule
+
+.PHONY : uninstall
+
+# clean rule for target.
+CMakeFiles/uninstall.dir/clean:
+	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/clean
+.PHONY : CMakeFiles/uninstall.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/straight_line_node.dir
+
+# All Build rule for target.
+CMakeFiles/straight_line_node.dir/all:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/depend
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=15,16 "Built target straight_line_node"
+.PHONY : CMakeFiles/straight_line_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/straight_line_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/straight_line_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/straight_line_node.dir/rule
+
+# Convenience name for target.
+straight_line_node: CMakeFiles/straight_line_node.dir/rule
+
+.PHONY : straight_line_node
+
+# clean rule for target.
+CMakeFiles/straight_line_node.dir/clean:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/clean
+.PHONY : CMakeFiles/straight_line_node.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/circumference_node.dir

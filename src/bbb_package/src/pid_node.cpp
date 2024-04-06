@@ -1,4 +1,5 @@
 // "" This module was completed ""
+
 /**
  * @file pid_node.cpp
  * @author Hoan Duong & Hien Nguyen
@@ -48,6 +49,7 @@ class MotorController {
   // std::vector<PID_t> &getPIDControllers() {
   //   return pid_controllers;
   // }
+  
   // Method to update motor speeds based on setpoints and current values
   std::vector<double> updateMotors(const std::vector<double> &setpoints, const std::vector<double> &currentValues) {
     std::vector<double> outputs;
@@ -142,7 +144,7 @@ class PIDNode : public rclcpp::Node {
         currentValues[i] = msg->data[i];
       }
       // push values to debug
-      RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+      // RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /actual_velocities topic");
     }
@@ -157,7 +159,7 @@ class PIDNode : public rclcpp::Node {
       setPoints[0] = setPoints[1] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vlef/R
       setPoints[2] = setPoints[3] = (2 * msg->data[1] - msg->data[0] * WHEELBASE) / 2; // Vright/R
       // push values to debug
-    RCLCPP_INFO(this->get_logger(), " omega = %lf   linear velocity= %lf", msg->data[0], msg->data[1]);
+    // RCLCPP_INFO(this->get_logger(), " omega = %lf   linear velocity= %lf", msg->data[0], msg->data[1]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /desired_velocities topic");
     }

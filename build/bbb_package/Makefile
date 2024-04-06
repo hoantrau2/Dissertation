@@ -168,19 +168,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named bbb_package_uninstall
-
-# Build rule for target.
-bbb_package_uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bbb_package_uninstall
-.PHONY : bbb_package_uninstall
-
-# fast build rule for target.
-bbb_package_uninstall/fast:
-	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
-.PHONY : bbb_package_uninstall/fast
-
-#=============================================================================
 # Target rules for targets named read_IMU
 
 # Build rule for target.
@@ -220,45 +207,6 @@ pid_node/fast:
 .PHONY : pid_node/fast
 
 #=============================================================================
-# Target rules for targets named fuzzy_node_test
-
-# Build rule for target.
-fuzzy_node_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fuzzy_node_test
-.PHONY : fuzzy_node_test
-
-# fast build rule for target.
-fuzzy_node_test/fast:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/build
-.PHONY : fuzzy_node_test/fast
-
-#=============================================================================
-# Target rules for targets named uninstall
-
-# Build rule for target.
-uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uninstall
-.PHONY : uninstall
-
-# fast build rule for target.
-uninstall/fast:
-	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-.PHONY : uninstall/fast
-
-#=============================================================================
-# Target rules for targets named straight_line_node
-
-# Build rule for target.
-straight_line_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 straight_line_node
-.PHONY : straight_line_node
-
-# fast build rule for target.
-straight_line_node/fast:
-	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
-.PHONY : straight_line_node/fast
-
-#=============================================================================
 # Target rules for targets named delta_angle_node
 
 # Build rule for target.
@@ -296,6 +244,58 @@ tune_fuzzy_node: cmake_check_build_system
 tune_fuzzy_node/fast:
 	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/build
 .PHONY : tune_fuzzy_node/fast
+
+#=============================================================================
+# Target rules for targets named bbb_package_uninstall
+
+# Build rule for target.
+bbb_package_uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bbb_package_uninstall
+.PHONY : bbb_package_uninstall
+
+# fast build rule for target.
+bbb_package_uninstall/fast:
+	$(MAKE) -f CMakeFiles/bbb_package_uninstall.dir/build.make CMakeFiles/bbb_package_uninstall.dir/build
+.PHONY : bbb_package_uninstall/fast
+
+#=============================================================================
+# Target rules for targets named fuzzy_longitudinal_controllers
+
+# Build rule for target.
+fuzzy_longitudinal_controllers: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fuzzy_longitudinal_controllers
+.PHONY : fuzzy_longitudinal_controllers
+
+# fast build rule for target.
+fuzzy_longitudinal_controllers/fast:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/build
+.PHONY : fuzzy_longitudinal_controllers/fast
+
+#=============================================================================
+# Target rules for targets named uninstall
+
+# Build rule for target.
+uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
+
+# fast build rule for target.
+uninstall/fast:
+	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named straight_line_node
+
+# Build rule for target.
+straight_line_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 straight_line_node
+.PHONY : straight_line_node
+
+# fast build rule for target.
+straight_line_node/fast:
+	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
+.PHONY : straight_line_node/fast
 
 #=============================================================================
 # Target rules for targets named circumference_node
@@ -377,32 +377,32 @@ src/delta_angle_node.cpp.s:
 	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/src/delta_angle_node.cpp.s
 .PHONY : src/delta_angle_node.cpp.s
 
-src/fuzzy_node_test.o: src/fuzzy_node_test.cpp.o
+src/fuzzy_longitudinal_controllers.o: src/fuzzy_longitudinal_controllers.cpp.o
 
-.PHONY : src/fuzzy_node_test.o
+.PHONY : src/fuzzy_longitudinal_controllers.o
 
 # target to build an object file
-src/fuzzy_node_test.cpp.o:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.o
-.PHONY : src/fuzzy_node_test.cpp.o
+src/fuzzy_longitudinal_controllers.cpp.o:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.o
+.PHONY : src/fuzzy_longitudinal_controllers.cpp.o
 
-src/fuzzy_node_test.i: src/fuzzy_node_test.cpp.i
+src/fuzzy_longitudinal_controllers.i: src/fuzzy_longitudinal_controllers.cpp.i
 
-.PHONY : src/fuzzy_node_test.i
+.PHONY : src/fuzzy_longitudinal_controllers.i
 
 # target to preprocess a source file
-src/fuzzy_node_test.cpp.i:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.i
-.PHONY : src/fuzzy_node_test.cpp.i
+src/fuzzy_longitudinal_controllers.cpp.i:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.i
+.PHONY : src/fuzzy_longitudinal_controllers.cpp.i
 
-src/fuzzy_node_test.s: src/fuzzy_node_test.cpp.s
+src/fuzzy_longitudinal_controllers.s: src/fuzzy_longitudinal_controllers.cpp.s
 
-.PHONY : src/fuzzy_node_test.s
+.PHONY : src/fuzzy_longitudinal_controllers.s
 
 # target to generate assembly for a file
-src/fuzzy_node_test.cpp.s:
-	$(MAKE) -f CMakeFiles/fuzzy_node_test.dir/build.make CMakeFiles/fuzzy_node_test.dir/src/fuzzy_node_test.cpp.s
-.PHONY : src/fuzzy_node_test.cpp.s
+src/fuzzy_longitudinal_controllers.cpp.s:
+	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.s
+.PHONY : src/fuzzy_longitudinal_controllers.cpp.s
 
 src/pid_node.o: src/pid_node.cpp.o
 
@@ -603,18 +603,18 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... bbb_package_uninstall"
 	@echo "... list_install_components"
 	@echo "... read_IMU"
 	@echo "... read_lidar"
 	@echo "... pid_node"
-	@echo "... fuzzy_node_test"
-	@echo "... uninstall"
-	@echo "... straight_line_node"
-	@echo "... test"
 	@echo "... delta_angle_node"
 	@echo "... tune_node"
 	@echo "... tune_fuzzy_node"
+	@echo "... bbb_package_uninstall"
+	@echo "... fuzzy_longitudinal_controllers"
+	@echo "... uninstall"
+	@echo "... straight_line_node"
+	@echo "... test"
 	@echo "... circumference_node"
 	@echo "... install/strip"
 	@echo "... sinusoidal_node"
@@ -624,9 +624,9 @@ help:
 	@echo "... src/delta_angle_node.o"
 	@echo "... src/delta_angle_node.i"
 	@echo "... src/delta_angle_node.s"
-	@echo "... src/fuzzy_node_test.o"
-	@echo "... src/fuzzy_node_test.i"
-	@echo "... src/fuzzy_node_test.s"
+	@echo "... src/fuzzy_longitudinal_controllers.o"
+	@echo "... src/fuzzy_longitudinal_controllers.i"
+	@echo "... src/fuzzy_longitudinal_controllers.s"
 	@echo "... src/pid_node.o"
 	@echo "... src/pid_node.i"
 	@echo "... src/pid_node.s"

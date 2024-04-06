@@ -29,6 +29,7 @@ colcon build --packages-select bbb_package
 
 
         # ros2 run tf2_tools view_frames
+        
     #colcon build --packages-select bbb_package
 
     #ls /dev/serial/by
