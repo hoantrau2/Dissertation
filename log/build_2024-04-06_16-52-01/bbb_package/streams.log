@@ -1,0 +1,228 @@
+[1.116s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[1.405s] [35m[1mScanning dependencies of target read_IMU[0m
+[1.687s] [ 10%] Built target delta_angle_node
+[1.716s] [ 20%] Built target pid_node
+[1.796s] [ 30%] Built target read_lidar
+[1.858s] [ 35%] [32mBuilding CXX object CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o[0m
+[2.136s] [ 45%] Built target tune_fuzzy_node
+[2.230s] [ 60%] Built target fuzzy_longitudinal_controllers
+[2.244s] [ 65%] Built target tune_node
+[2.561s] [ 75%] Built target straight_line_node
+[2.613s] [ 85%] Built target circumference_node
+[2.633s] [ 95%] Built target sinusoidal_node
+[7.790s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In constructor ‘[01m[KSerialNode::SerialNode()[m[K’:
+[7.793s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:22:38:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KSerialNode[m[K’ does not have any field named ‘[01m[Kport_[m[K’
+[7.794s]    22 |     SerialNode() : Node("IMU_node"), [01;31m[Kport_[m[K("/dev/ttyUSB0"), baud_(115200 * 2), data_size_(71) {
+[7.795s]       |                                      [01;31m[K^~~~~[m[K
+[7.797s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:22:61:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KSerialNode[m[K’ does not have any field named ‘[01m[Kbaud_[m[K’
+[7.798s]    22 |     SerialNode() : Node("IMU_node"), port_("/dev/ttyUSB0"), [01;31m[Kbaud_[m[K(115200 * 2), data_size_(71) {
+[7.799s]       |                                                             [01;31m[K^~~~~[m[K
+[7.800s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:22:80:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KSerialNode[m[K’ does not have any field named ‘[01m[Kdata_size_[m[K’
+[7.801s]    22 |     SerialNode() : Node("IMU_node"), port_("/dev/ttyUSB0"), baud_(115200 * 2), [01;31m[Kdata_size_[m[K(71) {
+[7.803s]       |                                                                                [01;31m[K^~~~~~~~~~[m[K
+[7.804s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:24:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial_[m[K’ was not declared in this scope; did you mean ‘[01m[Kserial[m[K’?
+[7.805s]    24 |             [01;31m[Kserial_[m[K = std::make_shared<serial::Serial>(port_, baud_, serial::Timeout::simpleTimeout(20));
+[7.807s]       |             [01;31m[K^~~~~~~[m[K
+[7.808s]       |             [32m[Kserial[m[K
+[7.816s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:24:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kport_[m[K’ was not declared in this scope
+[7.817s]    24 |             serial_ = std::make_shared<serial::Serial>([01;31m[Kport_[m[K, baud_, serial::Timeout::simpleTimeout(20));
+[7.819s]       |                                                        [01;31m[K^~~~~[m[K
+[7.828s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:24:63:[m[K [01;31m[Kerror: [m[K‘[01m[Kbaud_[m[K’ was not declared in this scope
+[7.830s]    24 |             serial_ = std::make_shared<serial::Serial>(port_, [01;31m[Kbaud_[m[K, serial::Timeout::simpleTimeout(20));
+[7.831s]       |                                                               [01;31m[K^~~~~[m[K
+[7.856s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:33:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_angle_IMU_[m[K’ was not declared in this scope
+[7.857s]    33 |                 [01;31m[Kpublisher_angle_IMU_[m[K = create_publisher<std_msgs::msg::Float64MultiArray>("/angle_IMU", 10);
+[7.858s]       |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[7.885s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::calibrateIMU()[m[K’:
+[7.886s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:52:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial_[m[K’ was not declared in this scope; did you mean ‘[01m[Kserial[m[K’?
+[7.887s]    52 |         [01;31m[Kserial_[m[K->write(data_calib, 7U);
+[7.888s]       |         [01;31m[K^~~~~~~[m[K
+[7.889s]       |         [32m[Kserial[m[K
+[7.899s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::resetIMU()[m[K’:
+[7.900s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:57:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial_[m[K’ was not declared in this scope; did you mean ‘[01m[Kserial[m[K’?
+[7.901s]    57 |         [01;31m[Kserial_[m[K->write(data_reset, 7U);
+[7.903s]       |         [01;31m[K^~~~~~~[m[K
+[7.904s]       |         [32m[Kserial[m[K
+[7.914s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In member function ‘[01m[Kvoid SerialNode::no_mag_IMU()[m[K’:
+[7.915s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:62:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial_[m[K’ was not declared in this scope; did you mean ‘[01m[Kserial[m[K’?
+[7.916s]    62 |         [01;31m[Kserial_[m[K->write(data_mag_1, 9U);
+[7.917s]       |         [01;31m[K^~~~~~~[m[K
+[7.919s]       |         [32m[Kserial[m[K
+[7.972s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[7.974s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[7.975s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[7.976s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[7.977s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[7.979s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[7.980s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[7.994s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[7.996s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[7.997s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[7.998s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.000s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[8.001s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:34:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.002s]   154 |             } else {RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "yaw error ");}
+[8.005s]       |                                  [01;31m[K^~~~[m[K
+[8.008s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:34:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.009s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.010s]   154 |             } else {[01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "yaw error ");}
+[8.011s]       |                     [01;31m[K^~~~~~~~~~~~[m[K
+[8.012s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.013s]   154 |             } else {[01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "yaw error ");}
+[8.014s]       |                     [01;31m[K^~~~~~~~~~~~[m[K
+[8.015s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.016s]   154 |             } else {[01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "yaw error ");}
+[8.017s]       |                     [01;31m[K^~~~~~~~~~~~[m[K
+[8.018s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[8.019s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[8.020s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.021s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.022s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.023s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.023s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.024s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.025s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.027s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.027s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.028s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:34:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.029s]   154 |             } else {RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "yaw error ");}
+[8.031s]       |                                  [01;31m[K^~~~[m[K
+[8.032s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:154:34:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.033s]   154 |             } else {RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "yaw error ");}
+[8.033s]       |                                  [01;31m[K^~~~[m[K
+[8.034s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[8.035s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[8.036s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.037s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.038s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.039s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.040s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.041s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.043s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.043s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.044s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.045s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.046s]   158 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.047s]       |                                 [01;31m[K^~~~[m[K
+[8.048s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.049s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.050s]   158 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.051s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.052s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.053s]   158 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.055s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.056s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.057s]   158 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.058s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.059s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[8.061s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[8.062s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.063s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.064s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.066s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.067s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.067s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.068s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.069s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.071s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.072s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.075s]   158 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.076s]       |                                 [01;31m[K^~~~[m[K
+[8.077s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:158:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.078s]   158 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_0 = %lf ", init_yaw);
+[8.079s]       |                                 [01;31m[K^~~~[m[K
+[8.080s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[8.081s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[8.083s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.083s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.084s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.085s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.086s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.087s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.088s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.089s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.090s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.091s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.092s]   161 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.093s]       |                                 [01;31m[K^~~~[m[K
+[8.094s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.095s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.096s]   161 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.097s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.098s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.099s]   161 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.100s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.101s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.102s]   161 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.103s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.104s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[8.105s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[8.106s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.107s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.107s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.108s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.109s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.110s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.111s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.112s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.113s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.115s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.116s]   161 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.117s]       |                                 [01;31m[K^~~~[m[K
+[8.118s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:161:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.119s]   161 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "init_yaw_1 = %lf ", init_yaw);
+[8.120s]       |                                 [01;31m[K^~~~[m[K
+[8.122s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/service.hpp:34[m[K,
+[8.123s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:25[m[K,
+[8.124s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.125s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.126s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.127s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.128s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.129s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.130s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.131s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.132s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.134s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.135s]   171 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "yaw = %lf ", yaw);
+[8.136s]       |                                 [01;31m[K^~~~[m[K
+[8.137s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.138s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.140s]   171 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "yaw = %lf ", yaw);
+[8.141s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.142s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.143s]   171 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "yaw = %lf ", yaw);
+[8.144s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.145s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:21:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[8.146s]   171 |                     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "yaw = %lf ", yaw);
+[8.147s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[8.148s] In file included from [01m[K/opt/ros/foxy/include/rclcpp/client.hpp:40[m[K,
+[8.149s]                  from [01m[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23[m[K,
+[8.150s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20[m[K,
+[8.151s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.152s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.153s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.154s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.156s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.157s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.158s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.159s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:11[m[K:
+[8.160s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.161s]   171 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "yaw = %lf ", yaw);
+[8.162s]       |                                 [01;31m[K^~~~[m[K
+[8.163s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:171:33:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[8.165s]   171 |                     RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "yaw = %lf ", yaw);
+[8.166s]       |                                 [01;31m[K^~~~[m[K
+[8.167s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:139:19:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbaud_[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[8.168s]   139 |     unsigned long [01;35m[Kbaud_[m[K;
+[8.169s]       |                   [01;35m[K^~~~~[m[K
+[8.170s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:178:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[8.171s]   178 | [01;31m[K}[m[K
+[8.171s]       | [01;31m[K^[m[K
+[8.172s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/read_IMU.cpp:133:34:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[8.173s]   133 | int main(int argc, char *argv[]) [01;36m[K{[m[K
+[8.174s]       |                                  [01;36m[K^[m[K
+[11.383s] make[2]: *** [CMakeFiles/read_IMU.dir/build.make:63: CMakeFiles/read_IMU.dir/src/read_IMU.cpp.o] Error 1
+[11.385s] make[1]: *** [CMakeFiles/Makefile2:96: CMakeFiles/read_IMU.dir/all] Error 2
+[11.387s] make: *** [Makefile:141: all] Error 2
+[11.395s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

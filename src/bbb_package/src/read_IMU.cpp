@@ -11,13 +11,13 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include <math.h>
-#define SAMPLE_TIME 50 
+#define SAMPLE_TIME 10
 #define PI 3.14159265358979323846
  int counter = 0;
  double init_yaw = 0;
 class SerialNode : public rclcpp::Node {
 public:
-    SerialNode() : Node("IMU_node"), port_("/dev/ttyUSB0"), baud_(115200 * 2), data_size_(80) {
+    SerialNode() : Node("IMU_node"), port_("/dev/ttyUSB0"), baud_(115200 * 2), data_size_(71) {
         try {
             serial_ = std::make_shared<serial::Serial>(port_, baud_, serial::Timeout::simpleTimeout(20));
             if (!serial_->isOpen()) {
@@ -25,7 +25,7 @@ public:
             } else {
                 RCLCPP_INFO(get_logger(), "Serial port opened successfully.");
                 
-                resetIMU();
+                // resetIMU();
                 // no_mag_IMU();
                 calibrateIMU();
                 publisher_angle_IMU_ = create_publisher<std_msgs::msg::Float64MultiArray>("/angle_IMU", 10);
@@ -87,13 +87,13 @@ private:
             std::string data = serial_->readline(100, "\r\n");
 
             // Extracting yaw substring (starting at index 16, length 7)
-        std::string yaw_str;
-        double yaw ;
-        if (data.size() >= 16 + 7) {
-            yaw_str = data.substr(16, 7);
-            yaw = std::strtod(yaw_str.c_str(), nullptr) * 0.001;
-        } else {RCLCPP_ERROR(this->get_logger(), "yaw error ");}
-        
+            std::string yaw_str;
+            double yaw ;
+            if (data.size() >= 16 + 7) {
+                yaw_str = data.substr(16, 7);
+                yaw = std::strtod(yaw_str.c_str(), nullptr) * 0.001;
+            } else {RCLCPP_ERROR(this->get_logger(), "yaw error ");}
+            
             // std::string yaw_str = data.substr(16, 7);
             // double yaw = std::strtod(yaw_str.c_str(), 0) * 0.001;
 
@@ -121,7 +121,7 @@ private:
                 message.data[0] = yaw;
                 message.layout.data_offset = 444;
                 // RCLCPP_INFO(this->get_logger(), "yaw = %lf   roll = %lf    pitch = %lf", yaw, roll, pitch);
-                 RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
+                RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
                 publisher_angle_IMU_->publish(message);
             }
         }
