@@ -310,7 +310,7 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install("TARGETS" "read_IMU" "read_lidar" "pid_node" "tune_fuzzy_node" "straight_line_node" "circumference_node" "sinusoidal_node" "tune_node" "delta_angle_node" "fuzzy_longitudinal_controllers" "DESTINATION" "lib/bbb_package/")
+# install("TARGETS" "read_IMU" "read_lidar" "pid_node" "tune_fuzzy_node" "straight_line_node" "circumference_node" "sinusoidal_node" "tune_node" "delta_angle_node" "fuzzy_longitudinal_controllers" "stanley_node" "DESTINATION" "lib/bbb_package/")
 include("/home/jetson/bbb_jetson_ws/build/bbb_package/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
 # install(DIRECTORY "launch" "DESTINATION" "share/bbb_package")

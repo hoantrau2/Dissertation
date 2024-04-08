@@ -1,3 +1,4 @@
+// "" This module has been provisionally completed ""
 /**
  * @file fuzzy_longitudinal_controllers.cpp
  * @author Hoan Duong & Hien Nguyen
@@ -69,22 +70,20 @@ class FuzzyLongitudinalControllersNode : public rclcpp::Node {
 
  private:
   void timer_callback() {
-    RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     double linearVelovity;
     double omega = PI_fuzzy(deltaAngle, 0.0);
     if (abs(deltaAngle) >= DELTAMAX)
       linearVelovity = 0.0;
     else
       linearVelovity = VMAX * (1 - deltaAngle / DELTAMAX);
-    // push values to debug
-    // RCLCPP_INFO(this->get_logger(), "input of PI_fuzzy = %lf  %lf", deltaAngle, angleIMU);
-    // RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     // publish message with desired velocity
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2); // Set size of data vector to 4
     message.data[0] = omega;
     message.data[1] = linearVelovity;
+    // push values to debug
     RCLCPP_INFO(this->get_logger(), "omega = %lf linear velocity = %lf", message.data[0], message.data[1]);
+    RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     message.layout.data_offset = 333;
     publisher_desired_velocities_->publish(message);
   }
@@ -95,7 +94,7 @@ class FuzzyLongitudinalControllersNode : public rclcpp::Node {
     if (msg->layout.data_offset == 555 && msg->data.size() == 1) {
       deltaAngle = msg->data[0]*M_PI/180; //radian
       // push values to debug
-      // RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
+       RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /delta_angle topic");
     }
@@ -242,7 +241,7 @@ double PI_fuzzy(double sp, double pv) {
   ek = sp - pv;
   P_part = pi_fuzzy.Ke * ek;
   limit_range(&P_part);
-  D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2 / (SAMPLE_TIME * 1e-3));
+  D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2) / (SAMPLE_TIME * 1e-3);
   limit_range(&D_part);
 
   u_dot = run_fuzzy(P_part, D_part);

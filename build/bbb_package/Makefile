@@ -272,6 +272,19 @@ fuzzy_longitudinal_controllers/fast:
 .PHONY : fuzzy_longitudinal_controllers/fast
 
 #=============================================================================
+# Target rules for targets named circumference_node
+
+# Build rule for target.
+circumference_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 circumference_node
+.PHONY : circumference_node
+
+# fast build rule for target.
+circumference_node/fast:
+	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/build
+.PHONY : circumference_node/fast
+
+#=============================================================================
 # Target rules for targets named uninstall
 
 # Build rule for target.
@@ -298,17 +311,17 @@ straight_line_node/fast:
 .PHONY : straight_line_node/fast
 
 #=============================================================================
-# Target rules for targets named circumference_node
+# Target rules for targets named stanley_node
 
 # Build rule for target.
-circumference_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 circumference_node
-.PHONY : circumference_node
+stanley_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stanley_node
+.PHONY : stanley_node
 
 # fast build rule for target.
-circumference_node/fast:
-	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/build
-.PHONY : circumference_node/fast
+stanley_node/fast:
+	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/build
+.PHONY : stanley_node/fast
 
 #=============================================================================
 # Target rules for targets named sinusoidal_node
@@ -512,6 +525,33 @@ src/sinusoidal_node.cpp.s:
 	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/src/sinusoidal_node.cpp.s
 .PHONY : src/sinusoidal_node.cpp.s
 
+src/stanley_node.o: src/stanley_node.cpp.o
+
+.PHONY : src/stanley_node.o
+
+# target to build an object file
+src/stanley_node.cpp.o:
+	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/src/stanley_node.cpp.o
+.PHONY : src/stanley_node.cpp.o
+
+src/stanley_node.i: src/stanley_node.cpp.i
+
+.PHONY : src/stanley_node.i
+
+# target to preprocess a source file
+src/stanley_node.cpp.i:
+	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/src/stanley_node.cpp.i
+.PHONY : src/stanley_node.cpp.i
+
+src/stanley_node.s: src/stanley_node.cpp.s
+
+.PHONY : src/stanley_node.s
+
+# target to generate assembly for a file
+src/stanley_node.cpp.s:
+	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/src/stanley_node.cpp.s
+.PHONY : src/stanley_node.cpp.s
+
 src/straight_line_node.o: src/straight_line_node.cpp.o
 
 .PHONY : src/straight_line_node.o
@@ -612,10 +652,11 @@ help:
 	@echo "... tune_fuzzy_node"
 	@echo "... bbb_package_uninstall"
 	@echo "... fuzzy_longitudinal_controllers"
+	@echo "... circumference_node"
+	@echo "... test"
 	@echo "... uninstall"
 	@echo "... straight_line_node"
-	@echo "... test"
-	@echo "... circumference_node"
+	@echo "... stanley_node"
 	@echo "... install/strip"
 	@echo "... sinusoidal_node"
 	@echo "... src/circumference_node.o"
@@ -639,6 +680,9 @@ help:
 	@echo "... src/sinusoidal_node.o"
 	@echo "... src/sinusoidal_node.i"
 	@echo "... src/sinusoidal_node.s"
+	@echo "... src/stanley_node.o"
+	@echo "... src/stanley_node.i"
+	@echo "... src/stanley_node.s"
 	@echo "... src/straight_line_node.o"
 	@echo "... src/straight_line_node.i"
 	@echo "... src/straight_line_node.s"

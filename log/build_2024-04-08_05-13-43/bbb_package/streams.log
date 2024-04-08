@@ -1,0 +1,26 @@
+[0.502s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': AMENT_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/opt/ros/foxy LD_LIBRARY_PATH=/home/jetson/bbb_jetson_ws/install/serial/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.919s] [ 25%] Built target pid_node
+[0.921s] [ 30%] Built target read_IMU
+[0.922s] [ 25%] Built target delta_angle_node
+[0.925s] [ 40%] Built target read_lidar
+[0.972s] [35m[1mScanning dependencies of target fuzzy_longitudinal_controllers[0m
+[1.052s] [ 50%] Built target tune_node
+[1.065s] [ 60%] Built target straight_line_node
+[1.085s] [ 70%] Built target tune_fuzzy_node
+[1.105s] [ 75%] [32mBuilding CXX object CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.o[0m
+[1.204s] [ 95%] Built target sinusoidal_node
+[1.204s] [ 95%] Built target circumference_node
+[6.449s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_longitudinal_controllers.cpp:[m[K In member function ‘[01m[Kvoid FuzzyLongitudinalControllersNode::timer_callback()[m[K’:
+[6.449s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_longitudinal_controllers.cpp:74:7:[m[K [01;31m[Kerror: [m[K‘[01m[KlinearVelovity[m[K’ was not declared in this scope
+[6.449s]    74 |       [01;31m[KlinearVelovity[m[K = 0.0;
+[6.449s]       |       [01;31m[K^~~~~~~~~~~~~~[m[K
+[6.459s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_longitudinal_controllers.cpp:76:7:[m[K [01;31m[Kerror: [m[K‘[01m[KlinearVelovity[m[K’ was not declared in this scope
+[6.460s]    76 |       [01;31m[KlinearVelovity[m[K = VMAX * (1 - deltaAngle / DELTAMAX);
+[6.460s]       |       [01;31m[K^~~~~~~~~~~~~~[m[K
+[6.471s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/fuzzy_longitudinal_controllers.cpp:81:23:[m[K [01;31m[Kerror: [m[K‘[01m[KlinearVelovity[m[K’ was not declared in this scope
+[6.471s]    81 |     message.data[1] = [01;31m[KlinearVelovity[m[K;
+[6.472s]       |                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[11.618s] make[2]: *** [CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make:63: CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.o] Error 1
+[11.619s] make[1]: *** [CMakeFiles/Makefile2:285: CMakeFiles/fuzzy_longitudinal_controllers.dir/all] Error 2
+[11.620s] make: *** [Makefile:141: all] Error 2
+[11.625s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': AMENT_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/opt/ros/foxy LD_LIBRARY_PATH=/home/jetson/bbb_jetson_ws/install/serial/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

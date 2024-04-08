@@ -48,7 +48,7 @@ colcon build --packages-select bbb_package
 snap interface serial-port
 sudo snap connect micro-xrce-dds-agent:serial-port snapd:pico-1
 export ROS_DOMAIN_ID=0
-sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200
+    sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200
 
 ////// ubuntu 
     export ROS_DOMAIN_ID=0

@@ -39,6 +39,9 @@ struct PI_FUZZY_t {
   double uk_1;
   double ek_1;
   double ek_2;
+  double a;
+  double b;
+  double c;
 };
 
 PI_FUZZY_t pi_fuzzy; // global variable
@@ -82,7 +85,7 @@ class FuzzyNode : public rclcpp::Node {
     message.data.resize(4);  // Set size of data vector to 4
       message.data[0] = output_fuzzy;
       message.data[1] = CONST_VELOCITY;
-      message.data[2] = deltaAngle;
+      message.data[2] = deltaAngle*180/M_PI;
       message.data[3] = angleIMU*180/M_PI;
        RCLCPP_INFO(this->get_logger(), "omega = %lf angle IMU  = %lf", message.data[0], message.data[3]);
     message.layout.data_offset = 333;
@@ -234,7 +237,7 @@ double run_fuzzy(double x1, double x2) {
   double sum_beta;
   double sum_beta_y;
   sum_beta = u_dot.NB + u_dot.NM + u_dot.NS + u_dot.ZE + u_dot.PS + u_dot.PM + u_dot.PB;
-  sum_beta_y = -0.95 * u_dot.NB + -0.8 * u_dot.NM + -0.4 * u_dot.NS + 0 * u_dot.ZE + 0.4 * u_dot.PS + 0.8 * u_dot.PM + 0.95 * u_dot.PB;
+  sum_beta_y = -pi_fuzzy.c* u_dot.NB + -pi_fuzzy.b * u_dot.NM + -pi_fuzzy.a * u_dot.NS + 0 * u_dot.ZE + pi_fuzzy.a  * u_dot.PS + pi_fuzzy.b* u_dot.PM + pi_fuzzy.c * u_dot.PB;
   out = sum_beta_y / sum_beta;
 
   return out;
@@ -253,11 +256,13 @@ double PI_fuzzy(double sp, double pv) {
   ek = sp - pv;
   P_part = pi_fuzzy.Ke * ek;
   limit_range(&P_part);
-  D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2 / (SAMPLE_TIME * 1e-3));
+  D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2) / (SAMPLE_TIME * 1e-3);
   limit_range(&D_part);
 
   u_dot = run_fuzzy(P_part, D_part);
   uk = pi_fuzzy.uk_1 + u_dot * SAMPLE_TIME * 1e-3;
+  // uk = u_dot * SAMPLE_TIME * 1e-3;
+  limit_range(&uk);
   pi_fuzzy.uk_1 = uk;
   pi_fuzzy.ek_2 = pi_fuzzy.ek_1;
   pi_fuzzy.ek_1 = ek;
@@ -265,10 +270,13 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 0.3;
-  pi_fuzzy.Ke_dot = 1.6;
+  pi_fuzzy.Ke = 0.1;
+  pi_fuzzy.Ke_dot = 0.6;
   pi_fuzzy.Ku = 5.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
+  pi_fuzzy.a = 0.4;
+  pi_fuzzy.b = 0.8;
+  pi_fuzzy.c = 0.95;
 }

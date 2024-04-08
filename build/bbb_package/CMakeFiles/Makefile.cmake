@@ -660,8 +660,9 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/tune_fuzzy_node.dir/DependInfo.cmake"
   "CMakeFiles/bbb_package_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/fuzzy_longitudinal_controllers.dir/DependInfo.cmake"
+  "CMakeFiles/circumference_node.dir/DependInfo.cmake"
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/straight_line_node.dir/DependInfo.cmake"
-  "CMakeFiles/circumference_node.dir/DependInfo.cmake"
+  "CMakeFiles/stanley_node.dir/DependInfo.cmake"
   "CMakeFiles/sinusoidal_node.dir/DependInfo.cmake"
   )
