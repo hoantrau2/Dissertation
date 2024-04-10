@@ -1,12 +1,10 @@
 /**
  * @file straight_line_node.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the straight line node of my thesis at my university,
- *  Ho Chi Minh University of Technology.
+ * @brief the straight line node of my thesis at my university, Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-30
  */
-
 #include <chrono>
 #include <cmath>
 #include <functional>
@@ -15,41 +13,45 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define LINEAR_VELOCITY 1.0
-#define YAW_ANGLE (3.14 / 4)
-#define SAMPLE_TIME 100
+#define YAW_ANGLE (45.0 * M_PI / 180.0)
+#define SAMPLE_OF_TRAJECTORY 0.1
+#define NUMBER_OF_SAMPLE 30 // => distance = 3m
 
 class StraightLineNode : public rclcpp::Node {
  public:
-  StraightLineNode() : Node("straight_line_node"), x_position(0.0), y_position(0.0) {
-    start_time_ = std::chrono::steady_clock::now();
+  StraightLineNode() : Node("straight_line_node"), flag(0.0) {
+    subscription_flag_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      "/flag", 10, std::bind(&StraightLineNode::flag_callback, this, std::placeholders::_1));
+
     publisher_reference_map_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/reference_map", 10);
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StraightLineNode::timer_callback, this));
+    // timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StraightLineNode::timer_callback, this));
   }
 
  private:
-  void timer_callback() {
-    auto current_time = std::chrono::steady_clock::now();
-    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time_).count() / 1000.0; // convert ms to s
+  // void timer_callback() {
+  void flag_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
+    if (msg->layout.data_offset == 777 && msg->data.size() == 1) {
+      flag = msg->data[0];
+      // push values to debug
+      // RCLCPP_INFO(this->get_logger(), "Received flag = %lf", flag);
 
-    // Calculate position based on time and velocity
-    x_position = LINEAR_VELOCITY * std::cos(YAW_ANGLE) * elapsed_time;
-    y_position = LINEAR_VELOCITY * std::sin(YAW_ANGLE) * elapsed_time;
-    // Publish message with reference map
-    auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(3); // Set size of data vector to 3
-    message.data[0] = x_position;
-    message.data[1] = y_position;
-    message.data[2] = YAW_ANGLE;
-    message.layout.data_offset = 666;
-    RCLCPP_INFO(this->get_logger(), "%lf   %lf    %lf   %lf", message.data[0], message.data[1], message.data[2], (double)elapsed_time);
-    publisher_reference_map_->publish(message);
+      if (flag <= NUMBER_OF_SAMPLE) {
+        auto message = std_msgs::msg::Float64MultiArray();
+        message.data.resize(2);
+        message.data[0] = SAMPLE_OF_TRAJECTORY * flag * std::cos(YAW_ANGLE) ;
+        message.data[1] = SAMPLE_OF_TRAJECTORY * flag * std::sin(YAW_ANGLE) ;
+        message.layout.data_offset = 666;
+        // push values to debug
+        // RCLCPP_INFO(this->get_logger(), "Reference map: x = %lf, y = %lf", message.data[0], message.data[1]);
+        publisher_reference_map_->publish(message);
+      }
+    } else {
+      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /flag topic");
+    }
   }
-
-  double x_position, y_position;
-  rclcpp::TimerBase::SharedPtr timer_;
+  double flag;
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_flag_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_reference_map_;
-  std::chrono::steady_clock::time_point start_time_;
 };
 
 int main(int argc, char *argv[]) {

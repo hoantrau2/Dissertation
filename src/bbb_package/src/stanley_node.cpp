@@ -18,12 +18,11 @@
 #define Kp 10
 #define Ksoft 10
 #define SAMPLE_TIME 100
-
+#define ACCEPTED_ERROR 0.02
 class StanleyNode : public rclcpp::Node {
  public:
   StanleyNode()
-    : Node("stanley_node"), angleIMU(0.0), linearVelocity(0.0), actual_position({0.0, 0.0, 0.0}), desired_position({0.0, 0.0, 0.0}) {
-
+    : Node("stanley_node"), angleIMU(0.0), linearVelocity(0.0), flag(0.0), actual_position({0.0, 0.0, 0.0}), desired_position({0.0, 0.0}) {
     subscription_angle_IMU_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/angle_IMU", 10, std::bind(&StanleyNode::angle_IMU_callback, this, std::placeholders::_1));
 
@@ -36,29 +35,36 @@ class StanleyNode : public rclcpp::Node {
     subscription_reference_map_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/reference_map", 10, std::bind(&StanleyNode::reference_map_callback, this, std::placeholders::_1));
 
+    publisher_flag_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/flag", 10);
+
     publisher_delta_angle_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/delta_angle", 10);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StanleyNode::timer_callback, this));
   }
 
  private:
   void timer_callback() {
-    // double error_distace = -(actual_position[0] - desired_positon[0]) * std::cos(actual_position[2]) +
-    //                        (actual_position[1] - desired_positon[1]) * std::sin(actual_position[2]);
-    // double angle_stenley_output = desired_positon[2] - std::atan2(Kp * error_distace, Ksoft + linear_velocity);
-
     double error_distace = sqrt(pow((actual_position[0] - desired_position[0]), 2) + pow((actual_position[1] - desired_position[1]), 2));
+    desired_position[2] = std::atan2((-actual_position[1] + desired_position[1]), (-actual_position[0] + desired_position[0]));
     double angle_stenley_output;
-    if (actual_position[2] - desired_position[2] >= 0)
-      angle_stenley_output = actual_position[2] - desired_position[2] + std::atan2(Kp * error_distace, Ksoft + linearVelocity);
+    if (angleIMU - desired_position[2] >= 0)
+      angle_stenley_output = angleIMU - desired_position[2] + std::atan2(Kp * error_distace, Ksoft + linearVelocity);
     else
-      angle_stenley_output = actual_position[2] - desired_position[2] - std::atan2(Kp * error_distace, Ksoft + linearVelocity);
+      angle_stenley_output = angleIMU - desired_position[2] - std::atan2(Kp * error_distace, Ksoft + linearVelocity);
     // publish message with delta angle
     auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(1); 
+    message.data.resize(1); // Set size of data vector to 4
     message.data[0] = angle_stenley_output;
-    RCLCPP_INFO(this->get_logger(), " angle_stenley_output = %lf ", message.data[0]);
     message.layout.data_offset = 555;
-    publisher_delta_angle_->publish(message);
+    // publisher_delta_angle_->publish(message);
+
+    if (error_distace < ACCEPTED_ERROR) {
+      flag++;
+      auto message = std_msgs::msg::Float64MultiArray();
+      message.data.resize(1); // Set size of data vector to 4
+      message.data[0] = flag;
+      message.layout.data_offset = 777;
+      // publisher_flag_->publish(message);
+    }
   }
 
   void actual_velocities_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
@@ -74,7 +80,7 @@ class StanleyNode : public rclcpp::Node {
     if (msg->layout.data_offset == 444 && msg->data.size() == 1) {
       // RCLCPP_INFO(this->get_logger(), "Received angle of IMU");
       // Handle actual angle IMU
-      angleIMU = msg->data[0];
+      angleIMU = - msg->data[0] * M_PI / 180.0;
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /angle_IMU topic");
     }
@@ -82,13 +88,13 @@ class StanleyNode : public rclcpp::Node {
 
   void reference_map_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
-    if (msg->layout.data_offset == 666 && msg->data.size() == 3) {
+    if (msg->layout.data_offset == 666 && msg->data.size() == 2) {
       // RCLCPP_INFO(this->get_logger(), "Received a reference map");
       // Handle a reference map
-      for (size_t i = 0; i < 3; ++i) {
+      for (size_t i = 0; i < 2; ++i) {
         desired_position[i] = msg->data[i];
       }
-      // RCLCPP_INFO(this->get_logger(), " reference x = %lf   y = %lf   yaw = %lf ", desired_position[0], desired_position[1], desired_position[2]);
+      // RCLCPP_INFO(this->get_logger(), "Reference map: x = %lf, y = %lf", desired_position[0], desired_position[1]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /reference_map topic ");
     }
@@ -99,10 +105,10 @@ class StanleyNode : public rclcpp::Node {
       if (transform.child_frame_id == "base_footprint") {
         // RCLCPP_INFO(this->get_logger(), "Received a reference map");
         // Handle a reference map
-        actual_position[0] = transform.transform.translation.x;
+        actual_position[0] = -transform.transform.translation.x;
         actual_position[1] = transform.transform.translation.y;
         actual_position[2] = transform.transform.rotation.z;
-        RCLCPP_INFO(this->get_logger(), " actual x = %lf   y = %lf   yaw = %lf ", actual_position[0], actual_position[1], actual_position[2]);
+        // RCLCPP_INFO(this->get_logger(), "tf: x = %lf, y = %lf, omega = %lf", actual_position[0], actual_position[1], actual_position[2]);
         break; // Exit loop after finding the desired transform
       }
     }
@@ -110,6 +116,7 @@ class StanleyNode : public rclcpp::Node {
 
   double angleIMU;
   double linearVelocity;
+  double flag;
   std::vector<double> actual_position;
   std::vector<double> desired_position;
   rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_angle_IMU_;
@@ -117,6 +124,7 @@ class StanleyNode : public rclcpp::Node {
   rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_reference_map_;
   rclcpp::Subscription<tf2_msgs::msg::TFMessage>::SharedPtr subscription_tf_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_delta_angle_;
+  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_flag_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 
