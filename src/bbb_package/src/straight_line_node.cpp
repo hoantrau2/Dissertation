@@ -17,13 +17,14 @@
 
 #define LINEAR_VELOCITY 1.0
 #define YAW_ANGLE (3.14 / 4)
+#define SAMPLE_TIME 100
 
 class StraightLineNode : public rclcpp::Node {
  public:
   StraightLineNode() : Node("straight_line_node"), x_position(0.0), y_position(0.0) {
     start_time_ = std::chrono::steady_clock::now();
     publisher_reference_map_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/reference_map", 10);
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&StraightLineNode::timer_callback, this));
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StraightLineNode::timer_callback, this));
   }
 
  private:
@@ -34,14 +35,13 @@ class StraightLineNode : public rclcpp::Node {
     // Calculate position based on time and velocity
     x_position = LINEAR_VELOCITY * std::cos(YAW_ANGLE) * elapsed_time;
     y_position = LINEAR_VELOCITY * std::sin(YAW_ANGLE) * elapsed_time;
-
     // Publish message with reference map
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(3); // Set size of data vector to 3
     message.data[0] = x_position;
     message.data[1] = y_position;
     message.data[2] = YAW_ANGLE;
-    message.layout.data_offset = 333;
+    message.layout.data_offset = 666;
     RCLCPP_INFO(this->get_logger(), "%lf   %lf    %lf   %lf", message.data[0], message.data[1], message.data[2], (double)elapsed_time);
     publisher_reference_map_->publish(message);
   }

@@ -18,7 +18,7 @@
 
 #define CONST_VELOCITY 0
 #define SAMPLE_TIME 100
-
+#define PI 3.14159265358979323846
 struct Error {
   double NB, NS, ZE, PS, PB;
 };
@@ -254,6 +254,12 @@ double PI_fuzzy(double sp, double pv) {
   double ek, uk, u_dot;
   double P_part, D_part;
   ek = sp - pv;
+  if (ek < -PI){
+    ek = ek+2*PI;
+  }
+  if (ek > PI){
+    ek = ek - 2*PI; 
+  }
   P_part = pi_fuzzy.Ke * ek;
   limit_range(&P_part);
   D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2) / (SAMPLE_TIME * 1e-3);
@@ -270,9 +276,9 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 0.1;
-  pi_fuzzy.Ke_dot = 0.6;
-  pi_fuzzy.Ku = 5.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pi_fuzzy.Ke = 0.3;
+  pi_fuzzy.Ke_dot = 2;
+  pi_fuzzy.Ku = 7.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;

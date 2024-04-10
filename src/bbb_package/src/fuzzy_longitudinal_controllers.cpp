@@ -92,7 +92,7 @@ class FuzzyLongitudinalControllersNode : public rclcpp::Node {
   delta_angle_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle delta angle
     if (msg->layout.data_offset == 555 && msg->data.size() == 1) {
-      deltaAngle = msg->data[0]*M_PI/180; //radian
+      deltaAngle = msg->data[0]; //radian
       // push values to debug
        RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
     } else {

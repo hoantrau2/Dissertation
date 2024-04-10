@@ -115,7 +115,11 @@ private:
             } else {
                 // RCLCPP_INFO(this->get_logger(), "init_yaw_2 = %lf ", init_yaw);
                 // transformation(init_yaw, &yaw);
+                // RCLCPP_INFO(this->get_logger(), "%lf ", yaw);
                 yaw = yaw - init_yaw;
+                if (yaw < 0){
+                    yaw = yaw + 360;
+                }
                 auto message = std_msgs::msg::Float64MultiArray();
                 message.data.resize(1); 
                 message.data[0] = yaw;

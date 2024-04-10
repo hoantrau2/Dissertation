@@ -45,7 +45,7 @@ class StanleyNode : public rclcpp::Node {
     // double error_distace = -(actual_position[0] - desired_positon[0]) * std::cos(actual_position[2]) +
     //                        (actual_position[1] - desired_positon[1]) * std::sin(actual_position[2]);
     // double angle_stenley_output = desired_positon[2] - std::atan2(Kp * error_distace, Ksoft + linear_velocity);
-    
+
     double error_distace = sqrt(pow((actual_position[0] - desired_position[0]), 2) + pow((actual_position[1] - desired_position[1]), 2));
     double angle_stenley_output;
     if (actual_position[2] - desired_position[2] >= 0)
@@ -54,8 +54,9 @@ class StanleyNode : public rclcpp::Node {
       angle_stenley_output = actual_position[2] - desired_position[2] - std::atan2(Kp * error_distace, Ksoft + linearVelocity);
     // publish message with delta angle
     auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(1); // Set size of data vector to 4
+    message.data.resize(1); 
     message.data[0] = angle_stenley_output;
+    RCLCPP_INFO(this->get_logger(), " angle_stenley_output = %lf ", message.data[0]);
     message.layout.data_offset = 555;
     publisher_delta_angle_->publish(message);
   }
@@ -87,6 +88,7 @@ class StanleyNode : public rclcpp::Node {
       for (size_t i = 0; i < 3; ++i) {
         desired_position[i] = msg->data[i];
       }
+      // RCLCPP_INFO(this->get_logger(), " reference x = %lf   y = %lf   yaw = %lf ", desired_position[0], desired_position[1], desired_position[2]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /reference_map topic ");
     }
@@ -100,6 +102,7 @@ class StanleyNode : public rclcpp::Node {
         actual_position[0] = transform.transform.translation.x;
         actual_position[1] = transform.transform.translation.y;
         actual_position[2] = transform.transform.rotation.z;
+        RCLCPP_INFO(this->get_logger(), " actual x = %lf   y = %lf   yaw = %lf ", actual_position[0], actual_position[1], actual_position[2]);
         break; // Exit loop after finding the desired transform
       }
     }
