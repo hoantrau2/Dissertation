@@ -40,14 +40,17 @@ class FuzzyNodeTest : public rclcpp::Node {
       // //   message.data[0] = 1.3;
       // //   message.data[1] = 1.3;
       // } else {
-      //   message.data[0] = 180.0;
+        message.data[0] = 30.0;
       // }
-      static int cnt = 0;
-      cnt = cnt + 1;
-      if(cnt > 360){
-        cnt = 0;
-      }
-      message.data[0] = 30*sin(cnt*3.14/180);
+
+      // // sine
+      // static int cnt = 0;
+      // cnt = cnt + 1;
+      // if(cnt > 360){
+      //   cnt = 0;
+      // }
+      // message.data[0] = 30*sin(cnt*3.14/180);
+
     RCLCPP_INFO(this->get_logger(), "delta angle = %lf  ", message.data[0]);
     publisher_desired_velocities_->publish(message);
   }

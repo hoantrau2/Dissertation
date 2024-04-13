@@ -276,9 +276,9 @@ double PI_fuzzy(double sp, double pv) {
   limit_range(&D_part);
   error_dot_norm = D_part;
 
-  u_dot = run_fuzzy(P_part, D_part);
-  uk = pi_fuzzy.uk_1 + u_dot * SAMPLE_TIME * 1e-3;
-  // uk = u_dot * SAMPLE_TIME * 1e-3;
+  uk = run_fuzzy(P_part, D_part);
+  // uk = pi_fuzzy.uk_1 + u_dot * SAMPLE_TIME * 1e-3;
+ 
   limit_range(&uk);
   pi_fuzzy.uk_1 = uk;
   pi_fuzzy.ek_2 = pi_fuzzy.ek_1;
@@ -288,13 +288,13 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 0.06;
-  pi_fuzzy.Ke_dot = 5.5;
-  pi_fuzzy.Ku = 15.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pi_fuzzy.Ke = 0.159;
+  pi_fuzzy.Ke_dot = 3.123;
+  pi_fuzzy.Ku = 11.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
-  pi_fuzzy.a = 0.4;
-  pi_fuzzy.b = 0.6;
-  pi_fuzzy.c = 0.85;
+  pi_fuzzy.a = 0.15;
+  pi_fuzzy.b = 0.5;
+  pi_fuzzy.c = 0.7;
 }
