@@ -19,6 +19,9 @@
 #define CONST_VELOCITY 0
 #define SAMPLE_TIME 100
 #define PI 3.14159265358979323846
+
+double error_norm, error_dot_norm, uk_norm;
+
 struct Error {
   double NB, NS, ZE, PS, PB;
 };
@@ -82,11 +85,15 @@ class FuzzyNode : public rclcpp::Node {
     // RCLCPP_INFO(this->get_logger(), "pi_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pi_fuzzy.Ke, pi_fuzzy.Ke_dot, pi_fuzzy.Ku, pi_fuzzy.uk_1, pi_fuzzy.ek_1, pi_fuzzy.ek_2);
     // publish message with desired velocity
     auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(4);  // Set size of data vector to 4
+    message.data.resize(6);  // Set size of data vector to 4
       message.data[0] = output_fuzzy;
       message.data[1] = CONST_VELOCITY;
-      message.data[2] = deltaAngle*180/M_PI;
-      message.data[3] = angleIMU*180/M_PI;
+
+      message.data[2] = deltaAngle*180/M_PI; //setpoint 
+      message.data[3] = uk_norm;
+      message.data[4] = error_norm;
+      message.data[5] = error_dot_norm;
+
        RCLCPP_INFO(this->get_logger(), "omega = %lf angle IMU  = %lf", message.data[0], message.data[3]);
     message.layout.data_offset = 333;
     publisher_velocity_fuzzy_->publish(message);
@@ -254,6 +261,7 @@ double PI_fuzzy(double sp, double pv) {
   double ek, uk, u_dot;
   double P_part, D_part;
   ek = sp - pv;
+
   if (ek < -PI){
     ek = ek+2*PI;
   }
@@ -262,8 +270,11 @@ double PI_fuzzy(double sp, double pv) {
   }
   P_part = pi_fuzzy.Ke * ek;
   limit_range(&P_part);
+  error_norm = P_part;
+
   D_part = pi_fuzzy.Ke_dot * (ek - pi_fuzzy.ek_2) / (SAMPLE_TIME * 1e-3);
   limit_range(&D_part);
+  error_dot_norm = D_part;
 
   u_dot = run_fuzzy(P_part, D_part);
   uk = pi_fuzzy.uk_1 + u_dot * SAMPLE_TIME * 1e-3;
@@ -272,17 +283,18 @@ double PI_fuzzy(double sp, double pv) {
   pi_fuzzy.uk_1 = uk;
   pi_fuzzy.ek_2 = pi_fuzzy.ek_1;
   pi_fuzzy.ek_1 = ek;
+  uk_norm=uk;
   uk = pi_fuzzy.Ku * uk; // control delta veclocity
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 0.3;
-  pi_fuzzy.Ke_dot = 2;
-  pi_fuzzy.Ku = 7.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pi_fuzzy.Ke = 0.06;
+  pi_fuzzy.Ke_dot = 5.5;
+  pi_fuzzy.Ku = 15.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
   pi_fuzzy.a = 0.4;
-  pi_fuzzy.b = 0.8;
-  pi_fuzzy.c = 0.95;
+  pi_fuzzy.b = 0.6;
+  pi_fuzzy.c = 0.85;
 }

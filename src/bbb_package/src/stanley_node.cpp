@@ -55,7 +55,7 @@ class StanleyNode : public rclcpp::Node {
     message.data.resize(1); // Set size of data vector to 4
     message.data[0] = angle_stenley_output;
     message.layout.data_offset = 555;
-    // publisher_delta_angle_->publish(message);
+     publisher_delta_angle_->publish(message);
 
     if (error_distace < ACCEPTED_ERROR) {
       flag++;
@@ -63,7 +63,7 @@ class StanleyNode : public rclcpp::Node {
       message.data.resize(1); // Set size of data vector to 4
       message.data[0] = flag;
       message.layout.data_offset = 777;
-      // publisher_flag_->publish(message);
+     publisher_flag_->publish(message);
     }
   }
 

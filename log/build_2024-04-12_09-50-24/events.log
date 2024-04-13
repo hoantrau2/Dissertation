@@ -1,0 +1,282 @@
+[0.000000] (-) TimerEvent: {}
+[0.000596] (-) JobUnselected: {'identifier': 'bbb_robot'}
+[0.000756] (-) JobUnselected: {'identifier': 'csm'}
+[0.001073] (-) JobUnselected: {'identifier': 'diffdrive_arduino'}
+[0.001186] (-) JobUnselected: {'identifier': 'ros2_laser_scan_matcher'}
+[0.002240] (-) JobUnselected: {'identifier': 'serial'}
+[0.002341] (bbb_package) JobQueued: {'identifier': 'bbb_package', 'dependencies': OrderedDict([('serial', '/home/jetson/bbb_jetson_ws/install/serial')])}
+[0.003156] (bbb_package) JobStarted: {'identifier': 'bbb_package'}
+[0.044811] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'cmake'}
+[0.047641] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'build'}
+[0.050558] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/bbb_jetson_ws/build/bbb_package', '--', '-j4', '-l4'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.66.190 43348 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.88.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-814a9afe-f2d6-423c-9f8d-0311c889a4a2.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '7'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6a97cda0ed.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.66.190 43348 192.168.66.171 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy')]), 'shell': False}
+[0.099131] (-) TimerEvent: {}
+[0.200348] (-) TimerEvent: {}
+[0.301928] (-) TimerEvent: {}
+[0.404394] (-) TimerEvent: {}
+[0.465789] (bbb_package) StdoutLine: {'line': b'[  9%] Built target pid_node\n'}
+[0.478943] (bbb_package) StdoutLine: {'line': b'[ 18%] Built target read_lidar\n'}
+[0.486502] (bbb_package) StdoutLine: {'line': b'[ 27%] Built target delta_angle_node\n'}
+[0.504692] (-) TimerEvent: {}
+[0.515570] (bbb_package) StdoutLine: {'line': b'[ 36%] Built target read_IMU\n'}
+[0.604941] (-) TimerEvent: {}
+[0.608024] (bbb_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target tune_fuzzy_node\x1b[0m\n'}
+[0.705298] (-) TimerEvent: {}
+[0.807029] (-) TimerEvent: {}
+[0.862466] (bbb_package) StdoutLine: {'line': b'[ 45%] Built target circumference_node\n'}
+[0.888909] (bbb_package) StdoutLine: {'line': b'[ 54%] Built target tune_node\n'}
+[0.907341] (-) TimerEvent: {}
+[0.961375] (bbb_package) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/tune_fuzzy_node.dir/src/tune_fuzzy_node.cpp.o\x1b[0m\n'}
+[0.974631] (bbb_package) StdoutLine: {'line': b'[ 68%] Built target fuzzy_longitudinal_controllers\n'}
+[1.007595] (-) TimerEvent: {}
+[1.109039] (-) TimerEvent: {}
+[1.211140] (-) TimerEvent: {}
+[1.312608] (-) TimerEvent: {}
+[1.374635] (bbb_package) StdoutLine: {'line': b'[ 77%] Built target stanley_node\n'}
+[1.389055] (bbb_package) StdoutLine: {'line': b'[ 86%] Built target straight_line_node\n'}
+[1.412845] (-) TimerEvent: {}
+[1.438016] (bbb_package) StdoutLine: {'line': b'[ 95%] Built target sinusoidal_node\n'}
+[1.513159] (-) TimerEvent: {}
+[1.614491] (-) TimerEvent: {}
+[1.715440] (-) TimerEvent: {}
+[1.816262] (-) TimerEvent: {}
+[1.917344] (-) TimerEvent: {}
+[2.018268] (-) TimerEvent: {}
+[2.119708] (-) TimerEvent: {}
+[2.221610] (-) TimerEvent: {}
+[2.323262] (-) TimerEvent: {}
+[2.424522] (-) TimerEvent: {}
+[2.526400] (-) TimerEvent: {}
+[2.628435] (-) TimerEvent: {}
+[2.729824] (-) TimerEvent: {}
+[2.831610] (-) TimerEvent: {}
+[2.934379] (-) TimerEvent: {}
+[3.036126] (-) TimerEvent: {}
+[3.138194] (-) TimerEvent: {}
+[3.239925] (-) TimerEvent: {}
+[3.344034] (-) TimerEvent: {}
+[3.446152] (-) TimerEvent: {}
+[3.547216] (-) TimerEvent: {}
+[3.648197] (-) TimerEvent: {}
+[3.749887] (-) TimerEvent: {}
+[3.851351] (-) TimerEvent: {}
+[3.952318] (-) TimerEvent: {}
+[4.054425] (-) TimerEvent: {}
+[4.156495] (-) TimerEvent: {}
+[4.258018] (-) TimerEvent: {}
+[4.358882] (-) TimerEvent: {}
+[4.459573] (-) TimerEvent: {}
+[4.560256] (-) TimerEvent: {}
+[4.660841] (-) TimerEvent: {}
+[4.761535] (-) TimerEvent: {}
+[4.862168] (-) TimerEvent: {}
+[4.962814] (-) TimerEvent: {}
+[5.064071] (-) TimerEvent: {}
+[5.164705] (-) TimerEvent: {}
+[5.265822] (-) TimerEvent: {}
+[5.366704] (-) TimerEvent: {}
+[5.467596] (-) TimerEvent: {}
+[5.568475] (-) TimerEvent: {}
+[5.669519] (-) TimerEvent: {}
+[5.770508] (-) TimerEvent: {}
+[5.871369] (-) TimerEvent: {}
+[5.972069] (-) TimerEvent: {}
+[6.073172] (-) TimerEvent: {}
+[6.174155] (-) TimerEvent: {}
+[6.275060] (-) TimerEvent: {}
+[6.375872] (-) TimerEvent: {}
+[6.476761] (-) TimerEvent: {}
+[6.578099] (-) TimerEvent: {}
+[6.679051] (-) TimerEvent: {}
+[6.779956] (-) TimerEvent: {}
+[6.880787] (-) TimerEvent: {}
+[6.982404] (-) TimerEvent: {}
+[7.083294] (-) TimerEvent: {}
+[7.184113] (-) TimerEvent: {}
+[7.284997] (-) TimerEvent: {}
+[7.385966] (-) TimerEvent: {}
+[7.486845] (-) TimerEvent: {}
+[7.587690] (-) TimerEvent: {}
+[7.688597] (-) TimerEvent: {}
+[7.789862] (-) TimerEvent: {}
+[7.890701] (-) TimerEvent: {}
+[7.991573] (-) TimerEvent: {}
+[8.092724] (-) TimerEvent: {}
+[8.193688] (-) TimerEvent: {}
+[8.294465] (-) TimerEvent: {}
+[8.395304] (-) TimerEvent: {}
+[8.496193] (-) TimerEvent: {}
+[8.597000] (-) TimerEvent: {}
+[8.697968] (-) TimerEvent: {}
+[8.799479] (-) TimerEvent: {}
+[8.900934] (-) TimerEvent: {}
+[9.002853] (-) TimerEvent: {}
+[9.104430] (-) TimerEvent: {}
+[9.206298] (-) TimerEvent: {}
+[9.307846] (-) TimerEvent: {}
+[9.409187] (-) TimerEvent: {}
+[9.510703] (-) TimerEvent: {}
+[9.617486] (-) TimerEvent: {}
+[9.718753] (-) TimerEvent: {}
+[9.820265] (-) TimerEvent: {}
+[9.921624] (-) TimerEvent: {}
+[10.022842] (-) TimerEvent: {}
+[10.123965] (-) TimerEvent: {}
+[10.225797] (-) TimerEvent: {}
+[10.327165] (-) TimerEvent: {}
+[10.429464] (-) TimerEvent: {}
+[10.530500] (-) TimerEvent: {}
+[10.631872] (-) TimerEvent: {}
+[10.734854] (-) TimerEvent: {}
+[10.835758] (-) TimerEvent: {}
+[10.936719] (-) TimerEvent: {}
+[11.037606] (-) TimerEvent: {}
+[11.138472] (-) TimerEvent: {}
+[11.239358] (-) TimerEvent: {}
+[11.340235] (-) TimerEvent: {}
+[11.441058] (-) TimerEvent: {}
+[11.542347] (-) TimerEvent: {}
+[11.643488] (-) TimerEvent: {}
+[11.744353] (-) TimerEvent: {}
+[11.845258] (-) TimerEvent: {}
+[11.946082] (-) TimerEvent: {}
+[12.047036] (-) TimerEvent: {}
+[12.147990] (-) TimerEvent: {}
+[12.248808] (-) TimerEvent: {}
+[12.349779] (-) TimerEvent: {}
+[12.450687] (-) TimerEvent: {}
+[12.551726] (-) TimerEvent: {}
+[12.652638] (-) TimerEvent: {}
+[12.753834] (-) TimerEvent: {}
+[12.855544] (-) TimerEvent: {}
+[12.956404] (-) TimerEvent: {}
+[13.057375] (-) TimerEvent: {}
+[13.158346] (-) TimerEvent: {}
+[13.259252] (-) TimerEvent: {}
+[13.360123] (-) TimerEvent: {}
+[13.461009] (-) TimerEvent: {}
+[13.562092] (-) TimerEvent: {}
+[13.663019] (-) TimerEvent: {}
+[13.764050] (-) TimerEvent: {}
+[13.865715] (-) TimerEvent: {}
+[13.966332] (-) TimerEvent: {}
+[14.067162] (-) TimerEvent: {}
+[14.168089] (-) TimerEvent: {}
+[14.269040] (-) TimerEvent: {}
+[14.369986] (-) TimerEvent: {}
+[14.471003] (-) TimerEvent: {}
+[14.572024] (-) TimerEvent: {}
+[14.673099] (-) TimerEvent: {}
+[14.774196] (-) TimerEvent: {}
+[14.875185] (-) TimerEvent: {}
+[14.976122] (-) TimerEvent: {}
+[15.077007] (-) TimerEvent: {}
+[15.178094] (-) TimerEvent: {}
+[15.279089] (-) TimerEvent: {}
+[15.380427] (-) TimerEvent: {}
+[15.481746] (-) TimerEvent: {}
+[15.583037] (-) TimerEvent: {}
+[15.684734] (-) TimerEvent: {}
+[15.786276] (-) TimerEvent: {}
+[15.890367] (-) TimerEvent: {}
+[15.991496] (-) TimerEvent: {}
+[16.092834] (-) TimerEvent: {}
+[16.194270] (-) TimerEvent: {}
+[16.296227] (-) TimerEvent: {}
+[16.397585] (-) TimerEvent: {}
+[16.499221] (-) TimerEvent: {}
+[16.600737] (-) TimerEvent: {}
+[16.702423] (-) TimerEvent: {}
+[16.803567] (-) TimerEvent: {}
+[16.904576] (-) TimerEvent: {}
+[17.005364] (-) TimerEvent: {}
+[17.107610] (-) TimerEvent: {}
+[17.209201] (-) TimerEvent: {}
+[17.310381] (-) TimerEvent: {}
+[17.411453] (-) TimerEvent: {}
+[17.512345] (-) TimerEvent: {}
+[17.613405] (-) TimerEvent: {}
+[17.715050] (-) TimerEvent: {}
+[17.816713] (-) TimerEvent: {}
+[17.917714] (-) TimerEvent: {}
+[18.018503] (-) TimerEvent: {}
+[18.119158] (-) TimerEvent: {}
+[18.219794] (-) TimerEvent: {}
+[18.320594] (-) TimerEvent: {}
+[18.421624] (-) TimerEvent: {}
+[18.522596] (-) TimerEvent: {}
+[18.623503] (-) TimerEvent: {}
+[18.724435] (-) TimerEvent: {}
+[18.825604] (-) TimerEvent: {}
+[18.927169] (-) TimerEvent: {}
+[19.028216] (-) TimerEvent: {}
+[19.129145] (-) TimerEvent: {}
+[19.230457] (-) TimerEvent: {}
+[19.331354] (-) TimerEvent: {}
+[19.432259] (-) TimerEvent: {}
+[19.533190] (-) TimerEvent: {}
+[19.634294] (-) TimerEvent: {}
+[19.735141] (-) TimerEvent: {}
+[19.836142] (-) TimerEvent: {}
+[19.936970] (-) TimerEvent: {}
+[20.037927] (-) TimerEvent: {}
+[20.138704] (-) TimerEvent: {}
+[20.239504] (-) TimerEvent: {}
+[20.340357] (-) TimerEvent: {}
+[20.441113] (-) TimerEvent: {}
+[20.543003] (-) TimerEvent: {}
+[20.643982] (-) TimerEvent: {}
+[20.744911] (-) TimerEvent: {}
+[20.845858] (-) TimerEvent: {}
+[20.946888] (-) TimerEvent: {}
+[21.047848] (-) TimerEvent: {}
+[21.149230] (-) TimerEvent: {}
+[21.250259] (-) TimerEvent: {}
+[21.351694] (-) TimerEvent: {}
+[21.459398] (-) TimerEvent: {}
+[21.560338] (-) TimerEvent: {}
+[21.661339] (-) TimerEvent: {}
+[21.762239] (-) TimerEvent: {}
+[21.863209] (-) TimerEvent: {}
+[21.964395] (-) TimerEvent: {}
+[22.065706] (-) TimerEvent: {}
+[22.166847] (-) TimerEvent: {}
+[22.268093] (-) TimerEvent: {}
+[22.369466] (-) TimerEvent: {}
+[22.471218] (-) TimerEvent: {}
+[22.572341] (-) TimerEvent: {}
+[22.673923] (-) TimerEvent: {}
+[22.776881] (-) TimerEvent: {}
+[22.878264] (-) TimerEvent: {}
+[22.979827] (-) TimerEvent: {}
+[23.081350] (-) TimerEvent: {}
+[23.183121] (-) TimerEvent: {}
+[23.265046] (bbb_package) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable tune_fuzzy_node\x1b[0m\n'}
+[23.283321] (-) TimerEvent: {}
+[23.385043] (-) TimerEvent: {}
+[23.486254] (-) TimerEvent: {}
+[23.587954] (-) TimerEvent: {}
+[23.690657] (-) TimerEvent: {}
+[23.793182] (-) TimerEvent: {}
+[23.894572] (-) TimerEvent: {}
+[23.996143] (-) TimerEvent: {}
+[24.097433] (-) TimerEvent: {}
+[24.198728] (-) TimerEvent: {}
+[24.301708] (-) TimerEvent: {}
+[24.404839] (-) TimerEvent: {}
+[24.505687] (-) TimerEvent: {}
+[24.606599] (-) TimerEvent: {}
+[24.647345] (bbb_package) StdoutLine: {'line': b'[100%] Built target tune_fuzzy_node\n'}
+[24.685706] (bbb_package) CommandEnded: {'returncode': 0}
+[24.706973] (-) TimerEvent: {}
+[24.808674] (-) TimerEvent: {}
+[24.838140] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'install'}
+[24.871855] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jetson/bbb_jetson_ws/build/bbb_package'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.66.190 43348 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.88.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-814a9afe-f2d6-423c-9f8d-0311c889a4a2.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '7'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6a97cda0ed.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.66.190 43348 192.168.66.171 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy')]), 'shell': False}
+[24.906144] (bbb_package) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[24.908802] (-) TimerEvent: {}
+[24.911205] (bbb_package) StdoutLine: {'line': b'-- Up-to-date: /home/jetson/bbb_jetson_ws/install/bbb_package/share/bbb_package/launch\n'}
+[24.913547] (bbb_package) StdoutLine: {'line': b'-- Installing: /home/jetson/bbb_jetson_ws/install/bbb_package/share/bbb_package/package.dsv\n'}
+[24.923623] (bbb_package) CommandEnded: {'returncode': 0}
+[25.009190] (-) TimerEvent: {}
+[25.110038] (-) TimerEvent: {}
+[25.153968] (bbb_package) JobEnded: {'identifier': 'bbb_package', 'rc': 0}
+[25.157943] (-) EventReactorShutdown: {}

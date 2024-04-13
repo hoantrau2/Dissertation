@@ -153,7 +153,7 @@ class PIDNode : public rclcpp::Node {
   void desired_velocities_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle desired velocities data 
-    if (msg->layout.data_offset == 333 && msg->data.size() == 4) {
+    if (msg->layout.data_offset == 333 && msg->data.size() == 6) {
       // msg->data[0]: angular velovity
       // msg->data[0]: linear velovity
       setPoints[0] = setPoints[1] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vlef/R
