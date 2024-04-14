@@ -340,12 +340,12 @@ int main() {
   rclc_publisher_init_default(
       &node_components.publisher, &node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float64MultiArray),
-      "/actual_angle");
+      "/actual_velocities");
   // Initialize Subscriber
   rclc_subscription_init_default(
       &node_components.subscription, &node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float64MultiArray),
-      "/desired_angle");
+      "/pwm_signals");
 
   // Create executor
   rclc_executor_t executor;
