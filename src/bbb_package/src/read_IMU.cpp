@@ -1,8 +1,8 @@
+// "" This module was completed ""//
 /**
  * @file read_IMU.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the IMU_node of my thesis at my university, Ho Chi Minh University of
- * Technology.
+ * @brief the IMU node of my thesis at my university, Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-29
  */
@@ -12,9 +12,9 @@
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include <math.h>
 #define SAMPLE_TIME 10
-#define PI 3.14159265358979323846
- int counter = 0;
- double init_yaw = 0;
+
+int counter = 0;
+double init_yaw = 0;
 class SerialNode : public rclcpp::Node {
 public:
     SerialNode() : Node("IMU_node"), port_("/dev/ttyUSB0"), baud_(115200 * 2), data_size_(71) {
@@ -125,7 +125,7 @@ private:
                 message.data[0] = yaw;
                 message.layout.data_offset = 444;
                 // RCLCPP_INFO(this->get_logger(), "yaw = %lf   roll = %lf    pitch = %lf", yaw, roll, pitch);
-                RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
+                 RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
                 publisher_angle_IMU_->publish(message);
             }
         }

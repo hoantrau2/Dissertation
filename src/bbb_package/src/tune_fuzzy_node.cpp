@@ -1,7 +1,7 @@
 /**
- * @file fuzzy_node.cpp
+ * @file controllers.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the fuzzy node of my thesis at my university, Ho Chi Minh University
+ * @brief the controllers node of my thesis at my university, Ho Chi Minh University
  * of Technology.
  * @version 1
  * @date 2024-03-27
@@ -258,7 +258,7 @@ void limit_range(double *x) {
 }
 
 double PI_fuzzy(double sp, double pv) {
-  double ek, uk, u_dot;
+  double ek, uk;
   double P_part, D_part;
   ek = sp - pv;
 

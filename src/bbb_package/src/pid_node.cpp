@@ -1,4 +1,4 @@
-// "" This module was completed ""
+// "" This module was completed ""/
 
 /**
  * @file pid_node.cpp
@@ -144,7 +144,7 @@ class PIDNode : public rclcpp::Node {
         currentValues[i] = msg->data[i];
       }
       // push values to debug
-       RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+        RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /actual_velocities topic");
     }
