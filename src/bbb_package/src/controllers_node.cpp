@@ -20,6 +20,7 @@
 #define K2 3
 #define SAMPLE_TIME 100
 #define STEP_DISTANCE 0.2
+#define VAMMXX 0.3
 
 struct Error {
   double NB, NS, ZE, PS, PB;
@@ -52,6 +53,7 @@ static double mfTriang(double x, double a, double b, double c);
 static double mfTrap(double x, double a, double b, double c, double d);
 double run_fuzzy(double x1, double x2);
 void limit_range(double *x);
+void limit_range_0(double *x) ;
 void init_PD_fuzzy();
 double PD_fuzzy(double sp, double pv);
 double linear_velocity(double deltaDistance, double deltaAngle);
@@ -74,7 +76,7 @@ class ControllersNode : public rclcpp::Node {
  private:
   void timer_callback() {
     double output_anguler = PD_fuzzy(deltaAngle, 0);
-    double output_velocity = linear_velocity(deltaDistance, deltaAngle);
+  //  double output_velocity = linear_velocity(deltaDistance, deltaAngle);
     // push values to debug
     // RCLCPP_INFO(this->get_logger(), "input of pd_fuzzy = %lf  %lf", deltaAngle, angleIMU);
     // RCLCPP_INFO(this->get_logger(), "pd_fuzzy = %lf  %lf  %lf  %lf  %lf  %lf", pd_fuzzy.Ke, pd_fuzzy.Ke_dot, pd_fuzzy.Ku, pd_fuzzy.uk_1, pd_fuzzy.ek_1, pd_fuzzy.ek_2);
@@ -82,7 +84,7 @@ class ControllersNode : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);            // Set size of data vector to 2
     message.data[0] = output_anguler;  // rad/2
-    message.data[1] = output_velocity; // m/s
+    message.data[1] = VAMMXX; // m/s
     // RCLCPP_INFO(this->get_logger(), "omega = %lf velocity  = %lf", message.data[0], message.data[1]);
     message.layout.data_offset = 333;
     publisher_desired_velocities_->publish(message);
@@ -233,6 +235,13 @@ void limit_range(double *x) {
     *x = -1;
 }
 
+void limit_range_0(double *x) {
+  if (*x > 1)
+    *x = 1;
+  else if (*x < 0)
+    *x = 0;
+}
+
 double PD_fuzzy(double sp, double pv) {
   double ek, uk;
   double P_part, D_part;
@@ -274,7 +283,9 @@ void init_PD_fuzzy() {
 
 double linear_velocity(double deltaDistance, double deltaAngle) {
   double deltaDistance_normal = deltaDistance / STEP_DISTANCE;
+  limit_range_0(&deltaDistance_normal);
   double deltaAngle_normal = deltaAngle / M_PI;
+  limit_range_0(&deltaAngle_normal);
   double delta_velocity = (-2 * deltaAngle_normal + 1) + ((K1 + 1) * deltaDistance_normal - 1);
   return ((VMAX / K2) * (delta_velocity + 1));
 }
