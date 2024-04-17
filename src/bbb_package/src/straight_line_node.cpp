@@ -25,6 +25,7 @@ class StraightLineNode : public rclcpp::Node {
 
     publisher_reference_map_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/reference_map", 10);
     // timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StraightLineNode::timer_callback, this));
+    RCLCPP_ERROR(get_logger(), "straight_line_node initialized.");
   }
 
  private:

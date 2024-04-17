@@ -168,6 +168,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named data_processing_node
+
+# Build rule for target.
+data_processing_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node
+.PHONY : data_processing_node
+
+# fast build rule for target.
+data_processing_node/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/build
+.PHONY : data_processing_node/fast
+
+#=============================================================================
+# Target rules for targets named controllers_node
+
+# Build rule for target.
+controllers_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controllers_node
+.PHONY : controllers_node
+
+# fast build rule for target.
+controllers_node/fast:
+	$(MAKE) -f CMakeFiles/controllers_node.dir/build.make CMakeFiles/controllers_node.dir/build
+.PHONY : controllers_node/fast
+
+#=============================================================================
 # Target rules for targets named read_IMU
 
 # Build rule for target.
@@ -362,6 +388,60 @@ src/circumference_node.s: src/circumference_node.cpp.s
 src/circumference_node.cpp.s:
 	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/src/circumference_node.cpp.s
 .PHONY : src/circumference_node.cpp.s
+
+src/controllers_node.o: src/controllers_node.cpp.o
+
+.PHONY : src/controllers_node.o
+
+# target to build an object file
+src/controllers_node.cpp.o:
+	$(MAKE) -f CMakeFiles/controllers_node.dir/build.make CMakeFiles/controllers_node.dir/src/controllers_node.cpp.o
+.PHONY : src/controllers_node.cpp.o
+
+src/controllers_node.i: src/controllers_node.cpp.i
+
+.PHONY : src/controllers_node.i
+
+# target to preprocess a source file
+src/controllers_node.cpp.i:
+	$(MAKE) -f CMakeFiles/controllers_node.dir/build.make CMakeFiles/controllers_node.dir/src/controllers_node.cpp.i
+.PHONY : src/controllers_node.cpp.i
+
+src/controllers_node.s: src/controllers_node.cpp.s
+
+.PHONY : src/controllers_node.s
+
+# target to generate assembly for a file
+src/controllers_node.cpp.s:
+	$(MAKE) -f CMakeFiles/controllers_node.dir/build.make CMakeFiles/controllers_node.dir/src/controllers_node.cpp.s
+.PHONY : src/controllers_node.cpp.s
+
+src/data_processing_node.o: src/data_processing_node.cpp.o
+
+.PHONY : src/data_processing_node.o
+
+# target to build an object file
+src/data_processing_node.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.o
+.PHONY : src/data_processing_node.cpp.o
+
+src/data_processing_node.i: src/data_processing_node.cpp.i
+
+.PHONY : src/data_processing_node.i
+
+# target to preprocess a source file
+src/data_processing_node.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.i
+.PHONY : src/data_processing_node.cpp.i
+
+src/data_processing_node.s: src/data_processing_node.cpp.s
+
+.PHONY : src/data_processing_node.s
+
+# target to generate assembly for a file
+src/data_processing_node.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.s
+.PHONY : src/data_processing_node.cpp.s
 
 src/delta_angle_node.o: src/delta_angle_node.cpp.o
 
@@ -643,6 +723,8 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... data_processing_node"
+	@echo "... controllers_node"
 	@echo "... list_install_components"
 	@echo "... read_IMU"
 	@echo "... read_lidar"
@@ -662,6 +744,12 @@ help:
 	@echo "... src/circumference_node.o"
 	@echo "... src/circumference_node.i"
 	@echo "... src/circumference_node.s"
+	@echo "... src/controllers_node.o"
+	@echo "... src/controllers_node.i"
+	@echo "... src/controllers_node.s"
+	@echo "... src/data_processing_node.o"
+	@echo "... src/data_processing_node.i"
+	@echo "... src/data_processing_node.s"
 	@echo "... src/delta_angle_node.o"
 	@echo "... src/delta_angle_node.i"
 	@echo "... src/delta_angle_node.s"

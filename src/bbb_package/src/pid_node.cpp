@@ -112,6 +112,7 @@ class PIDNode : public rclcpp::Node {
 
     publisher_pwm_signals_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/pwm_signals", 10);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&PIDNode::timer_callback, this)); 
+    RCLCPP_ERROR(get_logger(), "pid_node initialized.");
   }
 
  private:
@@ -144,7 +145,7 @@ class PIDNode : public rclcpp::Node {
         currentValues[i] = msg->data[i];
       }
       // push values to debug
-        RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
+      // RCLCPP_INFO(this->get_logger(), " actual1 = %lf   actual2 = %lf   actual3 = %lf   actual4 = %lf", currentValues[0], currentValues[1], currentValues[2], currentValues[3]);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /actual_velocities topic");
     }
@@ -153,7 +154,7 @@ class PIDNode : public rclcpp::Node {
   void desired_velocities_callback(
     const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
     // Handle desired velocities data 
-    if (msg->layout.data_offset == 333 && msg->data.size() == 6) {
+    if (msg->layout.data_offset == 333 && msg->data.size() == 2) {
       // msg->data[0]: angular velovity
       // msg->data[0]: linear velovity
       setPoints[0] = setPoints[1] = (2 * msg->data[1] + msg->data[0] * WHEELBASE) / 2; // Vlef/R

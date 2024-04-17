@@ -1,0 +1,47 @@
+[0.042s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.128s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.200s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.830s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.944s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.955s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.371s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.534s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.539s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.032s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.146s] -- Found serial: 1.2.1 (/home/jetson/bbb_jetson_ws/install/serial/share/serial/cmake)
+[2.150s] -- Found tf2_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_msgs/cmake)
+[2.837s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.061s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.062s] -- Configured cppcheck include dirs: 
+[3.062s] -- Configured cppcheck exclude dirs and/or files: 
+[3.064s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.067s] -- Added test 'lint_cmake' to check CMake code style
+[3.069s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.074s] -- Added test 'uncrustify' to check C / C++ code style
+[3.074s] -- Configured uncrustify additional arguments: 
+[3.075s] -- Added test 'xmllint' to check XML markup files
+[3.085s] -- Configuring done
+[3.232s] -- Generating done
+[3.240s] -- Build files have been written to: /home/jetson/bbb_jetson_ws/build/bbb_package
+[3.320s] [35m[1mScanning dependencies of target data_processing_node[0m
+[3.413s] [  7%] Built target controllers_node
+[3.431s] [ 15%] Built target read_lidar
+[3.443s] [ 23%] Built target read_IMU
+[3.501s] [ 26%] [32mBuilding CXX object CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.o[0m
+[3.543s] [ 34%] Built target delta_angle_node
+[3.599s] [ 42%] Built target pid_node
+[3.633s] [ 50%] Built target tune_node
+[3.657s] [ 57%] Built target tune_fuzzy_node
+[3.738s] [ 65%] Built target fuzzy_longitudinal_controllers
+[3.752s] [ 73%] Built target circumference_node
+[3.788s] [ 80%] Built target straight_line_node
+[3.851s] [ 88%] Built target stanley_node
+[3.874s] [ 96%] Built target sinusoidal_node
+[25.322s] [100%] [32m[1mLinking CXX executable data_processing_node[0m
+[26.333s] /usr/bin/ld: CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.o: in function `rclcpp::create_subscription_factory<tf2_msgs::msg::TFMessage_<std::allocator<void> >, std::_Bind<void (DataProcessingNode::*(DataProcessingNode*, std::_Placeholder<1>))(std::shared_ptr<tf2_msgs::msg::TFMessage_<std::allocator<void> > >)>, std::allocator<void>, tf2_msgs::msg::TFMessage_<std::allocator<void> >, rclcpp::Subscription<tf2_msgs::msg::TFMessage_<std::allocator<void> >, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<tf2_msgs::msg::TFMessage_<std::allocator<void> >, std::allocator<void> > >, rclcpp::message_memory_strategy::MessageMemoryStrategy<tf2_msgs::msg::TFMessage_<std::allocator<void> >, std::allocator<void> > >(std::_Bind<void (DataProcessingNode::*(DataProcessingNode*, std::_Placeholder<1>))(std::shared_ptr<tf2_msgs::msg::TFMessage_<std::allocator<void> > >)>&&, rclcpp::SubscriptionOptionsWithAllocator<std::allocator<void> > const&, rclcpp::message_memory_strategy::MessageMemoryStrategy<tf2_msgs::msg::TFMessage_<std::allocator<void> >, std::allocator<void> >::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<tf2_msgs::msg::TFMessage_<std::allocator<void> > > >)::{lambda(rclcpp::node_interfaces::NodeBaseInterface*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, rclcpp::QoS const&)#1}::operator()(rclcpp::node_interfaces::NodeBaseInterface*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, rclcpp::QoS const&) const':
+[26.333s] data_processing_node.cpp:(.text._ZZN6rclcpp27create_subscription_factoryIN8tf2_msgs3msg10TFMessage_ISaIvEEESt5_BindIFM18DataProcessingNodeFvSt10shared_ptrIS5_EEPS7_St12_PlaceholderILi1EEEES4_S5_NS_12SubscriptionIS5_S4_NS_23message_memory_strategy21MessageMemoryStrategyIS5_S4_EEEESK_EENS_19SubscriptionFactoryEOT0_RKNS_32SubscriptionOptionsWithAllocatorIT1_EENT4_9SharedPtrES8_INS_16topic_statistics27SubscriptionTopicStatisticsIT2_EEEENKUlPNS_15node_interfaces17NodeBaseInterfaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_3QoSEE_clES13_S1B_S1E_[_ZZN6rclcpp27create_subscription_factoryIN8tf2_msgs3msg10TFMessage_ISaIvEEESt5_BindIFM18DataProcessingNodeFvSt10shared_ptrIS5_EEPS7_St12_PlaceholderILi1EEEES4_S5_NS_12SubscriptionIS5_S4_NS_23message_memory_strategy21MessageMemoryStrategyIS5_S4_EEEESK_EENS_19SubscriptionFactoryEOT0_RKNS_32SubscriptionOptionsWithAllocatorIT1_EENT4_9SharedPtrES8_INS_16topic_statistics27SubscriptionTopicStatisticsIT2_EEEENKUlPNS_15node_interfaces17NodeBaseInterfaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_3QoSEE_clES13_S1B_S1E_]+0x34): undefined reference to `rosidl_message_type_support_t const* rosidl_typesupport_cpp::get_message_type_support_handle<tf2_msgs::msg::TFMessage_<std::allocator<void> > >()'
+[26.335s] collect2: error: ld returned 1 exit status
+[26.339s] make[2]: *** [CMakeFiles/data_processing_node.dir/build.make:131: data_processing_node] Error 1
+[26.339s] make[1]: *** [CMakeFiles/Makefile2:102: CMakeFiles/data_processing_node.dir/all] Error 2
+[26.340s] make: *** [Makefile:141: all] Error 2
+[26.345s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

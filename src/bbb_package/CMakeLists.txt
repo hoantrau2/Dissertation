@@ -56,6 +56,13 @@ ament_target_dependencies(fuzzy_longitudinal_controllers rclcpp std_msgs)
 add_executable(stanley_node src/stanley_node.cpp)
 ament_target_dependencies(stanley_node rclcpp std_msgs tf2_msgs)
 
+add_executable(controllers_node src/controllers_node.cpp)
+ament_target_dependencies(controllers_node rclcpp std_msgs)
+
+add_executable(data_processing_node src/data_processing_node.cpp)
+ament_target_dependencies(data_processing_node rclcpp std_msgs tf2_msgs)
+
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -72,6 +79,8 @@ install(TARGETS
   delta_angle_node
   fuzzy_longitudinal_controllers
   stanley_node
+  controllers_node
+  data_processing_node
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY
