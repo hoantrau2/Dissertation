@@ -14,7 +14,7 @@
 #include "std_msgs/msg/float64_multi_array.hpp"
 
 #define YAW_ANGLE (45.0 * M_PI / 180.0)
-#define SAMPLE_OF_TRAJECTORY 0.1
+#define SAMPLE_OF_TRAJECTORY 0.2
 #define NUMBER_OF_SAMPLE 30 // => distance = 3m
 
 class StraightLineNode : public rclcpp::Node {

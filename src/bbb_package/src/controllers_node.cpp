@@ -16,8 +16,8 @@
 #include "std_msgs/msg/float64_multi_array.hpp"
 
 #define VMAX 2.0
-#define K1 10
-#define K2 10
+#define K1 0.8
+#define K2 3
 #define SAMPLE_TIME 100
 #define STEP_DISTANCE 0.2
 
