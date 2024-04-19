@@ -20,7 +20,7 @@
 #define K2 3
 #define SAMPLE_TIME 100
 #define STEP_DISTANCE 0.2
-#define VAMMXX 0.3
+#define VAMMXX 0.0
 
 struct Error {
   double NB, NS, ZE, PS, PB;
