@@ -17,7 +17,8 @@ int counter = 0;
 double init_yaw = 0;
 class SerialNode : public rclcpp::Node {
 public:
-    SerialNode() : Node("IMU_node"), port_("/dev/serial/by-path/platform-70090000.xusb-usb-0:2.3:1.0-port0"), baud_(115200 * 2), data_size_(71) {
+    // SerialNode() : Node("IMU_node"), port_("/dev/serial/by-path/platform-70090000.xusb-usb-0:2.3:1.0-port0"), baud_(115200 * 2), data_size_(71) {
+        SerialNode() : Node("IMU_node"), port_("/dev/serial/by-path/platform-70090000.xusb-usb-0:2.3:1.0-port0"), baud_(115200 * 2), data_size_(71) {
         try {
             serial_ = std::make_shared<serial::Serial>(port_, baud_, serial::Timeout::simpleTimeout(20));
             if (!serial_->isOpen()) {
@@ -125,7 +126,7 @@ private:
                 message.data[0] = yaw;
                 message.layout.data_offset = 444;
                 // RCLCPP_INFO(this->get_logger(), "yaw = %lf   roll = %lf    pitch = %lf", yaw, roll, pitch);
-                // RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
+                //  RCLCPP_INFO(this->get_logger(), "yaw = %lf ", yaw);
                 publisher_angle_IMU_->publish(message);
             }
         }

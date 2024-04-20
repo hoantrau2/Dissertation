@@ -16,7 +16,7 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define ACCEPTED_ERROR 0.3 // 3.5 cm
+#define ACCEPTED_ERROR 0.1
 
 class DataProcessingNode : public rclcpp::Node {
  public:
@@ -34,6 +34,7 @@ class DataProcessingNode : public rclcpp::Node {
     publisher_flag_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/flag", 10);
 
     publisher_delta_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/delta", 10);
+    publisher_position_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/position", 10);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&DataProcessingNode::timer_callback, this));
     RCLCPP_ERROR(get_logger(), "data_processing_node initialized.");
   }
@@ -41,13 +42,14 @@ class DataProcessingNode : public rclcpp::Node {
  private:
   void timer_callback() {
     double deltaDistance = sqrt(pow((actual_position[0] - desired_position[0]), 2) + pow((actual_position[1] - desired_position[1]), 2));
-    // double deltaAngle = std::atan2((desired_position[1] -actual_position[1]), (desired_position[0]-actual_position[0]) )-angleIMU;
-    double deltaAngle = 45.0 * M_PI / 180.0 -angleIMU;
+    double deltaAngle = std::atan2((desired_position[1] -actual_position[1]), (desired_position[0]-actual_position[0]) )-angleIMU;
+    // double deltaAngle = 45.0 * M_PI / 180.0 -angleIMU;
 
     auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(2); // Set size of data vector to 4
+    message.data.resize(3); // Set size of data vector to 4
     message.data[0] = deltaAngle;
     message.data[1] = deltaDistance;
+    message.data[2] = deltaAngle*180/M_PI;
     message.layout.data_offset = 555;
     publisher_delta_->publish(message);
 
@@ -89,6 +91,16 @@ class DataProcessingNode : public rclcpp::Node {
         // Handle a reference map
         actual_position[0] = -transform.transform.translation.x;
         actual_position[1] =  transform.transform.translation.y;
+      auto message2 = std_msgs::msg:: Float64MultiArray();
+      message2.data.resize(6); // Set size of data vector to 4
+      message2.data[0] = desired_position[0];
+      message2.data[1] = desired_position[1];
+      message2.data[2] = actual_position[0];
+      message2.data[3] = actual_position[1];
+      message2.data[4] = std::atan2((desired_position[1] -actual_position[1]), (desired_position[0]-actual_position[0]) );
+      message2.data[5] = angleIMU;
+      message2.layout.data_offset = 888;
+      publisher_position_->publish(message2);
         break; // Exit loop after finding the desired transform
       } else {
         RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /tf topic ");
@@ -106,6 +118,7 @@ class DataProcessingNode : public rclcpp::Node {
   rclcpp::Subscription<tf2_msgs::msg::TFMessage>::SharedPtr subscription_tf_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_delta_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_flag_;
+  rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_position_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 

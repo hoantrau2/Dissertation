@@ -4,15 +4,15 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        Node(
-            package='bbb_package', 
-            executable='pid_node',
-            output='screen',
-            on_exit=[ExecuteProcess(
-                cmd=["echo", "pid_node initialized"],
-                output='screen'
-            )]
-        ),
+        # Node(
+        #     package='bbb_package', 
+        #     executable='pid_node',
+        #     output='screen',
+        #     on_exit=[ExecuteProcess(
+        #         cmd=["echo", "pid_node initialized"],
+        #         output='screen'
+        #     )]
+        # ),
 
         Node(
             package='rplidar_ros', 
@@ -20,6 +20,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{
                 'serial_port': '/dev/serial/by-path/platform-70090000.xusb-usb-0:2.1:1.0-port0',
+                #  'serial_port': '/dev/ttyUSB0',
                 'frame_id': 'lidar',
                 'angle_compensate': True,
                 'scan_mode': 'Standard' 
@@ -79,6 +80,16 @@ def generate_launch_description():
             )]
         ),
 
+        #      Node(
+        #     package='bbb_package', 
+        #     executable='circumference_node',
+        #     output='screen',
+        #     on_exit=[ExecuteProcess(
+        #         cmd=["echo", "circumference_node initialized"],
+        #         output='screen'
+        #     )]
+        # ),
+
         TimerAction(
             actions=[
                 Node(
@@ -111,6 +122,13 @@ def generate_launch_description():
 #     source ./install/setup.bash
 #     colcon build --packages-select bbb_package
 
+
+    # ros2 run bbb_package read_IMU
+    # ros2 run bbb_package pid_node
+    # ros2 run bbb_package tune_node
+    # ros2 run bbb_package tune_fuzzy_node
+    # ros2 run bbb_package delta_angle_node
+
     #ros2 launch bbb_package thesis.launch.py
     # ros2 run bbb_package read_IMU
     # ros2 launch slam_toolbox online_async_launch.py params_file:=./src/bbb_robot/config/mapper_params_online_async.yaml use_sim_time:=false
@@ -119,6 +137,8 @@ def generate_launch_description():
     #https://answers.ros.org/question/372752/static_transform_publisher-in-ros2-launch-file/
     #https://github.com/AlexKaravaev/csm
     #https://github.com/AlexKaravaev/ros2_laser_scan_matcher
+    # ros2 run rplidar_ros rplidar_composition --ros-args -p serial_port:=/dev/serial/by-path/platform-70090000.xusb-usb-0:2.1:1.0-port0 -p frame_id:=laser_frame -p angle_compensate:=true -p scan_mode:=Standard
+
              
     
          

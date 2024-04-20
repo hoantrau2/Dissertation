@@ -19,9 +19,8 @@
 #define K1 0.8
 #define K2 3
 #define SAMPLE_TIME 100
-#define STEP_DISTANCE 0.2
-#define VAMMXX 0.0
-
+#define STEP_DISTANCE 0.1
+#define VAMMXX 0.2
 struct Error {
   double NB, NS, ZE, PS, PB;
 };
@@ -91,7 +90,7 @@ class ControllersNode : public rclcpp::Node {
   }
 
   void delta_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
-    if (msg->layout.data_offset == 555 && msg->data.size() == 2) {
+    if (msg->layout.data_offset == 555 && msg->data.size() == 3) {
       deltaAngle = msg->data[0];    // radian
       deltaDistance = msg->data[1]; // meters
       // RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
@@ -270,15 +269,15 @@ double PD_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PD_fuzzy() {
-  pd_fuzzy.Ke = 0.159;
+  pd_fuzzy.Ke = 0.15;
   pd_fuzzy.Ke_dot = 3.123;
-  pd_fuzzy.Ku = 11.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pd_fuzzy.Ku = 17.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pd_fuzzy.uk_1 = 0;
   pd_fuzzy.ek_1 = 0;
   pd_fuzzy.ek_2 = 0;
-  pd_fuzzy.a = 0.15;
-  pd_fuzzy.b = 0.5;
-  pd_fuzzy.c = 0.7;
+  pd_fuzzy.a = 0.5;
+  pd_fuzzy.b = 0.75;
+  pd_fuzzy.c = 0.95;
 }
 
 double linear_velocity(double deltaDistance, double deltaAngle) {

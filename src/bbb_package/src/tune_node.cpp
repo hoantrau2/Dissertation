@@ -8,7 +8,7 @@ public:
     TuneNode() : Node("tune_node")
     {
         subscription_fuzzy_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-            "/angle_IMU", 10, std::bind(&TuneNode::fuzzy_callback, this, std::placeholders::_1));
+            "/position", 10, std::bind(&TuneNode::fuzzy_callback, this, std::placeholders::_1));
 
         // Open a file to log data
         log_file_fuzzy_.open("data_fuzzy.txt", std::ofstream::out | std::ofstream::app);
@@ -17,12 +17,14 @@ public:
 private:
        void fuzzy_callback (const std_msgs::msg::Float64MultiArray::SharedPtr msg) 
     {
-        if (msg->layout.data_offset == 444 && msg->data.size() == 1) {
+        if (msg->layout.data_offset == 888 && msg->data.size() == 6) {
             for (const auto& data : msg->data) {
                 log_file_fuzzy_ << data << " ";
             }
             log_file_fuzzy_ << std::endl;
-        }
+        } else {
+      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size tune node");
+    }
     }
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_fuzzy_;
     std::ofstream log_file_fuzzy_;

@@ -1,12 +1,10 @@
 /**
  * @file circumference_node.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief the circumference node of my thesis at my university,
- * Ho Chi Minh University of Technology.
+ * @brief the circumference node of my thesis at my university, Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-30
  */
-
 #include <chrono>
 #include <cmath>
 #include <functional>
@@ -15,43 +13,43 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 
-#define LINEAR_VELOCITY 1.0
-#define RADIUS 1.5
-#define INITIAL_ANGLE 3.14 / 2
+#define LINEAR_VELOCITY 0.5
+#define RADIUS 0.7
+#define SAMPLE_ANGLE (15.0 * M_PI / 180.0) // 100ms
 
 class CircumferenceNode : public rclcpp::Node {
  public:
-  CircumferenceNode() : Node("circumference_node"), x_position(0.0), y_position(0.0), yaw_angle(INITIAL_ANGLE) {
-    start_time_ = std::chrono::steady_clock::now();
+  CircumferenceNode() : Node("circumference_node"), flag(0.0) {
+    subscription_flag_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
+      "/flag", 10, std::bind(&CircumferenceNode::flag_callback, this, std::placeholders::_1));
+
     publisher_reference_map_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/reference_map", 10);
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&CircumferenceNode::timer_callback, this));
+    // timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&StraightLineNode::timer_callback, this));
   }
 
  private:
-  void timer_callback() {
-    auto current_time = std::chrono::steady_clock::now();
-    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time_).count() / 1000.0; // convert ms to s
+  // void timer_callback() {
+  void flag_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
+    if (msg->layout.data_offset == 777 && msg->data.size() == 1) {
+      flag = msg->data[0];
+      // push values to debug
+      // RCLCPP_INFO(this->get_logger(), "Received flag = %lf", flag);
 
-    // Calculate position based on time and velocity
-    x_position = RADIUS * std::cos((LINEAR_VELOCITY / RADIUS) * elapsed_time);
-    y_position = RADIUS * std::sin((LINEAR_VELOCITY / RADIUS) * elapsed_time);
-    yaw_angle = INITIAL_ANGLE + (LINEAR_VELOCITY / RADIUS) * elapsed_time;
-
-    // Publish message with reference map
-    auto message = std_msgs::msg::Float64MultiArray();
-    message.data.resize(3); // Set size of data vector to 3
-    message.data[0] = x_position;
-    message.data[1] = y_position;
-    message.data[2] = yaw_angle;
-    message.layout.data_offset = 333;
-    RCLCPP_INFO(this->get_logger(), "%lf   %lf    %lf   %lf", message.data[0], message.data[1], message.data[2], (double)elapsed_time);
-    publisher_reference_map_->publish(message);
+      auto message = std_msgs::msg::Float64MultiArray();
+      message.data.resize(2);
+      message.data[0] = RADIUS * std::sin(SAMPLE_ANGLE * flag);
+      message.data[1] = -RADIUS * std::cos(SAMPLE_ANGLE * flag) +RADIUS;
+      message.layout.data_offset = 666;
+      // push values to debug
+      // RCLCPP_INFO(this->get_logger(), "Reference map: x = %lf, y = %lf", message.data[0], message.data[1]);
+      publisher_reference_map_->publish(message);
+    } else {
+      RCLCPP_ERROR(this->get_logger(), "Invalid message format or size of /flag topic");
+    }
   }
-
-  double x_position, y_position, yaw_angle;
-  rclcpp::TimerBase::SharedPtr timer_;
+  double flag;
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_flag_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_reference_map_;
-  std::chrono::steady_clock::time_point start_time_;
 };
 
 int main(int argc, char *argv[]) {

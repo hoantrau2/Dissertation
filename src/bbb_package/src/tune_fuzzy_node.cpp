@@ -288,13 +288,13 @@ double PI_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PI_fuzzy() {
-  pi_fuzzy.Ke = 0.159;
+  pi_fuzzy.Ke = 0.15;
   pi_fuzzy.Ke_dot = 3.123;
-  pi_fuzzy.Ku = 11.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
+  pi_fuzzy.Ku = 17.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pi_fuzzy.uk_1 = 0;
   pi_fuzzy.ek_1 = 0;
   pi_fuzzy.ek_2 = 0;
-  pi_fuzzy.a = 0.15;
-  pi_fuzzy.b = 0.5;
-  pi_fuzzy.c = 0.7;
+  pi_fuzzy.a = 0.5;
+  pi_fuzzy.b = 0.75;
+  pi_fuzzy.c = 0.95;
 }
