@@ -43,7 +43,7 @@ class DataProcessingNode : public rclcpp::Node {
   void timer_callback() {
     double deltaDistance = sqrt(pow((actual_position[0] - desired_position[0]), 2) + pow((actual_position[1] - desired_position[1]), 2));
     double deltaAngle = std::atan2((desired_position[1] -actual_position[1]), (desired_position[0]-actual_position[0]) )-angleIMU;
-    // double deltaAngle = 45.0 * M_PI / 180.0 -angleIMU;
+    // double deltaAngle = 30.0 * M_PI / 180.0 -angleIMU;
 
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(3); // Set size of data vector to 4

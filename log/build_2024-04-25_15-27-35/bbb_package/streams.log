@@ -1,0 +1,24 @@
+[0.043s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.244s] [35m[1mScanning dependencies of target data_processing_node_straight[0m
+[0.331s] [  7%] Built target data_processing_node
+[0.370s] [ 21%] Built target read_IMU
+[0.371s] [ 21%] Built target controllers_node
+[0.558s] [ 25%] [32mBuilding CXX object CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o[0m
+[0.660s] [ 32%] Built target read_lidar
+[0.685s] [ 39%] Built target pid_node
+[0.695s] [ 46%] Built target delta_angle_node
+[0.868s] [ 53%] Built target fuzzy_longitudinal_controllers
+[0.872s] [ 60%] Built target tune_node
+[0.888s] [ 67%] Built target tune_fuzzy_node
+[1.100s] [ 75%] Built target straight_line_node
+[1.215s] [ 82%] Built target stanley_node
+[1.256s] [ 89%] Built target circumference_node
+[1.326s] [ 96%] Built target sinusoidal_node
+[6.677s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::timer_callback()[m[K’:
+[6.678s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:78:20:[m[K [01;31m[Kerror: [m[K‘[01m[Ktd[m[K’ has not been declared
+[6.679s]    78 |     double d_min = [01;31m[Ktd[m[K::sqrt(std::pow((actual_position[0] - x[index]), 2) + std::pow((actual_position[1] - y[index]), 2));;
+[6.687s]       |                    [01;31m[K^~[m[K
+[15.343s] make[2]: *** [CMakeFiles/data_processing_node_straight.dir/build.make:63: CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o] Error 1
+[15.344s] make[1]: *** [CMakeFiles/Makefile2:104: CMakeFiles/data_processing_node_straight.dir/all] Error 2
+[15.344s] make: *** [Makefile:141: all] Error 2
+[15.350s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

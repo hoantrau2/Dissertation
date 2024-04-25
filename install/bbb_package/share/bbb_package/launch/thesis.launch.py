@@ -4,16 +4,6 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        # Node(
-        #     package='bbb_package', 
-        #     executable='pid_node',
-        #     output='screen',
-        #     on_exit=[ExecuteProcess(
-        #         cmd=["echo", "pid_node initialized"],
-        #         output='screen'
-        #     )]
-        # ),
-
         Node(
             package='rplidar_ros', 
             executable='rplidar_composition', 
@@ -44,7 +34,7 @@ def generate_launch_description():
             arguments=["0", "0", "0.5", "0", "0", "0", "base_footprint", "lidar"]
         ),
 
-        # # Delayed execution nodes
+        # Delayed execution nodes
         # TimerAction(
         #     actions=[
         #         Node(
@@ -62,33 +52,13 @@ def generate_launch_description():
 
         Node(
             package='bbb_package', 
-            executable='data_processing_node',
+            executable='tune_node',
             output='screen',
             on_exit=[ExecuteProcess(
-                cmd=["echo", "data_processing_node initialized"],
+                cmd=["echo", "tune_node initialized"],
                 output='screen'
             )]
         ),
-
-        Node(
-            package='bbb_package', 
-            executable='straight_line_node',
-            output='screen',
-            on_exit=[ExecuteProcess(
-                cmd=["echo", "straight_line_node initialized"],
-                output='screen'
-            )]
-        ),
-
-        #      Node(
-        #     package='bbb_package', 
-        #     executable='circumference_node',
-        #     output='screen',
-        #     on_exit=[ExecuteProcess(
-        #         cmd=["echo", "circumference_node initialized"],
-        #         output='screen'
-        #     )]
-        # ),
 
         TimerAction(
             actions=[
@@ -104,7 +74,6 @@ def generate_launch_description():
             ],
             period=6.0, 
         ),
-
     ])
 
 
@@ -120,7 +89,29 @@ def generate_launch_description():
 # ////// ubuntu 
 #     export ROS_DOMAIN_ID=0
 #     source ./install/setup.bash
+#     colcon build --packages-select bbb_package  
+  #ros2 launch bbb_package thesis.launch.py 
+# ros2 run bbb_package read_IMU
+# ros2 run bbb_package data_processing_node_straight
+# ros2 run bbb_package pid_node
+
+
+
+
+
+
+
+
+
+
+
+
+# ////// ubuntu 
+#     export ROS_DOMAIN_ID=0
+#     source ./install/setup.bash
 #     colcon build --packages-select bbb_package
+#     colcon build --packages-select tune_package
+# ros2 run bbb_package data_processing_node_straight
 
 
     # ros2 run bbb_package read_IMU
@@ -130,6 +121,7 @@ def generate_launch_description():
     # ros2 run bbb_package delta_angle_node
 
     #ros2 launch bbb_package thesis.launch.py
+    #ros2 launch tune_package tune.launch.py
     # ros2 run bbb_package read_IMU
     # ros2 launch slam_toolbox online_async_launch.py params_file:=./src/bbb_robot/config/mapper_params_online_async.yaml use_sim_time:=false
     # ros2 run tf2_tools view_frames

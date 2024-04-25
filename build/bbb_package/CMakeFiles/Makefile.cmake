@@ -641,6 +641,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/data_processing_node_straight.dir/DependInfo.cmake"
   "CMakeFiles/data_processing_node.dir/DependInfo.cmake"
   "CMakeFiles/controllers_node.dir/DependInfo.cmake"
   "CMakeFiles/read_IMU.dir/DependInfo.cmake"

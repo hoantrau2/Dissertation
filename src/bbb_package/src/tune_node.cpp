@@ -17,7 +17,7 @@ public:
 private:
        void fuzzy_callback (const std_msgs::msg::Float64MultiArray::SharedPtr msg) 
     {
-        if (msg->layout.data_offset == 888 && msg->data.size() == 6) {
+        if (msg->layout.data_offset == 888 && msg->data.size() == 3) {
             for (const auto& data : msg->data) {
                 log_file_fuzzy_ << data << " ";
             }

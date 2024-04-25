@@ -20,7 +20,7 @@
 #define K2 3
 #define SAMPLE_TIME 100
 #define STEP_DISTANCE 0.1
-#define VAMMXX 0.2
+#define VAMMXX 0.3
 struct Error {
   double NB, NS, ZE, PS, PB;
 };
@@ -90,7 +90,7 @@ class ControllersNode : public rclcpp::Node {
   }
 
   void delta_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) {
-    if (msg->layout.data_offset == 555 && msg->data.size() == 3) {
+    if (msg->layout.data_offset == 555 && msg->data.size() == 2) {
       deltaAngle = msg->data[0];    // radian
       deltaDistance = msg->data[1]; // meters
       // RCLCPP_INFO(this->get_logger(), "Received angle of stanley = %lf", msg->data[0]);
@@ -252,6 +252,7 @@ double PD_fuzzy(double sp, double pv) {
   if (ek > M_PI) {
     ek = ek - 2 * M_PI;
   }
+  
   P_part = pd_fuzzy.Ke * ek;
   limit_range(&P_part);
 

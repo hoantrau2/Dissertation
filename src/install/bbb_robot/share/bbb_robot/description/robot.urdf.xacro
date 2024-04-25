@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <!-- <xacro:include filename="robot_core_differential_robot.xacro" /> -->
+    <xacro:include filename="robot_core_four_wheel.xacro" />
+
+    <!-- <xacro:arg name="use_ros2_control" default="true" />
+
+    <xacro:if value="$(arg use_ros2_control)">
+        <xacro:include filename="ros2_control.xacro" />
+    </xacro:if>
+    <xacro:unless value="$(arg use_ros2_control)">
+        <xacro:include filename="gazebo_control.xacro" />
+    </xacro:unless> -->
+
+    <xacro:include filename="lidar2D.xacro" />
+
+</robot>

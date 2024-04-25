@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named data_processing_node_straight
+
+# Build rule for target.
+data_processing_node_straight: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node_straight
+.PHONY : data_processing_node_straight
+
+# fast build rule for target.
+data_processing_node_straight/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/build
+.PHONY : data_processing_node_straight/fast
+
+#=============================================================================
 # Target rules for targets named data_processing_node
 
 # Build rule for target.
@@ -442,6 +455,33 @@ src/data_processing_node.s: src/data_processing_node.cpp.s
 src/data_processing_node.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.s
 .PHONY : src/data_processing_node.cpp.s
+
+src/data_processing_node_straight.o: src/data_processing_node_straight.cpp.o
+
+.PHONY : src/data_processing_node_straight.o
+
+# target to build an object file
+src/data_processing_node_straight.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o
+.PHONY : src/data_processing_node_straight.cpp.o
+
+src/data_processing_node_straight.i: src/data_processing_node_straight.cpp.i
+
+.PHONY : src/data_processing_node_straight.i
+
+# target to preprocess a source file
+src/data_processing_node_straight.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.i
+.PHONY : src/data_processing_node_straight.cpp.i
+
+src/data_processing_node_straight.s: src/data_processing_node_straight.cpp.s
+
+.PHONY : src/data_processing_node_straight.s
+
+# target to generate assembly for a file
+src/data_processing_node_straight.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.s
+.PHONY : src/data_processing_node_straight.cpp.s
 
 src/delta_angle_node.o: src/delta_angle_node.cpp.o
 
@@ -723,6 +763,7 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... data_processing_node_straight"
 	@echo "... data_processing_node"
 	@echo "... controllers_node"
 	@echo "... list_install_components"
@@ -750,6 +791,9 @@ help:
 	@echo "... src/data_processing_node.o"
 	@echo "... src/data_processing_node.i"
 	@echo "... src/data_processing_node.s"
+	@echo "... src/data_processing_node_straight.o"
+	@echo "... src/data_processing_node_straight.i"
+	@echo "... src/data_processing_node_straight.s"
 	@echo "... src/delta_angle_node.o"
 	@echo "... src/delta_angle_node.i"
 	@echo "... src/delta_angle_node.s"
