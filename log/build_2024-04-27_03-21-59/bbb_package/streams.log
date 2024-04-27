@@ -1,0 +1,31 @@
+[0.048s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.214s] [35m[1mScanning dependencies of target data_processing_node_straight[0m
+[0.363s] [  7%] Built target data_processing_node
+[0.492s] [ 14%] Built target controllers_node
+[0.509s] [ 21%] Built target read_IMU
+[0.527s] [ 25%] [32mBuilding CXX object CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o[0m
+[0.612s] [ 32%] Built target read_lidar
+[0.832s] [ 39%] Built target pid_node
+[0.938s] [ 46%] Built target delta_angle_node
+[1.059s] [ 53%] Built target tune_node
+[1.158s] [ 60%] Built target tune_fuzzy_node
+[1.418s] [ 67%] Built target fuzzy_longitudinal_controllers
+[1.455s] [ 75%] Built target straight_line_node
+[1.565s] [ 82%] Built target circumference_node
+[1.694s] [ 89%] Built target sinusoidal_node
+[1.704s] [ 96%] Built target stanley_node
+[6.752s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:284:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kvoid DataProcessingNode::tf_callback(tf2_msgs::msg::TFMessage_<std::allocator<void> >::SharedPtr)[m[K’ cannot be overloaded with ‘[01m[Kvoid DataProcessingNode::tf_callback(tf2_msgs::msg::TFMessage_<std::allocator<void> >::SharedPtr)[m[K’
+[6.753s]   284 |   void [01;31m[Ktf_callback[m[K(const tf2_msgs::msg::TFMessage::SharedPtr msg) {
+[6.754s]       |        [01;31m[K^~~~~~~~~~~[m[K
+[6.754s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:263:8:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid DataProcessingNode::tf_callback(tf2_msgs::msg::TFMessage_<std::allocator<void> >::SharedPtr)[m[K’
+[6.755s]   263 |   void [01;36m[Ktf_callback[m[K(const tf2_msgs::msg::TFMessage::SharedPtr msg) {
+[6.756s]       |        [01;36m[K^~~~~~~~~~~[m[K
+[6.935s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::tf_callback(tf2_msgs::msg::TFMessage_<std::allocator<void> >::SharedPtr)[m[K’:
+[6.936s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:297:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kangle_IMU[m[K’ was not declared in this scope; did you mean ‘[01m[KangleIMU[m[K’?
+[6.936s]   297 |         if (theta[int(index)] - [01;31m[Kangle_IMU[m[K <-M_PI)
+[6.937s]       |                                 [01;31m[K^~~~~~~~~[m[K
+[6.937s]       |                                 [32m[KangleIMU[m[K
+[15.195s] make[2]: *** [CMakeFiles/data_processing_node_straight.dir/build.make:63: CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o] Error 1
+[15.200s] make[1]: *** [CMakeFiles/Makefile2:104: CMakeFiles/data_processing_node_straight.dir/all] Error 2
+[15.202s] make: *** [Makefile:141: all] Error 2
+[15.203s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

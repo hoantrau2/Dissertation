@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named data_processing_node_zz
+
+# Build rule for target.
+data_processing_node_zz: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node_zz
+.PHONY : data_processing_node_zz
+
+# fast build rule for target.
+data_processing_node_zz/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/build
+.PHONY : data_processing_node_zz/fast
+
+#=============================================================================
 # Target rules for targets named data_processing_node_straight
 
 # Build rule for target.
@@ -483,6 +496,33 @@ src/data_processing_node_straight.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.s
 .PHONY : src/data_processing_node_straight.cpp.s
 
+src/data_processing_node_zz.o: src/data_processing_node_zz.cpp.o
+
+.PHONY : src/data_processing_node_zz.o
+
+# target to build an object file
+src/data_processing_node_zz.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/src/data_processing_node_zz.cpp.o
+.PHONY : src/data_processing_node_zz.cpp.o
+
+src/data_processing_node_zz.i: src/data_processing_node_zz.cpp.i
+
+.PHONY : src/data_processing_node_zz.i
+
+# target to preprocess a source file
+src/data_processing_node_zz.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/src/data_processing_node_zz.cpp.i
+.PHONY : src/data_processing_node_zz.cpp.i
+
+src/data_processing_node_zz.s: src/data_processing_node_zz.cpp.s
+
+.PHONY : src/data_processing_node_zz.s
+
+# target to generate assembly for a file
+src/data_processing_node_zz.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/src/data_processing_node_zz.cpp.s
+.PHONY : src/data_processing_node_zz.cpp.s
+
 src/delta_angle_node.o: src/delta_angle_node.cpp.o
 
 .PHONY : src/delta_angle_node.o
@@ -763,6 +803,7 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... data_processing_node_zz"
 	@echo "... data_processing_node_straight"
 	@echo "... data_processing_node"
 	@echo "... controllers_node"
@@ -794,6 +835,9 @@ help:
 	@echo "... src/data_processing_node_straight.o"
 	@echo "... src/data_processing_node_straight.i"
 	@echo "... src/data_processing_node_straight.s"
+	@echo "... src/data_processing_node_zz.o"
+	@echo "... src/data_processing_node_zz.i"
+	@echo "... src/data_processing_node_zz.s"
 	@echo "... src/delta_angle_node.o"
 	@echo "... src/delta_angle_node.i"
 	@echo "... src/delta_angle_node.s"

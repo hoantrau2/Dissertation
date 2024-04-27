@@ -9,7 +9,7 @@ def generate_launch_description():
             executable='rplidar_composition', 
             output='screen',
             parameters=[{
-                'serial_port': '/dev/serial/by-path/platform-70090000.xusb-usb-0:2.1:1.0-port0',
+                'serial_port': '/dev/serial/by-path/platform-70090000.xusb-usb-0:2.2:1.0-port0',
                 #  'serial_port': '/dev/ttyUSB0',
                 'frame_id': 'lidar',
                 'angle_compensate': True,

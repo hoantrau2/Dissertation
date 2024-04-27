@@ -14,18 +14,18 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.3
+#define Kp 0.575
 #define Ksoft 0
 
 #define A (std::tan(M_PI / 4))
 #define B 0
 #define STEP_DISTANCE 0.02
-#define COUNTER 250
+#define COUNTER 400
 
 class DataProcessingNode : public rclcpp::Node {
  public:
   DataProcessingNode()
-    : Node("data_processing_node_straight"), angleIMU(0.0), actual_position({0.0, 0.0}), index(0), d(0.0) {
+    : Node("data_processing_node_straight"), angleIMU(0.0), actual_position({0.0, 0.0}), pre_actual_position({0.0, 0.0}), index(0), d_min(0.0) {
     initializeArrays();
     setupSubscribersAndPublishers();
     setupTimer();
@@ -35,8 +35,9 @@ class DataProcessingNode : public rclcpp::Node {
  private:
   double angleIMU;
   std::vector<double> actual_position;
+  std::vector<double> pre_actual_position;
   int index;
-  double d ;
+  double d_min;
   double x[COUNTER];
   double y[COUNTER];
   double theta[COUNTER];
@@ -50,12 +51,12 @@ class DataProcessingNode : public rclcpp::Node {
     x[0] = 0;
     y[0] = 0;
     theta[0] = std::atan2(A, 1);
-    RCLCPP_INFO(this->get_logger(), "Initializing arrays...");
-    for (int i = 1; i <= COUNTER; i++) {
+    // RCLCPP_INFO(this->get_logger(), "Initializing arrays...");
+    for (int i = 1; i < COUNTER; i++) {
       x[i] = x[i - 1] + STEP_DISTANCE;
       y[i] = A * x[i] + B;
       theta[i] = std::atan2(A, 1);
-      RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", i, x[i], i, y[i], i, theta[i]);
+      // RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", i, x[i], i, y[i], i, theta[i]);
     }
   }
 
@@ -75,15 +76,15 @@ class DataProcessingNode : public rclcpp::Node {
   }
 
   void timer_callback() {
-    double d_min = std::sqrt(std::pow((actual_position[0] - x[index]), 2) + std::pow((actual_position[1] - y[index]), 2));;
-    for (int i = index+1; i < std::min(index + 10, COUNTER); i++) {
-       d = std::sqrt(std::pow((actual_position[0] - x[i]), 2) + std::pow((actual_position[1] - y[i]), 2));
+    d_min = std::sqrt(std::pow((actual_position[0] - x[index]), 2) + std::pow((actual_position[1] - y[index]), 2));
+    for (int i = index + 1; i < std::min(index + 5, COUNTER); i++) {
+      double d = std::sqrt(std::pow((actual_position[0] - x[i]), 2) + std::pow((actual_position[1] - y[i]), 2));
       if (d < d_min) {
         d_min = d;
         index = i;
       }
     }
-      double arctann = std::atan2(Kp * d_min, Ksoft + 0.4);
+    double arctann = std::atan2(Kp * d_min, Ksoft + 0.4);
     if (arctann > 20 * M_PI / 180)
       arctann = 20 * M_PI / 180;
     else if (arctann < -20 * M_PI / 180)
@@ -92,14 +93,12 @@ class DataProcessingNode : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);
     if (std::atan2(actual_position[1], actual_position[0]) - theta[int(index)] >= 0)
-      message.data[0] = theta[int(index)]- angleIMU - arctann;
-      // message.data[0] = 45 * M_PI / 180- angleIMU - arctann;
+      message.data[0] = theta[int(index)] - angleIMU - arctann;
+    // message.data[0] = 45 * M_PI / 180- angleIMU - arctann;
     else
       message.data[0] = theta[int(index)] - angleIMU + arctann;
-      // message.data[0] = 45 * M_PI / 180- angleIMU - arctann;
-// message.data[0] = theta[int(index)] - angleIMU ;
-// message.data[0] = 45 * M_PI / 180- angleIMU ;
-    message.data[1] = d_min ;
+    // message.data[0] = 45 * M_PI / 180- angleIMU - arctann;
+    message.data[1] = d_min;
     message.layout.data_offset = 555;
     publisher_delta_->publish(message);
   }
@@ -115,16 +114,38 @@ class DataProcessingNode : public rclcpp::Node {
   void tf_callback(const tf2_msgs::msg::TFMessage::SharedPtr msg) {
     for (auto transform : msg->transforms) {
       if (transform.child_frame_id == "base_footprint") {
-        actual_position[0] = -transform.transform.translation.x;
-        actual_position[1] = transform.transform.translation.y;
+        double x_position = -transform.transform.translation.x;
+        double y_position = transform.transform.translation.y;
+        if (std::abs(x_position - pre_actual_position[0]) >0.5 ||std::abs(y_position - pre_actual_position[1])>0.5)
+        {
+           actual_position[0] =  pre_actual_position[0];
+           actual_position[1] =  pre_actual_position[1];
+        }
+        else 
+        {
+          actual_position[0] =  x_position;
+          actual_position[1] =  y_position;
+        }
+
+
+        pre_actual_position[0] =  actual_position[0];
+        pre_actual_position[1] =  actual_position[1];
+
         auto message2 = std_msgs::msg::Float64MultiArray();
-        message2.data.resize(6); // Set size of data vector to 4
+        message2.data.resize(8); // Set size of data vector to 4
         message2.data[0] = actual_position[0];
-        message2.data[1] = actual_position[1];
-        message2.data[2] = angleIMU;
-        message2.data[3] = d;
-        message2.data[4] = index;
-        message2.data[5]  = theta[int(index)];
+        message2.data[1] = actual_position[1]; 
+        message2.data[2] = x[int(index)];
+        message2.data[3] = y[int(index)];
+        message2.data[4] = d_min;
+
+        if (theta[int(index)] - angleIMU <-M_PI)
+        message2.data[5] = (theta[int(index)] - angleIMU ) + 2*M_PI ;
+        else if (theta[int(index)] - angleIMU >M_PI)
+        message2.data[5] = (theta[int(index)] - angleIMU ) - 2*M_PI ;
+        else message2.data[5] = theta[int(index)] - angleIMU  ;
+        message2.data[6]=index;
+        message2.data[7]=theta[int(index)];
         message2.layout.data_offset = 888;
         publisher_position_->publish(message2);
         break; // Exit loop after finding the desired transform

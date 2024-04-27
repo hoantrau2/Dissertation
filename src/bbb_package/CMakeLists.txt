@@ -61,8 +61,12 @@ ament_target_dependencies(controllers_node rclcpp std_msgs)
 
 add_executable(data_processing_node src/data_processing_node.cpp)
 ament_target_dependencies(data_processing_node rclcpp std_msgs tf2_msgs)
+
 add_executable(data_processing_node_straight src/data_processing_node_straight.cpp)
 ament_target_dependencies(data_processing_node_straight rclcpp std_msgs tf2_msgs)
+
+add_executable(data_processing_node_zz src/data_processing_node_zz.cpp)
+ament_target_dependencies(data_processing_node_zz rclcpp std_msgs tf2_msgs)
 
 
 # uncomment the following section in order to fill in
@@ -83,6 +87,7 @@ install(TARGETS
   stanley_node
   controllers_node
   data_processing_node_straight
+  data_processing_node_zz
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

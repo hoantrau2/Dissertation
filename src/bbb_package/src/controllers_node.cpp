@@ -270,7 +270,7 @@ double PD_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PD_fuzzy() {
-  pd_fuzzy.Ke = 0.15;
+  pd_fuzzy.Ke = 0.161;
   pd_fuzzy.Ke_dot = 3.123;
   pd_fuzzy.Ku = 17.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pd_fuzzy.uk_1 = 0;
