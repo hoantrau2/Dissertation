@@ -86,8 +86,7 @@ class DataProcessingNode : public rclcpp::Node {
   }
 
   void timer_callback() {
-    d_min = std::sqrt(std::pow((actual_position[0] - x[index]), 2) + std::pow((actual_position[1] - y[index]), 2));
-    ;
+    d_min = std::sqrt(std::pow((actual_position[0] - x[int(index)]), 2) + std::pow((actual_position[1] - y[int(index)]), 2));
     for (int i = index + 1; i < std::min(index + 10, COUNTER); i++) {
       double d = std::sqrt(std::pow((actual_position[0] - x[i]), 2) + std::pow((actual_position[1] - y[i]), 2));
       if (d < d_min) {

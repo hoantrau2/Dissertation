@@ -81,7 +81,7 @@ def generate_launch_description():
     
 #     ////////////pico-w
 # sudo systemctl restart snapd
-# snap interface serial-port
+# snap interface serial-port    
 # sudo snap connect micro-xrce-dds-agent:serial-port snapd:pico-2
 # export ROS_DOMAIN_ID=0
 # sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200
@@ -90,7 +90,7 @@ def generate_launch_description():
 #     export ROS_DOMAIN_ID=0
 #     source ./install/setup.bash
 #     colcon build --packages-select bbb_package  
-  #ros2 launch bbb_package thesis.launch.py 
+#ros2 launch bbb_package thesis.launch.py 
 # ros2 run bbb_package read_IMU
 # ros2 run bbb_package data_processing_node_straight
 # ros2 run bbb_package pid_node
