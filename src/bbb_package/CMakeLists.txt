@@ -68,6 +68,9 @@ ament_target_dependencies(data_processing_node_straight rclcpp std_msgs tf2_msgs
 add_executable(data_processing_node_zz src/data_processing_node_zz.cpp)
 ament_target_dependencies(data_processing_node_zz rclcpp std_msgs tf2_msgs)
 
+add_executable(data_processing_node_circle src/data_processing_node_circle.cpp)
+ament_target_dependencies(data_processing_node_circle rclcpp std_msgs tf2_msgs)
+
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -88,6 +91,7 @@ install(TARGETS
   controllers_node
   data_processing_node_straight
   data_processing_node_zz
+  data_processing_node_circle
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

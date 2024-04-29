@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -101,6 +89,18 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -166,6 +166,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named data_processing_node_circle
+
+# Build rule for target.
+data_processing_node_circle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node_circle
+.PHONY : data_processing_node_circle
+
+# fast build rule for target.
+data_processing_node_circle/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node_circle.dir/build.make CMakeFiles/data_processing_node_circle.dir/build
+.PHONY : data_processing_node_circle/fast
 
 #=============================================================================
 # Target rules for targets named data_processing_node_zz
@@ -468,6 +481,33 @@ src/data_processing_node.s: src/data_processing_node.cpp.s
 src/data_processing_node.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node.dir/build.make CMakeFiles/data_processing_node.dir/src/data_processing_node.cpp.s
 .PHONY : src/data_processing_node.cpp.s
+
+src/data_processing_node_circle.o: src/data_processing_node_circle.cpp.o
+
+.PHONY : src/data_processing_node_circle.o
+
+# target to build an object file
+src/data_processing_node_circle.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node_circle.dir/build.make CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o
+.PHONY : src/data_processing_node_circle.cpp.o
+
+src/data_processing_node_circle.i: src/data_processing_node_circle.cpp.i
+
+.PHONY : src/data_processing_node_circle.i
+
+# target to preprocess a source file
+src/data_processing_node_circle.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node_circle.dir/build.make CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.i
+.PHONY : src/data_processing_node_circle.cpp.i
+
+src/data_processing_node_circle.s: src/data_processing_node_circle.cpp.s
+
+.PHONY : src/data_processing_node_circle.s
+
+# target to generate assembly for a file
+src/data_processing_node_circle.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node_circle.dir/build.make CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.s
+.PHONY : src/data_processing_node_circle.cpp.s
 
 src/data_processing_node_straight.o: src/data_processing_node_straight.cpp.o
 
@@ -799,10 +839,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... install/local"
+	@echo "... data_processing_node_circle"
 	@echo "... data_processing_node_zz"
 	@echo "... data_processing_node_straight"
 	@echo "... data_processing_node"
@@ -832,6 +873,9 @@ help:
 	@echo "... src/data_processing_node.o"
 	@echo "... src/data_processing_node.i"
 	@echo "... src/data_processing_node.s"
+	@echo "... src/data_processing_node_circle.o"
+	@echo "... src/data_processing_node_circle.i"
+	@echo "... src/data_processing_node_circle.s"
 	@echo "... src/data_processing_node_straight.o"
 	@echo "... src/data_processing_node_straight.i"
 	@echo "... src/data_processing_node_straight.s"

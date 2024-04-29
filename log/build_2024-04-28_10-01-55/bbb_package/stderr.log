@@ -1,0 +1,22 @@
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::initializeArrays()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:17:[m[K [01;31m[Kerror: [m[K‘[01m[Ktan2[m[K’ is not a member of ‘[01m[Kstd[m[K’; did you mean ‘[01m[Ktanh[m[K’?
+  188 | #define A (std::[01;31m[Ktan2[m[K(135*M_PI / 180))
+      |                 [01;31m[K^~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:221:27:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+  221 |     theta[0] = std::atan2([01;36m[KA[m[K, 1);
+      |                           [01;36m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:17:[m[K [01;31m[Kerror: [m[K‘[01m[Ktan2[m[K’ is not a member of ‘[01m[Kstd[m[K’; did you mean ‘[01m[Ktanh[m[K’?
+  188 | #define A (std::[01;31m[Ktan2[m[K(135*M_PI / 180))
+      |                 [01;31m[K^~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:225:14:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+  225 |       y[i] = [01;36m[KA[m[K * x[i] + B;
+      |              [01;36m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:17:[m[K [01;31m[Kerror: [m[K‘[01m[Ktan2[m[K’ is not a member of ‘[01m[Kstd[m[K’; did you mean ‘[01m[Ktanh[m[K’?
+  188 | #define A (std::[01;31m[Ktan2[m[K(135*M_PI / 180))
+      |                 [01;31m[K^~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:226:29:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+  226 |       theta[i] = std::atan2([01;36m[KA[m[K, 1);
+      |                             [01;36m[K^[m[K
+make[2]: *** [CMakeFiles/data_processing_node_straight.dir/build.make:63: CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:133: CMakeFiles/data_processing_node_straight.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,597 @@
+[0.000000] (-) TimerEvent: {}
+[0.003656] (-) JobUnselected: {'identifier': 'bbb_robot'}
+[0.004959] (-) JobUnselected: {'identifier': 'csm'}
+[0.006136] (-) JobUnselected: {'identifier': 'diffdrive_arduino'}
+[0.008925] (-) JobUnselected: {'identifier': 'ros2_laser_scan_matcher'}
+[0.011265] (-) JobUnselected: {'identifier': 'serial'}
+[0.013426] (-) JobUnselected: {'identifier': 'tune_package'}
+[0.018182] (bbb_package) JobQueued: {'identifier': 'bbb_package', 'dependencies': OrderedDict([('serial', '/home/jetson/bbb_jetson_ws/install/serial')])}
+[0.020547] (bbb_package) JobStarted: {'identifier': 'bbb_package'}
+[0.094426] (-) TimerEvent: {}
+[0.140243] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'cmake'}
+[0.146577] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'build'}
+[0.155230] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/bbb_jetson_ws/build/bbb_package', '--', '-j4', '-l4'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.66.252 36384 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.88.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-cc25fafc-840b-46ef-bbb0-18cdfaec252a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '5'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6a97cda0ed.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.66.252 36384 192.168.66.171 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy')]), 'shell': False}
+[0.194562] (-) TimerEvent: {}
+[0.297031] (-) TimerEvent: {}
+[0.399950] (-) TimerEvent: {}
+[0.502450] (-) TimerEvent: {}
+[0.554271] (bbb_package) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.602750] (-) TimerEvent: {}
+[0.707584] (-) TimerEvent: {}
+[0.808940] (-) TimerEvent: {}
+[0.862360] (bbb_package) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.909219] (-) TimerEvent: {}
+[1.011604] (-) TimerEvent: {}
+[1.115598] (-) TimerEvent: {}
+[1.223892] (-) TimerEvent: {}
+[1.325430] (-) TimerEvent: {}
+[1.428045] (-) TimerEvent: {}
+[1.533724] (-) TimerEvent: {}
+[1.635388] (-) TimerEvent: {}
+[1.738104] (-) TimerEvent: {}
+[1.840932] (-) TimerEvent: {}
+[1.943779] (-) TimerEvent: {}
+[2.045134] (-) TimerEvent: {}
+[2.146465] (-) TimerEvent: {}
+[2.248688] (-) TimerEvent: {}
+[2.350038] (-) TimerEvent: {}
+[2.452340] (-) TimerEvent: {}
+[2.554342] (-) TimerEvent: {}
+[2.655728] (-) TimerEvent: {}
+[2.757071] (-) TimerEvent: {}
+[2.859930] (-) TimerEvent: {}
+[2.962027] (-) TimerEvent: {}
+[3.065039] (-) TimerEvent: {}
+[3.167915] (-) TimerEvent: {}
+[3.269249] (-) TimerEvent: {}
+[3.370639] (-) TimerEvent: {}
+[3.399031] (bbb_package) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[3.470867] (-) TimerEvent: {}
+[3.572185] (-) TimerEvent: {}
+[3.673462] (-) TimerEvent: {}
+[3.775701] (-) TimerEvent: {}
+[3.877857] (-) TimerEvent: {}
+[3.979687] (-) TimerEvent: {}
+[4.009899] (bbb_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.056681] (bbb_package) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[4.079934] (-) TimerEvent: {}
+[4.181873] (-) TimerEvent: {}
+[4.283415] (-) TimerEvent: {}
+[4.384769] (-) TimerEvent: {}
+[4.486021] (-) TimerEvent: {}
+[4.587754] (-) TimerEvent: {}
+[4.688988] (-) TimerEvent: {}
+[4.790181] (-) TimerEvent: {}
+[4.892095] (-) TimerEvent: {}
+[4.993381] (-) TimerEvent: {}
+[5.097250] (-) TimerEvent: {}
+[5.198627] (-) TimerEvent: {}
+[5.300351] (-) TimerEvent: {}
+[5.355756] (bbb_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.400621] (-) TimerEvent: {}
+[5.502529] (-) TimerEvent: {}
+[5.604424] (-) TimerEvent: {}
+[5.705815] (-) TimerEvent: {}
+[5.808725] (-) TimerEvent: {}
+[5.911570] (-) TimerEvent: {}
+[6.006567] (bbb_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[6.011819] (-) TimerEvent: {}
+[6.038906] (bbb_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[6.112096] (-) TimerEvent: {}
+[6.214251] (-) TimerEvent: {}
+[6.317007] (-) TimerEvent: {}
+[6.418484] (-) TimerEvent: {}
+[6.520730] (-) TimerEvent: {}
+[6.622037] (-) TimerEvent: {}
+[6.724471] (-) TimerEvent: {}
+[6.826680] (-) TimerEvent: {}
+[6.928038] (-) TimerEvent: {}
+[7.029306] (-) TimerEvent: {}
+[7.130543] (-) TimerEvent: {}
+[7.231911] (-) TimerEvent: {}
+[7.333191] (-) TimerEvent: {}
+[7.436161] (-) TimerEvent: {}
+[7.537380] (-) TimerEvent: {}
+[7.638624] (-) TimerEvent: {}
+[7.740855] (-) TimerEvent: {}
+[7.824015] (bbb_package) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[7.841028] (-) TimerEvent: {}
+[7.942235] (-) TimerEvent: {}
+[8.043673] (-) TimerEvent: {}
+[8.144922] (-) TimerEvent: {}
+[8.166152] (bbb_package) StdoutLine: {'line': b'-- Found serial: 1.2.1 (/home/jetson/bbb_jetson_ws/install/serial/share/serial/cmake)\n'}
+[8.181870] (bbb_package) StdoutLine: {'line': b'-- Found tf2_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_msgs/cmake)\n'}
+[8.245191] (-) TimerEvent: {}
+[8.346448] (-) TimerEvent: {}
+[8.447912] (-) TimerEvent: {}
+[8.549160] (-) TimerEvent: {}
+[8.650518] (-) TimerEvent: {}
+[8.752730] (-) TimerEvent: {}
+[8.853788] (-) TimerEvent: {}
+[8.954827] (-) TimerEvent: {}
+[9.055857] (-) TimerEvent: {}
+[9.157682] (-) TimerEvent: {}
+[9.258678] (-) TimerEvent: {}
+[9.360008] (-) TimerEvent: {}
+[9.461148] (-) TimerEvent: {}
+[9.562283] (-) TimerEvent: {}
+[9.588077] (bbb_package) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[9.662451] (-) TimerEvent: {}
+[9.763792] (-) TimerEvent: {}
+[9.864962] (-) TimerEvent: {}
+[9.925897] (bbb_package) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[9.931533] (bbb_package) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[9.932934] (bbb_package) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[9.938261] (bbb_package) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[9.943574] (bbb_package) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.948265] (bbb_package) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[9.957390] (bbb_package) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[9.958648] (bbb_package) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[9.963057] (bbb_package) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.964999] (-) TimerEvent: {}
+[9.982827] (bbb_package) StdoutLine: {'line': b'-- Configuring done\n'}
+[10.065280] (-) TimerEvent: {}
+[10.166462] (-) TimerEvent: {}
+[10.267846] (-) TimerEvent: {}
+[10.368976] (-) TimerEvent: {}
+[10.405248] (bbb_package) StdoutLine: {'line': b'-- Generating done\n'}
+[10.440009] (bbb_package) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/bbb_jetson_ws/build/bbb_package\n'}
+[10.469376] (-) TimerEvent: {}
+[10.570866] (-) TimerEvent: {}
+[10.673855] (-) TimerEvent: {}
+[10.707628] (bbb_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target data_processing_node_circle\x1b[0m\n'}
+[10.774169] (-) TimerEvent: {}
+[10.877351] (-) TimerEvent: {}
+[10.978786] (-) TimerEvent: {}
+[11.080240] (-) TimerEvent: {}
+[11.182488] (-) TimerEvent: {}
+[11.283989] (-) TimerEvent: {}
+[11.285526] (bbb_package) StdoutLine: {'line': b'[  6%] Built target data_processing_node_straight\n'}
+[11.354924] (bbb_package) StdoutLine: {'line': b'[ 12%] Built target data_processing_node\n'}
+[11.384282] (-) TimerEvent: {}
+[11.434388] (bbb_package) StdoutLine: {'line': b'[ 18%] Built target data_processing_node_zz\n'}
+[11.484597] (-) TimerEvent: {}
+[11.586648] (-) TimerEvent: {}
+[11.688870] (-) TimerEvent: {}
+[11.790300] (-) TimerEvent: {}
+[11.794047] (bbb_package) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o\x1b[0m\n'}
+[11.890595] (-) TimerEvent: {}
+[11.992733] (-) TimerEvent: {}
+[12.124481] (-) TimerEvent: {}
+[12.144249] (bbb_package) StdoutLine: {'line': b'[ 28%] Built target controllers_node\n'}
+[12.182341] (bbb_package) StdoutLine: {'line': b'[ 34%] Built target read_IMU\n'}
+[12.227612] (-) TimerEvent: {}
+[12.330286] (-) TimerEvent: {}
+[12.347777] (bbb_package) StdoutLine: {'line': b'[ 40%] Built target read_lidar\n'}
+[12.430579] (-) TimerEvent: {}
+[12.532874] (-) TimerEvent: {}
+[12.634227] (-) TimerEvent: {}
+[12.721075] (bbb_package) StdoutLine: {'line': b'[ 46%] Built target pid_node\n'}
+[12.734539] (-) TimerEvent: {}
+[12.836844] (-) TimerEvent: {}
+[12.939179] (-) TimerEvent: {}
+[13.041960] (-) TimerEvent: {}
+[13.063605] (bbb_package) StdoutLine: {'line': b'[ 53%] Built target delta_angle_node\n'}
+[13.142260] (-) TimerEvent: {}
+[13.160769] (bbb_package) StdoutLine: {'line': b'[ 59%] Built target tune_node\n'}
+[13.242563] (-) TimerEvent: {}
+[13.344948] (-) TimerEvent: {}
+[13.406504] (bbb_package) StdoutLine: {'line': b'[ 65%] Built target tune_fuzzy_node\n'}
+[13.445253] (-) TimerEvent: {}
+[13.547638] (-) TimerEvent: {}
+[13.649936] (-) TimerEvent: {}
+[13.738451] (bbb_package) StdoutLine: {'line': b'[ 71%] Built target circumference_node\n'}
+[13.750241] (-) TimerEvent: {}
+[13.817710] (bbb_package) StdoutLine: {'line': b'[ 78%] Built target fuzzy_longitudinal_controllers\n'}
+[13.850549] (-) TimerEvent: {}
+[13.952874] (-) TimerEvent: {}
+[14.029559] (bbb_package) StdoutLine: {'line': b'[ 84%] Built target straight_line_node\n'}
+[14.053159] (-) TimerEvent: {}
+[14.155479] (-) TimerEvent: {}
+[14.257809] (-) TimerEvent: {}
+[14.279847] (bbb_package) StdoutLine: {'line': b'[ 90%] Built target sinusoidal_node\n'}
+[14.336292] (bbb_package) StdoutLine: {'line': b'[ 96%] Built target stanley_node\n'}
+[14.358090] (-) TimerEvent: {}
+[14.461372] (-) TimerEvent: {}
+[14.564083] (-) TimerEvent: {}
+[14.665543] (-) TimerEvent: {}
+[14.767468] (-) TimerEvent: {}
+[14.868836] (-) TimerEvent: {}
+[14.970226] (-) TimerEvent: {}
+[15.072356] (-) TimerEvent: {}
+[15.175278] (-) TimerEvent: {}
+[15.277283] (-) TimerEvent: {}
+[15.378758] (-) TimerEvent: {}
+[15.480108] (-) TimerEvent: {}
+[15.581404] (-) TimerEvent: {}
+[15.682645] (-) TimerEvent: {}
+[15.784070] (-) TimerEvent: {}
+[15.885494] (-) TimerEvent: {}
+[15.987936] (-) TimerEvent: {}
+[16.090148] (-) TimerEvent: {}
+[16.191825] (-) TimerEvent: {}
+[16.294260] (-) TimerEvent: {}
+[16.397442] (-) TimerEvent: {}
+[16.499529] (-) TimerEvent: {}
+[16.601776] (-) TimerEvent: {}
+[16.703982] (-) TimerEvent: {}
+[16.806178] (-) TimerEvent: {}
+[16.907740] (-) TimerEvent: {}
+[17.010827] (-) TimerEvent: {}
+[17.120597] (-) TimerEvent: {}
+[17.223287] (-) TimerEvent: {}
+[17.326642] (-) TimerEvent: {}
+[17.428148] (-) TimerEvent: {}
+[17.529556] (-) TimerEvent: {}
+[17.631829] (-) TimerEvent: {}
+[17.733226] (-) TimerEvent: {}
+[17.835741] (-) TimerEvent: {}
+[17.938156] (-) TimerEvent: {}
+[18.040659] (-) TimerEvent: {}
+[18.143054] (-) TimerEvent: {}
+[18.246507] (-) TimerEvent: {}
+[18.349842] (-) TimerEvent: {}
+[18.453185] (-) TimerEvent: {}
+[18.556169] (-) TimerEvent: {}
+[18.658665] (-) TimerEvent: {}
+[18.761905] (-) TimerEvent: {}
+[18.865451] (-) TimerEvent: {}
+[18.968158] (-) TimerEvent: {}
+[19.070619] (-) TimerEvent: {}
+[19.173997] (-) TimerEvent: {}
+[19.277346] (-) TimerEvent: {}
+[19.379925] (-) TimerEvent: {}
+[19.483019] (-) TimerEvent: {}
+[19.586041] (-) TimerEvent: {}
+[19.688846] (-) TimerEvent: {}
+[19.790445] (-) TimerEvent: {}
+[19.893721] (-) TimerEvent: {}
+[19.996752] (-) TimerEvent: {}
+[20.102347] (-) TimerEvent: {}
+[20.204653] (-) TimerEvent: {}
+[20.307719] (-) TimerEvent: {}
+[20.410970] (-) TimerEvent: {}
+[20.516001] (-) TimerEvent: {}
+[20.620500] (-) TimerEvent: {}
+[20.723807] (-) TimerEvent: {}
+[20.827240] (-) TimerEvent: {}
+[20.930504] (-) TimerEvent: {}
+[21.035640] (-) TimerEvent: {}
+[21.139097] (-) TimerEvent: {}
+[21.241551] (-) TimerEvent: {}
+[21.344798] (-) TimerEvent: {}
+[21.448073] (-) TimerEvent: {}
+[21.551203] (-) TimerEvent: {}
+[21.655571] (-) TimerEvent: {}
+[21.758899] (-) TimerEvent: {}
+[21.861440] (-) TimerEvent: {}
+[21.963040] (-) TimerEvent: {}
+[22.066315] (-) TimerEvent: {}
+[22.174851] (-) TimerEvent: {}
+[22.276313] (-) TimerEvent: {}
+[22.377673] (-) TimerEvent: {}
+[22.479128] (-) TimerEvent: {}
+[22.582345] (-) TimerEvent: {}
+[22.683937] (-) TimerEvent: {}
+[22.785384] (-) TimerEvent: {}
+[22.886806] (-) TimerEvent: {}
+[22.988455] (-) TimerEvent: {}
+[23.089861] (-) TimerEvent: {}
+[23.191251] (-) TimerEvent: {}
+[23.294793] (-) TimerEvent: {}
+[23.397160] (-) TimerEvent: {}
+[23.498616] (-) TimerEvent: {}
+[23.600200] (-) TimerEvent: {}
+[23.703226] (-) TimerEvent: {}
+[23.806719] (-) TimerEvent: {}
+[23.910274] (-) TimerEvent: {}
+[24.013778] (-) TimerEvent: {}
+[24.117569] (-) TimerEvent: {}
+[24.220016] (-) TimerEvent: {}
+[24.321319] (-) TimerEvent: {}
+[24.422589] (-) TimerEvent: {}
+[24.524746] (-) TimerEvent: {}
+[24.626150] (-) TimerEvent: {}
+[24.727791] (-) TimerEvent: {}
+[24.829205] (-) TimerEvent: {}
+[24.930838] (-) TimerEvent: {}
+[25.034203] (-) TimerEvent: {}
+[25.136948] (-) TimerEvent: {}
+[25.238257] (-) TimerEvent: {}
+[25.339585] (-) TimerEvent: {}
+[25.440949] (-) TimerEvent: {}
+[25.542307] (-) TimerEvent: {}
+[25.643952] (-) TimerEvent: {}
+[25.745277] (-) TimerEvent: {}
+[25.846556] (-) TimerEvent: {}
+[25.948062] (-) TimerEvent: {}
+[26.049481] (-) TimerEvent: {}
+[26.152637] (-) TimerEvent: {}
+[26.254939] (-) TimerEvent: {}
+[26.358273] (-) TimerEvent: {}
+[26.459838] (-) TimerEvent: {}
+[26.561260] (-) TimerEvent: {}
+[26.662582] (-) TimerEvent: {}
+[26.764140] (-) TimerEvent: {}
+[26.865663] (-) TimerEvent: {}
+[26.967252] (-) TimerEvent: {}
+[27.068772] (-) TimerEvent: {}
+[27.092701] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kconversion from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99 in a converted constant expression\n'}
+[27.097594] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.098921] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.100461] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:43:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.101705] (bbb_package) StderrLine: {'line': b'   43 |   double x[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.102813] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.104198] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcould not convert \xe2\x80\x98\x1b[01m\x1b[K(((double)2 * 3.1415926535897931e+0) / (3.1415926535897931e+0 / (double)180))\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.105477] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.106635] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.128122] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:43:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.129416] (bbb_package) StderrLine: {'line': b'   43 |   double x[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.130564] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.131808] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ksize of array \xe2\x80\x98\x1b[01m\x1b[Kx\x1b[m\x1b[K\xe2\x80\x99 has non-integral type \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.132998] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.134148] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.135251] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:43:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.136639] (bbb_package) StderrLine: {'line': b'   43 |   double x[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.137732] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.138785] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kconversion from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99 in a converted constant expression\n'}
+[27.141351] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.142545] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.143853] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:44:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.145077] (bbb_package) StderrLine: {'line': b'   44 |   double y[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.146217] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.147408] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcould not convert \xe2\x80\x98\x1b[01m\x1b[K(((double)2 * 3.1415926535897931e+0) / (3.1415926535897931e+0 / (double)180))\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.148646] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.149734] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.150841] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:44:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.152073] (bbb_package) StderrLine: {'line': b'   44 |   double y[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.153169] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.154246] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ksize of array \xe2\x80\x98\x1b[01m\x1b[Ky\x1b[m\x1b[K\xe2\x80\x99 has non-integral type \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.155590] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.156806] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.157907] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:44:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.159008] (bbb_package) StderrLine: {'line': b'   44 |   double y[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.160204] (bbb_package) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.161310] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kconversion from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99 in a converted constant expression\n'}
+[27.162372] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.163454] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.165032] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:45:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.166244] (bbb_package) StderrLine: {'line': b'   45 |   double theta[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.167449] (bbb_package) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.168607] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcould not convert \xe2\x80\x98\x1b[01m\x1b[K(((double)2 * 3.1415926535897931e+0) / (3.1415926535897931e+0 / (double)180))\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.169699] (-) TimerEvent: {}
+[27.170812] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.172324] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.173469] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:45:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.174604] (bbb_package) StderrLine: {'line': b'   45 |   double theta[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.175771] (bbb_package) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.177010] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:24:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ksize of array \xe2\x80\x98\x1b[01m\x1b[Ktheta\x1b[m\x1b[K\xe2\x80\x99 has non-integral type \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.205114] (bbb_package) StderrLine: {'line': b'   24 | #define COUNTER \x1b[01;31m\x1b[K(2*M_PI/PHI)\x1b[m\x1b[K\n'}
+[27.206348] (bbb_package) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[27.207554] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:45:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin expansion of macro \xe2\x80\x98\x1b[01m\x1b[KCOUNTER\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.208820] (bbb_package) StderrLine: {'line': b'   45 |   double theta[\x1b[01;36m\x1b[KCOUNTER\x1b[m\x1b[K];\n'}
+[27.209952] (bbb_package) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[27.270029] (-) TimerEvent: {}
+[27.372711] (-) TimerEvent: {}
+[27.476022] (-) TimerEvent: {}
+[27.487479] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid DataProcessingNode::initializeArrays()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[27.490448] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:54:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpression cannot be used as a function\n'}
+[27.492214] (bbb_package) StderrLine: {'line': b'   54 |       y(n\x1b[01;31m\x1b[K)\x1b[m\x1b[K = Y0 - R*(cos(n*PHI));\n'}
+[27.493432] (bbb_package) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.494550] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:55:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpression cannot be used as a function\n'}
+[27.495759] (bbb_package) StderrLine: {'line': b'   55 |       x(n\x1b[01;31m\x1b[K)\x1b[m\x1b[K = X0 + R*(sin(n*PHI));\n'}
+[27.496921] (bbb_package) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.498021] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:56:14:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpression cannot be used as a function\n'}
+[27.499124] (bbb_package) StderrLine: {'line': b'   56 |       theta(n\x1b[01;31m\x1b[K)\x1b[m\x1b[K = atan2(Y0-y(n), X0 - x(n))-M_PI/2;\n'}
+[27.500544] (bbb_package) StderrLine: {'line': b'      |              \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.501775] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:56:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpression cannot be used as a function\n'}
+[27.503035] (bbb_package) StderrLine: {'line': b'   56 |       theta(n) = atan2(Y0-y(n\x1b[01;31m\x1b[K)\x1b[m\x1b[K, X0 - x(n))-M_PI/2;\n'}
+[27.504538] (bbb_package) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.505676] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:56:41:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpression cannot be used as a function\n'}
+[27.506771] (bbb_package) StderrLine: {'line': b'   56 |       theta(n) = atan2(Y0-y(n), X0 - x(n\x1b[01;31m\x1b[K)\x1b[m\x1b[K)-M_PI/2;\n'}
+[27.507964] (bbb_package) StderrLine: {'line': b'      |                                         \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.576209] (-) TimerEvent: {}
+[27.678486] (-) TimerEvent: {}
+[27.763075] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid DataProcessingNode::timer_callback()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[27.766298] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:77:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kmin(int, double)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.770257] (bbb_package) StderrLine: {'line': b'   77 | index + 1; i < std::min(index + 30, COUNTER\x1b[01;31m\x1b[K)\x1b[m\x1b[K; i++) {\n'}
+[27.771675] (bbb_package) StderrLine: {'line': b'      |                                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[27.773102] (bbb_package) StderrLine: {'line': b'\n'}
+[27.774247] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/memory:62\x1b[m\x1b[K,\n'}
+[27.775458] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:10\x1b[m\x1b[K:\n'}
+[27.776624] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:198:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.777755] (bbb_package) StderrLine: {'line': b'  198 |     \x1b[01;36m\x1b[Kmin\x1b[m\x1b[K(const _Tp& __a, const _Tp& __b)\n'}
+[27.778894] (-) TimerEvent: {}
+[27.779998] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[27.781432] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:198:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[27.782634] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:77:61:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  deduced conflicting types for parameter \xe2\x80\x98\x1b[01m\x1b[Kconst _Tp\x1b[m\x1b[K\xe2\x80\x99 (\xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[27.783956] (bbb_package) StderrLine: {'line': b'   77 | index + 1; i < std::min(index + 30, COUNTER\x1b[01;36m\x1b[K)\x1b[m\x1b[K; i++) {\n'}
+[27.785109] (bbb_package) StderrLine: {'line': b'      |                                            \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[27.786376] (bbb_package) StderrLine: {'line': b'\n'}
+[27.787731] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/memory:62\x1b[m\x1b[K,\n'}
+[27.789022] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:10\x1b[m\x1b[K:\n'}
+[27.790818] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:246:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.792309] (bbb_package) StderrLine: {'line': b'  246 |     \x1b[01;36m\x1b[Kmin\x1b[m\x1b[K(const _Tp& __a, const _Tp& __b, _Compare __comp)\n'}
+[27.793464] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[27.794543] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algobase.h:246:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[27.795776] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:77:61:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  deduced conflicting types for parameter \xe2\x80\x98\x1b[01m\x1b[Kconst _Tp\x1b[m\x1b[K\xe2\x80\x99 (\xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[27.797007] (bbb_package) StderrLine: {'line': b'   77 | index + 1; i < std::min(index + 30, COUNTER\x1b[01;36m\x1b[K)\x1b[m\x1b[K; i++) {\n'}
+[27.798315] (bbb_package) StderrLine: {'line': b'      |                                            \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[27.799518] (bbb_package) StderrLine: {'line': b'\n'}
+[27.800668] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/algorithm:62\x1b[m\x1b[K,\n'}
+[27.801764] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:18\x1b[m\x1b[K,\n'}
+[27.802901] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[27.804198] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[27.805347] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[27.806668] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:12\x1b[m\x1b[K:\n'}
+[27.808045] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algo.h:3450:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tp> constexpr _Tp std::min(std::initializer_list<_Tp>)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.809894] (bbb_package) StderrLine: {'line': b' 3450 |     \x1b[01;36m\x1b[Kmin\x1b[m\x1b[K(initializer_list<_Tp> __l)\n'}
+[27.811120] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[27.812560] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algo.h:3450:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[27.813722] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:77:61:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kstd::initializer_list<_Tp>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.818005] (bbb_package) StderrLine: {'line': b'   77 | index + 1; i < std::min(index + 30, COUNTER\x1b[01;36m\x1b[K)\x1b[m\x1b[K; i++) {\n'}
+[27.819535] (bbb_package) StderrLine: {'line': b'      |                                            \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[27.820879] (bbb_package) StderrLine: {'line': b'\n'}
+[27.822159] (bbb_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/algorithm:62\x1b[m\x1b[K,\n'}
+[27.823516] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:18\x1b[m\x1b[K,\n'}
+[27.824732] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[27.825903] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[27.826971] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[27.828218] (bbb_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:12\x1b[m\x1b[K:\n'}
+[27.829395] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algo.h:3456:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tp, class _Compare> constexpr _Tp std::min(std::initializer_list<_Tp>, _Compare)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.830520] (bbb_package) StderrLine: {'line': b' 3456 |     \x1b[01;36m\x1b[Kmin\x1b[m\x1b[K(initializer_list<_Tp> __l, _Compare __comp)\n'}
+[27.831813] (bbb_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[27.832978] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_algo.h:3456:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[27.834079] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:77:61:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  mismatched types \xe2\x80\x98\x1b[01m\x1b[Kstd::initializer_list<_Tp>\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[27.835248] (bbb_package) StderrLine: {'line': b'   77 | index + 1; i < std::min(index + 30, COUNTER\x1b[01;36m\x1b[K)\x1b[m\x1b[K; i++) {\n'}
+[27.836546] (bbb_package) StderrLine: {'line': b'      |                                            \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[27.837676] (bbb_package) StderrLine: {'line': b'\n'}
+[27.879483] (-) TimerEvent: {}
+[27.981574] (-) TimerEvent: {}
+[28.083863] (-) TimerEvent: {}
+[28.189171] (-) TimerEvent: {}
+[28.292064] (-) TimerEvent: {}
+[28.395033] (-) TimerEvent: {}
+[28.511616] (-) TimerEvent: {}
+[28.615152] (-) TimerEvent: {}
+[28.717632] (-) TimerEvent: {}
+[28.827585] (-) TimerEvent: {}
+[28.930116] (-) TimerEvent: {}
+[29.031764] (-) TimerEvent: {}
+[29.133158] (-) TimerEvent: {}
+[29.236790] (-) TimerEvent: {}
+[29.339119] (-) TimerEvent: {}
+[29.442205] (-) TimerEvent: {}
+[29.545440] (-) TimerEvent: {}
+[29.647472] (-) TimerEvent: {}
+[29.749321] (-) TimerEvent: {}
+[29.852283] (-) TimerEvent: {}
+[29.954231] (-) TimerEvent: {}
+[30.056328] (-) TimerEvent: {}
+[30.157600] (-) TimerEvent: {}
+[30.258987] (-) TimerEvent: {}
+[30.360682] (-) TimerEvent: {}
+[30.462099] (-) TimerEvent: {}
+[30.563598] (-) TimerEvent: {}
+[30.665016] (-) TimerEvent: {}
+[30.766485] (-) TimerEvent: {}
+[30.867981] (-) TimerEvent: {}
+[30.969339] (-) TimerEvent: {}
+[31.071688] (-) TimerEvent: {}
+[31.174564] (-) TimerEvent: {}
+[31.277157] (-) TimerEvent: {}
+[31.380769] (-) TimerEvent: {}
+[31.482081] (-) TimerEvent: {}
+[31.585657] (-) TimerEvent: {}
+[31.688558] (-) TimerEvent: {}
+[31.791541] (-) TimerEvent: {}
+[31.893057] (-) TimerEvent: {}
+[31.994486] (-) TimerEvent: {}
+[32.095972] (-) TimerEvent: {}
+[32.197257] (-) TimerEvent: {}
+[32.298510] (-) TimerEvent: {}
+[32.400056] (-) TimerEvent: {}
+[32.503061] (-) TimerEvent: {}
+[32.604542] (-) TimerEvent: {}
+[32.705949] (-) TimerEvent: {}
+[32.808465] (-) TimerEvent: {}
+[32.909956] (-) TimerEvent: {}
+[33.011628] (-) TimerEvent: {}
+[33.113633] (-) TimerEvent: {}
+[33.216352] (-) TimerEvent: {}
+[33.317754] (-) TimerEvent: {}
+[33.419204] (-) TimerEvent: {}
+[33.520668] (-) TimerEvent: {}
+[33.622051] (-) TimerEvent: {}
+[33.723690] (-) TimerEvent: {}
+[33.825060] (-) TimerEvent: {}
+[33.926665] (-) TimerEvent: {}
+[34.028343] (-) TimerEvent: {}
+[34.129896] (-) TimerEvent: {}
+[34.231520] (-) TimerEvent: {}
+[34.332877] (-) TimerEvent: {}
+[34.434374] (-) TimerEvent: {}
+[34.536015] (-) TimerEvent: {}
+[34.637473] (-) TimerEvent: {}
+[35.466443] (-) TimerEvent: {}
+[35.568764] (-) TimerEvent: {}
+[35.669885] (-) TimerEvent: {}
+[35.771655] (-) TimerEvent: {}
+[35.872913] (-) TimerEvent: {}
+[35.974140] (-) TimerEvent: {}
+[36.075554] (-) TimerEvent: {}
+[36.176952] (-) TimerEvent: {}
+[36.278391] (-) TimerEvent: {}
+[36.379849] (-) TimerEvent: {}
+[36.480886] (-) TimerEvent: {}
+[36.581970] (-) TimerEvent: {}
+[36.683240] (-) TimerEvent: {}
+[36.784596] (-) TimerEvent: {}
+[36.885720] (-) TimerEvent: {}
+[36.986905] (-) TimerEvent: {}
+[37.088359] (-) TimerEvent: {}
+[37.189838] (-) TimerEvent: {}
+[37.291373] (-) TimerEvent: {}
+[37.394407] (-) TimerEvent: {}
+[37.495964] (-) TimerEvent: {}
+[37.597197] (-) TimerEvent: {}
+[37.698463] (-) TimerEvent: {}
+[37.799878] (-) TimerEvent: {}
+[37.901362] (-) TimerEvent: {}
+[38.002842] (-) TimerEvent: {}
+[38.104318] (-) TimerEvent: {}
+[38.206197] (-) TimerEvent: {}
+[38.307610] (-) TimerEvent: {}
+[38.409048] (-) TimerEvent: {}
+[38.510274] (-) TimerEvent: {}
+[38.611606] (-) TimerEvent: {}
+[38.712921] (-) TimerEvent: {}
+[38.814203] (-) TimerEvent: {}
+[38.915573] (-) TimerEvent: {}
+[39.016914] (-) TimerEvent: {}
+[39.118105] (-) TimerEvent: {}
+[39.219518] (-) TimerEvent: {}
+[39.320503] (-) TimerEvent: {}
+[39.421616] (-) TimerEvent: {}
+[39.522942] (-) TimerEvent: {}
+[39.624591] (-) TimerEvent: {}
+[39.725987] (-) TimerEvent: {}
+[39.831725] (-) TimerEvent: {}
+[39.933054] (-) TimerEvent: {}
+[40.034363] (-) TimerEvent: {}
+[40.136273] (-) TimerEvent: {}
+[40.237347] (-) TimerEvent: {}
+[40.338644] (-) TimerEvent: {}
+[40.440342] (-) TimerEvent: {}
+[40.541638] (-) TimerEvent: {}
+[40.642949] (-) TimerEvent: {}
+[40.744413] (-) TimerEvent: {}
+[40.845547] (-) TimerEvent: {}
+[40.946831] (-) TimerEvent: {}
+[41.048232] (-) TimerEvent: {}
+[41.149583] (-) TimerEvent: {}
+[41.251129] (-) TimerEvent: {}
+[41.352546] (-) TimerEvent: {}
+[41.453881] (-) TimerEvent: {}
+[41.555191] (-) TimerEvent: {}
+[41.656407] (-) TimerEvent: {}
+[41.757747] (-) TimerEvent: {}
+[41.859035] (-) TimerEvent: {}
+[41.960715] (-) TimerEvent: {}
+[42.062049] (-) TimerEvent: {}
+[42.163373] (-) TimerEvent: {}
+[42.264689] (-) TimerEvent: {}
+[42.365951] (-) TimerEvent: {}
+[42.467155] (-) TimerEvent: {}
+[42.568495] (-) TimerEvent: {}
+[42.669743] (-) TimerEvent: {}
+[42.770865] (-) TimerEvent: {}
+[42.778469] (bbb_package) StderrLine: {'line': b'make[2]: *** [CMakeFiles/data_processing_node_circle.dir/build.make:63: CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o] Error 1\n'}
+[42.781165] (bbb_package) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:108: CMakeFiles/data_processing_node_circle.dir/all] Error 2\n'}
+[42.783108] (bbb_package) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[42.791863] (bbb_package) CommandEnded: {'returncode': 2}
+[42.871070] (-) TimerEvent: {}
+[42.973120] (-) TimerEvent: {}
+[43.074489] (-) TimerEvent: {}
+[43.127684] (bbb_package) JobEnded: {'identifier': 'bbb_package', 'rc': 2}
+[43.136691] (-) EventReactorShutdown: {}

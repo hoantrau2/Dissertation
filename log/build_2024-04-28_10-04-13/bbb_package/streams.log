@@ -1,0 +1,123 @@
+[0.167s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.889s] [  3%] [32mBuilding CXX object CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o[0m
+[0.951s] [ 16%] Built target data_processing_node_zz
+[0.956s] [ 13%] Built target controllers_node
+[0.984s] [ 23%] Built target data_processing_node
+[1.563s] [ 30%] Built target pid_node
+[1.647s] [ 36%] Built target read_IMU
+[1.725s] [ 43%] Built target read_lidar
+[2.146s] [ 50%] Built target delta_angle_node
+[2.459s] [ 56%] Built target tune_node
+[2.663s] [ 63%] Built target tune_fuzzy_node
+[2.746s] [ 70%] Built target fuzzy_longitudinal_controllers
+[3.365s] [ 76%] Built target circumference_node
+[3.671s] [ 83%] Built target straight_line_node
+[3.834s] [ 90%] Built target stanley_node
+[4.137s] [ 96%] Built target sinusoidal_node
+[19.588s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::initializeArrays()[m[K’:
+[19.592s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ktan(double, int)[m[K’
+[19.594s]   188 | #define A (std::tan(135*M_PI / 180,1[01;31m[K)[m[K)
+[19.595s]       |                                     [01;31m[K^[m[K
+[19.596s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:221:27:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.597s]   221 |     theta[0] = std::atan2([01;36m[KA[m[K, 1);
+[19.599s]       |                           [01;36m[K^[m[K
+[19.600s] In file included from [01m[K/usr/include/features.h:461[m[K,
+[19.602s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/os_defines.h:39[m[K,
+[19.603s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/c++config.h:528[m[K,
+[19.604s]                  from [01m[K/usr/include/c++/9/cmath:41[m[K,
+[19.618s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.619s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kdouble tan(double)[m[K’
+[19.620s]    66 | [01;36m[K__MATHCALL[m[K (tan,, (_Mdouble_ __x));
+[19.621s]       | [01;36m[K^~~~~~~~~~[m[K
+[19.622s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.623s] In file included from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.625s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr float std::tan(float)[m[K’
+[19.626s]   482 |   [01;36m[Ktan[m[K(float __x)
+[19.627s]       |   [01;36m[K^~~[m[K
+[19.628s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.642s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr long double std::tan(long double)[m[K’
+[19.643s]   486 |   [01;36m[Ktan[m[K(long double __x)
+[19.644s]       |   [01;36m[K^~~[m[K
+[19.646s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.647s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::tan(_Tp)[m[K’
+[19.649s]   494 |     [01;36m[Ktan[m[K(_Tp __x)
+[19.650s]       |     [01;36m[K^~~[m[K
+[19.651s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[19.652s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.654s]   188 | #define A (std::tan(135*M_PI / 180,1[01;36m[K)[m[K)
+[19.655s]       |                                     [01;36m[K^[m[K
+[19.656s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:221:27:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.657s]   221 |     theta[0] = std::atan2([01;36m[KA[m[K, 1);
+[19.658s]       |                           [01;36m[K^[m[K
+[19.659s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ktan(double, int)[m[K’
+[19.661s]   188 | #define A (std::tan(135*M_PI / 180,1[01;31m[K)[m[K)
+[19.662s]       |                                     [01;31m[K^[m[K
+[19.663s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:225:14:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.664s]   225 |       y[i] = [01;36m[KA[m[K * x[i] + B;
+[19.665s]       |              [01;36m[K^[m[K
+[19.666s] In file included from [01m[K/usr/include/features.h:461[m[K,
+[19.667s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/os_defines.h:39[m[K,
+[19.668s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/c++config.h:528[m[K,
+[19.670s]                  from [01m[K/usr/include/c++/9/cmath:41[m[K,
+[19.671s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.672s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kdouble tan(double)[m[K’
+[19.673s]    66 | [01;36m[K__MATHCALL[m[K (tan,, (_Mdouble_ __x));
+[19.675s]       | [01;36m[K^~~~~~~~~~[m[K
+[19.676s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.679s] In file included from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.681s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr float std::tan(float)[m[K’
+[19.682s]   482 |   [01;36m[Ktan[m[K(float __x)
+[19.683s]       |   [01;36m[K^~~[m[K
+[19.684s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.686s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr long double std::tan(long double)[m[K’
+[19.687s]   486 |   [01;36m[Ktan[m[K(long double __x)
+[19.688s]       |   [01;36m[K^~~[m[K
+[19.689s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.690s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::tan(_Tp)[m[K’
+[19.691s]   494 |     [01;36m[Ktan[m[K(_Tp __x)
+[19.693s]       |     [01;36m[K^~~[m[K
+[19.694s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[19.695s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.696s]   188 | #define A (std::tan(135*M_PI / 180,1[01;36m[K)[m[K)
+[19.698s]       |                                     [01;36m[K^[m[K
+[19.699s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:225:14:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.700s]   225 |       y[i] = [01;36m[KA[m[K * x[i] + B;
+[19.703s]       |              [01;36m[K^[m[K
+[19.705s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ktan(double, int)[m[K’
+[19.706s]   188 | #define A (std::tan(135*M_PI / 180,1[01;31m[K)[m[K)
+[19.710s]       |                                     [01;31m[K^[m[K
+[19.711s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:226:29:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.713s]   226 |       theta[i] = std::atan2([01;36m[KA[m[K, 1);
+[19.714s]       |                             [01;36m[K^[m[K
+[19.715s] In file included from [01m[K/usr/include/features.h:461[m[K,
+[19.716s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/os_defines.h:39[m[K,
+[19.717s]                  from [01m[K/usr/include/aarch64-linux-gnu/c++/9/bits/c++config.h:528[m[K,
+[19.718s]                  from [01m[K/usr/include/c++/9/cmath:41[m[K,
+[19.720s]                  from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.721s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kdouble tan(double)[m[K’
+[19.724s]    66 | [01;36m[K__MATHCALL[m[K (tan,, (_Mdouble_ __x));
+[19.725s]       | [01;36m[K^~~~~~~~~~[m[K
+[19.726s] [01m[K/usr/include/aarch64-linux-gnu/bits/mathcalls.h:66:1:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.727s] In file included from [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:177[m[K:
+[19.728s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr float std::tan(float)[m[K’
+[19.730s]   482 |   [01;36m[Ktan[m[K(float __x)
+[19.731s]       |   [01;36m[K^~~[m[K
+[19.732s] [01m[K/usr/include/c++/9/cmath:482:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.734s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr long double std::tan(long double)[m[K’
+[19.735s]   486 |   [01;36m[Ktan[m[K(long double __x)
+[19.736s]       |   [01;36m[K^~~[m[K
+[19.737s] [01m[K/usr/include/c++/9/cmath:486:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.739s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::tan(_Tp)[m[K’
+[19.740s]   494 |     [01;36m[Ktan[m[K(_Tp __x)
+[19.741s]       |     [01;36m[K^~~[m[K
+[19.742s] [01m[K/usr/include/c++/9/cmath:494:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[19.743s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:188:37:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[19.745s]   188 | #define A (std::tan(135*M_PI / 180,1[01;36m[K)[m[K)
+[19.747s]       |                                     [01;36m[K^[m[K
+[19.748s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_straight.cpp:226:29:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KA[m[K’
+[19.749s]   226 |       theta[i] = std::atan2([01;36m[KA[m[K, 1);
+[19.750s]       |                             [01;36m[K^[m[K
+[34.113s] make[2]: *** [CMakeFiles/data_processing_node_straight.dir/build.make:63: CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.o] Interrupt
+[34.115s] make[1]: *** [CMakeFiles/Makefile2:133: CMakeFiles/data_processing_node_straight.dir/all] Interrupt
+[34.116s] make: *** [Makefile:141: all] Interrupt
+[34.284s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '-2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

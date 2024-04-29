@@ -93,6 +93,8 @@ def generate_launch_description():
 #ros2 launch bbb_package thesis.launch.py 
 # ros2 run bbb_package read_IMU
 # ros2 run bbb_package data_processing_node_straight
+#ros2 run bbb_package data_processing_node_zz
+#ros2 run bbb_package data_processing_node_circle
 # ros2 run bbb_package pid_node
 
 

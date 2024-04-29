@@ -167,9 +167,9 @@
 
 
 /**
- * @file data_processing_node.cpp
+ * @file data_processing_node_straight.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief Data processing node for thesis project at Ho Chi Minh University of Technology.
+ * @brief Data processing node straight for thesis project at Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-29
  */
@@ -182,10 +182,10 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.575
+#define Kp 0.65
 #define Ksoft 0
 
-#define A (std::tan(70*M_PI / 180))
+#define A (std::tan(135*M_PI / 180))
 #define B 0
 #define STEP_DISTANCE 0.02
 #define COUNTER 400
@@ -197,7 +197,7 @@ class DataProcessingNode : public rclcpp::Node {
     initializeArrays();
     setupSubscribersAndPublishers();
     setupTimer();
-    RCLCPP_INFO(get_logger(), "Data processing node initialized.");
+    RCLCPP_INFO(get_logger(), "Data processing node straight initialized.");
   }
 
  private:
@@ -218,12 +218,12 @@ class DataProcessingNode : public rclcpp::Node {
   void initializeArrays() {
     x[0] = 0;
     y[0] = 0;
-    theta[0] = std::atan2(A, 1);
+    theta[0] = std::atan2(A, 1)+M_PI;
     // RCLCPP_INFO(this->get_logger(), "Initializing arrays...");
     for (int i = 1; i < COUNTER; i++) {
-      x[i] = x[i - 1] + STEP_DISTANCE;
+      x[i] = x[i - 1] - STEP_DISTANCE;
       y[i] = A * x[i] + B;
-      theta[i] = std::atan2(A, 1);
+      theta[i] = std::atan2(A, 1)+M_PI;
       // RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", i, x[i], i, y[i], i, theta[i]);
     }
   }
@@ -244,7 +244,7 @@ class DataProcessingNode : public rclcpp::Node {
   }
 
   void timer_callback() {
-    d_min = std::sqrt(std::pow((actual_position[0] - x[index]), 2) + std::pow((actual_position[1] - y[index]), 2));
+     d_min = std::sqrt(std::pow((actual_position[0] - x[int(index)]), 2) + std::pow((actual_position[1] - y[int(index)]), 2));
     for (int i = index + 1; i < std::min(index + 5, COUNTER); i++) {
       double d = std::sqrt(std::pow((actual_position[0] - x[i]), 2) + std::pow((actual_position[1] - y[i]), 2));
       if (d < d_min) {
@@ -252,7 +252,7 @@ class DataProcessingNode : public rclcpp::Node {
         index = i;
       }
     }
-    double arctann = std::atan2(Kp * d_min, Ksoft + 0.4);
+    double arctann = std::atan2(Kp * d_min, Ksoft + 0.3);
     if (arctann > 20 * M_PI / 180)
       arctann = 20 * M_PI / 180;
     else if (arctann < -20 * M_PI / 180)
