@@ -15,6 +15,8 @@ d = [];
 ee = [];
 index = [];
 
+error_dis = 0;
+
 % read first line in log file
 tline = fgetl(fid);
 i = 1;
@@ -32,16 +34,21 @@ while ischar(tline)
     y_ref(i) = numbers(4,1);
    
 %     d(i) = sqrt((x_ref(i)-x(i))^2+(y_ref(i)-y(i))^2);
-%     ee(i) = numbers(5,1)-numbers(6,1);
-    
-    d(i) = sqrt((y_ref(i)-y(i))^2+(x_ref(i)-y(i))^2);
     ee(i) = numbers(6,1)*180/pi;
+    d(i) = numbers(5,1);
+    
+%     d(i) = sqrt((y_ref(i)-y(i))^2+(x_ref(i)-y(i))^2);
+%     ee(i) = numbers(6,1)*180/pi;
     index(i) = numbers(7,1);
+     
+    error_dis = error_dis + d(i);
     
     i = i+1;
     % read next line in log file
     tline = fgetl(fid);
 end
+
+
 % close file
 fclose(fid);
 
@@ -93,3 +100,8 @@ xlabel('time [s]')
 ylabel('error distance [m]')
 grid on
 title("Result distance")
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+error_dis = error_dis/num_sample
