@@ -2,14 +2,18 @@
 
 % open log file
 fid = fopen('data.log', 'r');
-sample_time = 0.01;
+sample_time = 0.1;
 x = [];
 y = [];
+angle_robot = [];
+
 x_ref = [];
 y_ref = [];
-
 angle_ref = [];
-angle_robot = [];
+
+d = [];
+ee = [];
+index = [];
 
 % read first line in log file
 tline = fgetl(fid);
@@ -19,12 +23,21 @@ while ischar(tline)
     numbers = textscan(tline, '%f', 'Delimiter', ',');
     numbers = numbers{1}; 
     % choose data 
-    x_ref(i) = numbers(1,1);
-    y_ref(i) = numbers(2,1);
-    x(i) = numbers(3,1);
-    y(i) = numbers(4,1);
-    angle_ref(i) = numbers(5,1)*180/pi;
-    angle_robot(i) = numbers(6,1)*180/pi;
+    
+    x(i) = numbers(1,1);
+    y(i) = numbers(2,1);
+    
+    
+    x_ref(i) = numbers(3,1);
+    y_ref(i) = numbers(4,1);
+   
+%     d(i) = sqrt((x_ref(i)-x(i))^2+(y_ref(i)-y(i))^2);
+%     ee(i) = numbers(5,1)-numbers(6,1);
+    
+    d(i) = sqrt((y_ref(i)-y(i))^2+(x_ref(i)-y(i))^2);
+    ee(i) = numbers(6,1)*180/pi;
+    index(i) = numbers(7,1);
+    
     i = i+1;
     % read next line in log file
     tline = fgetl(fid);
@@ -33,34 +46,50 @@ end
 fclose(fid);
 
 %% 
-figure()
+figure() 
 plot(y_ref,x_ref, 'r');
 hold on
 plot(y,x, 'k');
 hold on
 % plot(time,e_dot, 'b');
 legend('ref', 'actual');
+% xlim([-2, 2]);  
+% ylim([-2, 2]);  
 xlabel('y [m]')
 ylabel('x [m]')
 grid on
 title("Result")
 
-%% creat axis time
-time = [];
-num_sample = size (angle_ref);
+% creat axis time
+timee = [];
+num_sample = size (ee);
 num_sample = num_sample(2);
-time(1) = 0;
+timee(1) = 0;
 for j = 2:num_sample
-   time(j) = (j-1)*sample_time;
+   timee(j) = (j-1)*sample_time;
 end
-%%
+%%%%%%%%%%%%
 figure()
-plot(time,angle_ref, 'r');
+plot(timee,ee, 'k');
 hold on
-plot(time,angle_robot, 'k');
-hold on
-legend('angle ref', 'angle robot angle');
 xlabel('time [s]')
-ylabel('theta [degree]')
+ylabel('error angle [degree]')
 grid on
 title("Result angle")
+%%%%%%%%%%%%
+% creat axis time
+timed = [];
+num_sample = size (d);
+num_sample = num_sample(2);
+timed(1) = 0;
+for j = 2:num_sample
+   timed(j) = (j-1)*sample_time;
+end
+%%%%%%%%%%%%%%%
+figure()
+plot(timed,d, 'r');
+hold on
+xlabel('time [s]')
+ylabel('error distance [m]')
+grid on
+title("Result distance")
