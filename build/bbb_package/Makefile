@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named data_processing_node_trap
+
+# Build rule for target.
+data_processing_node_trap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node_trap
+.PHONY : data_processing_node_trap
+
+# fast build rule for target.
+data_processing_node_trap/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/build
+.PHONY : data_processing_node_trap/fast
+
+#=============================================================================
 # Target rules for targets named data_processing_node_circle
 
 # Build rule for target.
@@ -536,6 +549,33 @@ src/data_processing_node_straight.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node_straight.dir/build.make CMakeFiles/data_processing_node_straight.dir/src/data_processing_node_straight.cpp.s
 .PHONY : src/data_processing_node_straight.cpp.s
 
+src/data_processing_node_trap.o: src/data_processing_node_trap.cpp.o
+
+.PHONY : src/data_processing_node_trap.o
+
+# target to build an object file
+src/data_processing_node_trap.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/src/data_processing_node_trap.cpp.o
+.PHONY : src/data_processing_node_trap.cpp.o
+
+src/data_processing_node_trap.i: src/data_processing_node_trap.cpp.i
+
+.PHONY : src/data_processing_node_trap.i
+
+# target to preprocess a source file
+src/data_processing_node_trap.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/src/data_processing_node_trap.cpp.i
+.PHONY : src/data_processing_node_trap.cpp.i
+
+src/data_processing_node_trap.s: src/data_processing_node_trap.cpp.s
+
+.PHONY : src/data_processing_node_trap.s
+
+# target to generate assembly for a file
+src/data_processing_node_trap.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/src/data_processing_node_trap.cpp.s
+.PHONY : src/data_processing_node_trap.cpp.s
+
 src/data_processing_node_zz.o: src/data_processing_node_zz.cpp.o
 
 .PHONY : src/data_processing_node_zz.o
@@ -842,6 +882,7 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... data_processing_node_trap"
 	@echo "... install/local"
 	@echo "... data_processing_node_circle"
 	@echo "... data_processing_node_zz"
@@ -879,6 +920,9 @@ help:
 	@echo "... src/data_processing_node_straight.o"
 	@echo "... src/data_processing_node_straight.i"
 	@echo "... src/data_processing_node_straight.s"
+	@echo "... src/data_processing_node_trap.o"
+	@echo "... src/data_processing_node_trap.i"
+	@echo "... src/data_processing_node_trap.s"
 	@echo "... src/data_processing_node_zz.o"
 	@echo "... src/data_processing_node_zz.i"
 	@echo "... src/data_processing_node_zz.s"

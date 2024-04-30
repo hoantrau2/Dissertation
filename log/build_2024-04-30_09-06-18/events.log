@@ -1,0 +1,170 @@
+[0.000000] (-) TimerEvent: {}
+[0.000829] (-) JobUnselected: {'identifier': 'bbb_robot'}
+[0.001250] (-) JobUnselected: {'identifier': 'csm'}
+[0.001372] (-) JobUnselected: {'identifier': 'diffdrive_arduino'}
+[0.001479] (-) JobUnselected: {'identifier': 'ros2_laser_scan_matcher'}
+[0.001748] (-) JobUnselected: {'identifier': 'serial'}
+[0.001889] (-) JobUnselected: {'identifier': 'tune_package'}
+[0.001988] (bbb_package) JobQueued: {'identifier': 'bbb_package', 'dependencies': OrderedDict([('serial', '/home/jetson/bbb_jetson_ws/install/serial')])}
+[0.002122] (bbb_package) JobStarted: {'identifier': 'bbb_package'}
+[0.038417] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'cmake'}
+[0.040637] (bbb_package) JobProgress: {'identifier': 'bbb_package', 'progress': 'build'}
+[0.043008] (bbb_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/bbb_jetson_ws/build/bbb_package', '--', '-j4', '-l4'], 'cwd': '/home/jetson/bbb_jetson_ws/build/bbb_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.23.252 54068 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/bbb_jetson_ws/install/diffdrive_arduino/lib:/home/jetson/bbb_jetson_ws/install/serial/lib:/home/jetson/bbb_jetson_ws/install/csm/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('TERM_PROGRAM_VERSION', '1.88.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-edf575df-903c-4052-8667-2de9593267cc.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/jetson/.vscode-server/cli/servers/Stable-e170252f762678dec6ca2cc69aba1570769a5d39/server/bin/remote-cli:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ef3fd32b2f.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/jetson/bbb_jetson_ws/build/bbb_package'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.23.252 54068 192.168.23.171 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy')]), 'shell': False}
+[0.097693] (-) TimerEvent: {}
+[0.198612] (-) TimerEvent: {}
+[0.240793] (bbb_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target data_processing_node_circle\x1b[0m\n'}
+[0.298668] (-) TimerEvent: {}
+[0.302379] (bbb_package) StdoutLine: {'line': b'[  5%] Built target data_processing_node_zz\n'}
+[0.375195] (bbb_package) StdoutLine: {'line': b'[ 11%] Built target data_processing_node_straight\n'}
+[0.398840] (-) TimerEvent: {}
+[0.429961] (bbb_package) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o\x1b[0m\n'}
+[0.438064] (bbb_package) StdoutLine: {'line': b'[ 20%] Built target data_processing_node_trap\n'}
+[0.499018] (-) TimerEvent: {}
+[0.539162] (bbb_package) StdoutLine: {'line': b'[ 26%] Built target data_processing_node\n'}
+[0.599195] (-) TimerEvent: {}
+[0.698787] (bbb_package) StdoutLine: {'line': b'[ 32%] Built target controllers_node\n'}
+[0.704308] (-) TimerEvent: {}
+[0.770086] (bbb_package) StdoutLine: {'line': b'[ 38%] Built target read_IMU\n'}
+[0.804487] (-) TimerEvent: {}
+[0.893094] (bbb_package) StdoutLine: {'line': b'[ 44%] Built target read_lidar\n'}
+[0.904650] (-) TimerEvent: {}
+[0.999353] (bbb_package) StdoutLine: {'line': b'[ 50%] Built target pid_node\n'}
+[1.004822] (-) TimerEvent: {}
+[1.085531] (bbb_package) StdoutLine: {'line': b'[ 55%] Built target delta_angle_node\n'}
+[1.104986] (-) TimerEvent: {}
+[1.181156] (bbb_package) StdoutLine: {'line': b'[ 61%] Built target tune_node\n'}
+[1.205151] (-) TimerEvent: {}
+[1.306145] (-) TimerEvent: {}
+[1.345112] (bbb_package) StdoutLine: {'line': b'[ 67%] Built target tune_fuzzy_node\n'}
+[1.406307] (-) TimerEvent: {}
+[1.407271] (bbb_package) StdoutLine: {'line': b'[ 79%] Built target circumference_node\n'}
+[1.409363] (bbb_package) StdoutLine: {'line': b'[ 79%] Built target fuzzy_longitudinal_controllers\n'}
+[1.506487] (-) TimerEvent: {}
+[1.604837] (bbb_package) StdoutLine: {'line': b'[ 85%] Built target stanley_node\n'}
+[1.606631] (-) TimerEvent: {}
+[1.629182] (bbb_package) StdoutLine: {'line': b'[ 91%] Built target straight_line_node\n'}
+[1.658655] (bbb_package) StdoutLine: {'line': b'[ 97%] Built target sinusoidal_node\n'}
+[1.706804] (-) TimerEvent: {}
+[1.808233] (-) TimerEvent: {}
+[1.908898] (-) TimerEvent: {}
+[2.010202] (-) TimerEvent: {}
+[2.111468] (-) TimerEvent: {}
+[2.212374] (-) TimerEvent: {}
+[2.313109] (-) TimerEvent: {}
+[2.414452] (-) TimerEvent: {}
+[2.515738] (-) TimerEvent: {}
+[2.616385] (-) TimerEvent: {}
+[2.717036] (-) TimerEvent: {}
+[2.817692] (-) TimerEvent: {}
+[2.918372] (-) TimerEvent: {}
+[3.019646] (-) TimerEvent: {}
+[3.120316] (-) TimerEvent: {}
+[3.220967] (-) TimerEvent: {}
+[3.321632] (-) TimerEvent: {}
+[3.422888] (-) TimerEvent: {}
+[3.524150] (-) TimerEvent: {}
+[3.625039] (-) TimerEvent: {}
+[3.725759] (-) TimerEvent: {}
+[3.827098] (-) TimerEvent: {}
+[3.928239] (-) TimerEvent: {}
+[4.028906] (-) TimerEvent: {}
+[4.129558] (-) TimerEvent: {}
+[4.230431] (-) TimerEvent: {}
+[4.331357] (-) TimerEvent: {}
+[4.432026] (-) TimerEvent: {}
+[4.532664] (-) TimerEvent: {}
+[4.633513] (-) TimerEvent: {}
+[4.734250] (-) TimerEvent: {}
+[4.834925] (-) TimerEvent: {}
+[4.935591] (-) TimerEvent: {}
+[5.037121] (-) TimerEvent: {}
+[5.137729] (-) TimerEvent: {}
+[5.238738] (-) TimerEvent: {}
+[5.339349] (-) TimerEvent: {}
+[5.440334] (-) TimerEvent: {}
+[5.543804] (-) TimerEvent: {}
+[5.644479] (-) TimerEvent: {}
+[5.746416] (-) TimerEvent: {}
+[5.847092] (-) TimerEvent: {}
+[5.956901] (-) TimerEvent: {}
+[6.058003] (-) TimerEvent: {}
+[6.104256] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:164:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 at end of input\n'}
+[6.104971] (bbb_package) StderrLine: {'line': b'  164 | \x1b[01;31m\x1b[K}\x1b[m\x1b[K\n'}
+[6.105405] (bbb_package) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.105799] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:27:48:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kto match this \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.106156] (bbb_package) StderrLine: {'line': b'   27 | class DataProcessingNode : public rclcpp::Node \x1b[01;36m\x1b[K{\x1b[m\x1b[K\n'}
+[6.106516] (bbb_package) StderrLine: {'line': b'      |                                                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[6.112353] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid DataProcessingNode::setupSubscribersAndPublishers()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.113006] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:64:56:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kangle_IMU_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KDataProcessingNode\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.113434] (bbb_package) StderrLine: {'line': b'   64 |       "/angle_IMU", 10, std::bind(&DataProcessingNode::\x1b[01;31m\x1b[Kangle_IMU_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[6.113805] (bbb_package) StderrLine: {'line': b'      |                                                        \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.114162] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:67:49:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktf_callback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KDataProcessingNode\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.114518] (bbb_package) StderrLine: {'line': b'   67 |       "/tf", 10, std::bind(&DataProcessingNode::\x1b[01;31m\x1b[Ktf_callback\x1b[m\x1b[K, this, std::placeholders::_1));\n'}
+[6.114869] (bbb_package) StderrLine: {'line': b'      |                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.158224] (-) TimerEvent: {}
+[6.194958] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid DataProcessingNode::timer_callback()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.195573] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:109:82:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[6.196088] (bbb_package) StderrLine: {'line': b'  109 |   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[6.196482] (bbb_package) StderrLine: {'line': b'      |                                                                                  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.196859] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:117:66:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ka function-definition is not allowed here before \xe2\x80\x98\x1b[01m\x1b[K{\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[6.197231] (bbb_package) StderrLine: {'line': b'  117 |  void tf_callback(const tf2_msgs::msg::TFMessage::SharedPtr msg) \x1b[01;31m\x1b[K{\x1b[m\x1b[K\n'}
+[6.197630] (bbb_package) StderrLine: {'line': b'      |                                                                  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.211192] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:\x1b[m\x1b[K At global scope:\n'}
+[6.211791] (bbb_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:164:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id at end of input\n'}
+[6.212457] (bbb_package) StderrLine: {'line': b'  164 | \x1b[01;31m\x1b[K}\x1b[m\x1b[K\n'}
+[6.212907] (bbb_package) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.258445] (-) TimerEvent: {}
+[6.359112] (-) TimerEvent: {}
+[6.460194] (-) TimerEvent: {}
+[6.560878] (-) TimerEvent: {}
+[6.662221] (-) TimerEvent: {}
+[6.763999] (-) TimerEvent: {}
+[6.865815] (-) TimerEvent: {}
+[6.966463] (-) TimerEvent: {}
+[7.067378] (-) TimerEvent: {}
+[7.168011] (-) TimerEvent: {}
+[7.268697] (-) TimerEvent: {}
+[7.369338] (-) TimerEvent: {}
+[7.470087] (-) TimerEvent: {}
+[7.570944] (-) TimerEvent: {}
+[7.675335] (-) TimerEvent: {}
+[7.776267] (-) TimerEvent: {}
+[7.877243] (-) TimerEvent: {}
+[7.978203] (-) TimerEvent: {}
+[8.078831] (-) TimerEvent: {}
+[8.188988] (-) TimerEvent: {}
+[8.299789] (-) TimerEvent: {}
+[8.406394] (-) TimerEvent: {}
+[8.508885] (-) TimerEvent: {}
+[8.615878] (-) TimerEvent: {}
+[8.724002] (-) TimerEvent: {}
+[8.832844] (-) TimerEvent: {}
+[8.933742] (-) TimerEvent: {}
+[9.034841] (-) TimerEvent: {}
+[9.141599] (-) TimerEvent: {}
+[9.246666] (-) TimerEvent: {}
+[9.347992] (-) TimerEvent: {}
+[9.448932] (-) TimerEvent: {}
+[9.552104] (-) TimerEvent: {}
+[9.660013] (-) TimerEvent: {}
+[9.762495] (-) TimerEvent: {}
+[9.864053] (-) TimerEvent: {}
+[9.964701] (-) TimerEvent: {}
+[10.065912] (-) TimerEvent: {}
+[10.167001] (-) TimerEvent: {}
+[10.268346] (-) TimerEvent: {}
+[10.368944] (-) TimerEvent: {}
+[10.469554] (-) TimerEvent: {}
+[10.570801] (-) TimerEvent: {}
+[10.671429] (-) TimerEvent: {}
+[10.772157] (-) TimerEvent: {}
+[10.872739] (-) TimerEvent: {}
+[10.881289] (bbb_package) StderrLine: {'line': b'make[2]: *** [CMakeFiles/data_processing_node_circle.dir/build.make:63: CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o] Error 1\n'}
+[10.892850] (bbb_package) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/data_processing_node_circle.dir/all] Error 2\n'}
+[10.893411] (bbb_package) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[10.897794] (bbb_package) CommandEnded: {'returncode': 2}
+[10.972943] (-) TimerEvent: {}
+[11.074231] (-) TimerEvent: {}
+[11.233252] (bbb_package) JobEnded: {'identifier': 'bbb_package', 'rc': 2}
+[11.234613] (-) TimerEvent: {}
+[11.325797] (-) EventReactorShutdown: {}

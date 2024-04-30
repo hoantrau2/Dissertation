@@ -1,0 +1,47 @@
+[0.055s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.298s] [35m[1mScanning dependencies of target data_processing_node_circle[0m
+[0.378s] [  5%] Built target data_processing_node_trap
+[0.431s] [  8%] [32mBuilding CXX object CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o[0m
+[0.450s] [ 14%] Built target data_processing_node_straight
+[0.453s] [ 20%] Built target data_processing_node_zz
+[0.566s] [ 26%] Built target data_processing_node
+[0.571s] [ 32%] Built target controllers_node
+[0.610s] [ 38%] Built target read_IMU
+[0.683s] [ 44%] Built target pid_node
+[0.699s] [ 50%] Built target read_lidar
+[0.735s] [ 55%] Built target delta_angle_node
+[0.818s] [ 61%] Built target tune_node
+[0.861s] [ 67%] Built target tune_fuzzy_node
+[0.942s] [ 79%] Built target fuzzy_longitudinal_controllers
+[0.945s] [ 79%] Built target circumference_node
+[1.015s] [ 85%] Built target straight_line_node
+[1.065s] [ 91%] Built target sinusoidal_node
+[1.081s] [ 97%] Built target stanley_node
+[5.296s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:164:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[5.297s]   164 | [01;31m[K}[m[K
+[5.297s]       | [01;31m[K^[m[K
+[5.298s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:27:48:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[5.298s]    27 | class DataProcessingNode : public rclcpp::Node [01;36m[K{[m[K
+[5.299s]       |                                                [01;36m[K^[m[K
+[5.304s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::setupSubscribersAndPublishers()[m[K’:
+[5.304s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:64:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kangle_IMU_callback[m[K’ is not a member of ‘[01m[KDataProcessingNode[m[K’
+[5.305s]    64 |       "/angle_IMU", 10, std::bind(&DataProcessingNode::[01;31m[Kangle_IMU_callback[m[K, this, std::placeholders::_1));
+[5.305s]       |                                                        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[5.305s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:67:49:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_callback[m[K’ is not a member of ‘[01m[KDataProcessingNode[m[K’
+[5.306s]    67 |       "/tf", 10, std::bind(&DataProcessingNode::[01;31m[Ktf_callback[m[K, this, std::placeholders::_1));
+[5.306s]       |                                                 [01;31m[K^~~~~~~~~~~[m[K
+[5.378s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::timer_callback()[m[K’:
+[5.379s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:109:82:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.379s]   109 |   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) [01;31m[K{[m[K
+[5.380s]       |                                                                                  [01;31m[K^[m[K
+[5.380s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:117:66:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.380s]   117 |  void tf_callback(const tf2_msgs::msg::TFMessage::SharedPtr msg) [01;31m[K{[m[K
+[5.381s]       |                                                                  [01;31m[K^[m[K
+[5.394s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K At global scope:
+[5.395s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:164:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+[5.395s]   164 | [01;31m[K}[m[K
+[5.395s]       | [01;31m[K^[m[K
+[8.382s] make[2]: *** [CMakeFiles/data_processing_node_circle.dir/build.make:63: CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o] Error 1
+[8.384s] make[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/data_processing_node_circle.dir/all] Error 2
+[8.385s] make: *** [Makefile:141: all] Error 2
+[8.390s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

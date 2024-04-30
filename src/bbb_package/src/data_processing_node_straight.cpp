@@ -182,10 +182,10 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.65
+#define Kp 0.9
 #define Ksoft 0
 
-#define A (std::tan(135*M_PI / 180))
+#define A (std::tan(90*M_PI / 180))
 #define B 0
 #define STEP_DISTANCE 0.02
 #define COUNTER 400
@@ -218,12 +218,12 @@ class DataProcessingNode : public rclcpp::Node {
   void initializeArrays() {
     x[0] = 0;
     y[0] = 0;
-    theta[0] = std::atan2(A, 1)+M_PI;
+    theta[0] = M_PI/2;
     // RCLCPP_INFO(this->get_logger(), "Initializing arrays...");
     for (int i = 1; i < COUNTER; i++) {
-      x[i] = x[i - 1] - STEP_DISTANCE;
-      y[i] = A * x[i] + B;
-      theta[i] = std::atan2(A, 1)+M_PI;
+      x[i] = 0;
+      y[i] = y[i-1] + STEP_DISTANCE;
+      theta[i] = M_PI/2;
       // RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", i, x[i], i, y[i], i, theta[i]);
     }
   }

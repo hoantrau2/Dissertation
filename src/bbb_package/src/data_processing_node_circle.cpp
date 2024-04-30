@@ -1,7 +1,7 @@
 /**
- * @file data_processing_node_zz.cpp
+ * @file data_processing_node_circle.cpp
  * @author Hoan Duong & Hien Nguyen
- * @brief Data processing node zz for thesis project at Ho Chi Minh University of Technology.
+ * @brief Data processing node circle for thesis project at Ho Chi Minh University of Technology.
  * @version 1
  * @date 2024-03-29
  */
@@ -14,20 +14,20 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.575
+#define Kp 0.75
 #define Ksoft 0
 
-#define R   1
+#define R  1
 #define X0  0
 #define Y0  1
-#define PHI (M_PI/180)
-#define COUNTER 360
+#define PHI (5*M_PI/180)
+#define COUNTER 360*5
 
 
 class DataProcessingNode : public rclcpp::Node {
  public:
   DataProcessingNode()
-    : Node("data_processing_node_circle"), angleIMU(0.0), actual_position({0.0, 0.0}), pre_actual_position({0.0, 0.0}), index(0), pre_index(0), d_min(0.0) {
+    : Node("data_processing_node_circle"), angleIMU(0.0), actual_position({0.0, 0.0}), pre_actual_position({0.0, 0.0}), index(0), d_min(0.0) {
     initializeArrays();
     setupSubscribersAndPublishers();
     setupTimer();
@@ -38,7 +38,8 @@ class DataProcessingNode : public rclcpp::Node {
   double angleIMU;
   std::vector<double> actual_position;
   std::vector<double> pre_actual_position;
-  int index,pre_index;
+  int index;
+  //  pre_index;
   double d_min;
   double x[COUNTER];
   double y[COUNTER];
@@ -54,7 +55,7 @@ class DataProcessingNode : public rclcpp::Node {
       y[n] = Y0 - R*(cos(n*PHI));
       x[n] = X0 + R*(sin(n*PHI));
       theta[n] = atan2(Y0-y[n], X0 - x[n])-M_PI/2;
-      //  RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", n, x[n], n, y[n], n, theta[n]*180/M_PI);
+      // RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", n, x[n], n, y[n], n, theta[n]*180/M_PI);
     }
   }
 
@@ -75,19 +76,24 @@ class DataProcessingNode : public rclcpp::Node {
 
   void timer_callback() {
     d_min = std::sqrt(std::pow((actual_position[0] - x[int(index)]), 2) + std::pow((actual_position[1] - y[int(index)]), 2));
-    for (int i = index + 1; i < std::min(index + 10, int(COUNTER)); i++) {
+    // if (index >= int(COUNTER)-1) index =0;
+    for (int i = index + 1; i < std::min(index + 50, COUNTER); i++) {
       double d = std::sqrt(std::pow((actual_position[0] - x[i]), 2) + std::pow((actual_position[1] - y[i]), 2));
       if (d < d_min) {
         d_min = d;
         index = i;
       }
     }
+    // if (index +2 >= COUNTER) index =0;
+    // if (index-pre_index > 5){
+    //   index = index + 5;
+    // }
+    // pre_index = index;
+
+    
 
     double arctann = std::atan2(Kp * d_min, Ksoft + 0.4);
-    if (arctann > 20 * M_PI / 180)
-      arctann = 20 * M_PI / 180;
-    else if (arctann < -20 * M_PI / 180)
-      arctann = -20 * M_PI / 180;
+    if (arctann > 70 * M_PI / 180) arctann = 70 * M_PI / 180;
 
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);
@@ -125,11 +131,8 @@ class DataProcessingNode : public rclcpp::Node {
           actual_position[0] =  x_position;
           actual_position[1] =  y_position;
         }
-
-
         pre_actual_position[0] =  actual_position[0];
         pre_actual_position[1] =  actual_position[1];
-
         auto message2 = std_msgs::msg::Float64MultiArray();
         message2.data.resize(8); // Set size of data vector to 4
         message2.data[0] = actual_position[0];
@@ -137,7 +140,6 @@ class DataProcessingNode : public rclcpp::Node {
         message2.data[2] = x[int(index)];
         message2.data[3] = y[int(index)];
         message2.data[4] = d_min;
-
         if (theta[int(index)] - angleIMU <-M_PI)
         message2.data[5] = (theta[int(index)] - angleIMU ) + 2*M_PI ;
         else if (theta[int(index)] - angleIMU >M_PI)

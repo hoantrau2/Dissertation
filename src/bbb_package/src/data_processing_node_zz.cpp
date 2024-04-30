@@ -14,12 +14,12 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.575
+#define Kp 0.75
 #define Ksoft 0
 
 #define ANGLE_ZZ (M_PI / 3)
-#define D 0.03
-#define NUM_D 50
+#define D 0.08
+#define NUM_D 20
 #define COUNTER 4 * NUM_D
 
 class DataProcessingNode : public rclcpp::Node {
@@ -95,6 +95,7 @@ class DataProcessingNode : public rclcpp::Node {
     }
     if (index ==pre_index) index = index +2;
     pre_index = index;
+
 
     double arctann = std::atan2(Kp * d_min, Ksoft + 0.4);
     if (arctann > 20 * M_PI / 180)

@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/jetson/bbb_jetson_ws/build/bbb_package
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/data_processing_node_trap.dir/all
 all: CMakeFiles/data_processing_node_circle.dir/all
 all: CMakeFiles/data_processing_node_zz.dir/all
 all: CMakeFiles/data_processing_node_straight.dir/all
@@ -78,6 +79,7 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/data_processing_node_trap.dir/clean
 clean: CMakeFiles/data_processing_node_circle.dir/clean
 clean: CMakeFiles/data_processing_node_zz.dir/clean
 clean: CMakeFiles/data_processing_node_straight.dir/clean
@@ -98,6 +100,33 @@ clean: CMakeFiles/stanley_node.dir/clean
 clean: CMakeFiles/sinusoidal_node.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/data_processing_node_trap.dir
+
+# All Build rule for target.
+CMakeFiles/data_processing_node_trap.dir/all:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/depend
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=11,12 "Built target data_processing_node_trap"
+.PHONY : CMakeFiles/data_processing_node_trap.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/data_processing_node_trap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/data_processing_node_trap.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles 0
+.PHONY : CMakeFiles/data_processing_node_trap.dir/rule
+
+# Convenience name for target.
+data_processing_node_trap: CMakeFiles/data_processing_node_trap.dir/rule
+
+.PHONY : data_processing_node_trap
+
+# clean rule for target.
+CMakeFiles/data_processing_node_trap.dir/clean:
+	$(MAKE) -f CMakeFiles/data_processing_node_trap.dir/build.make CMakeFiles/data_processing_node_trap.dir/clean
+.PHONY : CMakeFiles/data_processing_node_trap.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/data_processing_node_circle.dir
@@ -133,7 +162,7 @@ CMakeFiles/data_processing_node_circle.dir/clean:
 CMakeFiles/data_processing_node_zz.dir/all:
 	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/depend
 	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=11,12 "Built target data_processing_node_zz"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=13,14 "Built target data_processing_node_zz"
 .PHONY : CMakeFiles/data_processing_node_zz.dir/all
 
 # Build rule for subdir invocation for target.
@@ -241,7 +270,7 @@ CMakeFiles/controllers_node.dir/clean:
 CMakeFiles/read_IMU.dir/all:
 	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/depend
 	$(MAKE) -f CMakeFiles/read_IMU.dir/build.make CMakeFiles/read_IMU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=19,20 "Built target read_IMU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=21,22 "Built target read_IMU"
 .PHONY : CMakeFiles/read_IMU.dir/all
 
 # Build rule for subdir invocation for target.
@@ -268,7 +297,7 @@ CMakeFiles/read_IMU.dir/clean:
 CMakeFiles/read_lidar.dir/all:
 	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/depend
 	$(MAKE) -f CMakeFiles/read_lidar.dir/build.make CMakeFiles/read_lidar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=21,22 "Built target read_lidar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=23,24 "Built target read_lidar"
 .PHONY : CMakeFiles/read_lidar.dir/all
 
 # Build rule for subdir invocation for target.
@@ -295,7 +324,7 @@ CMakeFiles/read_lidar.dir/clean:
 CMakeFiles/pid_node.dir/all:
 	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/depend
 	$(MAKE) -f CMakeFiles/pid_node.dir/build.make CMakeFiles/pid_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=17,18 "Built target pid_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=19,20 "Built target pid_node"
 .PHONY : CMakeFiles/pid_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -322,7 +351,7 @@ CMakeFiles/pid_node.dir/clean:
 CMakeFiles/delta_angle_node.dir/all:
 	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/depend
 	$(MAKE) -f CMakeFiles/delta_angle_node.dir/build.make CMakeFiles/delta_angle_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=13,14 "Built target delta_angle_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=15,16 "Built target delta_angle_node"
 .PHONY : CMakeFiles/delta_angle_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -349,7 +378,7 @@ CMakeFiles/delta_angle_node.dir/clean:
 CMakeFiles/tune_node.dir/all:
 	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/depend
 	$(MAKE) -f CMakeFiles/tune_node.dir/build.make CMakeFiles/tune_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=31,32 "Built target tune_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=33,34 "Built target tune_node"
 .PHONY : CMakeFiles/tune_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -376,7 +405,7 @@ CMakeFiles/tune_node.dir/clean:
 CMakeFiles/tune_fuzzy_node.dir/all:
 	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/depend
 	$(MAKE) -f CMakeFiles/tune_fuzzy_node.dir/build.make CMakeFiles/tune_fuzzy_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=29,30 "Built target tune_fuzzy_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=31,32 "Built target tune_fuzzy_node"
 .PHONY : CMakeFiles/tune_fuzzy_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -430,7 +459,7 @@ CMakeFiles/bbb_package_uninstall.dir/clean:
 CMakeFiles/fuzzy_longitudinal_controllers.dir/all:
 	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/depend
 	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=15,16 "Built target fuzzy_longitudinal_controllers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=17,18 "Built target fuzzy_longitudinal_controllers"
 .PHONY : CMakeFiles/fuzzy_longitudinal_controllers.dir/all
 
 # Build rule for subdir invocation for target.
@@ -511,7 +540,7 @@ CMakeFiles/uninstall.dir/clean:
 CMakeFiles/straight_line_node.dir/all:
 	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/depend
 	$(MAKE) -f CMakeFiles/straight_line_node.dir/build.make CMakeFiles/straight_line_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=27,28 "Built target straight_line_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=29,30 "Built target straight_line_node"
 .PHONY : CMakeFiles/straight_line_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -538,7 +567,7 @@ CMakeFiles/straight_line_node.dir/clean:
 CMakeFiles/stanley_node.dir/all:
 	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/depend
 	$(MAKE) -f CMakeFiles/stanley_node.dir/build.make CMakeFiles/stanley_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=25,26 "Built target stanley_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=27,28 "Built target stanley_node"
 .PHONY : CMakeFiles/stanley_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -565,7 +594,7 @@ CMakeFiles/stanley_node.dir/clean:
 CMakeFiles/sinusoidal_node.dir/all:
 	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/depend
 	$(MAKE) -f CMakeFiles/sinusoidal_node.dir/build.make CMakeFiles/sinusoidal_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=23,24 "Built target sinusoidal_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jetson/bbb_jetson_ws/build/bbb_package/CMakeFiles --progress-num=25,26 "Built target sinusoidal_node"
 .PHONY : CMakeFiles/sinusoidal_node.dir/all
 
 # Build rule for subdir invocation for target.
