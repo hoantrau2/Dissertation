@@ -345,7 +345,7 @@ int main() {
   rclc_subscription_init_default(
       &node_components.subscription, &node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float64MultiArray),
-      "/pwm_signals");
+      "/duty_cycles");
 
   // Create executor
   rclc_executor_t executor;

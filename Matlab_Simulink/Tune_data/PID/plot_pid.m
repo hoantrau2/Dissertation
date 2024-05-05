@@ -169,7 +169,7 @@ ylabel('velocity [m/s]')
 grid on
 title("Linear velocity")
 
-%% %% motor 1
+% % %% motor 1
 % figure()
 % subplot(3, 1, 1);
 % plot(time,v1, 'k','LineWidth', 2);
@@ -304,4 +304,4 @@ title("Linear velocity")
 % ylabel('angular velocity [m/s]')
 % grid on
 % title("Angular velocity")
-
+% 

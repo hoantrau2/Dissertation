@@ -36,4 +36,26 @@ for i = 2:COUNTER
 
 end
 theta= theta*180/pi;
+%%%%%%%%%%%%%%%%%%%
+figure()
 plot(y,x)
+xlabel('y [m]')
+ylabel('x [m]')
+grid on
+title("Referenced Planning Map")
+%%%%%%%%%%%%%%%%%%%%
+% creat axis time
+timed = [];
+num_sample = size (x);
+num_sample = num_sample(2);
+timed(1) = 0;
+for j = 2:num_sample
+   timed(j) = (j-1)*sample_time;
+end
+figure()
+plot(timed,theta, 'r');
+hold on
+xlabel('time [s]')
+ylabel('angle[degree]')
+grid on
+title("Referenced Planning Map")
