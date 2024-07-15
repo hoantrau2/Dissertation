@@ -1,1 +1,0 @@
-/home/jetson/bbb_jetson_ws/src/bbb_robot/launch/launch_robot2.launch .py
