@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named delta_angle
+
+# Build rule for target.
+delta_angle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 delta_angle
+.PHONY : delta_angle
+
+# fast build rule for target.
+delta_angle/fast:
+	$(MAKE) -f CMakeFiles/delta_angle.dir/build.make CMakeFiles/delta_angle.dir/build
+.PHONY : delta_angle/fast
+
+#=============================================================================
 # Target rules for targets named data_processing_node_trap
 
 # Build rule for target.
@@ -324,6 +337,19 @@ tune_fuzzy_node/fast:
 .PHONY : tune_fuzzy_node/fast
 
 #=============================================================================
+# Target rules for targets named data_processing_node_eight
+
+# Build rule for target.
+data_processing_node_eight: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_processing_node_eight
+.PHONY : data_processing_node_eight
+
+# fast build rule for target.
+data_processing_node_eight/fast:
+	$(MAKE) -f CMakeFiles/data_processing_node_eight.dir/build.make CMakeFiles/data_processing_node_eight.dir/build
+.PHONY : data_processing_node_eight/fast
+
+#=============================================================================
 # Target rules for targets named bbb_package_uninstall
 
 # Build rule for target.
@@ -361,6 +387,19 @@ circumference_node: cmake_check_build_system
 circumference_node/fast:
 	$(MAKE) -f CMakeFiles/circumference_node.dir/build.make CMakeFiles/circumference_node.dir/build
 .PHONY : circumference_node/fast
+
+#=============================================================================
+# Target rules for targets named lidar_tune
+
+# Build rule for target.
+lidar_tune: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lidar_tune
+.PHONY : lidar_tune
+
+# fast build rule for target.
+lidar_tune/fast:
+	$(MAKE) -f CMakeFiles/lidar_tune.dir/build.make CMakeFiles/lidar_tune.dir/build
+.PHONY : lidar_tune/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -522,6 +561,33 @@ src/data_processing_node_circle.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node_circle.dir/build.make CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.s
 .PHONY : src/data_processing_node_circle.cpp.s
 
+src/data_processing_node_eight.o: src/data_processing_node_eight.cpp.o
+
+.PHONY : src/data_processing_node_eight.o
+
+# target to build an object file
+src/data_processing_node_eight.cpp.o:
+	$(MAKE) -f CMakeFiles/data_processing_node_eight.dir/build.make CMakeFiles/data_processing_node_eight.dir/src/data_processing_node_eight.cpp.o
+.PHONY : src/data_processing_node_eight.cpp.o
+
+src/data_processing_node_eight.i: src/data_processing_node_eight.cpp.i
+
+.PHONY : src/data_processing_node_eight.i
+
+# target to preprocess a source file
+src/data_processing_node_eight.cpp.i:
+	$(MAKE) -f CMakeFiles/data_processing_node_eight.dir/build.make CMakeFiles/data_processing_node_eight.dir/src/data_processing_node_eight.cpp.i
+.PHONY : src/data_processing_node_eight.cpp.i
+
+src/data_processing_node_eight.s: src/data_processing_node_eight.cpp.s
+
+.PHONY : src/data_processing_node_eight.s
+
+# target to generate assembly for a file
+src/data_processing_node_eight.cpp.s:
+	$(MAKE) -f CMakeFiles/data_processing_node_eight.dir/build.make CMakeFiles/data_processing_node_eight.dir/src/data_processing_node_eight.cpp.s
+.PHONY : src/data_processing_node_eight.cpp.s
+
 src/data_processing_node_straight.o: src/data_processing_node_straight.cpp.o
 
 .PHONY : src/data_processing_node_straight.o
@@ -603,6 +669,33 @@ src/data_processing_node_zz.cpp.s:
 	$(MAKE) -f CMakeFiles/data_processing_node_zz.dir/build.make CMakeFiles/data_processing_node_zz.dir/src/data_processing_node_zz.cpp.s
 .PHONY : src/data_processing_node_zz.cpp.s
 
+src/delta_angle.o: src/delta_angle.cpp.o
+
+.PHONY : src/delta_angle.o
+
+# target to build an object file
+src/delta_angle.cpp.o:
+	$(MAKE) -f CMakeFiles/delta_angle.dir/build.make CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o
+.PHONY : src/delta_angle.cpp.o
+
+src/delta_angle.i: src/delta_angle.cpp.i
+
+.PHONY : src/delta_angle.i
+
+# target to preprocess a source file
+src/delta_angle.cpp.i:
+	$(MAKE) -f CMakeFiles/delta_angle.dir/build.make CMakeFiles/delta_angle.dir/src/delta_angle.cpp.i
+.PHONY : src/delta_angle.cpp.i
+
+src/delta_angle.s: src/delta_angle.cpp.s
+
+.PHONY : src/delta_angle.s
+
+# target to generate assembly for a file
+src/delta_angle.cpp.s:
+	$(MAKE) -f CMakeFiles/delta_angle.dir/build.make CMakeFiles/delta_angle.dir/src/delta_angle.cpp.s
+.PHONY : src/delta_angle.cpp.s
+
 src/delta_angle_node.o: src/delta_angle_node.cpp.o
 
 .PHONY : src/delta_angle_node.o
@@ -656,6 +749,33 @@ src/fuzzy_longitudinal_controllers.s: src/fuzzy_longitudinal_controllers.cpp.s
 src/fuzzy_longitudinal_controllers.cpp.s:
 	$(MAKE) -f CMakeFiles/fuzzy_longitudinal_controllers.dir/build.make CMakeFiles/fuzzy_longitudinal_controllers.dir/src/fuzzy_longitudinal_controllers.cpp.s
 .PHONY : src/fuzzy_longitudinal_controllers.cpp.s
+
+src/lidar_tune.o: src/lidar_tune.cpp.o
+
+.PHONY : src/lidar_tune.o
+
+# target to build an object file
+src/lidar_tune.cpp.o:
+	$(MAKE) -f CMakeFiles/lidar_tune.dir/build.make CMakeFiles/lidar_tune.dir/src/lidar_tune.cpp.o
+.PHONY : src/lidar_tune.cpp.o
+
+src/lidar_tune.i: src/lidar_tune.cpp.i
+
+.PHONY : src/lidar_tune.i
+
+# target to preprocess a source file
+src/lidar_tune.cpp.i:
+	$(MAKE) -f CMakeFiles/lidar_tune.dir/build.make CMakeFiles/lidar_tune.dir/src/lidar_tune.cpp.i
+.PHONY : src/lidar_tune.cpp.i
+
+src/lidar_tune.s: src/lidar_tune.cpp.s
+
+.PHONY : src/lidar_tune.s
+
+# target to generate assembly for a file
+src/lidar_tune.cpp.s:
+	$(MAKE) -f CMakeFiles/lidar_tune.dir/build.make CMakeFiles/lidar_tune.dir/src/lidar_tune.cpp.s
+.PHONY : src/lidar_tune.cpp.s
 
 src/pid_node.o: src/pid_node.cpp.o
 
@@ -882,6 +1002,7 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... delta_angle"
 	@echo "... data_processing_node_trap"
 	@echo "... install/local"
 	@echo "... data_processing_node_circle"
@@ -896,10 +1017,12 @@ help:
 	@echo "... delta_angle_node"
 	@echo "... tune_node"
 	@echo "... tune_fuzzy_node"
+	@echo "... data_processing_node_eight"
 	@echo "... bbb_package_uninstall"
 	@echo "... fuzzy_longitudinal_controllers"
 	@echo "... circumference_node"
 	@echo "... test"
+	@echo "... lidar_tune"
 	@echo "... uninstall"
 	@echo "... straight_line_node"
 	@echo "... stanley_node"
@@ -917,6 +1040,9 @@ help:
 	@echo "... src/data_processing_node_circle.o"
 	@echo "... src/data_processing_node_circle.i"
 	@echo "... src/data_processing_node_circle.s"
+	@echo "... src/data_processing_node_eight.o"
+	@echo "... src/data_processing_node_eight.i"
+	@echo "... src/data_processing_node_eight.s"
 	@echo "... src/data_processing_node_straight.o"
 	@echo "... src/data_processing_node_straight.i"
 	@echo "... src/data_processing_node_straight.s"
@@ -926,12 +1052,18 @@ help:
 	@echo "... src/data_processing_node_zz.o"
 	@echo "... src/data_processing_node_zz.i"
 	@echo "... src/data_processing_node_zz.s"
+	@echo "... src/delta_angle.o"
+	@echo "... src/delta_angle.i"
+	@echo "... src/delta_angle.s"
 	@echo "... src/delta_angle_node.o"
 	@echo "... src/delta_angle_node.i"
 	@echo "... src/delta_angle_node.s"
 	@echo "... src/fuzzy_longitudinal_controllers.o"
 	@echo "... src/fuzzy_longitudinal_controllers.i"
 	@echo "... src/fuzzy_longitudinal_controllers.s"
+	@echo "... src/lidar_tune.o"
+	@echo "... src/lidar_tune.i"
+	@echo "... src/lidar_tune.s"
 	@echo "... src/pid_node.o"
 	@echo "... src/pid_node.i"
 	@echo "... src/pid_node.s"

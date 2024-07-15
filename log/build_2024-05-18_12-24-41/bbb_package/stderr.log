@@ -1,0 +1,24 @@
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:[m[K In constructor ‘[01m[KFuzzyNodeTest::FuzzyNodeTest()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:18:46:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KFuzzyNodeTest[m[K’ does not have any field named ‘[01m[KangleIMU[m[K’
+   18 | de("delta_angle_node"),[01;31m[KangleIMU[m[K(0.0),{
+      |                        [01;31m[K^~~~~~~~[m[K
+
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:18:60:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K{[m[K’ token
+   18 | ode"),angleIMU(0.0),[01;31m[K{[m[K
+      |                     [01;31m[K^[m[K
+
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:21:36:[m[K [01;31m[Kerror: [m[K‘[01m[KDataProcessingNode[m[K’ has not been declared
+   21 | MU", 10, std::bind(&[01;31m[KDataProcessingNode[m[K::angle_IMU_callback, this, std::placeholders::_1));
+      |                     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:25:96:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_callback[m[K’ is not a member of ‘[01m[KFuzzyNodeTest[m[K’
+   25 | ind(&FuzzyNodeTest::[01;31m[Ktimer_callback[m[K, this));
+      |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:[m[K In member function ‘[01m[Kvoid FuzzyNodeTest::angle_IMU_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:49:7:[m[K [01;31m[Kerror: [m[K‘[01m[KangleIMU[m[K’ was not declared in this scope
+   49 |       [01;31m[KangleIMU[m[K = msg->data[0] * M_PI / 180.0; // Convert to radians
+      |       [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/delta_angle.dir/build.make:63: CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/delta_angle.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

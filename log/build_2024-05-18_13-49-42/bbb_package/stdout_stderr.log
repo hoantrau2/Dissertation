@@ -1,0 +1,56 @@
+-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+-- Found serial: 1.2.1 (/home/jetson/bbb_jetson_ws/install/serial/share/serial/cmake)
+-- Found tf2_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_msgs/cmake)
+-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/bbb_jetson_ws/build/bbb_package
+[35m[1mScanning dependencies of target delta_angle[0m
+[  5%] Built target data_processing_node_circle
+[ 12%] Built target data_processing_node_trap
+[ 15%] Built target data_processing_node_zz
+[ 17%] [32mBuilding CXX object CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o[0m
+[ 22%] Built target controllers_node
+[ 27%] Built target data_processing_node
+[ 32%] Built target data_processing_node_straight
+[ 37%] Built target read_IMU
+[ 42%] Built target read_lidar
+[ 47%] Built target pid_node
+[ 52%] Built target tune_node
+[ 57%] Built target delta_angle_node
+[ 62%] Built target tune_fuzzy_node
+[ 67%] Built target data_processing_node_eight
+[ 72%] Built target fuzzy_longitudinal_controllers
+[ 77%] Built target circumference_node
+[ 82%] Built target lidar_tune
+[ 87%] Built target straight_line_node
+[ 92%] Built target stanley_node
+[ 97%] Built target sinusoidal_node
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:[m[K In constructor ‘[01m[KFuzzyNodeTest::FuzzyNodeTest()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:24:11:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_tf_[m[K’ was not declared in this scope; did you mean ‘[01m[Krcl_subscription_t[m[K’?
+   24 |           [01;31m[Ksubscription_tf_[m[K = this->create_subscription<tf2_msgs::msg::TFMessage>(
+      |           [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |           [32m[Krcl_subscription_t[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:25:29:[m[K [01;31m[Kerror: [m[K‘[01m[KDataProcessingNode[m[K’ has not been declared
+   25 |       "/tf", 10, std::bind(&[01;31m[KDataProcessingNode[m[K::tf_callback, this, std::placeholders::_1));
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/delta_angle.dir/build.make:63: CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/delta_angle.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

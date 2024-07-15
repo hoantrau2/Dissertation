@@ -110,7 +110,7 @@ class PIDNode : public rclcpp::Node {
     subscription_desired_velocities_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/desired_velocities", 10, std::bind(&PIDNode::desired_velocities_callback, this, std::placeholders::_1));
 
-    publisher_pwm_signals_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/pwm_signals", 10);
+    publisher_pwm_signals_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/duty_cycles", 10);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(SAMPLE_TIME), std::bind(&PIDNode::timer_callback, this)); 
     RCLCPP_ERROR(get_logger(), "pid_node initialized.");
   }

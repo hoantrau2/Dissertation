@@ -74,6 +74,15 @@ ament_target_dependencies(data_processing_node_circle rclcpp std_msgs tf2_msgs)
 add_executable(data_processing_node_trap src/data_processing_node_trap.cpp)
 ament_target_dependencies(data_processing_node_trap rclcpp std_msgs tf2_msgs)
 
+add_executable(lidar_tune src/lidar_tune.cpp)
+ament_target_dependencies(lidar_tune rclcpp std_msgs tf2_msgs)
+
+
+add_executable(data_processing_node_eight src/data_processing_node_eight.cpp)
+ament_target_dependencies(data_processing_node_eight rclcpp std_msgs tf2_msgs)
+
+add_executable(delta_angle src/delta_angle.cpp)
+ament_target_dependencies(delta_angle rclcpp std_msgs)
 
 
 # uncomment the following section in order to fill in
@@ -97,6 +106,9 @@ install(TARGETS
   data_processing_node_zz
   data_processing_node_circle
   data_processing_node_trap
+  lidar_tune
+  data_processing_node_eight
+  delta_angle
   DESTINATION lib/${PROJECT_NAME}/
 )
  install(DIRECTORY

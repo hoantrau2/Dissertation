@@ -1,0 +1,59 @@
+[0.041s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.183s] [35m[1mScanning dependencies of target data_processing_node_circle[0m
+[0.255s] [  5%] Built target data_processing_node_straight
+[0.300s] [  7%] [32mBuilding CXX object CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o[0m
+[0.313s] [ 13%] Built target data_processing_node_trap
+[0.354s] [ 18%] Built target data_processing_node_zz
+[0.497s] [ 23%] Built target data_processing_node
+[0.517s] [ 28%] Built target read_IMU
+[0.563s] [ 34%] Built target controllers_node
+[0.638s] [ 39%] Built target read_lidar
+[0.672s] [ 44%] Built target pid_node
+[0.743s] [ 50%] Built target delta_angle_node
+[0.813s] [ 55%] Built target tune_fuzzy_node
+[0.826s] [ 60%] Built target tune_node
+[0.887s] [ 65%] Built target data_processing_node_eight
+[0.982s] [ 71%] Built target fuzzy_longitudinal_controllers
+[1.022s] [ 76%] Built target circumference_node
+[1.057s] [ 81%] Built target lidar_tune
+[1.204s] [ 86%] Built target straight_line_node
+[1.226s] [ 92%] Built target stanley_node
+[1.238s] [ 97%] Built target sinusoidal_node
+[5.534s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:174:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[5.535s]   174 | [01;31m[K}[m[K
+[5.535s]       | [01;31m[K^[m[K
+[5.536s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:29:48:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[5.536s]    29 | class DataProcessingNode : public rclcpp::Node [01;36m[K{[m[K
+[5.536s]       |                                                [01;36m[K^[m[K
+[5.557s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In constructor ‘[01m[KDataProcessingNode::DataProcessingNode()[m[K’:
+[5.557s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:34:5:[m[K [01;31m[Kerror: [m[K‘[01m[KsetupSubscribersAndPublishers[m[K’ was not declared in this scope
+[5.558s]    34 |     [01;31m[KsetupSubscribersAndPublishers[m[K();
+[5.558s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.565s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:35:5:[m[K [01;31m[Kerror: [m[K‘[01m[KsetupTimer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetitimer[m[K’?
+[5.565s]    35 |     [01;31m[KsetupTimer[m[K();
+[5.566s]       |     [01;31m[K^~~~~~~~~~[m[K
+[5.566s]       |     [32m[Ksetitimer[m[K
+[5.569s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::initializeArrays()[m[K’:
+[5.570s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:67:40:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.570s]    67 |   void setupSubscribersAndPublishers() [01;31m[K{[m[K
+[5.571s]       |                                        [01;31m[K^[m[K
+[5.571s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:78:21:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.572s]    78 |   void setupTimer() [01;31m[K{[m[K
+[5.572s]       |                     [01;31m[K^[m[K
+[5.572s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:82:25:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.573s]    82 |   void timer_callback() [01;31m[K{[m[K
+[5.573s]       |                         [01;31m[K^[m[K
+[5.573s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:119:82:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.574s]   119 |   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) [01;31m[K{[m[K
+[5.574s]       |                                                                                  [01;31m[K^[m[K
+[5.574s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:127:66:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[5.575s]   127 |  void tf_callback(const tf2_msgs::msg::TFMessage::SharedPtr msg) [01;31m[K{[m[K
+[5.575s]       |                                                                  [01;31m[K^[m[K
+[5.588s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K At global scope:
+[5.589s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:174:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+[5.589s]   174 | [01;31m[K}[m[K
+[5.590s]       | [01;31m[K^[m[K
+[7.027s] make[2]: *** [CMakeFiles/data_processing_node_circle.dir/build.make:63: CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o] Error 1
+[7.027s] make[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/data_processing_node_circle.dir/all] Error 2
+[7.028s] make: *** [Makefile:141: all] Error 2
+[7.033s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

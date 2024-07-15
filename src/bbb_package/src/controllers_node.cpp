@@ -61,10 +61,10 @@ using namespace std::chrono_literals;
 // Controllers Node Class
 class ControllersNode : public rclcpp::Node {
  public:
-  ControllersNode() : Node("controllers_node"), deltaDistance(0.0), deltaAngle(0.0) {
+  ControllersNode() : Node("PD_Fuzzy_node"), deltaDistance(0.0), deltaAngle(0.0) {
     // Subscription to Delta Topic
     subscription_delta_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-      "/delta", 10, std::bind(&ControllersNode::delta_callback, this, std::placeholders::_1));
+      "/delta_angle", 10, std::bind(&ControllersNode::delta_callback, this, std::placeholders::_1));
 
     // Publisher for desired Velocities
     publisher_desired_velocities_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/desired_velocities", 10);
@@ -83,7 +83,8 @@ class ControllersNode : public rclcpp::Node {
     auto message = std_msgs::msg::Float64MultiArray();
     message.data.resize(2);            // Set size of data vector to 2
     message.data[0] = output_anguler;  // rad/2
-    message.data[1] = VAMMXX; // m/s
+    // message.data[1] = VAMMXX; // m/s
+    message.data[1] = deltaDistance; // m/s
     // RCLCPP_INFO(this->get_logger(), "omega = %lf velocity  = %lf", message.data[0], message.data[1]);
     message.layout.data_offset = 333;
     publisher_desired_velocities_->publish(message);
@@ -270,7 +271,7 @@ double PD_fuzzy(double sp, double pv) {
   return uk;
 }
 void init_PD_fuzzy() {
-  pd_fuzzy.Ke = 0.15;
+  pd_fuzzy.Ke = 0.16;
   pd_fuzzy.Ke_dot = 3.123;
   pd_fuzzy.Ku = 17.0; // 2*Vmax/Wheelbase =2*2.1/0.2469 = 17.0109356
   pd_fuzzy.uk_1 = 0;

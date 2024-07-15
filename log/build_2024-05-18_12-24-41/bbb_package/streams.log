@@ -1,0 +1,71 @@
+[0.202s] Invoking command in '/home/jetson/bbb_jetson_ws/build/bbb_package': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4
+[0.305s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.386s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.084s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.236s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.252s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.720s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.947s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.955s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.512s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.637s] -- Found serial: 1.2.1 (/home/jetson/bbb_jetson_ws/install/serial/share/serial/cmake)
+[2.644s] -- Found tf2_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_msgs/cmake)
+[3.401s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.660s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.662s] -- Configured cppcheck include dirs: 
+[3.662s] -- Configured cppcheck exclude dirs and/or files: 
+[3.664s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.667s] -- Added test 'lint_cmake' to check CMake code style
+[3.669s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.676s] -- Added test 'uncrustify' to check C / C++ code style
+[3.676s] -- Configured uncrustify additional arguments: 
+[3.678s] -- Added test 'xmllint' to check XML markup files
+[3.689s] -- Configuring done
+[3.971s] -- Generating done
+[3.981s] -- Build files have been written to: /home/jetson/bbb_jetson_ws/build/bbb_package
+[4.063s] [35m[1mScanning dependencies of target delta_angle[0m
+[4.150s] [  5%] Built target data_processing_node_trap
+[4.162s] [ 10%] Built target data_processing_node_circle
+[4.177s] [ 15%] Built target data_processing_node_zz
+[4.231s] [ 17%] [32mBuilding CXX object CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o[0m
+[4.296s] [ 22%] Built target controllers_node
+[4.312s] [ 27%] Built target data_processing_node_straight
+[4.362s] [ 32%] Built target data_processing_node
+[4.422s] [ 37%] Built target read_IMU
+[4.449s] [ 42%] Built target read_lidar
+[4.492s] [ 47%] Built target pid_node
+[4.563s] [ 52%] Built target delta_angle_node
+[4.574s] [ 57%] Built target tune_node
+[4.661s] [ 62%] Built target tune_fuzzy_node
+[4.705s] [ 67%] Built target fuzzy_longitudinal_controllers
+[4.708s] [ 72%] Built target data_processing_node_eight
+[4.783s] [ 77%] Built target circumference_node
+[4.868s] [ 82%] Built target lidar_tune
+[4.877s] [ 87%] Built target straight_line_node
+[4.937s] [ 92%] Built target stanley_node
+[4.978s] [ 97%] Built target sinusoidal_node
+[9.220s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:[m[K In constructor ‘[01m[KFuzzyNodeTest::FuzzyNodeTest()[m[K’:
+[9.220s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:18:46:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KFuzzyNodeTest[m[K’ does not have any field named ‘[01m[KangleIMU[m[K’
+[9.221s]    18 | de("delta_angle_node"),[01;31m[KangleIMU[m[K(0.0),{
+[9.221s]       |                        [01;31m[K^~~~~~~~[m[K
+[9.222s] 
+[9.222s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:18:60:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K{[m[K’ token
+[9.222s]    18 | ode"),angleIMU(0.0),[01;31m[K{[m[K
+[9.223s]       |                     [01;31m[K^[m[K
+[9.223s] 
+[9.225s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:21:36:[m[K [01;31m[Kerror: [m[K‘[01m[KDataProcessingNode[m[K’ has not been declared
+[9.226s]    21 | MU", 10, std::bind(&[01;31m[KDataProcessingNode[m[K::angle_IMU_callback, this, std::placeholders::_1));
+[9.226s]       |                     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[9.227s] 
+[9.227s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:25:96:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_callback[m[K’ is not a member of ‘[01m[KFuzzyNodeTest[m[K’
+[9.227s]    25 | ind(&FuzzyNodeTest::[01;31m[Ktimer_callback[m[K, this));
+[9.228s]       |                     [01;31m[K^~~~~~~~~~~~~~[m[K
+[9.228s] 
+[9.244s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:[m[K In member function ‘[01m[Kvoid FuzzyNodeTest::angle_IMU_callback(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[9.245s] [01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/delta_angle.cpp:49:7:[m[K [01;31m[Kerror: [m[K‘[01m[KangleIMU[m[K’ was not declared in this scope
+[9.245s]    49 |       [01;31m[KangleIMU[m[K = msg->data[0] * M_PI / 180.0; // Convert to radians
+[9.246s]       |       [01;31m[K^~~~~~~~[m[K
+[12.095s] make[2]: *** [CMakeFiles/delta_angle.dir/build.make:63: CMakeFiles/delta_angle.dir/src/delta_angle.cpp.o] Error 1
+[12.095s] make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/delta_angle.dir/all] Error 2
+[12.096s] make: *** [Makefile:141: all] Error 2
+[12.101s] Invoked command in '/home/jetson/bbb_jetson_ws/build/bbb_package' returned '2': CMAKE_PREFIX_PATH=/home/jetson/bbb_jetson_ws/install/serial:/home/jetson/bbb_jetson_ws/install/tune_package:/home/jetson/bbb_jetson_ws/install/ros2_laser_scan_matcher:/home/jetson/bbb_jetson_ws/install/diffdrive_arduino:/home/jetson/bbb_jetson_ws/install/bbb_package:/home/jetson/bbb_jetson_ws/install/micro_ros_setup:/home/jetson/bbb_jetson_ws/install/csm:/home/jetson/bbb_jetson_ws/install/bbb_robot:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/bbb_jetson_ws/build/bbb_package -- -j4 -l4

@@ -9,7 +9,7 @@ def generate_launch_description():
             executable='rplidar_composition', 
             output='screen',
             parameters=[{
-                'serial_port': '/dev/serial/by-path/platform-70090000.xusb-usb-0:2.2:1.0-port0',
+                'serial_port': '/dev/serial/by-path/platform-70090000.xusb-usb-0:2.3:1.0-port0',
                 #  'serial_port': '/dev/ttyUSB0',
                 'frame_id': 'lidar',
                 'angle_compensate': True,
@@ -85,29 +85,22 @@ def generate_launch_description():
 # 
 # export ROS_DOMAIN_ID=0
 # sudo snap connect micro-xrce-dds-agent:serial-port snapd:pico-2
-# sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200S
+# sudo micro-xrce-dds-agent serial --dev /dev/ttyACM0 baudrade=115200
 
 # ////// ubuntu 
 #     export ROS_DOMAIN_ID=0
-#     source ./install/setup.bash
+#     export ROS_DOMAIN_ID=0
 #     colcon build --packages-select bbb_package  
 #ros2 launch bbb_package thesis.launch.py 
 # ros2 run bbb_package read_IMU
+
 # ros2 run bbb_package data_processing_node_straight
 #ros2 run bbb_package data_processing_node_zz
 #ros2 run bbb_package data_processing_node_circle
 #ros2 run bbb_package data_processing_node_trap
+#ros2 run bbb_package data_processing_node_eight
+
 # ros2 run bbb_package pid_node
-
-
-
-
-
-
-
-
-
-
 
 
 # ////// ubuntu 
@@ -116,7 +109,6 @@ def generate_launch_description():
 #     colcon build --packages-select bbb_package
 #     colcon build --packages-select tune_package
 # ros2 run bbb_package data_processing_node_straight
-
 
     # ros2 run bbb_package read_IMU
     # ros2 run bbb_package pid_node

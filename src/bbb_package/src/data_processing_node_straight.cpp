@@ -182,10 +182,10 @@
 #include "tf2_msgs/msg/tf_message.hpp"
 
 #define SAMPLE_TIME 100
-#define Kp 0.9
+#define Kp 0.575
 #define Ksoft 0
 
-#define A (std::tan(90*M_PI / 180))
+#define A (std::tan(0*M_PI / 180))
 #define B 0
 #define STEP_DISTANCE 0.02
 #define COUNTER 400
@@ -218,12 +218,14 @@ class DataProcessingNode : public rclcpp::Node {
   void initializeArrays() {
     x[0] = 0;
     y[0] = 0;
-    theta[0] = M_PI/2;
+    theta[0] = 0;
     // RCLCPP_INFO(this->get_logger(), "Initializing arrays...");
     for (int i = 1; i < COUNTER; i++) {
-      x[i] = 0;
-      y[i] = y[i-1] + STEP_DISTANCE;
-      theta[i] = M_PI/2;
+
+      x[i] = x[i-1] + STEP_DISTANCE;
+      y[i] = 0;
+      
+      theta[i] = 0;
       // RCLCPP_INFO(this->get_logger(), "x[%d] = %lf, y[%d] = %lf, theta[%d] = %lf", i, x[i], i, y[i], i, theta[i]);
     }
   }
@@ -235,7 +237,7 @@ class DataProcessingNode : public rclcpp::Node {
     subscription_tf_ = this->create_subscription<tf2_msgs::msg::TFMessage>(
       "/tf", 10, std::bind(&DataProcessingNode::tf_callback, this, std::placeholders::_1));
 
-    publisher_delta_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/delta", 10);
+    publisher_delta_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/delta_angle", 10);
     publisher_position_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/position", 10);
   }
 
@@ -266,7 +268,7 @@ class DataProcessingNode : public rclcpp::Node {
     else
       message.data[0] = theta[int(index)] - angleIMU + arctann;
     // message.data[0] = 45 * M_PI / 180- angleIMU - arctann;
-    message.data[1] = d_min;
+    message.data[1] = 0.3;
     message.layout.data_offset = 555;
     publisher_delta_->publish(message);
   }

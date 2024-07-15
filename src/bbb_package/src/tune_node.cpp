@@ -5,10 +5,10 @@
 class TuneNode : public rclcpp::Node
 {
 public:
-    TuneNode() : Node("tune_node")
+    TuneNode() : Node("collect_data_node")
     {
         subscription_fuzzy_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
-            "/position", 10, std::bind(&TuneNode::fuzzy_callback, this, std::placeholders::_1));
+            "/robot_state", 10, std::bind(&TuneNode::fuzzy_callback, this, std::placeholders::_1));
 
         // Open a file to log data
         log_file_fuzzy_.open("data_fuzzy.txt", std::ofstream::out | std::ofstream::app);

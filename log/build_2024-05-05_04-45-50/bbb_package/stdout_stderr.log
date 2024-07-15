@@ -1,0 +1,57 @@
+[35m[1mScanning dependencies of target data_processing_node_circle[0m
+[  5%] Built target data_processing_node_straight
+[  7%] [32mBuilding CXX object CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o[0m
+[ 13%] Built target data_processing_node_trap
+[ 18%] Built target data_processing_node_zz
+[ 23%] Built target data_processing_node
+[ 28%] Built target read_IMU
+[ 34%] Built target controllers_node
+[ 39%] Built target read_lidar
+[ 44%] Built target pid_node
+[ 50%] Built target delta_angle_node
+[ 55%] Built target tune_fuzzy_node
+[ 60%] Built target tune_node
+[ 65%] Built target data_processing_node_eight
+[ 71%] Built target fuzzy_longitudinal_controllers
+[ 76%] Built target circumference_node
+[ 81%] Built target lidar_tune
+[ 86%] Built target straight_line_node
+[ 92%] Built target stanley_node
+[ 97%] Built target sinusoidal_node
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:174:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+  174 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:29:48:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   29 | class DataProcessingNode : public rclcpp::Node [01;36m[K{[m[K
+      |                                                [01;36m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In constructor ‘[01m[KDataProcessingNode::DataProcessingNode()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:34:5:[m[K [01;31m[Kerror: [m[K‘[01m[KsetupSubscribersAndPublishers[m[K’ was not declared in this scope
+   34 |     [01;31m[KsetupSubscribersAndPublishers[m[K();
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:35:5:[m[K [01;31m[Kerror: [m[K‘[01m[KsetupTimer[m[K’ was not declared in this scope; did you mean ‘[01m[Ksetitimer[m[K’?
+   35 |     [01;31m[KsetupTimer[m[K();
+      |     [01;31m[K^~~~~~~~~~[m[K
+      |     [32m[Ksetitimer[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K In member function ‘[01m[Kvoid DataProcessingNode::initializeArrays()[m[K’:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:67:40:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+   67 |   void setupSubscribersAndPublishers() [01;31m[K{[m[K
+      |                                        [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:78:21:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+   78 |   void setupTimer() [01;31m[K{[m[K
+      |                     [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:82:25:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+   82 |   void timer_callback() [01;31m[K{[m[K
+      |                         [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:119:82:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+  119 |   void angle_IMU_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) [01;31m[K{[m[K
+      |                                                                                  [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:127:66:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+  127 |  void tf_callback(const tf2_msgs::msg::TFMessage::SharedPtr msg) [01;31m[K{[m[K
+      |                                                                  [01;31m[K^[m[K
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:[m[K At global scope:
+[01m[K/home/jetson/bbb_jetson_ws/src/bbb_package/src/data_processing_node_circle.cpp:174:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+  174 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/data_processing_node_circle.dir/build.make:63: CMakeFiles/data_processing_node_circle.dir/src/data_processing_node_circle.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/data_processing_node_circle.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
