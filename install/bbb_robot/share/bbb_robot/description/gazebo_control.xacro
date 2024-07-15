@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">  <!-- filename is the name
+            plugin used-->
+
+            <!-- WHEEL BACK INFORMATION-->
+            <left_joint>left_wheel_back_joint </left_joint>
+            <right_joint>right_wheel_back_joint</right_joint>
+            <wheel_separation>0.232</wheel_separation>
+            <wheel_diameter> 0.125</wheel_diameter>
+
+            <!-- WHEEL FOWARDD INFORMATION-->
+            <!-- <left_joint>left_wheel_foward_joint </left_joint>
+            <right_joint>right_wheel__joint</right_joint>
+            <wheel_separation>0.232</wheel_separation>
+            <wheel_diameter> 0.125</wheel_diameter> -->
+
+            <!-- LIMITS-->
+            <max_wheel_torque>200</max_wheel_torque>
+            <max_wheel_acceleration> 10.0</max_wheel_acceleration>
+
+            <!-- OUTPUTS-->
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_footprint</robot_base_frame><!-- standard link-->
+
+            <publish_odom>true</publish_odom><!-- publish odom if had message "true"-->
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+
+
+        </plugin>
+
+    </gazebo>
+
+</robot>
+
+<!-- ros2 run teleop_twist_keyboard teleop_twist_keyboard -->
+<!-- teleop: stands for teleoperation
+twist: type of date, ros uused to express linear velocity and angle
+keyboard: use keyboard to control remote robot -->
